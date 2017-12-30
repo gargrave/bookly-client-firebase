@@ -1,22 +1,30 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// @flow
+import React from 'react';
+import { connect } from 'react-redux';
 
-class COMPONENT_NAME extends Component {
-  render () {
+type Props = {
+};
+
+type State = {
+};
+
+class COMPONENT_NAME extends React.Component<Props, State> {
+  render() {
     return (
       <div>
         <h2>COMPONENT_NAME</h2>
       </div>
-    )
+    );
   }
 }
 
-COMPONENT_NAME.propTypes = {}
+COMPONENT_NAME.propTypes = {
+};
 
-const mapStateToProps = (state, ownProps) => {
-  return {}
-}
+const mapStateToProps = (state: any, ownProps: any) => {
+  return {};
+};
 
-const mapDispatchToProps = (dispatch, ownProps) => ({})
+const mapDispatchToProps = (dispatch: any, ownProps: any) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(COMPONENT_NAME)
+export default connect(mapStateToProps, mapDispatchToProps)(COMPONENT_NAME);
