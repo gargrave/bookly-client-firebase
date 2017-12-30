@@ -1,0 +1,11 @@
+.bookly-input-field {
+  &__input {
+    &--invalid {
+      border-color: #ff4136 !important; // using !important to override Shoelace's styles
+    }
+  }
+
+  &__error {
+    color: #ff4136;
+  }
+}

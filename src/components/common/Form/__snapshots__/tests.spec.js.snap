@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form basic rendering renders  correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Form
+    cancelBtnText="Cancel"
+    classes={Array []}
+    disabled={false}
+    onCancel={[Function]}
+    onSubmit={[Function]}
+    submitBtnText="Submit"
+    submitDisabled={false}
+    topLevelError=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "",
+        <form
+          className="bookly-form"
+          noValidate={true}
+          onSubmit={[Function]}
+        >
+          <div
+            className="input-field"
+          >
+            <Button
+              canSubmit={true}
+              disabled={false}
+              onClick={[Function]}
+              position="left"
+              text="Submit"
+              type="success"
+            />
+            <Button
+              classes="float-right"
+              onClick={[Function]}
+              text="Cancel"
+              type="light"
+            />
+          </div>
+        </form>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      "",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            Array [],
+            <div
+              className="input-field"
+            >
+              <Button
+                canSubmit={true}
+                disabled={false}
+                onClick={[Function]}
+                position="left"
+                text="Submit"
+                type="success"
+              />
+              <Button
+                classes="float-right"
+                onClick={[Function]}
+                text="Cancel"
+                type="light"
+              />
+            </div>,
+          ],
+          "className": "bookly-form",
+          "noValidate": true,
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Button
+                  canSubmit={true}
+                  disabled={false}
+                  onClick={[Function]}
+                  position="left"
+                  text="Submit"
+                  type="success"
+                />,
+                <Button
+                  classes="float-right"
+                  onClick={[Function]}
+                  text="Cancel"
+                  type="light"
+                />,
+              ],
+              "className": "input-field",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "canSubmit": true,
+                  "disabled": false,
+                  "onClick": [Function],
+                  "position": "left",
+                  "text": "Submit",
+                  "type": "success",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "classes": "float-right",
+                  "onClick": [Function],
+                  "text": "Cancel",
+                  "type": "light",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "form",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "",
+          <form
+            className="bookly-form"
+            noValidate={true}
+            onSubmit={[Function]}
+          >
+            <div
+              className="input-field"
+            >
+              <Button
+                canSubmit={true}
+                disabled={false}
+                onClick={[Function]}
+                position="left"
+                text="Submit"
+                type="success"
+              />
+              <Button
+                classes="float-right"
+                onClick={[Function]}
+                text="Cancel"
+                type="light"
+              />
+            </div>
+          </form>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        "",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              Array [],
+              <div
+                className="input-field"
+              >
+                <Button
+                  canSubmit={true}
+                  disabled={false}
+                  onClick={[Function]}
+                  position="left"
+                  text="Submit"
+                  type="success"
+                />
+                <Button
+                  classes="float-right"
+                  onClick={[Function]}
+                  text="Cancel"
+                  type="light"
+                />
+              </div>,
+            ],
+            "className": "bookly-form",
+            "noValidate": true,
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Button
+                    canSubmit={true}
+                    disabled={false}
+                    onClick={[Function]}
+                    position="left"
+                    text="Submit"
+                    type="success"
+                  />,
+                  <Button
+                    classes="float-right"
+                    onClick={[Function]}
+                    text="Cancel"
+                    type="light"
+                  />,
+                ],
+                "className": "input-field",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "canSubmit": true,
+                    "disabled": false,
+                    "onClick": [Function],
+                    "position": "left",
+                    "text": "Submit",
+                    "type": "success",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "classes": "float-right",
+                    "onClick": [Function],
+                    "text": "Cancel",
+                    "type": "light",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "form",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

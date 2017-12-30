@@ -1,0 +1,508 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField "email" type input field renders an email input correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <InputField
+    boundValue=""
+    disabled={false}
+    error=""
+    label="Whatever"
+    name="text"
+    onInputChange={[Function]}
+    placeholder=""
+    type="email"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <label
+          htmlFor="text"
+        >
+          Whatever
+          :
+        </label>,
+        <input
+          className="bookly-input-field__input"
+          disabled={false}
+          id="text"
+          name="text"
+          onChange={[Function]}
+          placeholder=""
+          type="email"
+          value=""
+        />,
+        "",
+      ],
+      "className": "bookly-input-field input-field",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Whatever",
+            ":",
+          ],
+          "htmlFor": "text",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Whatever",
+          ":",
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "bookly-input-field__input",
+          "disabled": false,
+          "id": "text",
+          "name": "text",
+          "onChange": [Function],
+          "placeholder": "",
+          "type": "email",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      "",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <label
+            htmlFor="text"
+          >
+            Whatever
+            :
+          </label>,
+          <input
+            className="bookly-input-field__input"
+            disabled={false}
+            id="text"
+            name="text"
+            onChange={[Function]}
+            placeholder=""
+            type="email"
+            value=""
+          />,
+          "",
+        ],
+        "className": "bookly-input-field input-field",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Whatever",
+              ":",
+            ],
+            "htmlFor": "text",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Whatever",
+            ":",
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "bookly-input-field__input",
+            "disabled": false,
+            "id": "text",
+            "name": "text",
+            "onChange": [Function],
+            "placeholder": "",
+            "type": "email",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`InputField "password" type input field renders a password input correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <InputField
+    boundValue=""
+    disabled={false}
+    error=""
+    label="Whatever"
+    name="text"
+    onInputChange={[Function]}
+    placeholder=""
+    type="password"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <label
+          htmlFor="text"
+        >
+          Whatever
+          :
+        </label>,
+        <input
+          className="bookly-input-field__input"
+          disabled={false}
+          id="text"
+          name="text"
+          onChange={[Function]}
+          placeholder=""
+          type="password"
+          value=""
+        />,
+        "",
+      ],
+      "className": "bookly-input-field input-field",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Whatever",
+            ":",
+          ],
+          "htmlFor": "text",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Whatever",
+          ":",
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "bookly-input-field__input",
+          "disabled": false,
+          "id": "text",
+          "name": "text",
+          "onChange": [Function],
+          "placeholder": "",
+          "type": "password",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      "",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <label
+            htmlFor="text"
+          >
+            Whatever
+            :
+          </label>,
+          <input
+            className="bookly-input-field__input"
+            disabled={false}
+            id="text"
+            name="text"
+            onChange={[Function]}
+            placeholder=""
+            type="password"
+            value=""
+          />,
+          "",
+        ],
+        "className": "bookly-input-field input-field",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Whatever",
+              ":",
+            ],
+            "htmlFor": "text",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Whatever",
+            ":",
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "bookly-input-field__input",
+            "disabled": false,
+            "id": "text",
+            "name": "text",
+            "onChange": [Function],
+            "placeholder": "",
+            "type": "password",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`InputField "text" type input field renders a text input correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <InputField
+    boundValue=""
+    disabled={false}
+    error=""
+    label="Whatever"
+    name="text"
+    onInputChange={[Function]}
+    placeholder=""
+    type="text"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <label
+          htmlFor="text"
+        >
+          Whatever
+          :
+        </label>,
+        <input
+          className="bookly-input-field__input"
+          disabled={false}
+          id="text"
+          name="text"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value=""
+        />,
+        "",
+      ],
+      "className": "bookly-input-field input-field",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Whatever",
+            ":",
+          ],
+          "htmlFor": "text",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Whatever",
+          ":",
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "bookly-input-field__input",
+          "disabled": false,
+          "id": "text",
+          "name": "text",
+          "onChange": [Function],
+          "placeholder": "",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      "",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <label
+            htmlFor="text"
+          >
+            Whatever
+            :
+          </label>,
+          <input
+            className="bookly-input-field__input"
+            disabled={false}
+            id="text"
+            name="text"
+            onChange={[Function]}
+            placeholder=""
+            type="text"
+            value=""
+          />,
+          "",
+        ],
+        "className": "bookly-input-field input-field",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Whatever",
+              ":",
+            ],
+            "htmlFor": "text",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Whatever",
+            ":",
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "bookly-input-field__input",
+            "disabled": false,
+            "id": "text",
+            "name": "text",
+            "onChange": [Function],
+            "placeholder": "",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

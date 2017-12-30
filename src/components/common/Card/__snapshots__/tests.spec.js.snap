@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    classes={Array []}
+    header="Great Header"
+    hoverable={true}
+    onClick={[Function]}
+    text="this is the text"
+    title="Awesome Title"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <p
+          className="bookly-card__header"
+        >
+          Great Header
+        </p>,
+        <p
+          className="bookly-card__title"
+        >
+          Awesome Title
+        </p>,
+        <p
+          className="bookly-card__text"
+        >
+          this is the text
+        </p>,
+        null,
+      ],
+      "className": "bookly-card bookly-card--hoverable",
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Great Header",
+          "className": "bookly-card__header",
+        },
+        "ref": null,
+        "rendered": "Great Header",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Awesome Title",
+          "className": "bookly-card__title",
+        },
+        "ref": null,
+        "rendered": "Awesome Title",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "this is the text",
+          "className": "bookly-card__text",
+        },
+        "ref": null,
+        "rendered": "this is the text",
+        "type": "p",
+      },
+      null,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <p
+            className="bookly-card__header"
+          >
+            Great Header
+          </p>,
+          <p
+            className="bookly-card__title"
+          >
+            Awesome Title
+          </p>,
+          <p
+            className="bookly-card__text"
+          >
+            this is the text
+          </p>,
+          null,
+        ],
+        "className": "bookly-card bookly-card--hoverable",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Great Header",
+            "className": "bookly-card__header",
+          },
+          "ref": null,
+          "rendered": "Great Header",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Awesome Title",
+            "className": "bookly-card__title",
+          },
+          "ref": null,
+          "rendered": "Awesome Title",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "this is the text",
+            "className": "bookly-card__text",
+          },
+          "ref": null,
+          "rendered": "this is the text",
+          "type": "p",
+        },
+        null,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

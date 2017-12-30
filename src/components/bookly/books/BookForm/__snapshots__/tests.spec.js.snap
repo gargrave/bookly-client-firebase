@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookForm with "book" populated renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <BookForm
+    authors={Array []}
+    book={
+      Object {
+        "author": Object {},
+        "title": "",
+      }
+    }
+    disabled={false}
+    onAuthorChange={[Function]}
+    onCancel={[Function]}
+    onInputChange={[Function]}
+    onSubmit={[Function]}
+    topLevelError=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <InputField
+          boundValue=""
+          disabled={false}
+          label="Title"
+          name="title"
+          onInputChange={[Function]}
+        />,
+        <AuthorSelect
+          author={Object {}}
+          authors={Array []}
+          disabled={false}
+          onChange={[Function]}
+        />,
+      ],
+      "classes": Array [
+        "book-form",
+      ],
+      "disabled": false,
+      "onCancel": [Function],
+      "onSubmit": [Function],
+      "topLevelError": "",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "boundValue": "",
+          "disabled": false,
+          "label": "Title",
+          "name": "title",
+          "onInputChange": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "author": Object {},
+          "authors": Array [],
+          "disabled": false,
+          "onChange": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <InputField
+            boundValue=""
+            disabled={false}
+            label="Title"
+            name="title"
+            onInputChange={[Function]}
+          />,
+          <AuthorSelect
+            author={Object {}}
+            authors={Array []}
+            disabled={false}
+            onChange={[Function]}
+          />,
+        ],
+        "classes": Array [
+          "book-form",
+        ],
+        "disabled": false,
+        "onCancel": [Function],
+        "onSubmit": [Function],
+        "topLevelError": "",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "boundValue": "",
+            "disabled": false,
+            "label": "Title",
+            "name": "title",
+            "onInputChange": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "author": Object {},
+            "authors": Array [],
+            "disabled": false,
+            "onChange": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

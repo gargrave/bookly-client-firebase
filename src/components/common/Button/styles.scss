@@ -1,0 +1,5 @@
+.bookly-button {
+  &:not(&--left) {
+    margin-left: 10px;
+  }
+}
