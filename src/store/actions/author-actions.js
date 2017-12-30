@@ -37,6 +37,7 @@ function _updateAuthor(author) {
 
 export function fetchAuthors() {
   return async (dispatch, getState) => {
+    console.error('TODO: update "fetch authors" request to use Firebase');
     const authors = getState().authors.data;
     if (authors.length) {
       return authors;
@@ -62,6 +63,7 @@ export function fetchAuthors() {
 
 export function createAuthor(author) {
   return async (dispatch, getState) => {
+    console.error('TODO: update "create author" request to use Firebase');
     dispatch(_requestStart());
     try {
       const authToken = getTokenOrDie(getState);
@@ -81,6 +83,7 @@ export function createAuthor(author) {
 
 export function updateAuthor(author) {
   return async (dispatch, getState) => {
+    console.error('TODO: update "update author" request to use Firebase');
     dispatch(_requestStart());
     try {
       const authToken = getTokenOrDie(getState);

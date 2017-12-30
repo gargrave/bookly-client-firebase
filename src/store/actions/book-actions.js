@@ -39,6 +39,7 @@ function _updateBook(book) {
 
 export function fetchBooks() {
   return async (dispatch, getState) => {
+    console.error('TODO: update "fetch books" request to use Firebase');
     // ensure that Author data has been loaded
     const authors = getState().authors.data;
     if (!authors.length) {
@@ -70,6 +71,7 @@ export function fetchBooks() {
 
 export function createBook(book) {
   return async (dispatch, getState) => {
+    console.error('TODO: update "create book" request to use Firebase');
     dispatch(_requestStart());
     try {
       const authToken = getTokenOrDie(getState);
@@ -89,6 +91,7 @@ export function createBook(book) {
 
 export function updateBook(book) {
   return async (dispatch, getState) => {
+    console.error('TODO: update "update book" request to use Firebase');
     dispatch(_requestStart());
     try {
       const authToken = getTokenOrDie(getState);

@@ -27,6 +27,7 @@ function _fetchProfile(profile) {
 
 export function login(user) {
   return async (dispatch) => {
+    console.error('TODO: update "login" request to use Firebase');
     dispatch(_requestStart());
     try {
       const request = apiHelper.axPost(apiUrls.login, user);
@@ -48,6 +49,7 @@ export function login(user) {
 
 export function fetchProfile(authToken) {
   return async (dispatch) => {
+    console.error('TODO: update "fetch profile" request to use Firebase');
     dispatch(_requestStart());
     try {
       const request = apiHelper.axGet(apiUrls.users, authToken);
@@ -69,6 +71,7 @@ export function fetchProfile(authToken) {
 
 export function logout() {
   return async (dispatch) => {
+    console.error('TODO: update "logout" request to use Firebase');
     localStorage.clear();
     dispatch(_logout());
   };
