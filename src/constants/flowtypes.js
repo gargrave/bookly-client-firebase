@@ -15,29 +15,25 @@ export type FbCollection = {
 
 export type Author = {
   id?: string,
-  firstName: string,
-  lastName: string,
-  createdAt?: Date,
-  updatedAt?: Date,
   created?: Date,
   updated?: Date,
+  firstName: string,
+  lastName: string,
 };
 
 export type Book = {
-  id: string,
+  id?: string,
+  created?: Date,
+  updated?: Date,
   title: string,
   author: Author,
-  authorId: string,
-  createdAt: Date,
-  updatedAt: Date,
-  created: Date,
-  updated: Date,
+  authorId?: string,
 };
 
 export type User = {
-  id?: string | number,
-  email: string,
-  password?: string,
+  id?: string,
   createdAt?: string,
   updatedAt?: string,
+  email: string,
+  password?: string,
 };

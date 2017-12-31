@@ -32,10 +32,10 @@ function AuthorDetailView({
 
         <hr/>
         <p className={buildClasses('card-text')}>
-          <strong>Added:</strong> {format(author.createdAt, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Added:</strong> {format(author.created, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
         <p className={buildClasses('card-text')}>
-          <strong>Updated:</strong> {format(author.updatedAt, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Updated:</strong> {format(author.updated, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
 
         <hr/>
@@ -63,8 +63,8 @@ AuthorDetailView.propTypes = {
     id: string,
     firstName: string,
     lastName: string,
-    createdAt: date,
-    updatedAt: date,
+    created: date,
+    updated: date,
   }),
   onBackClick: func.isRequired,
   onEditClick: func.isRequired,

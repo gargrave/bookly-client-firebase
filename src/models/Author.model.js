@@ -1,33 +1,47 @@
-const AuthorModel = {
-  empty() {
+// @flow
+import type { Author, FbDoc } from '../constants/flowtypes';
+
+const authorModel = {
+  empty(): any {
     return {
       firstName: '',
       lastName: '',
     };
   },
 
-  toAPI(data) {
-    let payload = {
+  toAPI(data: any): any {
+    let payload: any = {
       firstName: data.firstName.trim() || '',
       lastName: data.lastName.trim() || '',
     };
 
-    if (data.id) {
-      payload.id = data.id;
-    }
+    ['id', 'created'].forEach((val) => {
+      if (data[val]) {
+        payload[val] = data[val];
+      }
+    });
 
     return payload;
   },
 
-  fromAPI(data) {
+  fromFbDoc(doc: FbDoc): Author {
+    const {
+      firstName,
+      lastName,
+      created,
+      updated,
+    } = doc.data();
+
     return {
-      id: data.id,
-      firstName: data.first_name || data.firstName,
-      lastName: data.last_name || data.lastName,
-      createdAt: data.created_at || data.created,
-      updatedAt: data.updated_at || data.updated,
+      id: doc.id,
+      firstName,
+      lastName,
+      created,
+      updated,
     };
   },
 };
 
-export default AuthorModel;
+export {
+  authorModel,
+};

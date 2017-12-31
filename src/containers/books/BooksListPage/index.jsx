@@ -47,6 +47,7 @@ class BooksListPage extends Component<Props, State> {
     try {
       await this.props.fetchBooks();
     } catch (err) {
+      debugger;
       console.log('TODO: deal with this error!');
       console.log(err);
     }

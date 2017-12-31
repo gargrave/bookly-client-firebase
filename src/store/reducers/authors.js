@@ -1,7 +1,5 @@
 import { AUTH, AUTHORS } from '../action-types';
 
-import authorModel from '../../models/Author.model';
-
 const defaultState = {
   authorRequestPending: false,
   data: [],
@@ -21,14 +19,14 @@ export default function authors(state = defaultState, action) {
 
     case AUTHORS.FETCH_SUCCESS:
       return Object.assign({}, state, {
-        data: action.payload.authors.map((author) => authorModel.fromAPI(author)),
+        data: action.payload.authors,
       });
 
     case AUTHORS.CREATE_SUCCESS:
       return Object.assign({}, state, {
         data: [
           ...state.data,
-          authorModel.fromAPI(action.payload.author),
+          action.payload.author,
         ],
       });
 
@@ -36,7 +34,7 @@ export default function authors(state = defaultState, action) {
       return Object.assign({}, state, {
         data: [
           ...state.data.filter((a) => a.id !== action.payload.author.id),
-          authorModel.fromAPI(action.payload.author),
+          action.payload.author,
         ],
       });
 

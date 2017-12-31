@@ -9,7 +9,7 @@ import { localUrls } from '../../../constants/urls';
 import { fetchAuthors, updateAuthor } from '../../../store/actions/author-actions';
 import { authorsMatch, validateAuthor } from '../../../globals/validations';
 import { parseError } from '../../../globals/errors';
-import authorModel from '../../../models/Author.model';
+import { authorModel } from '../../../models/Author.model';
 
 import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';
 import AuthorEditView from '../../../components/bookly/authors/AuthorEditView';
@@ -211,8 +211,8 @@ AuthorDetailPage.propTypes = {
     id: string,
     firstName: string,
     lastName: string,
-    createdAt: date,
-    updatedAt: date,
+    created: date,
+    updated: date,
   }),
   fetchAuthors: func.isRequired,
   history: object,

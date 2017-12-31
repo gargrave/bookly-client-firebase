@@ -58,7 +58,7 @@ AccountDetailView.propTypes = {
   user: shape({
     email: string.isRequired,
     createdAt: string,
-    updatedAtmail: string,
+    updatedAt: string,
   }).isRequired,
 };
 

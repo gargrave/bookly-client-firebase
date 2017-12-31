@@ -33,10 +33,10 @@ function BookDetailView({
 
         <hr/>
         <p className={buildClasses('card-text')}>
-          <strong>Added:</strong> {format(book.createdAt, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Added:</strong> {format(book.created, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
         <p className={buildClasses('card-text')}>
-          <strong>Updated:</strong> {format(book.updatedAt, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Updated:</strong> {format(book.updated, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
 
         <hr/>

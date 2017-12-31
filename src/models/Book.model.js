@@ -1,3 +1,6 @@
+// @flow
+import type { Author, Book, FbDoc } from '../constants/flowtypes';
+
 function hydrateAuthor(authors, id) {
   const author = authors.find((a) => a.id === id);
   return author || {
@@ -7,7 +10,7 @@ function hydrateAuthor(authors, id) {
 }
 
 const bookModel = {
-  empty() {
+  empty(): any {
     return {
       title: '',
       author: {
@@ -18,44 +21,42 @@ const bookModel = {
     };
   },
 
-  emptyErrors() {
+  emptyErrors(): any {
     return {
       title: '',
       author: '',
     };
   },
 
-  toAPI(data) {
-    let payload = {
+  toAPI(data: any): any {
+    let payload: any = {
       title: data.title || '',
       authorId: data.author.id,
     };
 
-    if (data.id) {
-      payload.id = data.id;
-    }
+    ['id', 'created'].forEach((val) => {
+      if (data[val]) {
+        payload[val] = data[val];
+      }
+    });
 
     return payload;
   },
 
-  fromAPI(data) {
-    return {
-      id: data.id,
-      title: data.title,
-      author: data.author,
-      createdAt: data.created_at || data.created,
-      updatedAt: data.updated_at || data.updated,
-    };
-  },
+  fromDoc(doc: FbDoc, authors: Author[]): Book {
+    const {
+      title,
+      authorId,
+      created,
+      updated,
+    } = doc.data();
 
-  fromDoc(doc, authors) {
-    const data = doc.data();
     return {
       id: doc.id,
-      title: data.title,
-      author: hydrateAuthor(authors, data.authorId),
-      createdAt: data.created,
-      updatedAt: data.updated,
+      title,
+      author: hydrateAuthor(authors, authorId),
+      created,
+      updated,
     };
   },
 };

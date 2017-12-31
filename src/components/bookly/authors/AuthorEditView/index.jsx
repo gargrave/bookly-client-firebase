@@ -52,8 +52,8 @@ AuthorEditView.propTypes = {
     id: string,
     firstName: string,
     lastName: string,
-    createdAt: string,
-    updatedAt: string,
+    created: string,
+    updated: string,
   }),
   errors: shape({
     found: bool,

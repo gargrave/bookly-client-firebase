@@ -1,19 +1,13 @@
 // @flow
 import { AUTHORS } from '../action-types';
 
-import type { Author, FirebaseDoc } from '../../constants/flowtypes';
+import type { Author, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
 import { parseError } from '../../globals/errors';
 import { db, timestamp } from '../../globals/firebase/';
+import { authorModel } from '../../models/Author.model';
 
 const DB = 'authors';
 const TEMP_USER_ID = 'h6E552ay3JdE6MrJfCIVfdXQsP23';
-
-function docToAuthor(doc: FirebaseDoc) {
-  return {
-    id: doc.id,
-    ...doc.data(),
-  };
-}
 
 function _requestStart() {
   return { type: AUTHORS.REQUEST_START };
@@ -52,10 +46,11 @@ export function fetchAuthors() {
     } else {
       dispatch(_requestStart());
       try {
-        const result = await db.collection(DB).get();
-        const authors = result.docs.map((doc) => docToAuthor(doc));
-        dispatch(_fetchAuthors(authors));
-        return authors;
+        const results: FbCollection = await db.collection(DB).get();
+        const records: Author[] = results.docs.map((doc) => authorModel.fromFbDoc(doc));
+
+        dispatch(_fetchAuthors(records));
+        return records;
       } catch (err) {
         throw parseError(err);
       } finally {
@@ -76,10 +71,10 @@ export function createAuthor(author: Author) {
         ...author,
       };
 
-      const docRef = await db.collection(DB).add(payload);
-      const doc = await docRef.get();
+      const docRef: FbDocRef = await db.collection(DB).add(payload);
+      const doc: FbDoc = await docRef.get();
+      const newRecord: Author = authorModel.fromFbDoc(doc);
 
-      const newRecord = docToAuthor(doc);
       dispatch(_createAuthor(newRecord));
       return newRecord;
     } catch (err) {
@@ -103,14 +98,15 @@ export function updateAuthor(author: Author) {
       };
 
       const id = author.id;
-      const docRef = await db.collection(DB).doc(id);
+      const docRef: FbDocRef = await db.collection(DB).doc(id);
       await docRef.update(payload);
-      const doc = await docRef.get();
+      const doc: FbDoc = await docRef.get();
+      const updatedRecord: Author = authorModel.fromFbDoc(doc);
 
-      const updatedRecord = docToAuthor(doc);
       dispatch(_updateAuthor(updatedRecord));
       return updatedRecord;
     } catch (err) {
+      console.error(`Error updating document: ${err}`);
       throw parseError(err);
     } finally {
       dispatch(_requestEnd());
