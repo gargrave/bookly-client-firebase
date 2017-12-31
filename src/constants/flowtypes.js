@@ -1,11 +1,16 @@
 // @flow
+export type FirebaseDoc = {
+  id: string,
+  data: Function,
+}
+
 export type Author = {
-  id?: string | number,
+  id?: string,
   firstName: string,
   lastName: string,
   name: string,
-  createdAt?: string,
-  updatedAt?: string,
+  createdAt?: Date,
+  updatedAt?: Date,
 };
 
 export type Book = {

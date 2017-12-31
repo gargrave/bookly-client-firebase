@@ -1,10 +1,19 @@
+// @flow
 import { AUTHORS } from '../action-types';
-import axios from 'axios';
 
-import { apiUrls } from '../../constants/urls';
+import type { Author, FirebaseDoc } from '../../constants/flowtypes';
 import { parseError } from '../../globals/errors';
-import apiHelper from '../../utils/apiHelper';
-import { getTokenOrDie } from '../store-helpers';
+import { db, timestamp } from '../../globals/firebase/';
+
+const DB = 'authors';
+const TEMP_USER_ID = 'h6E552ay3JdE6MrJfCIVfdXQsP23';
+
+function docToAuthor(doc: FirebaseDoc) {
+  return {
+    id: doc.id,
+    ...doc.data(),
+  };
+}
 
 function _requestStart() {
   return { type: AUTHORS.REQUEST_START };
@@ -14,21 +23,21 @@ function _requestEnd() {
   return { type: AUTHORS.REQUEST_END };
 }
 
-function _fetchAuthors(authors) {
+function _fetchAuthors(authors: Author[]) {
   return {
     type: AUTHORS.FETCH_SUCCESS,
     payload: { authors },
   };
 }
 
-function _createAuthor(author) {
+function _createAuthor(author: Author) {
   return {
     type: AUTHORS.CREATE_SUCCESS,
     payload: { author },
   };
 }
 
-function _updateAuthor(author) {
+function _updateAuthor(author: Author) {
   return {
     type: AUTHORS.UPDATE_SUCCESS,
     payload: { author },
@@ -36,22 +45,17 @@ function _updateAuthor(author) {
 }
 
 export function fetchAuthors() {
-  return async (dispatch, getState) => {
-    console.error('TODO: update "fetch authors" request to use Firebase');
+  return async (dispatch: any, getState: any) => {
     const authors = getState().authors.data;
     if (authors.length) {
       return authors;
     } else {
       dispatch(_requestStart());
       try {
-        const authToken = getTokenOrDie(getState);
-        const request = apiHelper.axGet(apiUrls.authors, authToken);
-        const result = await axios(request);
-        // const pagination = result.data.meta
-        const authorData = result.data.results;
-
-        dispatch(_fetchAuthors(authorData));
-        return authorData;
+        const result = await db.collection(DB).get();
+        const authors = result.docs.map((doc) => docToAuthor(doc));
+        dispatch(_fetchAuthors(authors));
+        return authors;
       } catch (err) {
         throw parseError(err);
       } finally {
@@ -61,19 +65,25 @@ export function fetchAuthors() {
   };
 }
 
-export function createAuthor(author) {
-  return async (dispatch, getState) => {
-    console.error('TODO: update "create author" request to use Firebase');
+export function createAuthor(author: Author) {
+  return async (dispatch: any) => {
     dispatch(_requestStart());
     try {
-      const authToken = getTokenOrDie(getState);
-      const request = apiHelper.axPost(apiUrls.authors, author, authToken);
-      const result = await axios(request);
-      const authorData = result.data;
+      const payload = {
+        owner: TEMP_USER_ID,
+        created: timestamp(),
+        updated: timestamp(),
+        ...author,
+      };
 
-      dispatch(_createAuthor(authorData));
-      return authorData;
+      const docRef = await db.collection(DB).add(payload);
+      const doc = await docRef.get();
+
+      const newAuthor = docToAuthor(doc);
+      dispatch(_createAuthor(newAuthor));
+      return newAuthor;
     } catch (err) {
+      console.error(`Error writing document: ${err}`);
       throw parseError(err);
     } finally {
       dispatch(_requestEnd());
@@ -81,19 +91,25 @@ export function createAuthor(author) {
   };
 }
 
-export function updateAuthor(author) {
-  return async (dispatch, getState) => {
-    console.error('TODO: update "update author" request to use Firebase');
+export function updateAuthor(author: Author) {
+  return async (dispatch: any) => {
     dispatch(_requestStart());
     try {
-      const authToken = getTokenOrDie(getState);
-      const url = `${apiUrls.authors}${author.id}`;
-      const request = apiHelper.axPut(url, author, authToken);
-      const result = await axios(request);
-      const authorData = result.data;
+      const payload = {
+        firstName: author.firstName,
+        lastName: author.lastName,
+        created: author.created || timestamp(),
+        updated: timestamp(),
+      };
 
-      dispatch(_updateAuthor(authorData));
-      return authorData;
+      const id = author.id;
+      const docRef = db.collection(DB).doc(id);
+      await docRef.update(payload);
+      const doc = await docRef.get();
+
+      const updatedAuthor = docToAuthor(doc);
+      dispatch(_updateAuthor(updatedAuthor));
+      return updatedAuthor;
     } catch (err) {
       throw parseError(err);
     } finally {

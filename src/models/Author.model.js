@@ -22,10 +22,10 @@ const AuthorModel = {
   fromAPI(data) {
     return {
       id: data.id,
-      firstName: data.first_name,
-      lastName: data.last_name,
-      createdAt: data.created_at,
-      updatedAt: data.updated_at,
+      firstName: data.first_name || data.firstName,
+      lastName: data.last_name || data.lastName,
+      createdAt: data.created_at || data.created,
+      updatedAt: data.updated_at || data.updated,
     };
   },
 };

@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { func, number, object, shape, string } from 'prop-types';
+import { date, func, object, shape, string } from 'prop-types';
 
 import type { Author } from '../../../constants/flowtypes';
 
@@ -209,11 +209,11 @@ class AuthorDetailPage extends Component<Props, State> {
 
 AuthorDetailPage.propTypes = {
   author: shape({
-    id: number,
+    id: string,
     firstName: string,
     lastName: string,
-    createdAt: string,
-    updatedAt: string,
+    createdAt: date,
+    updatedAt: date,
   }),
   fetchAuthors: func.isRequired,
   history: object,
@@ -223,7 +223,9 @@ AuthorDetailPage.propTypes = {
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => {
   const authorID = ownProps.match.params.id;
-  const author = state.authors.data.find((a) => Number(a.id) === Number(authorID)) || {};
+  const author = state.authors.data.find(
+    (a) => String(a.id) === String(authorID) // TODO: remove this second cast once migration is complete
+  ) || {};
 
   return {
     author,
