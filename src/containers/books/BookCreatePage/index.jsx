@@ -8,7 +8,7 @@ import type { Author, Book } from '../../../constants/flowtypes';
 import { localUrls } from '../../../constants/urls';
 import { fetchAuthors } from '../../../store/actions/author-actions';
 import { createBook, fetchBooks } from '../../../store/actions/book-actions';
-import bookModel from '../../../models/Book.model';
+import { bookModel } from '../../../models/Book.model';
 
 import BookForm from '../../../components/bookly/books/BookForm';
 import Card from '../../../components/common/Card';
@@ -57,7 +57,7 @@ class BookCreatePage extends Component<Props, State> {
   }
 
   onAuthorChange(event) {
-    const authorId = Number(event.target.value);
+    const authorId = event.target.value;
     const author = this.props.authors.find((a) => a.id === authorId);
 
     if (author) {
@@ -81,7 +81,7 @@ class BookCreatePage extends Component<Props, State> {
     event.preventDefault();
     const book = bookModel.toAPI(this.state.book);
     const tempValidate = () => {
-      return !!book.title.length && !!book.authorId && Number.isInteger(book.authorId) && book.authorId >= 0;
+      return !!book.title.length && !!book.authorId;
     };
 
     if (tempValidate()) {

@@ -27,7 +27,8 @@ function AuthorDetailView({
       <Card
         classes={['card--top-margin-med', 'detail-card', 'author-detail-card']}
         hoverable={false}
-        title={`${author.firstName} ${author.lastName}`}>
+        title={`${author.firstName} ${author.lastName}`}
+      >
 
         <hr/>
         <p className={buildClasses('card-text')}>

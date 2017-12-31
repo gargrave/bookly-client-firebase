@@ -1,13 +1,13 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { array, func, number, object, shape, string } from 'prop-types';
+import { array, date, func, object, shape, string } from 'prop-types';
 
 import type { Author, Book } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { fetchBooks, updateBook } from '../../../store/actions/book-actions';
-import bookModel from '../../../models/Book.model';
+import { bookModel } from '../../../models/Book.model';
 
 import BookDetailView from '../../../components/bookly/books/BookDetailView';
 import BookEditView from '../../../components/bookly/books/BookEditView';
@@ -150,13 +150,13 @@ class BookDetailPage extends Component<Props, State> {
 BookDetailPage.propTypes = {
   authors: array.isRequired,
   book: shape({
-    id: number,
+    id: string,
     title: string,
     author: shape({
       name: string,
     }),
-    createdAt: string,
-    updatedAt: string,
+    createdAt: date,
+    updatedAt: date,
   }),
   fetchBooks: func.isRequired,
   history: object,
@@ -166,7 +166,7 @@ BookDetailPage.propTypes = {
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => {
   const bookID = ownProps.match.params.id;
-  const book = state.books.data.find((a) => Number(a.id) === Number(bookID)) || bookModel.empty();
+  const book = state.books.data.find((a) => a.id === bookID) || bookModel.empty();
 
   return {
     authors: state.authors.data,

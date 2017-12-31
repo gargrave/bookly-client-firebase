@@ -1,4 +1,16 @@
-const BookModel = {
+function hydrateAuthor(authors, id) {
+  const author = authors.find((a) => a.id === id);
+  if (author) {
+    return {
+      name: `${author.firstName} ${author.lastName}`,
+    };
+  }
+  return {
+    name: '',
+  };
+}
+
+const bookModel = {
   empty() {
     return {
       title: '',
@@ -34,10 +46,23 @@ const BookModel = {
       id: data.id,
       title: data.title,
       author: data.author,
-      createdAt: data.created_at,
-      updatedAt: data.updated_at,
+      createdAt: data.created_at || data.created,
+      updatedAt: data.updated_at || data.updated,
+    };
+  },
+
+  fromDoc(doc, authors) {
+    const data = doc.data();
+    return {
+      id: doc.id,
+      title: data.title,
+      author: hydrateAuthor(authors, data.authorId),
+      createdAt: data.created,
+      updatedAt: data.updated,
     };
   },
 };
 
-export default BookModel;
+export {
+  bookModel,
+};

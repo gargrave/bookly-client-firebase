@@ -1,7 +1,5 @@
 import { AUTH, BOOKS } from '../action-types';
 
-import bookModel from '../../models/Book.model';
-
 const defaultState = {
   bookRequestPending: false,
   data: [],
@@ -21,17 +19,23 @@ export default function books(state = defaultState, action) {
 
     case BOOKS.FETCH_SUCCESS:
       return Object.assign({}, state, {
-        data: action.payload.books.map((book) => bookModel.fromAPI(book)),
+        data: action.payload.books,
       });
 
     case BOOKS.CREATE_SUCCESS:
       return Object.assign({}, state, {
-        data: [...state.data, bookModel.fromAPI(action.payload.book)],
+        data: [
+          ...state.data,
+          action.payload.book,
+        ],
       });
 
     case BOOKS.UPDATE_SUCCESS:
       return Object.assign({}, state, {
-        data: [...state.data.filter((a) => a.id !== action.payload.book.id), bookModel.fromAPI(action.payload.book)],
+        data: [
+          ...state.data.filter((a) => a.id !== action.payload.book.id),
+          action.payload.book,
+        ],
       });
 
     case AUTH.LOGOUT:

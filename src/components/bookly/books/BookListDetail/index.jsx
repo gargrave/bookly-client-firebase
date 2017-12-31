@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, number, object, shape, string } from 'prop-types';
+import { func, object } from 'prop-types';
 
 import type { Book } from '../../../../constants/flowtypes';
 
@@ -26,11 +26,7 @@ function BookListDetail({
 }
 
 BookListDetail.propTypes = {
-  book: shape({
-    id: number.isRequired,
-    title: string.isRequired,
-    author: object.isRequired,
-  }),
+  book: object,
   onClick: func.isRequired,
 };
 

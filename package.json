@@ -7,7 +7,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "dev": "yarn start",
     "start-js": "node scripts/start.js",
-    "start": "npm-run-all -p flow watch-css start-js",
+    "start": "npm-run-all -p watch-css start-js",
     "build-js": "node scripts/build.js",
     "build": "npm-run-all flow build-css build-js",
     "test": "node scripts/test.js --env=jsdom",

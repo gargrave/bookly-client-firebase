@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, number, shape, string } from 'prop-types';
+import { func, object } from 'prop-types';
 import { format } from 'date-fns';
 
 import type { Book } from '../../../../constants/flowtypes';
@@ -28,7 +28,8 @@ function BookDetailView({
         classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
         hoverable={false}
         text={`by ${book.author.name}`}
-        title={book.title}>
+        title={book.title}
+      >
 
         <hr/>
         <p className={buildClasses('card-text')}>
@@ -59,15 +60,7 @@ function BookDetailView({
 }
 
 BookDetailView.propTypes = {
-  book: shape({
-    id: number,
-    title: string,
-    author: shape({
-      name: string,
-    }),
-    createdAt: string,
-    updatedAt: string,
-  }),
+  book: object,
   onBackClick: func.isRequired,
   onEditClick: func.isRequired,
 };

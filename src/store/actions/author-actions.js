@@ -79,9 +79,9 @@ export function createAuthor(author: Author) {
       const docRef = await db.collection(DB).add(payload);
       const doc = await docRef.get();
 
-      const newAuthor = docToAuthor(doc);
-      dispatch(_createAuthor(newAuthor));
-      return newAuthor;
+      const newRecord = docToAuthor(doc);
+      dispatch(_createAuthor(newRecord));
+      return newRecord;
     } catch (err) {
       console.error(`Error writing document: ${err}`);
       throw parseError(err);
@@ -107,9 +107,9 @@ export function updateAuthor(author: Author) {
       await docRef.update(payload);
       const doc = await docRef.get();
 
-      const updatedAuthor = docToAuthor(doc);
-      dispatch(_updateAuthor(updatedAuthor));
-      return updatedAuthor;
+      const updatedRecord = docToAuthor(doc);
+      dispatch(_updateAuthor(updatedRecord));
+      return updatedRecord;
     } catch (err) {
       throw parseError(err);
     } finally {

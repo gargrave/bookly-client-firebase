@@ -12,11 +12,19 @@ if (!initialized) {
   initialized = true;
 }
 
+function docToObject(doc) {
+  return {
+    id: doc.id,
+    ...doc.data(),
+  };
+}
+
 function timestamp() {
   return firebase.firestore.FieldValue.serverTimestamp();
 }
 
 export {
   db,
+  docToObject,
   timestamp,
 };

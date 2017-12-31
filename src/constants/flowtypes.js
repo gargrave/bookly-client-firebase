@@ -14,11 +14,14 @@ export type Author = {
 };
 
 export type Book = {
-  id?: string | number,
+  id: string,
   title: string,
   author: Author,
-  createdAt?: string,
-  updatedAt?: string,
+  authorId: string,
+  createdAt: Date,
+  updatedAt: Date,
+  created: Date,
+  updated: Date,
 };
 
 export type User = {
