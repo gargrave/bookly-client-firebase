@@ -1,12 +1,8 @@
 function hydrateAuthor(authors, id) {
   const author = authors.find((a) => a.id === id);
-  if (author) {
-    return {
-      name: `${author.firstName} ${author.lastName}`,
-    };
-  }
-  return {
-    name: '',
+  return author || {
+    firstName: '',
+    lastName: '',
   };
 }
 
@@ -16,7 +12,8 @@ const bookModel = {
       title: '',
       author: {
         id: -1,
-        name: '',
+        firstName: '',
+        lastName: '',
       },
     };
   },

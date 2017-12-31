@@ -4,7 +4,7 @@ export default {
     records: Object,
     id: string | number
   ): Object | null {
-    let record = records.filter((record) => Number(record.id) === Number(id));
+    let record = records.filter((record) => record.id === id);
     if (record.length) {
       return record[0];
     }

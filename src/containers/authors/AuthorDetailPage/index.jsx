@@ -159,7 +159,6 @@ class AuthorDetailPage extends Component<Props, State> {
       editableAuthor: {
         firstName: this.props.author.firstName,
         lastName: this.props.author.lastName,
-        name: '',
       },
       editing: true,
       errors: authorModel.empty(),

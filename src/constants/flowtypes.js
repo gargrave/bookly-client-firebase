@@ -1,16 +1,26 @@
 // @flow
-export type FirebaseDoc = {
+export type FbDoc = {
   id: string,
   data: Function,
 }
+
+export type FbDocRef = {
+  get: Function,
+  update: Function,
+};
+
+export type FbCollection = {
+  docs: FbDoc[],
+};
 
 export type Author = {
   id?: string,
   firstName: string,
   lastName: string,
-  name: string,
   createdAt?: Date,
   updatedAt?: Date,
+  created?: Date,
+  updated?: Date,
 };
 
 export type Book = {

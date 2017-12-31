@@ -18,7 +18,7 @@ function filterBook(book: Book, filterBy?: string = '') {
     return true;
   }
   const title = `${book.title}`.toLowerCase();
-  const author = `${book.author.name}`.toLowerCase();
+  const author = `${book.author.firstName} ${book.author.lastName}`.toLowerCase();
   return title.includes(filterBy) || author.includes(filterBy);
 }
 

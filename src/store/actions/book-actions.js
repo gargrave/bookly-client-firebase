@@ -1,15 +1,11 @@
 // @flow
 import { BOOKS } from '../action-types';
-import axios from 'axios';
 
-import type { Author, Book, FirebaseDoc } from '../../constants/flowtypes';
-import { getTokenOrDie } from '../store-helpers';
-import { apiUrls } from '../../constants/urls';
+import type { Author, Book, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
 import { parseError } from '../../globals/errors';
 import { bookModel } from '../../models/Book.model';
-import apiHelper from '../../utils/apiHelper';
 
-import { db, docToObject, timestamp } from '../../globals/firebase/';
+import { db, timestamp } from '../../globals/firebase/';
 
 import { fetchAuthors } from './author-actions';
 
@@ -46,7 +42,7 @@ function _updateBook(book: Book) {
 }
 
 export function fetchBooks() {
-  return async (dispatch: any, getState: any) => {
+  return async (dispatch: Function, getState: Function) => {
     // ensure that Author data has been loaded
     const authors = getState().authors.data;
     if (!authors.length) {
@@ -59,11 +55,12 @@ export function fetchBooks() {
     } else {
       dispatch(_requestStart());
       try {
-        const results = await db.collection(DB).get();
-        const authors = getState().authors.data;
-        const records = results.docs.map(
-          (doc) => bookModel.fromDoc(doc, authors)
+        const results: FbCollection = await db.collection(DB).get();
+        const authors: Author[] = getState().authors.data;
+        const records: Book[] = results.docs.map(
+          (doc: FbDoc) => bookModel.fromDoc(doc, authors)
         );
+
         dispatch(_fetchBooks(records));
         return records;
       } catch (err) {
@@ -76,8 +73,7 @@ export function fetchBooks() {
 }
 
 export function createBook(book: Book) {
-  return async (dispatch: any, getState: any) => {
-    console.error('TODO: update "create book" request to use Firebase');
+  return async (dispatch: Function, getState: Function) => {
     dispatch(_requestStart());
     try {
       const payload = {
@@ -87,11 +83,11 @@ export function createBook(book: Book) {
         ...book,
       };
 
-      const docRef = await db.collection(DB).add(payload);
-      const doc = await docRef.get();
-      const authors = getState().authors.data;
+      const docRef: FbDocRef = await db.collection(DB).add(payload);
+      const doc: FbDoc = await docRef.get();
+      const authors: Author[] = getState().authors.data;
+      const newRecord: Book = bookModel.fromDoc(doc, authors);
 
-      const newRecord = docToObject(doc);
       dispatch(_createBook(newRecord));
       return newRecord;
     } catch (err) {
@@ -100,45 +96,31 @@ export function createBook(book: Book) {
     } finally {
       dispatch(_requestEnd());
     }
-    // try {
-    //   const authToken = getTokenOrDie(getState);
-    //   const request = apiHelper.axPost(apiUrls.books, book, authToken);
-    //   const result = await axios(request);
-    //   const bookData = result.data;
-
-    //   dispatch(_createBook(bookData));
-    //   return bookData;
-    // } catch (err) {
-    //   throw parseError(err);
-    // } finally {
-    //   dispatch(_requestEnd());
-    // }
   };
 }
 
 export function updateBook(book: Book) {
-  return async (dispatch: any, getState: any) => {
-    console.error('TODO: update "update book" request to use Firebase');
+  return async (dispatch: Function, getState: Function) => {
     dispatch(_requestStart());
     try {
-      const authToken = getTokenOrDie(getState);
-      const url = `${apiUrls.books}${book.id}`;
-      const request = apiHelper.axPut(url, book, authToken);
-      const result = await axios(request);
-      const bookData = result.data;
+      const payload = {
+        title: book.title,
+        authorId: book.authorId,
+        created: book.created || timestamp(),
+        updated: timestamp(),
+      };
 
-      dispatch(_updateBook(bookData));
-      return bookData;
+      const id = book.id;
+      const docRef: FbDocRef = await db.collection(DB).doc(id);
+      await docRef.update(payload);
+      const doc: FbDoc = await docRef.get();
+      const authors: Author[] = getState().authors.data;
+      const updatedRecord: Book = bookModel.fromDoc(doc, authors);
 
-      // const id = author.id;
-      // const docRef = db.collection(DB).doc(id);
-      // await docRef.update(payload);
-      // const doc = await docRef.get();
-
-      // const updatedRecord = docToAuthor(doc);
-      // dispatch(_updateAuthor(updatedRecord));
-      // return updatedRecord;
+      dispatch(_updateBook(updatedRecord));
+      return updatedRecord;
     } catch (err) {
+      console.error(`Error updating document: ${err}`);
       throw parseError(err);
     } finally {
       dispatch(_requestEnd());

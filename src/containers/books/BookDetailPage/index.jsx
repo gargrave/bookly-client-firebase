@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { array, date, func, object, shape, string } from 'prop-types';
+import { array, date, func, number, object, shape, string } from 'prop-types';
 
 import type { Author, Book } from '../../../constants/flowtypes';
 
@@ -59,7 +59,7 @@ class BookDetailPage extends Component<Props, State> {
   }
 
   onAuthorChange(event) {
-    const authorId = Number(event.target.value);
+    const authorId = event.target.value;
     const author = this.props.authors.find((a) => a.id === authorId);
     const editableBook = Object.assign({}, this.state.editableBook, { author });
 
@@ -83,7 +83,7 @@ class BookDetailPage extends Component<Props, State> {
     event.preventDefault();
     const book = bookModel.toAPI(this.state.editableBook);
     const tempValidate = () => {
-      return !!book.title.length && !!book.authorId && Number.isInteger(book.authorId) && book.authorId >= 0;
+      return !!book.title.length && !!book.authorId;
     };
 
     if (tempValidate()) {
@@ -153,7 +153,8 @@ BookDetailPage.propTypes = {
     id: string,
     title: string,
     author: shape({
-      name: string,
+      firstName: string,
+      lastName: string,
     }),
     createdAt: date,
     updatedAt: date,

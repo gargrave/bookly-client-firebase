@@ -27,7 +27,7 @@ function BookDetailView({
       <Card
         classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
         hoverable={false}
-        text={`by ${book.author.name}`}
+        text={`by ${book.author.firstName} ${book.author.lastName}`}
         title={book.title}
       >
 

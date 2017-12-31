@@ -19,7 +19,7 @@ function BookListDetail({
     <Card
       classes={['book-card']}
       onClick={onClick}
-      text={book.author.name}
+      text={`${book.author.firstName} ${book.author.lastName}`}
       title={book.title}
     />
   );

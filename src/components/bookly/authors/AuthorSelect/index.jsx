@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { array, bool, func, object } from 'prop-types';
+import { array, bool, func, number, shape, string } from 'prop-types';
 
 import type { Author } from '../../../../constants/flowtypes';
 
@@ -41,7 +41,11 @@ function AuthorSelect({
 }
 
 AuthorSelect.propTypes = {
-  author: object.isRequired,
+  author: shape({
+    id: string.isRequired,
+    firstName: string.isRequired,
+    lastName: string.isRequired,
+  }).isRequired,
   authors: array.isRequired,
   disabled: bool,
   onChange: func.isRequired,

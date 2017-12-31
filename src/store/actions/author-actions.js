@@ -103,7 +103,7 @@ export function updateAuthor(author: Author) {
       };
 
       const id = author.id;
-      const docRef = db.collection(DB).doc(id);
+      const docRef = await db.collection(DB).doc(id);
       await docRef.update(payload);
       const doc = await docRef.get();
 
