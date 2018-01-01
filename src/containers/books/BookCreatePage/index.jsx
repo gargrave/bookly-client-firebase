@@ -110,7 +110,7 @@ class BookCreatePage extends Component<Props, State> {
     return (
       <Card
         classes={['card--top-margin-med']}
-        header={"New Book"}
+        header={'New Book'}
         hoverable={false}
       >
         <BookForm
