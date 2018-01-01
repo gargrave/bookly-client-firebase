@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, shape, string } from 'prop-types';
+import { func, date, shape, string } from 'prop-types';
 import { format } from 'date-fns';
 
 import type { User } from '../../../../constants/flowtypes';
@@ -32,10 +32,10 @@ function AccountDetailView({
 
         <hr/>
         <p className={buildClasses('card-text')}>
-          <strong>Registered:</strong> {format(user.createdAt, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Registered:</strong> {format(user.registered, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
         <p className={buildClasses('card-text')}>
-          <strong>Updated:</strong> {format(user.updatedAt, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Last login:</strong> {format(user.lastLogin, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
 
         <hr/>
@@ -57,8 +57,8 @@ AccountDetailView.propTypes = {
   onLogoutClick: func.isRequired,
   user: shape({
     email: string.isRequired,
-    createdAt: string,
-    updatedAt: string,
+    registered: date,
+    lastLogin: string,
   }).isRequired,
 };
 

@@ -9,7 +9,7 @@ import { localUrls } from '../../../constants/urls';
 import { login } from '../../../store/actions/auth-actions';
 import { parseError } from '../../../globals/errors';
 import { validateLogin } from '../../../globals/validations/';
-import userModel from '../../../models/User.model';
+import { userModel } from '../../../models/User.model';
 
 import Card from '../../../components/common/Card';
 import LoginForm from '../../../components/bookly/account/LoginForm';

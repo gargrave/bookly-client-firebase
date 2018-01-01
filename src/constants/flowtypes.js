@@ -32,8 +32,8 @@ export type Book = {
 
 export type User = {
   id?: string,
-  createdAt?: string,
-  updatedAt?: string,
+  registered?: string,
+  lastLogin?: string,
   email: string,
   password?: string,
 };

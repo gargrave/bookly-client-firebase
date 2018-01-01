@@ -1,45 +1,53 @@
 import { AUTH } from '../action-types';
-import axios from 'axios';
 
-import { apiUrls } from '../../constants/urls';
 import { parseError } from '../../globals/errors';
-import apiHelper from '../../utils/apiHelper';
+import { auth } from '../../globals/firebase';
+import { userModel } from '../../models/User.model';
 
 function _requestStart() {
-  return { type: AUTH.REQUEST_START };
+  return {
+    type: AUTH.REQUEST_START,
+  };
 }
 
 function _requestEnd() {
-  return { type: AUTH.REQUEST_END };
+  return {
+    type: AUTH.REQUEST_END,
+  };
 }
 
 function _login(user) {
-  return { type: AUTH.LOGIN, payload: { user } };
+  return {
+    type: AUTH.LOGIN,
+    payload: { user },
+  };
 }
 
 function _logout() {
-  return { type: AUTH.LOGOUT };
+  return {
+    type: AUTH.LOGOUT,
+  };
 }
 
-function _fetchProfile(profile) {
-  return { type: AUTH.FETCH_PROFILE, payload: { profile } };
+function setLocalUserData(user) {
+  return async(dispatch) => {
+    const userData = userModel.fromAPI(user);
+    dispatch(_login(userData));
+    return userData;
+  };
 }
 
-export function login(user) {
+function login({ email, password }) {
   return async (dispatch) => {
-    console.error('TODO: update "login" request to use Firebase');
     dispatch(_requestStart());
     try {
-      const request = apiHelper.axPost(apiUrls.login, user);
-      const result = await axios(request);
-      const userData = result.data;
-
-      dispatch(_login(userData));
-      dispatch(_fetchProfile(userData.profile));
-      localStorage.setItem('authToken', userData.token);
-
+      const result = await auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
+      const userData = setLocalUserData(result);
       return userData;
     } catch (err) {
+      // TODO: user Firebase's error structure:
+      // https://firebase.google.com/docs/reference/js/firebase.auth.Auth.html?authuser=0#signInAndRetrieveDataWithEmailAndPassword
+      console.log(err);
       throw parseError(err);
     } finally {
       dispatch(_requestEnd());
@@ -47,32 +55,16 @@ export function login(user) {
   };
 }
 
-export function fetchProfile(authToken) {
-  return async (dispatch) => {
-    console.error('TODO: update "fetch profile" request to use Firebase');
-    dispatch(_requestStart());
-    try {
-      const request = apiHelper.axGet(apiUrls.users, authToken);
-      const result = await axios(request);
-      const userData = result.data;
-      userData.token = authToken;
-
-      dispatch(_login(userData));
-      dispatch(_fetchProfile(userData.profile));
-
-      return userData;
-    } catch (err) {
-      throw parseError(err);
-    } finally {
-      dispatch(_requestEnd());
-    }
-  };
-}
-
-export function logout() {
+function logout() {
   return async (dispatch) => {
     console.error('TODO: update "logout" request to use Firebase');
-    localStorage.clear();
+    await auth.signOut();
     dispatch(_logout());
   };
 }
+
+export {
+  login,
+  logout,
+  setLocalUserData,
+};

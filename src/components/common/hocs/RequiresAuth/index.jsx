@@ -31,7 +31,7 @@ export default function(WrappedComponent, redirectTo, requireAuth = true) {
   function mapStateToProps(state) {
     return {
       initialized: state.app.initialized,
-      loggedIn: !!state.auth.token,
+      loggedIn: !!state.auth.user,
     };
   }
 

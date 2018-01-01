@@ -41,7 +41,7 @@ SimpleHeader.propTypes = {
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => {
-  const loggedIn = !!state.auth.token;
+  const loggedIn = !!state.auth.user;
   return {
     loggedIn,
   };

@@ -7,7 +7,6 @@ export const AUTH = {
   REQUEST_END: 'AUTH_REQUEST_END',
   LOGIN: 'AUTH_LOGIN',
   LOGOUT: 'AUTH_LOGOUT',
-  FETCH_PROFILE: 'AUTH_FETCH_PROFILE',
 };
 
 export const AUTHORS = {

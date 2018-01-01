@@ -1,12 +1,12 @@
-const UserModel = {
+const userModel = {
   empty() {
     return {
-      id: '',
+      displayName: '',
       email: '',
-      createdAt: '',
-      updatedAt: '',
+      emailVerified: false,
+      id: '',
       lastLogin: '',
-      verified: undefined,
+      registered: '',
     };
   },
 
@@ -17,16 +17,29 @@ const UserModel = {
     };
   },
 
-  fromAPI(data) {
+  fromAPI(user) {
+    const {
+      displayName,
+      email,
+      emailVerified,
+      uid,
+    } = user;
+    const {
+      creationTime,
+      lastSignInTime,
+    } = user.metadata;
+
     return {
-      id: data.id,
-      email: data.email,
-      createdAt: data.created_at,
-      updatedAt: data.updated_at,
-      lastLogin: data.last_login,
-      verified: data.verified,
+      displayName,
+      email,
+      emailVerified,
+      id: uid,
+      lastLogin: lastSignInTime,
+      registered: creationTime,
     };
   },
 };
 
-export default UserModel;
+export {
+  userModel,
+};
