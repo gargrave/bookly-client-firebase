@@ -5,6 +5,13 @@ const defaultState = {
   data: [],
 };
 
+// TODO: implement better sort handling (including letting the user choose)
+function sortByLastName(authors) {
+  return authors.sort((a, b) => {
+    return a.lastName.toLowerCase() > b.lastName.toLowerCase() ? 1 : -1;
+  });
+}
+
 export default function authors(state = defaultState, action) {
   switch (action.type) {
     case AUTHORS.REQUEST_START:
@@ -19,23 +26,23 @@ export default function authors(state = defaultState, action) {
 
     case AUTHORS.FETCH_SUCCESS:
       return Object.assign({}, state, {
-        data: action.payload.authors,
+        data: sortByLastName(action.payload.authors),
       });
 
     case AUTHORS.CREATE_SUCCESS:
       return Object.assign({}, state, {
-        data: [
+        data: sortByLastName([
           ...state.data,
           action.payload.author,
-        ],
+        ]),
       });
 
     case AUTHORS.UPDATE_SUCCESS:
       return Object.assign({}, state, {
-        data: [
+        data: sortByLastName([
           ...state.data.filter((a) => a.id !== action.payload.author.id),
           action.payload.author,
-        ],
+        ]),
       });
 
     case AUTH.LOGOUT:
