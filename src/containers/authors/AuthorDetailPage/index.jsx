@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { date, func, object, shape, string } from 'prop-types';
+import { instanceOf, func, object, shape, string } from 'prop-types';
 
 import type { Author } from '../../../constants/flowtypes';
 
@@ -209,11 +209,11 @@ class AuthorDetailPage extends Component<Props, State> {
 AuthorDetailPage.propTypes = {
   author: shape({
     id: string,
+    created: instanceOf(Date),
+    updated: instanceOf(Date),
     firstName: string,
-    lastName: string,
-    created: date,
-    updated: date,
-  }),
+    lastName: string.isRuired,
+  }).isRequired,
   fetchAuthors: func.isRequired,
   history: object,
   updateAuthor: func.isRequired,

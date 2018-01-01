@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import { bool, func, object, string } from 'prop-types';
 
 import type { Author } from '../../../../constants/flowtypes';
 
@@ -48,18 +48,8 @@ function AuthorEditView({
 }
 
 AuthorEditView.propTypes = {
-  author: shape({
-    id: string,
-    firstName: string,
-    lastName: string,
-    created: string,
-    updated: string,
-  }),
-  errors: shape({
-    found: bool,
-    firstName: string,
-    lastName: string,
-  }),
+  author: object.isRequired,
+  errors: object.isRequired,
   onCancel: func.isRequired,
   onInputChange: func.isRequired,
   onSubmit: func.isRequired,

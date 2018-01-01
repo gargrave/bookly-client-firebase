@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, date, shape, string } from 'prop-types';
+import { func, instanceOf, shape, string } from 'prop-types';
 import { format } from 'date-fns';
 
 import type { User } from '../../../../constants/flowtypes';
@@ -20,6 +20,12 @@ function AccountDetailView({
   onLogoutClick,
   user,
 }: Props) {
+  const {
+    email,
+    lastLogin,
+    registered,
+  } = user;
+
   return (
     <div className={buildClasses('account-detail-view')}>
       <Card
@@ -27,15 +33,15 @@ function AccountDetailView({
         hoverable={false}
         title="My Account">
         <p className={buildClasses('card-text')}>
-          <strong>Email:</strong> {user.email}
+          <strong>Email:</strong> {email}
         </p>
 
         <hr/>
         <p className={buildClasses('card-text')}>
-          <strong>Registered:</strong> {format(user.registered, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Registered:</strong> {format(registered, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
         <p className={buildClasses('card-text')}>
-          <strong>Last login:</strong> {format(user.lastLogin, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Last login:</strong> {format(lastLogin, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
 
         <hr/>
@@ -57,8 +63,8 @@ AccountDetailView.propTypes = {
   onLogoutClick: func.isRequired,
   user: shape({
     email: string.isRequired,
-    registered: date,
-    lastLogin: string,
+    lastLogin: string.isRequired,
+    registered: instanceOf(Date).isRequired,
   }).isRequired,
 };
 

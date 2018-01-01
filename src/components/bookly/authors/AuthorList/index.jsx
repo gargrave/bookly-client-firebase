@@ -30,7 +30,7 @@ function authorList(
     <div>
       {authors
         .filter((a: Author) => filterAuthor(a, filterBy))
-        .map((author) =>
+        .map((author: Author) =>
           <AuthorListDetail
             author={author}
             key={author.id}

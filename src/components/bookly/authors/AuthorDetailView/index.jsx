@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { date, func, shape, string } from 'prop-types';
+import { func, instanceOf, shape, string } from 'prop-types';
 import { format } from 'date-fns';
 
 import type { Author } from '../../../../constants/flowtypes';
@@ -61,10 +61,10 @@ function AuthorDetailView({
 AuthorDetailView.propTypes = {
   author: shape({
     id: string,
+    created: instanceOf(Date),
+    updated: instanceOf(Date),
     firstName: string,
     lastName: string,
-    created: date,
-    updated: date,
   }),
   onBackClick: func.isRequired,
   onEditClick: func.isRequired,

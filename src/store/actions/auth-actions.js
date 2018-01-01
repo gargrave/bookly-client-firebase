@@ -57,7 +57,6 @@ function login({ email, password }) {
 
 function logout() {
   return async (dispatch) => {
-    console.error('TODO: update "logout" request to use Firebase');
     await auth.signOut();
     dispatch(_logout());
   };

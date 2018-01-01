@@ -15,11 +15,13 @@ function AuthorListDetail({
   author,
   onClick,
 }: Props) {
+  const authorName = `${author.firstName} ${author.lastName}`;
+
   return (
     <Card
       classes={['author-card']}
       onClick={onClick}
-      title={`${author.firstName} ${author.lastName}`}
+      title={authorName}
     />
   );
 }

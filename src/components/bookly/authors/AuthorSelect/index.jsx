@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { array, bool, func, number, shape, string } from 'prop-types';
+import { array, bool, func, shape, string } from 'prop-types';
 
 import type { Author } from '../../../../constants/flowtypes';
 

@@ -6,10 +6,10 @@ import { func, object } from 'prop-types';
 import type { Author } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { createAuthor, fetchAuthors } from '../../../store/actions/author-actions';
-import { validateAuthor } from '../../../globals/validations';
 import { parseError } from '../../../globals/errors';
+import { validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
+import { createAuthor, fetchAuthors } from '../../../store/actions/author-actions';
 
 import AuthorForm from '../../../components/bookly/authors/AuthorForm';
 import Card from '../../../components/common/Card';

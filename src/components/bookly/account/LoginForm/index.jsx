@@ -34,7 +34,6 @@ function LoginForm({
       submitDisabled={submitDisabled}
       topLevelError={topLevelError}
     >
-
       <InputField
         boundValue={user.email}
         disabled={disabled}
@@ -61,15 +60,15 @@ function LoginForm({
 LoginForm.propTypes = {
   disabled: bool,
   errors: shape({
-    email: string,
-    password: string,
-  }),
+    email: string.isRequired,
+    password: string.isRequired,
+  }).isRequired,
   onInputChange: func.isRequired,
   onSubmit: func.isRequired,
-    user: shape({
-      email: string.isRequired,
-      password: string.isRequired,
-    }).isRequired,
+  user: shape({
+    email: string.isRequired,
+    password: string.isRequired,
+  }).isRequired,
   submitDisabled: bool,
   topLevelError: string,
   user: any,
