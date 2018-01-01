@@ -1,4 +1,4 @@
-import { APP } from '../action-types';
+import { APP } from '../actionTypes';
 
 function _setInitialized() {
   return { type: APP.INITIALIZED };

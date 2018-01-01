@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { func } from 'prop-types';
 
 import { auth } from '../globals/firebase/';
-import { setInitialized } from '../store/actions/app-actions';
-import { setLocalUserData } from '../store/actions/auth-actions';
+import { setInitialized } from '../store/actions/appActions';
+import { setLocalUserData } from '../store/actions/authActions';
 
 import SimpleHeader from './bookly/header/SimpleHeader';
 import Routes from './Routes';

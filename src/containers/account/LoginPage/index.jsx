@@ -6,7 +6,7 @@ import { func, object } from 'prop-types';
 import type { User } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { login } from '../../../store/actions/auth-actions';
+import { login } from '../../../store/actions/authActions';
 import { parseError } from '../../../globals/errors';
 import { validateLogin } from '../../../globals/validations/';
 import { userModel } from '../../../models/User.model';

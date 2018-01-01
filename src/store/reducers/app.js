@@ -1,4 +1,4 @@
-import { APP } from '../action-types';
+import { APP } from '../actionTypes';
 
 const defaultState = {
   initialized: false,

@@ -6,7 +6,7 @@ import { array, func, object } from 'prop-types';
 import type { Author } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { fetchAuthors } from '../../../store/actions/author-actions';
+import { fetchAuthors } from '../../../store/actions/authorActions';
 
 import Alert from '../../../components/common/Alert';
 import AuthorList from '../../../components/bookly/authors/AuthorList';

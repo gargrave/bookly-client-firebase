@@ -6,7 +6,7 @@ import { array, func, object } from 'prop-types';
 import type { Book } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { fetchBooks } from '../../../store/actions/book-actions';
+import { fetchBooks } from '../../../store/actions/bookActions';
 
 import Alert from '../../../components/common/Alert';
 import Button from '../../../components/common/Button';

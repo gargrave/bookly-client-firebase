@@ -1,4 +1,4 @@
-import { AUTH } from '../action-types';
+import { AUTH } from '../actionTypes';
 
 const defaultState = {
   userRequestPending: false,

@@ -6,7 +6,7 @@ import { instanceOf, func, object, oneOfType, shape, string } from 'prop-types';
 import type { Author } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { fetchAuthors, updateAuthor } from '../../../store/actions/author-actions';
+import { fetchAuthors, updateAuthor } from '../../../store/actions/authorActions';
 import { authorsMatch, validateAuthor } from '../../../globals/validations';
 import { parseError } from '../../../globals/errors';
 import { authorModel } from '../../../models/Author.model';

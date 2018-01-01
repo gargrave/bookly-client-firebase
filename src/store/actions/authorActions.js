@@ -1,5 +1,5 @@
 // @flow
-import { AUTHORS } from '../action-types';
+import { AUTHORS } from '../actionTypes';
 
 import type { Author, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
 import { parseError } from '../../globals/errors';

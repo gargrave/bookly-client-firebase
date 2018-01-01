@@ -1,4 +1,4 @@
-import { AUTH, BOOKS } from '../action-types';
+import { AUTH, BOOKS } from '../actionTypes';
 
 const defaultState = {
   bookRequestPending: false,

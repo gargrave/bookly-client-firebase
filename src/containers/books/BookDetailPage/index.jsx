@@ -6,7 +6,7 @@ import { array, func, object, shape, string } from 'prop-types';
 import type { Author, Book } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { fetchBooks, updateBook } from '../../../store/actions/book-actions';
+import { fetchBooks, updateBook } from '../../../store/actions/bookActions';
 import { bookModel } from '../../../models/Book.model';
 
 import BookDetailView from '../../../components/bookly/books/BookDetailView';

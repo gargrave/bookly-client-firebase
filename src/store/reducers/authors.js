@@ -1,4 +1,4 @@
-import { AUTH, AUTHORS } from '../action-types';
+import { AUTH, AUTHORS } from '../actionTypes';
 
 const defaultState = {
   authorRequestPending: false,

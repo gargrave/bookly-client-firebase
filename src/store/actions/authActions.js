@@ -1,4 +1,4 @@
-import { AUTH } from '../action-types';
+import { AUTH } from '../actionTypes';
 
 import { parseError } from '../../globals/errors';
 import { auth } from '../../globals/firebase';

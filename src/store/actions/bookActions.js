@@ -1,5 +1,5 @@
 // @flow
-import { BOOKS } from '../action-types';
+import { BOOKS } from '../actionTypes';
 
 import type { Author, Book, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
 import { parseError } from '../../globals/errors';
@@ -7,7 +7,7 @@ import { bookModel } from '../../models/Book.model';
 
 import { db, timestamp } from '../../globals/firebase/';
 
-import { fetchAuthors } from './author-actions';
+import { fetchAuthors } from './authorActions';
 
 const DB = 'books';
 const TEMP_USER_ID = 'h6E552ay3JdE6MrJfCIVfdXQsP23';
