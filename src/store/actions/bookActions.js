@@ -10,7 +10,6 @@ import { db, timestamp } from '../../globals/firebase/';
 import { fetchAuthors } from './authorActions';
 
 const DB = 'books';
-const TEMP_USER_ID = 'h6E552ay3JdE6MrJfCIVfdXQsP23';
 
 function _requestStart() {
   return {
@@ -99,7 +98,7 @@ function createBook(book: Book) {
     dispatch(_requestStart());
     try {
       const payload = {
-        owner: TEMP_USER_ID,
+        owner: getState().auth.user.id,
         created: timestamp(),
         updated: timestamp(),
         ...book,

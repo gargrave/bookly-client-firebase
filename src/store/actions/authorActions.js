@@ -9,7 +9,6 @@ import { db, timestamp } from '../../globals/firebase/';
 import { authorModel } from '../../models/Author.model';
 
 const DB = 'authors';
-const TEMP_USER_ID = 'h6E552ay3JdE6MrJfCIVfdXQsP23';
 
 function _requestStart() {
   return {
@@ -67,11 +66,11 @@ function fetchAuthors() {
 }
 
 function createAuthor(author: Author) {
-  return async (dispatch: Function) => {
+  return async (dispatch: Function, getState: Function) => {
     dispatch(_requestStart());
     try {
       const payload = {
-        owner: TEMP_USER_ID,
+        owner: getState().auth.user.id,
         created: timestamp(),
         updated: timestamp(),
         ...author,
