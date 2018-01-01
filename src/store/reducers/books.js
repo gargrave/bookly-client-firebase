@@ -7,9 +7,13 @@ const defaultState = {
 
 // TODO: implement better sort handling (including letting the user choose)
 function sortByAuthorLastName(books) {
-  return books.sort((a, b) => {
-    return a.author.lastName.toLowerCase() > b.author.lastName.toLowerCase() ? 1 : -1;
-  });
+  return books
+    .sort((a, b) => {
+      return a.title > b.title ? 1 : -1;
+    })
+    .sort((a, b) => {
+      return a.author.lastName.toLowerCase() > b.author.lastName.toLowerCase() ? 1 : -1;
+    });
 }
 
 export default function books(state = defaultState, action) {
