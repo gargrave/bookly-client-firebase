@@ -58,7 +58,7 @@ export function fetchBooks() {
         const results: FbCollection = await db.collection(DB).get();
         const authors: Author[] = getState().authors.data;
         const records: Book[] = results.docs.map(
-          (doc: FbDoc) => bookModel.fromDoc(doc, authors)
+          (doc: FbDoc) => bookModel.fromAPI(doc, authors)
         );
 
         dispatch(_fetchBooks(records));
@@ -86,7 +86,7 @@ export function createBook(book: Book) {
       const docRef: FbDocRef = await db.collection(DB).add(payload);
       const doc: FbDoc = await docRef.get();
       const authors: Author[] = getState().authors.data;
-      const newRecord: Book = bookModel.fromDoc(doc, authors);
+      const newRecord: Book = bookModel.fromAPI(doc, authors);
 
       dispatch(_createBook(newRecord));
       return newRecord;
@@ -115,7 +115,7 @@ export function updateBook(book: Book) {
       await docRef.update(payload);
       const doc: FbDoc = await docRef.get();
       const authors: Author[] = getState().authors.data;
-      const updatedRecord: Book = bookModel.fromDoc(doc, authors);
+      const updatedRecord: Book = bookModel.fromAPI(doc, authors);
 
       dispatch(_updateBook(updatedRecord));
       return updatedRecord;

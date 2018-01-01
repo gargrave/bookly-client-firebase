@@ -43,7 +43,7 @@ const bookModel = {
     return payload;
   },
 
-  fromDoc(doc: FbDoc, authors: Author[]): Book {
+  fromAPI(doc: FbDoc, authors: Author[]): Book {
     const {
       title,
       authorId,

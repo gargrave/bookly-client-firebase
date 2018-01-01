@@ -47,7 +47,7 @@ export function fetchAuthors() {
       dispatch(_requestStart());
       try {
         const results: FbCollection = await db.collection(DB).get();
-        const records: Author[] = results.docs.map((doc) => authorModel.fromFbDoc(doc));
+        const records: Author[] = results.docs.map((doc) => authorModel.fromAPI(doc));
 
         dispatch(_fetchAuthors(records));
         return records;
@@ -73,7 +73,7 @@ export function createAuthor(author: Author) {
 
       const docRef: FbDocRef = await db.collection(DB).add(payload);
       const doc: FbDoc = await docRef.get();
-      const newRecord: Author = authorModel.fromFbDoc(doc);
+      const newRecord: Author = authorModel.fromAPI(doc);
 
       dispatch(_createAuthor(newRecord));
       return newRecord;
@@ -101,7 +101,7 @@ export function updateAuthor(author: Author) {
       const docRef: FbDocRef = await db.collection(DB).doc(id);
       await docRef.update(payload);
       const doc: FbDoc = await docRef.get();
-      const updatedRecord: Author = authorModel.fromFbDoc(doc);
+      const updatedRecord: Author = authorModel.fromAPI(doc);
 
       dispatch(_updateAuthor(updatedRecord));
       return updatedRecord;

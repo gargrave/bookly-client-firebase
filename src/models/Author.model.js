@@ -24,7 +24,7 @@ const authorModel = {
     return payload;
   },
 
-  fromFbDoc(doc: FbDoc): Author {
+  fromAPI(doc: FbDoc): Author {
     const {
       firstName,
       lastName,
