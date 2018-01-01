@@ -212,13 +212,13 @@ AuthorDetailPage.propTypes = {
     created: oneOfType([
       instanceOf(Date),
       string,
-    ]).isRequired,
+    ]),
     updated: oneOfType([
       instanceOf(Date),
       string,
-    ]).isRequired,
+    ]),
     firstName: string,
-    lastName: string.isRuired,
+    lastName: string,
   }).isRequired,
   fetchAuthors: func.isRequired,
   history: object,

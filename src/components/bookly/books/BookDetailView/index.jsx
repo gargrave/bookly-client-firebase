@@ -71,16 +71,16 @@ BookDetailView.propTypes = {
     created: oneOfType([
       instanceOf(Date),
       string,
-    ]).isRequired,
+    ]),
     updated: oneOfType([
       instanceOf(Date),
       string,
-    ]).isRequired,
+    ]),
     author: shape({
       firstName: string,
       lastName: string,
     }),
-    title: string.isRequired,
+    title: string,
   }).isRequired,
   onBackClick: func.isRequired,
   onEditClick: func.isRequired,

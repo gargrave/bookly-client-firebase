@@ -64,11 +64,11 @@ AuthorDetailView.propTypes = {
     created: oneOfType([
       instanceOf(Date),
       string,
-    ]).isRequired,
+    ]),
     updated: oneOfType([
       instanceOf(Date),
       string,
-    ]).isRequired,
+    ]),
     firstName: string,
     lastName: string,
   }),
