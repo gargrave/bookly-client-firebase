@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorsMockData } from '../../../..//utils/mocks/data/authors-mock-data';
+import { authorMocks } from '../../../../utils/mocks/';
 
 import Card from '../../../common/Card';
 
@@ -13,7 +13,7 @@ describe('AuthorDetailView', () => {
 
   beforeEach(() => {
     props = {
-      author: Object.create(authorsMockData[0]),
+      author: Object.create(authorMocks[0]),
       onBackClick: jest.fn(),
       onEditClick: jest.fn(),
     };

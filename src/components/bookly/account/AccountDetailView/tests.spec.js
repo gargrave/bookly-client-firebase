@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { usersMockData } from '../../../../utils/mocks/data/users-mock-data';
+import { userMocks } from '../../../../utils/mocks/';
 
 import Card from '../../../common/Card';
 
@@ -14,7 +14,7 @@ describe('AccountDetailView', () => {
   beforeEach(() => {
     props = {
       onLogoutClick: jest.fn(),
-      user: Object.create(usersMockData[0]),
+      user: Object.create(userMocks[0]),
     };
 
     component = shallow(<AccountDetailView {...props} />);

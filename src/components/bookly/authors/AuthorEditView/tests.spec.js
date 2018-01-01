@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorsMockData } from '../../../..//utils/mocks/data/authors-mock-data';
+import { authorMocks } from '../../../../utils/mocks/';
 
 import AuthorEditView from './';
 import AuthorForm from '../../authors/AuthorForm';
@@ -12,7 +12,7 @@ describe('AuthorEditView', () => {
 
   beforeEach(() => {
     props = {
-      author: Object.create(authorsMockData[0]),
+      author: Object.create(authorMocks[0]),
       errors: {
         firstName: '',
         lastName: '',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorsMockData } from '../../../../utils/mocks/data/authors-mock-data';
+import { authorMocks } from '../../../../utils/mocks/';
 
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField';
@@ -15,7 +15,7 @@ describe('AuthorForm', () => {
   describe('with "author" populated', () => {
     beforeEach(() => {
       props = {
-        author: Object.create(authorsMockData[0]),
+        author: Object.create(authorMocks[0]),
         disabled: false,
         errors: {
           firstName: '',

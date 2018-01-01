@@ -1,4 +1,4 @@
-export const authorsMockData = [
+export default [
   {
     id: 'oiw223h3qndlksadffl3ksdf',
     created: new Date('2017-07-01T01:16:43.881Z'),
