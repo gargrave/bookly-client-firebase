@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { array, date, func, number, object, shape, string } from 'prop-types';
+import { array, func, object } from 'prop-types';
 
 import type { Author, Book } from '../../../constants/flowtypes';
 
@@ -121,13 +121,20 @@ class BookDetailPage extends Component<Props, State> {
   }
 
   render() {
-    const { authors } = this.props;
-    const { editing } = this.state;
+    const {
+      authors,
+      book,
+    } = this.props;
+    const {
+      editableBook,
+      editing,
+    } = this.state;
+
     return (
       <div>
         {!editing && (
           <BookDetailView
-            book={this.props.book}
+            book={book}
             onEditClick={this.onEditClick}
             onBackClick={this.onBackClick}
           />
@@ -135,7 +142,7 @@ class BookDetailPage extends Component<Props, State> {
         {editing && (
           <BookEditView
             authors={authors}
-            book={this.state.editableBook}
+            book={editableBook}
             onAuthorChange={this.onAuthorChange}
             onInputChange={this.onInputChange}
             onSubmit={this.onSubmit}
@@ -149,16 +156,7 @@ class BookDetailPage extends Component<Props, State> {
 
 BookDetailPage.propTypes = {
   authors: array.isRequired,
-  book: shape({
-    id: string,
-    title: string,
-    author: shape({
-      firstName: string,
-      lastName: string,
-    }),
-    created: date,
-    updated: date,
-  }),
+  book: object.isRequired,
   fetchBooks: func.isRequired,
   history: object,
   updateBook: func.isRequired,

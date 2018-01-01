@@ -29,6 +29,11 @@ function BookForm({
   onSubmit,
   topLevelError,
 }: Props) {
+  const {
+    author,
+    title,
+  } = book;
+
   return (
     <Form
       classes={['book-form']}
@@ -38,7 +43,7 @@ function BookForm({
       topLevelError={topLevelError}
     >
       <InputField
-        boundValue={book.title}
+        boundValue={title}
         disabled={disabled || false}
         label="Title"
         name="title"
@@ -46,7 +51,7 @@ function BookForm({
       />
 
       <AuthorSelect
-        author={book.author}
+        author={author}
         authors={authors}
         disabled={disabled || false}
         onChange={onAuthorChange}

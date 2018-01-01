@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, object } from 'prop-types';
+import { func, instanceOf, shape, string } from 'prop-types';
 import { format } from 'date-fns';
 
 import type { Book } from '../../../../constants/flowtypes';
@@ -22,21 +22,28 @@ function BookDetailView({
   onBackClick,
   onEditClick,
 }: Props) {
+  const {
+    created,
+    title,
+    updated,
+  } = book;
+  const authorName = `${book.author.firstName} ${book.author.lastName}`;
+
   return (
     <div className={buildClasses('book-detail-view')}>
       <Card
         classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
         hoverable={false}
-        text={`by ${book.author.firstName} ${book.author.lastName}`}
-        title={book.title}
+        text={`by ${authorName}`}
+        title={title}
       >
 
         <hr/>
         <p className={buildClasses('card-text')}>
-          <strong>Added:</strong> {format(book.created, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Added:</strong> {format(created, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
         <p className={buildClasses('card-text')}>
-          <strong>Updated:</strong> {format(book.updated, 'MMM. DD, YYYY, HH:mm:ss')}
+          <strong>Updated:</strong> {format(updated, 'MMM. DD, YYYY, HH:mm:ss')}
         </p>
 
         <hr/>
@@ -60,7 +67,15 @@ function BookDetailView({
 }
 
 BookDetailView.propTypes = {
-  book: object,
+  book: shape({
+    created: instanceOf(Date),
+    updated: instanceOf(Date),
+    author: shape({
+      firstName: string,
+      lastName: string,
+    }),
+    title: string.isRequired,
+  }).isRequired,
   onBackClick: func.isRequired,
   onEditClick: func.isRequired,
 };

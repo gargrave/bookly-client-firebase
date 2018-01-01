@@ -31,7 +31,7 @@ function bookList(
     <div>
       {books
         .filter((b: Book) => filterBook(b, filterBy))
-        .map((book) =>
+        .map((book: Book) =>
           <BookListDetail
             book={book}
             key={book.id}

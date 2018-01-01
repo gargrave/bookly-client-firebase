@@ -12,12 +12,12 @@ function hydrateAuthor(authors, id) {
 const bookModel = {
   empty(): any {
     return {
-      title: '',
       author: {
         id: -1,
         firstName: '',
         lastName: '',
       },
+      title: '',
     };
   },
 

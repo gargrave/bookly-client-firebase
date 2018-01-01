@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { array, date, func, object, shape, string } from 'prop-types';
+import { array, func, object } from 'prop-types';
 
 import type { Author, Book } from '../../../../constants/flowtypes';
 
@@ -46,13 +46,7 @@ function BookEditView({
 
 BookEditView.propTypes = {
   authors: array.isRequired,
-  book: shape({
-    id: string,
-    title: string,
-    author: object,
-    created: date,
-    updated: date,
-  }),
+  book: object.isRequired,
   onAuthorChange: func.isRequired,
   onInputChange: func.isRequired,
   onSubmit: func.isRequired,
