@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { authorModel } from '../../../../models/Author.model';
+
 import BookForm from './';
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField';
@@ -14,7 +16,13 @@ describe('BookForm', () => {
     beforeEach(() => {
       props = {
         authors: [],
-        book: { title: '', author: {} },
+        book: {
+          title: '',
+          author: {
+            id: '98hfjsdbf9s8fhdf',
+            ...authorModel.empty(),
+          },
+        },
         disabled: false,
         onAuthorChange: jest.fn(),
         onCancel: jest.fn(),

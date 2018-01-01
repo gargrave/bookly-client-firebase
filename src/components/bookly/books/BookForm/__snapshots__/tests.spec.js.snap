@@ -8,7 +8,11 @@ ShallowWrapper {
     authors={Array []}
     book={
       Object {
-        "author": Object {},
+        "author": Object {
+          "firstName": "",
+          "id": "98hfjsdbf9s8fhdf",
+          "lastName": "",
+        },
         "title": "",
       }
     }
@@ -40,7 +44,13 @@ ShallowWrapper {
           onInputChange={[Function]}
         />,
         <AuthorSelect
-          author={Object {}}
+          author={
+            Object {
+              "firstName": "",
+              "id": "98hfjsdbf9s8fhdf",
+              "lastName": "",
+            }
+          }
           authors={Array []}
           disabled={false}
           onChange={[Function]}
@@ -76,7 +86,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "author": Object {},
+          "author": Object {
+            "firstName": "",
+            "id": "98hfjsdbf9s8fhdf",
+            "lastName": "",
+          },
           "authors": Array [],
           "disabled": false,
           "onChange": [Function],
@@ -103,7 +117,13 @@ ShallowWrapper {
             onInputChange={[Function]}
           />,
           <AuthorSelect
-            author={Object {}}
+            author={
+              Object {
+                "firstName": "",
+                "id": "98hfjsdbf9s8fhdf",
+                "lastName": "",
+              }
+            }
             authors={Array []}
             disabled={false}
             onChange={[Function]}
@@ -139,7 +159,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "author": Object {},
+            "author": Object {
+              "firstName": "",
+              "id": "98hfjsdbf9s8fhdf",
+              "lastName": "",
+            },
             "authors": Array [],
             "disabled": false,
             "onChange": [Function],

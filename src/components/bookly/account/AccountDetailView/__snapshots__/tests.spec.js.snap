@@ -54,10 +54,10 @@ ShallowWrapper {
           className="bookly-card-text"
         >
           <strong>
-            Updated:
+            Last login:
           </strong>
            
-          Jun. 30, 2017, 12:52:54
+          Jun. 30, 2017, 18:11:03
         </p>
         <hr />
         <ButtonRow>
@@ -101,10 +101,10 @@ ShallowWrapper {
             className="bookly-card-text"
           >
             <strong>
-              Updated:
+              Last login:
             </strong>
              
-            Jun. 30, 2017, 12:52:54
+            Jun. 30, 2017, 18:11:03
           </p>,
           <hr />,
           <ButtonRow>
@@ -206,10 +206,10 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <strong>
-                Updated:
+                Last login:
               </strong>,
               " ",
-              "Jun. 30, 2017, 12:52:54",
+              "Jun. 30, 2017, 18:11:03",
             ],
             "className": "bookly-card-text",
           },
@@ -220,14 +220,14 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Updated:",
+                "children": "Last login:",
               },
               "ref": null,
-              "rendered": "Updated:",
+              "rendered": "Last login:",
               "type": "strong",
             },
             " ",
-            "Jun. 30, 2017, 12:52:54",
+            "Jun. 30, 2017, 18:11:03",
           ],
           "type": "p",
         },
@@ -314,10 +314,10 @@ ShallowWrapper {
             className="bookly-card-text"
           >
             <strong>
-              Updated:
+              Last login:
             </strong>
              
-            Jun. 30, 2017, 12:52:54
+            Jun. 30, 2017, 18:11:03
           </p>
           <hr />
           <ButtonRow>
@@ -361,10 +361,10 @@ ShallowWrapper {
               className="bookly-card-text"
             >
               <strong>
-                Updated:
+                Last login:
               </strong>
                
-              Jun. 30, 2017, 12:52:54
+              Jun. 30, 2017, 18:11:03
             </p>,
             <hr />,
             <ButtonRow>
@@ -466,10 +466,10 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <strong>
-                  Updated:
+                  Last login:
                 </strong>,
                 " ",
-                "Jun. 30, 2017, 12:52:54",
+                "Jun. 30, 2017, 18:11:03",
               ],
               "className": "bookly-card-text",
             },
@@ -480,14 +480,14 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Updated:",
+                  "children": "Last login:",
                 },
                 "ref": null,
-                "rendered": "Updated:",
+                "rendered": "Last login:",
                 "type": "strong",
               },
               " ",
-              "Jun. 30, 2017, 12:52:54",
+              "Jun. 30, 2017, 18:11:03",
             ],
             "type": "p",
           },

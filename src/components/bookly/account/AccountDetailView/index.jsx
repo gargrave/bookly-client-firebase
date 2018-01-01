@@ -63,7 +63,7 @@ AccountDetailView.propTypes = {
   onLogoutClick: func.isRequired,
   user: shape({
     email: string.isRequired,
-    lastLogin: string.isRequired,
+    lastLogin: instanceOf(Date).isRequired,
     registered: instanceOf(Date).isRequired,
   }).isRequired,
 };
