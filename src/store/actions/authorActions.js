@@ -51,7 +51,10 @@ function fetchAuthors() {
     } else {
       dispatch(_requestStart());
       try {
-        const results: FbCollection = await db.collection(DB).get();
+        const userId = getState().auth.user.id;
+        const query = db.collection(DB)
+          .where('owner', '==', userId);
+        const results: FbCollection = await query.get();
         const records: Author[] = results.docs.map((doc) => authorModel.fromAPI(doc));
 
         dispatch(_fetchAuthors(records));
