@@ -17,7 +17,7 @@ const bookModel = {
   empty(): any {
     return {
       author: {
-        id: -1,
+        id: '',
         firstName: '',
         lastName: '',
       },
@@ -32,9 +32,18 @@ const bookModel = {
     };
   },
 
+  editable(book: Book): Book {
+    return {
+      author: book.author,
+      created: book.created,
+      id: book.id,
+      title: book.title,
+    };
+  },
+
   toAPI(data: any): any {
     let payload: any = {
-      title: data.title || '',
+      title: data.title,
       authorId: data.author.id,
     };
 

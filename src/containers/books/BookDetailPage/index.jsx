@@ -89,10 +89,12 @@ class BookDetailPage extends Component<Props, State> {
     if (tempValidate()) {
       try {
         await this.props.updateBook(book);
-        this.setState({ editing: false });
+        this.setState({
+          editing: false,
+        });
       } catch (err) {
-        console.log('deal with this error:');
-        console.dir(err.message);
+        console.error('Deal with this error in BookDetailPage.onSubmit:');
+        console.error(err.message);
       }
     }
   }
@@ -108,10 +110,7 @@ class BookDetailPage extends Component<Props, State> {
 
     this.setState({
       editing: true,
-      editableBook: {
-        author: book.author,
-        title: book.title,
-      },
+      editableBook: bookModel.editable(book),
     });
   }
 
