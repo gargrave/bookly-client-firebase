@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, instanceOf, shape, string } from 'prop-types';
+import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
 import { format } from 'date-fns';
 
 import type { User } from '../../../../constants/flowtypes';
@@ -63,8 +63,14 @@ AccountDetailView.propTypes = {
   onLogoutClick: func.isRequired,
   user: shape({
     email: string.isRequired,
-    lastLogin: instanceOf(Date).isRequired,
-    registered: instanceOf(Date).isRequired,
+    lastLogin: oneOfType([
+      instanceOf(Date),
+      string,
+    ]).isRequired,
+    registered: oneOfType([
+      instanceOf(Date),
+      string,
+    ]).isRequired,
   }).isRequired,
 };
 
