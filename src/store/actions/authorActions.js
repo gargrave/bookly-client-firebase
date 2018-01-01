@@ -2,6 +2,8 @@
 import { AUTHORS } from '../actionTypes';
 
 import type { Author, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
+
+import { refreshBooksByAuthor } from './bookActions';
 import { parseError } from '../../globals/errors';
 import { db, timestamp } from '../../globals/firebase/';
 import { authorModel } from '../../models/Author.model';
@@ -43,7 +45,7 @@ function _updateAuthor(author: Author) {
 }
 
 function fetchAuthors() {
-  return async (dispatch: any, getState: any) => {
+  return async (dispatch: Function, getState: Function) => {
     const authors = getState().authors.data;
     if (authors.length) {
       return authors;
@@ -65,7 +67,7 @@ function fetchAuthors() {
 }
 
 function createAuthor(author: Author) {
-  return async (dispatch: any) => {
+  return async (dispatch: Function) => {
     dispatch(_requestStart());
     try {
       const payload = {
@@ -91,7 +93,7 @@ function createAuthor(author: Author) {
 }
 
 function updateAuthor(author: Author) {
-  return async (dispatch: any) => {
+  return async (dispatch: Function) => {
     dispatch(_requestStart());
     try {
       const payload = {
@@ -107,9 +109,8 @@ function updateAuthor(author: Author) {
       const doc: FbDoc = await docRef.get();
       const updatedRecord: Author = authorModel.fromAPI(doc);
 
-      console.error('TODO: need to update any local books using this author');
-
       dispatch(_updateAuthor(updatedRecord));
+      dispatch(refreshBooksByAuthor(updatedRecord));
       return updatedRecord;
     } catch (err) {
       console.error(`Error updating document: ${err}`);

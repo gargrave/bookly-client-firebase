@@ -9,6 +9,10 @@ function hydrateAuthor(authors, id) {
   };
 }
 
+function refreshBookAuthor(book: Book, authors: Author[]) {
+  book.author = hydrateAuthor(authors, book.author.id || book.authorId);
+}
+
 const bookModel = {
   empty(): any {
     return {
@@ -63,4 +67,5 @@ const bookModel = {
 
 export {
   bookModel,
+  refreshBookAuthor,
 };

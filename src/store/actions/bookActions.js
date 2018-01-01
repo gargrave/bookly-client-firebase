@@ -3,7 +3,7 @@ import { BOOKS } from '../actionTypes';
 
 import type { Author, Book, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
 import { parseError } from '../../globals/errors';
-import { bookModel } from '../../models/Book.model';
+import { bookModel, refreshBookAuthor } from '../../models/Book.model';
 
 import { db, timestamp } from '../../globals/firebase/';
 
@@ -42,6 +42,24 @@ function _updateBook(book: Book) {
   return {
     type: BOOKS.UPDATE_SUCCESS,
     payload: { book },
+  };
+}
+
+function refreshBooksByAuthor(author: Author) {
+  return (dispatch: Function, getState: Function) => {
+    const books = getState().books.data;
+    const booksToIgnore = books
+      .filter((b: Book) => b.author.id !== author.id);
+    const booksToUpdate = books
+      .filter((b: Book) => b.author.id === author.id);
+
+    booksToUpdate.forEach((book: Book) =>
+      refreshBookAuthor(book, [author])
+    );
+    dispatch(_fetchBooks([
+      ...booksToIgnore,
+      ...booksToUpdate,
+    ]));
   };
 }
 
@@ -133,6 +151,7 @@ function updateBook(book: Book) {
 }
 
 export {
+  refreshBooksByAuthor,
   createBook,
   fetchBooks,
   updateBook,
