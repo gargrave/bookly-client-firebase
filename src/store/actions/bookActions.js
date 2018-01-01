@@ -13,11 +13,15 @@ const DB = 'books';
 const TEMP_USER_ID = 'h6E552ay3JdE6MrJfCIVfdXQsP23';
 
 function _requestStart() {
-  return { type: BOOKS.REQUEST_START };
+  return {
+    type: BOOKS.REQUEST_START,
+  };
 }
 
 function _requestEnd() {
-  return { type: BOOKS.REQUEST_END };
+  return {
+    type: BOOKS.REQUEST_END,
+  };
 }
 
 function _fetchBooks(books: Book[]) {
@@ -41,7 +45,7 @@ function _updateBook(book: Book) {
   };
 }
 
-export function fetchBooks() {
+function fetchBooks() {
   return async (dispatch: Function, getState: Function) => {
     // ensure that Author data has been loaded
     const authors = getState().authors.data;
@@ -72,7 +76,7 @@ export function fetchBooks() {
   };
 }
 
-export function createBook(book: Book) {
+function createBook(book: Book) {
   return async (dispatch: Function, getState: Function) => {
     dispatch(_requestStart());
     try {
@@ -99,7 +103,7 @@ export function createBook(book: Book) {
   };
 }
 
-export function updateBook(book: Book) {
+function updateBook(book: Book) {
   return async (dispatch: Function, getState: Function) => {
     dispatch(_requestStart());
     try {
@@ -127,3 +131,9 @@ export function updateBook(book: Book) {
     }
   };
 }
+
+export {
+  createBook,
+  fetchBooks,
+  updateBook,
+};

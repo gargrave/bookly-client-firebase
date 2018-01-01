@@ -10,11 +10,15 @@ const DB = 'authors';
 const TEMP_USER_ID = 'h6E552ay3JdE6MrJfCIVfdXQsP23';
 
 function _requestStart() {
-  return { type: AUTHORS.REQUEST_START };
+  return {
+    type: AUTHORS.REQUEST_START,
+  };
 }
 
 function _requestEnd() {
-  return { type: AUTHORS.REQUEST_END };
+  return {
+    type: AUTHORS.REQUEST_END,
+  };
 }
 
 function _fetchAuthors(authors: Author[]) {
@@ -38,7 +42,7 @@ function _updateAuthor(author: Author) {
   };
 }
 
-export function fetchAuthors() {
+function fetchAuthors() {
   return async (dispatch: any, getState: any) => {
     const authors = getState().authors.data;
     if (authors.length) {
@@ -60,7 +64,7 @@ export function fetchAuthors() {
   };
 }
 
-export function createAuthor(author: Author) {
+function createAuthor(author: Author) {
   return async (dispatch: any) => {
     dispatch(_requestStart());
     try {
@@ -86,7 +90,7 @@ export function createAuthor(author: Author) {
   };
 }
 
-export function updateAuthor(author: Author) {
+function updateAuthor(author: Author) {
   return async (dispatch: any) => {
     dispatch(_requestStart());
     try {
@@ -103,6 +107,8 @@ export function updateAuthor(author: Author) {
       const doc: FbDoc = await docRef.get();
       const updatedRecord: Author = authorModel.fromAPI(doc);
 
+      console.error('TODO: need to update any local books using this author');
+
       dispatch(_updateAuthor(updatedRecord));
       return updatedRecord;
     } catch (err) {
@@ -113,3 +119,9 @@ export function updateAuthor(author: Author) {
     }
   };
 }
+
+export {
+  createAuthor,
+  fetchAuthors,
+  updateAuthor,
+};
