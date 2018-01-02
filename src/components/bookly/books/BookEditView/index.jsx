@@ -28,7 +28,7 @@ function BookEditView({
     <div className="book-edit-view">
       <Card
         classes={['card--top-margin-med']}
-        header={"Update Book"}
+        header={'Update Book'}
         hoverable={false}
       >
         <BookForm

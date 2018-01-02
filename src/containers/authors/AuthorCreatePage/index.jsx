@@ -111,7 +111,7 @@ class AuthorCreatePage extends Component<Props, State> {
     return (
       <Card
         classes={['card--top-margin-med']}
-        header={"New Author"}
+        header={'New Author'}
         hoverable={false}
       >
         <AuthorForm

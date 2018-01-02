@@ -86,7 +86,7 @@ class LoginPage extends Component<Props, State> {
     return (
       <Card
         classes={['card--top-margin-med']}
-        header={"Login"}
+        header={'Login'}
         hoverable={false}
       >
         <LoginForm

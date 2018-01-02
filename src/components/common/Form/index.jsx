@@ -53,7 +53,7 @@ function Form({
             disabled={submitDisabled || disabled || false}
             onClick={onSubmit}
             position="left"
-            text={submitBtnText || "Submit"}
+            text={submitBtnText || 'Submit'}
             type="success"
           />
 
@@ -61,7 +61,7 @@ function Form({
             <Button
               classes="float-right"
               onClick={onCancel}
-              text={cancelBtnText || "Cancel"}
+              text={cancelBtnText || 'Cancel'}
               type="light"
             />
           }
