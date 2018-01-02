@@ -4,10 +4,13 @@ import { array, bool, func, shape, string } from 'prop-types';
 
 import type { Author } from '../../../../constants/flowtypes';
 
+import { buildClasses } from '../../../../utils/cssHelpers';
+
 type Props = {
   author: Author,
   authors: Author[],
   disabled: boolean,
+  error?: string,
   onChange: Function,
 };
 
@@ -23,10 +26,11 @@ function AuthorSelect({
   author,
   authors,
   disabled,
+  error,
   onChange,
 }: Props) {
   return (
-    <div className="input-field">
+    <div className={buildClasses(['input-field'], ['input-field'])}>
       <select
         className="author-select"
         disabled={disabled || false}
@@ -36,6 +40,12 @@ function AuthorSelect({
         <option value="-1">Select Author...</option>
         {options(authors)}
       </select>
+
+      {error &&
+        <p className={buildClasses(['input-field__error'])}>
+          {error}
+        </p>
+      }
     </div>
   );
 }

@@ -24,6 +24,10 @@ describe('BookForm', () => {
           },
         },
         disabled: false,
+        errors: {
+          title: '',
+          author: '',
+        },
         onAuthorChange: jest.fn(),
         onCancel: jest.fn(),
         onInputChange: jest.fn(),

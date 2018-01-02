@@ -37,13 +37,13 @@ const bookModel = {
       author: book.author,
       created: book.created,
       id: book.id,
-      title: book.title,
+      title: book.title.trim(),
     };
   },
 
   toAPI(data: any): any {
     let payload: any = {
-      title: data.title,
+      title: data.title.trim(),
       authorId: data.author.id,
     };
 

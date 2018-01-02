@@ -6,9 +6,11 @@ import { array, func, object } from 'prop-types';
 import type { Author, Book } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
+import { parseError } from '../../../globals/errors';
+import { validateBook } from '../../../globals/validations';
+import { bookModel } from '../../../models/Book.model';
 import { fetchAuthors } from '../../../store/actions/authorActions';
 import { createBook, fetchBooks } from '../../../store/actions/bookActions';
-import { bookModel } from '../../../models/Book.model';
 
 import BookForm from '../../../components/bookly/books/BookForm';
 import Card from '../../../components/common/Card';
@@ -24,7 +26,9 @@ type Props = {
 
 type State = {
   book: Book,
+  errors: Book,
   formDisabled: boolean,
+  topLevelError: string,
 };
 
 class BookCreatePage extends Component<Props, State> {
@@ -33,7 +37,9 @@ class BookCreatePage extends Component<Props, State> {
 
     this.state = {
       book: bookModel.empty(),
+      errors: bookModel.emptyErrors(),
       formDisabled: true,
+      topLevelError: '',
     };
 
     const _this: any = this;
@@ -79,19 +85,26 @@ class BookCreatePage extends Component<Props, State> {
 
   async onSubmit(event) {
     event.preventDefault();
-    const book = bookModel.toAPI(this.state.book);
-    const tempValidate = () => {
-      return !!book.title.length && !!book.authorId;
-    };
-
-    if (tempValidate()) {
-      try {
-        await this.props.createBook(book);
-        this.props.history.push(localUrls.booksList);
-      } catch (err) {
-        console.log('deal with this error:');
-        console.dir(err.message);
-      }
+    const errors = validateBook(this.state.book);
+    if (errors.found) {
+      this.setState({
+        errors,
+      });
+    } else {
+      this.setState({
+        errors: bookModel.emptyErrors(),
+        formDisabled: true,
+      }, async () => {
+        try {
+          const book = bookModel.toAPI(this.state.book);
+          await this.props.createBook(book);
+          this.props.history.push(localUrls.booksList);
+        } catch (err) {
+          this.setState({
+            topLevelError: parseError(err),
+          });
+        }
+      });
     }
   }
 
@@ -104,6 +117,7 @@ class BookCreatePage extends Component<Props, State> {
     const { authors } = this.props;
     const {
       book,
+      errors,
       formDisabled,
     } = this.state;
 
@@ -117,10 +131,11 @@ class BookCreatePage extends Component<Props, State> {
           authors={authors}
           book={book}
           disabled={formDisabled}
+          errors={errors}
           onAuthorChange={this.onAuthorChange}
+          onCancel={this.onCancel}
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
-          onCancel={this.onCancel}
         />
       </Card>
     );

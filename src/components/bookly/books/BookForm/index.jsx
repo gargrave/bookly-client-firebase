@@ -12,6 +12,7 @@ type Props = {
   authors: Author[],
   book: Book,
   disabled?: boolean,
+  errors: any,
   onAuthorChange: Function,
   onCancel: Function,
   onInputChange: Function,
@@ -23,6 +24,7 @@ function BookForm({
   authors,
   book,
   disabled = false,
+  errors,
   onAuthorChange,
   onCancel,
   onInputChange,
@@ -45,6 +47,7 @@ function BookForm({
       <InputField
         boundValue={title}
         disabled={disabled || false}
+        error={errors.title}
         label="Title"
         name="title"
         onInputChange={onInputChange}
@@ -54,6 +57,7 @@ function BookForm({
         author={author}
         authors={authors}
         disabled={disabled || false}
+        error={errors.author}
         onChange={onAuthorChange}
       />
     </Form>
