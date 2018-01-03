@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object, shape, string } from 'prop-types';
 
-import type { Author, Book } from '../../../constants/flowtypes';
+import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { fetchBooks, updateBook } from '../../../store/actions/bookActions';
+import { parseError } from '../../../globals/errors';
+import { booksMatch, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
+import { fetchBooks, updateBook } from '../../../store/actions/bookActions';
 
 import BookDetailView from '../../../components/bookly/books/BookDetailView';
 import BookEditView from '../../../components/bookly/books/BookEditView';
@@ -25,6 +27,10 @@ type Props = {
 type State = {
   editableBook: Book,
   editing: boolean,
+  errors: BookErrors,
+  formDisabled: boolean,
+  submitDisabled: boolean,
+  topLevelError: string,
 };
 
 class BookDetailPage extends Component<Props, State> {
@@ -34,6 +40,10 @@ class BookDetailPage extends Component<Props, State> {
     this.state = {
       editableBook: bookModel.empty(),
       editing: false,
+      errors: bookModel.emptyErrors(),
+      formDisabled: true,
+      submitDisabled: false,
+      topLevelError: '',
     };
 
     const _this: any = this;
@@ -52,9 +62,17 @@ class BookDetailPage extends Component<Props, State> {
   async refreshBooks() {
     try {
       await this.props.fetchBooks();
+      if (!this.props.book.id) {
+        this.props.history.push(localUrls.authorsList);
+      } else {
+        this.setState({
+          formDisabled: false,
+        });
+      }
     } catch (err) {
-      console.log('TODO: deal with this error!');
-      console.log(err);
+      this.setState({
+        topLevelError: parseError(err),
+      });
     }
   }
 
@@ -75,27 +93,46 @@ class BookDetailPage extends Component<Props, State> {
     if (key in this.state.editableBook) {
       let editableBook = Object.assign({}, this.state.editableBook);
       editableBook[key] = event.target.value;
-      this.setState({ editableBook });
+      const submitDisabled = booksMatch(this.props.book, editableBook);
+
+      this.setState({
+        editableBook,
+        submitDisabled,
+      });
     }
   }
 
   async onSubmit(event) {
     event.preventDefault();
-    const book = bookModel.toAPI(this.state.editableBook);
-    const tempValidate = () => {
-      return !!book.title.length && !!book.authorId;
-    };
+    const errors = validateBook(this.state.editableBook);
+    if (errors.found) {
+      this.setState({
+        errors,
+      });
+    } else {
+      this.setState({
+        errors: bookModel.emptyErrors(),
+        formDisabled: true,
+      }, async () => {
+        try {
+          const book = bookModel.toAPI(
+            Object.assign({},
+              this.props.book,
+              this.state.editableBook,
+            )
+          );
 
-    if (tempValidate()) {
-      try {
-        await this.props.updateBook(book);
-        this.setState({
-          editing: false,
-        });
-      } catch (err) {
-        console.error('Deal with this error in BookDetailPage.onSubmit:');
-        console.error(err.message);
-      }
+          await this.props.updateBook(book);
+          this.setState({
+            editing: false,
+            formDisabled: false,
+          });
+        } catch (err) {
+          this.setState({
+            topLevelError: parseError(err),
+          });
+        }
+      });
     }
   }
 
@@ -111,6 +148,7 @@ class BookDetailPage extends Component<Props, State> {
     this.setState({
       editing: true,
       editableBook: bookModel.editable(book),
+      submitDisabled: true,
     });
   }
 
@@ -134,6 +172,10 @@ class BookDetailPage extends Component<Props, State> {
     const {
       editableBook,
       editing,
+      errors,
+      formDisabled,
+      submitDisabled,
+      topLevelError,
     } = this.state;
 
     return (
@@ -149,10 +191,14 @@ class BookDetailPage extends Component<Props, State> {
           <BookEditView
             authors={authors}
             book={editableBook}
+            disabled={formDisabled}
+            errors={errors}
             onAuthorChange={this.onAuthorChange}
+            onCancel={this.onCancel}
             onInputChange={this.onInputChange}
             onSubmit={this.onSubmit}
-            onCancel={this.onCancel}
+            submitDisabled={submitDisabled}
+            topLevelError={topLevelError}
           />
         )}
       </div>
@@ -163,8 +209,8 @@ class BookDetailPage extends Component<Props, State> {
 BookDetailPage.propTypes = {
   authors: array.isRequired,
   book: shape({
-    author: object.isRequired,
-    title: string.isRequired,
+    author: object,
+    title: string,
   }).isRequired,
   fetchBooks: func.isRequired,
   history: object,
@@ -174,7 +220,9 @@ BookDetailPage.propTypes = {
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => {
   const bookID = ownProps.match.params.id;
-  const book = state.books.data.find((a) => a.id === bookID) || bookModel.empty();
+  const book = state.books.data.find(
+    (a) => a.id === bookID
+  ) || bookModel.empty();
 
   return {
     authors: state.authors.data,

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
-import type { Author, Book } from '../../../constants/flowtypes';
+import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { parseError } from '../../../globals/errors';
@@ -26,7 +26,7 @@ type Props = {
 
 type State = {
   book: Book,
-  errors: Book,
+  errors: BookErrors,
   formDisabled: boolean,
   topLevelError: string,
 };
@@ -119,6 +119,7 @@ class BookCreatePage extends Component<Props, State> {
       book,
       errors,
       formDisabled,
+      topLevelError,
     } = this.state;
 
     return (
@@ -136,6 +137,7 @@ class BookCreatePage extends Component<Props, State> {
           onCancel={this.onCancel}
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
+          topLevelError={topLevelError}
         />
       </Card>
     );

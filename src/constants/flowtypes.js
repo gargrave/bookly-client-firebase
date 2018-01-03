@@ -30,6 +30,12 @@ export type Book = {
   authorId?: string,
 };
 
+export type BookErrors = {
+  found?: boolean,
+  title: string,
+  author: string,
+};
+
 export type User = {
   id?: string,
   registered?: Date | string,

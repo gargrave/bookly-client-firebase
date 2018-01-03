@@ -2,7 +2,7 @@
 import React from 'react';
 import { array, bool, func, object, shape, string } from 'prop-types';
 
-import type { Author, Book } from '../../../../constants/flowtypes';
+import type { Author, Book, BookErrors } from '../../../../constants/flowtypes';
 
 import AuthorSelect from '../../authors/AuthorSelect';
 import Form from '../../../common/Form';
@@ -12,23 +12,25 @@ type Props = {
   authors: Author[],
   book: Book,
   disabled?: boolean,
-  errors: any,
+  errors: BookErrors,
   onAuthorChange: Function,
   onCancel: Function,
   onInputChange: Function,
   onSubmit: Function,
+  submitDisabled?: boolean,
   topLevelError?: string,
 };
 
 function BookForm({
   authors,
   book,
-  disabled = false,
+  disabled,
   errors,
   onAuthorChange,
   onCancel,
   onInputChange,
   onSubmit,
+  submitDisabled = false,
   topLevelError,
 }: Props) {
   const {
@@ -42,6 +44,7 @@ function BookForm({
       disabled={disabled}
       onCancel={onCancel}
       onSubmit={onSubmit}
+      submitDisabled={submitDisabled}
       topLevelError={topLevelError}
     >
       <InputField
@@ -64,6 +67,7 @@ function BookForm({
   );
 }
 
+
 BookForm.propTypes = {
   authors: array.isRequired,
   book: shape({
@@ -71,10 +75,15 @@ BookForm.propTypes = {
     author: object.isRequired,
   }).isRequired,
   disabled: bool,
+  errors: shape({
+    title: string.isRequired,
+    author: string.isRequired,
+  }).isRequired,
   onAuthorChange: func.isRequired,
   onCancel: func.isRequired,
   onInputChange: func.isRequired,
   onSubmit: func.isRequired,
+  submitDisabled: bool,
   topLevelError: string,
 };
 

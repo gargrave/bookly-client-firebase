@@ -1,11 +1,12 @@
 // @flow
-import type { Book } from '../../constants/flowtypes';
+import type { Book, BookErrors } from '../../constants/flowtypes';
 
 import { validationErrors } from '../errors';
 import { bookModel } from '../../models/Book.model';
 
 function booksMatch(a: Book, b: Book): boolean {
-  if (a.title.trim() !== b.title.trim()) {
+  if (a.title && b.title &&
+      a.title.trim() !== b.title.trim()) {
     return false;
   }
 
@@ -16,7 +17,7 @@ function booksMatch(a: Book, b: Book): boolean {
   return true;
 }
 
-function validateBook(data: Book): Object {
+function validateBook(data: Book): BookErrors {
   const errors = {
     found: false,
     ...bookModel.emptyErrors(),
