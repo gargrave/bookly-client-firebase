@@ -12,16 +12,16 @@ ShallowWrapper {
         "password": "",
       }
     }
-    onInputChange={[Function]}
-    onSubmit={[Function]}
-    submitDisabled={false}
-    topLevelError=""
-    user={
+    loginUser={
       Object {
         "email": "whatever@gmail.com",
         "password": "password",
       }
     }
+    onInputChange={[Function]}
+    onSubmit={[Function]}
+    submitDisabled={false}
+    topLevelError=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -60,6 +60,7 @@ ShallowWrapper {
       ],
       "disabled": false,
       "onSubmit": [Function],
+      "submitBtnText": undefined,
       "submitDisabled": false,
       "topLevelError": "",
     },
@@ -133,6 +134,7 @@ ShallowWrapper {
         ],
         "disabled": false,
         "onSubmit": [Function],
+        "submitBtnText": undefined,
         "submitDisabled": false,
         "topLevelError": "",
       },

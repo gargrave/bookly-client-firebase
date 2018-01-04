@@ -18,14 +18,14 @@ describe('LoginForm', () => {
           email: '',
           password: '',
         },
-        onInputChange: jest.fn(),
-        onSubmit: jest.fn(),
-        topLevelError: '',
-        user: {
+        loginUser: {
           email: 'whatever@gmail.com',
           password: 'password',
         },
+        onInputChange: jest.fn(),
+        onSubmit: jest.fn(),
         submitDisabled: false,
+        topLevelError: '',
       };
 
       component = shallow(<LoginForm {...props} />);
