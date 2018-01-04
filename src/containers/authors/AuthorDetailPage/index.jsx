@@ -6,7 +6,7 @@ import { instanceOf, func, object, oneOfType, shape, string } from 'prop-types';
 import type { Author, AuthorErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { authorsMatch, validateAuthor } from '../../../globals/validations';
+import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
 import { fetchAuthors, updateAuthor } from '../../../store/actions/authorActions';
 
@@ -108,7 +108,9 @@ class AuthorDetailPage extends Component<Props, State> {
     if (key in this.state.editableAuthor) {
       let editableAuthor = { ...this.state.editableAuthor};
       editableAuthor[key] = event.target.value;
-      const submitDisabled = authorsMatch(this.props.author, editableAuthor);
+      const submitDisabled =
+        authorsMatch(this.props.author, editableAuthor) ||
+        !authorHasAllFields(editableAuthor);
 
       this.setState({
         editableAuthor,

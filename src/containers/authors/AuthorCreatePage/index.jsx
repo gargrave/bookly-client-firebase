@@ -6,7 +6,7 @@ import { func, object } from 'prop-types';
 import type { Author, AuthorErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { validateAuthor } from '../../../globals/validations';
+import { authorHasAllFields, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
 import { createAuthor, fetchAuthors } from '../../../store/actions/authorActions';
 
@@ -68,7 +68,7 @@ class AuthorCreatePage extends Component<Props, State> {
     if (key in this.state.author) {
       const author = { ...this.state.author };
       author[key] = event.target.value;
-      const submitDisabled = !author.firstName || !author.lastName;
+      const submitDisabled = !authorHasAllFields(author);
 
       this.setState({
         author,

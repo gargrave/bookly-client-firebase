@@ -2,13 +2,15 @@
 import type { Author } from '../../constants/flowtypes';
 import { validationErrors } from '../errors';
 
+function authorHasAllFields(author: Author) {
+  return !!author.firstName && !!author.lastName;
+}
+
 function authorsMatch(a: Author, b: Author): boolean {
-  if (a.firstName && b.firstName &&
-      a.firstName.trim() !== b.firstName.trim()) {
+  if (a.firstName.trim() !== b.firstName.trim()) {
     return false;
   }
-  if (a.lastName && b.lastName &&
-      a.lastName.trim() !== b.lastName.trim()) {
+  if (a.lastName.trim() !== b.lastName.trim()) {
     return false;
   }
   return true;
@@ -37,6 +39,7 @@ function validateAuthor(data: Author): Object {
 }
 
 export {
+  authorHasAllFields,
   authorsMatch,
   validateAuthor,
 };
