@@ -26,6 +26,11 @@ export type Author = {
   lastName: string,
 };
 
+export type AuthorErrors = {
+  firstName: string,
+  lastName: string,
+}
+
 export type Book = {
   id?: string,
   created?: Date | string,

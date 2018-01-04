@@ -28,6 +28,7 @@ type State = {
   book: Book,
   errors: BookErrors,
   formDisabled: boolean,
+  submitDisabled: boolean,
   topLevelError: string,
 };
 
@@ -39,6 +40,7 @@ class BookCreatePage extends Component<Props, State> {
       book: bookModel.empty(),
       errors: bookModel.emptyErrors(),
       formDisabled: true,
+      submitDisabled: true,
       topLevelError: '',
     };
 
@@ -75,11 +77,15 @@ class BookCreatePage extends Component<Props, State> {
 
   onInputChange(event) {
     const key = event.target.name;
-    const book = Object.assign({}, this.state.book);
-
-    if (key in book) {
+    if (key in this.state.book) {
+      const book = { ...this.state.book };
       book[key] = event.target.value;
-      this.setState({ book });
+      const submitDisabled = !book.title || !book.author.id;
+
+      this.setState({
+        book,
+        submitDisabled,
+      });
     }
   }
 
@@ -94,6 +100,7 @@ class BookCreatePage extends Component<Props, State> {
       this.setState({
         errors: bookModel.emptyErrors(),
         formDisabled: true,
+        topLevelError: '',
       }, async () => {
         try {
           const book = bookModel.toAPI(this.state.book);
@@ -101,6 +108,7 @@ class BookCreatePage extends Component<Props, State> {
           this.props.history.push(localUrls.booksList);
         } catch (err) {
           this.setState({
+            formDisabled: false,
             topLevelError: parseError(err),
           });
         }
@@ -119,6 +127,7 @@ class BookCreatePage extends Component<Props, State> {
       book,
       errors,
       formDisabled,
+      submitDisabled,
       topLevelError,
     } = this.state;
 
@@ -137,6 +146,7 @@ class BookCreatePage extends Component<Props, State> {
           onCancel={this.onCancel}
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
+          submitDisabled={submitDisabled}
           topLevelError={topLevelError}
         />
       </Card>

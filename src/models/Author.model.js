@@ -1,5 +1,5 @@
 // @flow
-import type { Author, FbDoc } from '../constants/flowtypes';
+import type { Author, AuthorErrors, FbDoc } from '../constants/flowtypes';
 
 const authorModel = {
   empty(): any {
@@ -9,7 +9,14 @@ const authorModel = {
     };
   },
 
-  toAPI(data: any): any {
+  emptyErrors(): AuthorErrors {
+    return {
+      firstName: '',
+      lastName: '',
+    };
+  },
+
+  toAPI(data: Author): any {
     let payload: any = {
       firstName: data.firstName.trim() || '',
       lastName: data.lastName.trim() || '',

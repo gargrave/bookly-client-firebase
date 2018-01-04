@@ -2,14 +2,15 @@
 import React from 'react';
 import { bool, func, object, string } from 'prop-types';
 
-import type { Author } from '../../../../constants/flowtypes';
+import type { Author, AuthorErrors } from '../../../../constants/flowtypes';
 
 import AuthorForm from '../AuthorForm';
 import Card from '../../../common/Card';
 
 type Props = {
   author: Author,
-  errors: Author,
+  disabled: boolean,
+  errors: AuthorErrors,
   onCancel: Function,
   onInputChange: Function,
   onSubmit: Function,
@@ -19,6 +20,7 @@ type Props = {
 
 function AuthorEditView({
   author,
+  disabled,
   errors,
   onCancel,
   onInputChange,
@@ -35,6 +37,7 @@ function AuthorEditView({
       >
         <AuthorForm
           author={author}
+          disabled={disabled}
           errors={errors}
           onCancel={onCancel}
           onInputChange={onInputChange}
@@ -49,6 +52,7 @@ function AuthorEditView({
 
 AuthorEditView.propTypes = {
   author: object.isRequired,
+  disabled: bool,
   errors: object.isRequired,
   onCancel: func.isRequired,
   onInputChange: func.isRequired,

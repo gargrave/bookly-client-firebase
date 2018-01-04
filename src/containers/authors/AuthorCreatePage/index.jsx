@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { Author } from '../../../constants/flowtypes';
+import type { Author, AuthorErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { parseError } from '../../../globals/errors';
@@ -23,8 +23,9 @@ type Props = {
 
 type State = {
   author: Author,
-  errors: Author,
+  errors: AuthorErrors,
   formDisabled: boolean,
+  submitDisabled: boolean,
   topLevelError: string,
 };
 
@@ -34,8 +35,9 @@ class AuthorCreatePage extends Component<Props, State> {
 
     this.state = {
       author: authorModel.empty(),
-      errors: authorModel.empty(),
+      errors: authorModel.emptyErrors(),
       formDisabled: true,
+      submitDisabled: true,
       topLevelError: '',
     };
 
@@ -57,7 +59,7 @@ class AuthorCreatePage extends Component<Props, State> {
       });
     } catch (err) {
       this.setState({
-        topLevelError: parseError(err),
+        topLevelError: err,
       });
     }
   }
@@ -65,9 +67,14 @@ class AuthorCreatePage extends Component<Props, State> {
   onInputChange(event) {
     const key = event.target.name;
     if (key in this.state.author) {
-      const author = Object.assign({}, this.state.author);
+      const author = { ...this.state.author };
       author[key] = event.target.value;
-      this.setState({ author });
+      const submitDisabled = !author.firstName || !author.lastName;
+
+      this.setState({
+        author,
+        submitDisabled,
+      });
     }
   }
 
@@ -90,6 +97,7 @@ class AuthorCreatePage extends Component<Props, State> {
           this.props.history.push(localUrls.authorsList);
         } catch (err) {
           this.setState({
+            formDisabled: false,
             topLevelError: parseError(err),
           });
         }
@@ -107,6 +115,8 @@ class AuthorCreatePage extends Component<Props, State> {
       author,
       errors,
       formDisabled,
+      submitDisabled,
+      topLevelError,
     } = this.state;
 
     return (
@@ -122,6 +132,8 @@ class AuthorCreatePage extends Component<Props, State> {
           onCancel={this.onCancel}
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
+          submitDisabled={submitDisabled}
+          topLevelError={topLevelError}
         />
       </Card>
     );

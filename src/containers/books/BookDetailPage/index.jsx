@@ -91,7 +91,7 @@ class BookDetailPage extends Component<Props, State> {
   onInputChange(event) {
     const key = event.target.name;
     if (key in this.state.editableBook) {
-      let editableBook = Object.assign({}, this.state.editableBook);
+      let editableBook = { ...this.state.editableBook};
       editableBook[key] = event.target.value;
       const submitDisabled = booksMatch(this.props.book, editableBook);
 
@@ -129,6 +129,7 @@ class BookDetailPage extends Component<Props, State> {
           });
         } catch (err) {
           this.setState({
+            formDisabled: false,
             topLevelError: parseError(err),
           });
         }

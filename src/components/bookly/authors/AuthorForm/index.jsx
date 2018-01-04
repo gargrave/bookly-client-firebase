@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 
-import type { Author } from '../../../../constants/flowtypes';
+import type { Author, AuthorErrors } from '../../../../constants/flowtypes';
 
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField';
@@ -10,7 +10,7 @@ import InputField from '../../../common/InputField';
 type Props = {
   author: Author,
   disabled?: boolean,
-  errors: Author,
+  errors: AuthorErrors,
   onCancel: Function,
   onInputChange: Function,
   onSubmit: Function,

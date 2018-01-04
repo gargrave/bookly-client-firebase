@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { instanceOf, func, object, oneOfType, shape, string } from 'prop-types';
 
-import type { Author } from '../../../constants/flowtypes';
+import type { Author, AuthorErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { parseError } from '../../../globals/errors';
@@ -25,7 +25,7 @@ type Props = {
 type State = {
   editableAuthor: Author,
   editing: boolean,
-  errors: Author,
+  errors: AuthorErrors,
   formDisabled: boolean,
   submitDisabled: boolean,
   topLevelError: string,
@@ -47,7 +47,7 @@ function detailView(
 
 function editView(
   author: Author,
-  errors: Author,
+  errors: AuthorErrors,
   formDisabled: boolean,
   submitDisabled: boolean,
   topLevelError: string,
@@ -76,7 +76,7 @@ class AuthorDetailPage extends Component<Props, State> {
     this.state = {
       editableAuthor: authorModel.empty(),
       editing: false,
-      errors: authorModel.empty(),
+      errors: authorModel.emptyErrors(),
       formDisabled: true,
       submitDisabled: false,
       topLevelError: '',
@@ -99,7 +99,7 @@ class AuthorDetailPage extends Component<Props, State> {
       }
     } catch (err) {
       this.setState({
-        topLevelError: parseError(err),
+        topLevelError: err,
       });
     }
   }
@@ -127,16 +127,15 @@ class AuthorDetailPage extends Component<Props, State> {
       });
     } else {
       this.setState({
-        errors: authorModel.empty(),
+        errors: authorModel.emptyErrors(),
         formDisabled: true,
+        topLevelError: '',
       }, async () => {
         try {
-          const author = authorModel.toAPI(
-            Object.assign({},
-              this.props.author,
-              this.state.editableAuthor,
-            )
-          );
+          const author = authorModel.toAPI({
+            ...this.props.author,
+            ...this.state.editableAuthor,
+          });
 
           await this.props.updateAuthor(author);
           this.setState({
@@ -144,6 +143,7 @@ class AuthorDetailPage extends Component<Props, State> {
           });
         } catch (err) {
           this.setState({
+            formDisabled: false,
             topLevelError: parseError(err),
           });
         }
@@ -162,7 +162,7 @@ class AuthorDetailPage extends Component<Props, State> {
         lastName: this.props.author.lastName,
       },
       editing: true,
-      errors: authorModel.empty(),
+      errors: authorModel.emptyErrors(),
       formDisabled: false,
       submitDisabled: true,
     });
