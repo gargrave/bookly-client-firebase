@@ -23,6 +23,7 @@ type State = {
   errors: LoginErrors,
   formDisabled: boolean,
   loginUser: LoginUser,
+  submitDisabled: boolean,
   topLevelError: string,
 };
 
@@ -33,6 +34,7 @@ class LoginPage extends Component<Props, State> {
     this.state = {
       errors: loginUserModel.emptyErrors(),
       formDisabled: false,
+      submitDisabled: true,
       topLevelError: '',
       loginUser: loginUserModel.empty(),
     };
@@ -47,9 +49,11 @@ class LoginPage extends Component<Props, State> {
     if (key in this.state.loginUser) {
       const loginUser = this.state.loginUser;
       loginUser[key] = event.target.value;
+      const submitDisabled = !loginUser.email || !loginUser.password;
 
       this.setState({
         loginUser,
+        submitDisabled,
       });
     }
   }
@@ -86,6 +90,7 @@ class LoginPage extends Component<Props, State> {
       errors,
       formDisabled,
       loginUser,
+      submitDisabled,
     } = this.state;
 
     return (
@@ -101,6 +106,7 @@ class LoginPage extends Component<Props, State> {
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
           submitBtnText="Login"
+          submitDisabled={submitDisabled}
           topLevelError={this.state.topLevelError}
         />
       </Card>
