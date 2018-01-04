@@ -79,11 +79,16 @@ class BookDetailPage extends Component<Props, State> {
   onAuthorChange(event) {
     const authorId = event.target.value;
     const author = this.props.authors.find((a) => a.id === authorId);
-    const editableBook = Object.assign({}, this.state.editableBook, { author });
+    const editableBook = {
+      ...this.state.editableBook,
+      author,
+    };
+    const submitDisabled = booksMatch(this.props.book, editableBook);
 
     if (author) {
       this.setState({
         editableBook,
+        submitDisabled,
       });
     }
   }
@@ -115,12 +120,10 @@ class BookDetailPage extends Component<Props, State> {
         formDisabled: true,
       }, async () => {
         try {
-          const book = bookModel.toAPI(
-            Object.assign({},
-              this.props.book,
-              this.state.editableBook,
-            )
-          );
+          const book = bookModel.toAPI({
+              ...this.props.book,
+              ...this.state.editableBook,
+          });
 
           await this.props.updateBook(book);
           this.setState({

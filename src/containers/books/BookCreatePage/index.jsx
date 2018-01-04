@@ -69,7 +69,10 @@ class BookCreatePage extends Component<Props, State> {
 
     if (author) {
       this.setState({
-        book: Object.assign({}, this.state.book, { author }),
+        book: {
+          ...this.state.book,
+          author,
+        },
       });
     }
   }
