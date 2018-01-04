@@ -16,6 +16,15 @@ const authorModel = {
     };
   },
 
+  editable(author: Author): Author {
+    return {
+      created: author.created,
+      firstName: author.firstName,
+      id: author.id,
+      lastName: author.lastName,
+    };
+  },
+
   toAPI(data: Author): any {
     let payload: any = {
       firstName: data.firstName.trim() || '',

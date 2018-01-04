@@ -106,7 +106,7 @@ class AuthorDetailPage extends Component<Props, State> {
   onInputChange(event) {
     const key = event.target.name;
     if (key in this.state.editableAuthor) {
-      let editableAuthor = Object.assign({}, this.state.editableAuthor);
+      let editableAuthor = { ...this.state.editableAuthor};
       editableAuthor[key] = event.target.value;
       const submitDisabled = authorsMatch(this.props.author, editableAuthor);
 
@@ -157,10 +157,7 @@ class AuthorDetailPage extends Component<Props, State> {
    */
   onEditClick() {
     this.setState({
-      editableAuthor: {
-        firstName: this.props.author.firstName,
-        lastName: this.props.author.lastName,
-      },
+      editableAuthor: authorModel.editable(this.props.author),
       editing: true,
       errors: authorModel.emptyErrors(),
       formDisabled: false,
