@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { User } from '../../../constants/flowtypes';
+import type { LoginErrors, LoginUser } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { login } from '../../../store/actions/authActions';
-import { parseError } from '../../../globals/errors';
 import { validateLogin } from '../../../globals/validations/';
-import { userModel } from '../../../models/User.model';
+import { loginUserModel } from '../../../models/User.model';
 
 import Card from '../../../components/common/Card';
 import LoginForm from '../../../components/bookly/account/LoginForm';
@@ -21,9 +20,10 @@ type Props = {
 };
 
 type State = {
-  errors: User,
+  errors: LoginErrors,
+  formDisabled: boolean,
+  loginUser: LoginUser,
   topLevelError: string,
-  user: User,
 };
 
 class LoginPage extends Component<Props, State> {
@@ -31,12 +31,10 @@ class LoginPage extends Component<Props, State> {
     super(props);
 
     this.state = {
-      errors: userModel.emptyErrors(),
+      errors: loginUserModel.emptyErrors(),
+      formDisabled: false,
       topLevelError: '',
-        user: {
-          email: '',
-          password: '',
-        },
+      loginUser: loginUserModel.empty(),
     };
 
     const _this: any = this;
@@ -46,41 +44,48 @@ class LoginPage extends Component<Props, State> {
 
   onInputChange(event) {
     const key = event.target.name;
-    if (key in this.state.user) {
-      const user = this.state.user;
-      user[key] = event.target.value;
+    if (key in this.state.loginUser) {
+      const loginUser = this.state.loginUser;
+      loginUser[key] = event.target.value;
 
       this.setState({
-        user,
+        loginUser,
       });
     }
   }
 
   async onSubmit(event) {
     event.preventDefault();
-    this.setState({
-      topLevelError: '',
-    }, async () => {
-      const errors = validateLogin(this.state.user);
+    const errors = validateLogin(this.state.loginUser);
+    if (errors.found) {
       this.setState({
         errors,
       });
-      if (!errors.found) {
+    } else {
+      this.setState({
+        errors: loginUserModel.emptyErrors(),
+        formDisabled: true,
+        topLevelError: '',
+      }, async () => {
         try {
-          await this.props.login(this.state.user);
+          const loginUser = loginUserModel.toAPI(this.state.loginUser);
+          await this.props.login(loginUser);
           this.props.history.push(localUrls.account);
         } catch (err) {
           this.setState({
-            topLevelError: parseError(err),
+            formDisabled: false,
+            topLevelError: err,
           });
         }
-      }
-    });
+      });
+    }
   }
 
   render() {
     const {
       errors,
+      formDisabled,
+      loginUser,
     } = this.state;
 
     return (
@@ -90,13 +95,13 @@ class LoginPage extends Component<Props, State> {
         hoverable={false}
       >
         <LoginForm
+          disabled={formDisabled}
           errors={errors}
-          onCancel={() => null}
+          loginUser={loginUser}
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
           submitBtnText="Login"
           topLevelError={this.state.topLevelError}
-          user={this.state.user}
         />
       </Card>
     );

@@ -1,4 +1,6 @@
 // @flow
+import type { FbError } from '../../constants/flowtypes';
+
 import { validationErrors } from './validationErrors';
 
 const API_RE_REQUIRED = /\["(\w+)" is not allowed to be empty\]/;
@@ -28,6 +30,7 @@ function simplifyApiError(msg: string): string {
 }
 
 function parseError(err: Object): string {
+  console.warn('TODO: use parseFbError() isntead of parseError().');
   if (err.response && err.response.data) {
     return err.response.data;
   } else if (err.message) {
@@ -36,6 +39,17 @@ function parseError(err: Object): string {
   return 'An uknown error occurred.';
 }
 
+function parseFbError(err: FbError): string {
+  // TODO: make better use of Firebase's error structure
+  // https://firebase.google.com/docs/reference/js/firebase.auth.Auth?authuser=0#signInAndRetrieveDataWithEmailAndPassword
+  // e.g. if auth/wrong-password, show an error on password field
+  if (err.message) {
+    return `Error: ${err.message}`;
+  }
+  return 'Error: An unkonwn error occurred! :(';
+}
+
 export {
   parseError,
+  parseFbError,
 };

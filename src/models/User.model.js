@@ -1,5 +1,8 @@
+import { LoginErrors, LoginUser, User } from '../constants/flowtypes';
+
+// @flow
 const userModel = {
-  empty() {
+  empty(): User {
     return {
       displayName: '',
       email: '',
@@ -7,13 +10,6 @@ const userModel = {
       id: '',
       lastLogin: '',
       registered: '',
-    };
-  },
-
-  emptyErrors() {
-    return {
-      email: '',
-      password: '',
     };
   },
 
@@ -40,6 +36,31 @@ const userModel = {
   },
 };
 
+const loginUserModel = {
+  empty(): LoginUser {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+
+  emptyErrors(): LoginErrors {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+
+  toAPI(data: LoginUser): LoginUser {
+    let payload: LoginUser = {
+      email: data.email,
+      password: data.password,
+    };
+    return payload;
+  },
+};
+
 export {
+  loginUserModel,
   userModel,
 };

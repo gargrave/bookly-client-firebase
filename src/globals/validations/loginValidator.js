@@ -2,10 +2,10 @@
 import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
 
-import type { User } from '../../constants/flowtypes';
+import type { LoginErrors, LoginUser } from '../../constants/flowtypes';
 import { validationErrors } from '../errors';
 
-function validateLogin(data: User): Object {
+function validateLogin(data: LoginUser): LoginErrors {
   const errors = {
     found: false,
     email: '',

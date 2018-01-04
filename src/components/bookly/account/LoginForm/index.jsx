@@ -1,41 +1,44 @@
 // @flow
 import React from 'react';
-import { any, bool, func, shape, string } from 'prop-types';
+import { bool, func, shape, string } from 'prop-types';
 
-import type { User } from '../../../../constants/flowtypes';
+import type { LoginErrors, LoginUser } from '../../../../constants/flowtypes';
 
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField';
 
 type Props = {
   disabled?: boolean,
-  errors: User,
+  errors: LoginErrors,
+  loginUser: LoginUser,
   onInputChange: Function,
   onSubmit: Function,
-  topLevelError?: string,
-  user: any,
+  submitBtnText?: string,
   submitDisabled?: boolean,
+  topLevelError?: string,
 };
 
 function LoginForm({
   disabled = false,
   errors,
+  loginUser,
   onInputChange,
   onSubmit,
+  submitBtnText,
   submitDisabled,
   topLevelError,
-  user,
 }: Props) {
   return (
     <Form
       classes={['login-form']}
       disabled={disabled}
       onSubmit={onSubmit}
+      submitBtnText={submitBtnText}
       submitDisabled={submitDisabled}
       topLevelError={topLevelError}
     >
       <InputField
-        boundValue={user.email}
+        boundValue={loginUser.email}
         disabled={disabled}
         error={errors.email}
         label="Email"
@@ -45,7 +48,7 @@ function LoginForm({
       />
 
       <InputField
-        boundValue={user.password}
+        boundValue={loginUser.password}
         disabled={disabled}
         error={errors.password}
         label="Password"
@@ -63,15 +66,15 @@ LoginForm.propTypes = {
     email: string.isRequired,
     password: string.isRequired,
   }).isRequired,
-  onInputChange: func.isRequired,
-  onSubmit: func.isRequired,
-  user: shape({
+  loginUser: shape({
     email: string.isRequired,
     password: string.isRequired,
   }).isRequired,
+  onInputChange: func.isRequired,
+  onSubmit: func.isRequired,
+  submitBtnText: string,
   submitDisabled: bool,
   topLevelError: string,
-  user: any,
 };
 
 export default LoginForm;

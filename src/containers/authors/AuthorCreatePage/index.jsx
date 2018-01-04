@@ -82,6 +82,7 @@ class AuthorCreatePage extends Component<Props, State> {
       this.setState({
         errors: authorModel.empty(),
         formDisabled: true,
+        topLevelError: '',
       }, async () => {
         try {
           const author = authorModel.toAPI(this.state.author);

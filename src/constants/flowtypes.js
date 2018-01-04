@@ -13,6 +13,11 @@ export type FbCollection = {
   docs: FbDoc[],
 };
 
+export type FbError = {
+  code: string,
+  message: string,
+};
+
 export type Author = {
   id?: string,
   created?: Date | string,
@@ -42,4 +47,15 @@ export type User = {
   lastLogin?: Date | string,
   email: string,
   password?: string,
+};
+
+export type LoginUser = {
+  email: string,
+  password: string,
+}
+
+export type LoginErrors = {
+  found?: boolean,
+  email: string,
+  password: string,
 };
