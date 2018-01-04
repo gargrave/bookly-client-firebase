@@ -6,7 +6,6 @@ import { instanceOf, func, object, oneOfType, shape, string } from 'prop-types';
 import type { Author, AuthorErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { parseError } from '../../../globals/errors';
 import { authorsMatch, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
 import { fetchAuthors, updateAuthor } from '../../../store/actions/authorActions';
@@ -140,11 +139,12 @@ class AuthorDetailPage extends Component<Props, State> {
           await this.props.updateAuthor(author);
           this.setState({
             editing: false,
+            formDisabled: false,
           });
         } catch (err) {
           this.setState({
             formDisabled: false,
-            topLevelError: parseError(err),
+            topLevelError: err,
           });
         }
       });

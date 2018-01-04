@@ -130,7 +130,7 @@ class BookDetailPage extends Component<Props, State> {
         } catch (err) {
           this.setState({
             formDisabled: false,
-            topLevelError: parseError(err),
+            topLevelError: err,
           });
         }
       });

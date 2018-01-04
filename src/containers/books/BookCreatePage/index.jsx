@@ -6,7 +6,6 @@ import { array, func, object } from 'prop-types';
 import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { parseError } from '../../../globals/errors';
 import { validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
 import { fetchAuthors } from '../../../store/actions/authorActions';
@@ -109,7 +108,7 @@ class BookCreatePage extends Component<Props, State> {
         } catch (err) {
           this.setState({
             formDisabled: false,
-            topLevelError: parseError(err),
+            topLevelError: err,
           });
         }
       });

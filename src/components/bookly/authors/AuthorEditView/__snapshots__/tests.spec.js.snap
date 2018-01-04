@@ -41,6 +41,7 @@ ShallowWrapper {
       >
         <AuthorForm
           author={Object {}}
+          disabled={undefined}
           errors={
             Object {
               "firstName": "",
@@ -64,6 +65,7 @@ ShallowWrapper {
       "props": Object {
         "children": <AuthorForm
           author={Object {}}
+          disabled={undefined}
           errors={
             Object {
               "firstName": "",
@@ -89,6 +91,7 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "author": Object {},
+          "disabled": undefined,
           "errors": Object {
             "firstName": "",
             "lastName": "",
@@ -124,6 +127,7 @@ ShallowWrapper {
         >
           <AuthorForm
             author={Object {}}
+            disabled={undefined}
             errors={
               Object {
                 "firstName": "",
@@ -147,6 +151,7 @@ ShallowWrapper {
         "props": Object {
           "children": <AuthorForm
             author={Object {}}
+            disabled={undefined}
             errors={
               Object {
                 "firstName": "",
@@ -172,6 +177,7 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "author": Object {},
+            "disabled": undefined,
             "errors": Object {
               "firstName": "",
               "lastName": "",
