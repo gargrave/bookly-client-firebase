@@ -12,9 +12,9 @@ describe('AuthorList', () => {
   beforeEach(() => {
     props = {
       authors: [
-        { id: 0, firstName: 'A', lastName: 'B' },
-        { id: 1, firstName: 'C', lastName: 'D' },
-        { id: 2, firstName: 'E', lastName: 'F' },
+        { id: 0, firstName: 'A', lastName: 'B', bookCount: 1 },
+        { id: 1, firstName: 'C', lastName: 'D', bookCount: 1 },
+        { id: 2, firstName: 'E', lastName: 'F', bookCount: 1 },
       ],
       onAuthorClick: jest.fn(),
     };

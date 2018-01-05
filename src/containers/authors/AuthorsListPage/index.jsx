@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
+import countBy from 'lodash/countBy';
 
 import type { Author } from '../../../constants/flowtypes';
 
@@ -121,9 +122,19 @@ AuthorsListPage.propTypes = {
 };
 
 /* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => ({
-  authors: state.authors.data,
-});
+const mapStateToProps = (state, ownProps) => {
+  const authorCounts = countBy(state.books.data, 'author.id');
+  const authors = state.authors.data.map((author: Author) => {
+    return {
+      ...author,
+      bookCount: authorCounts[author.id] || 0,
+    };
+  });
+
+  return {
+    authors,
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAuthors() {

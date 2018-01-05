@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, shape, string } from 'prop-types';
+import { func, number, shape, string } from 'prop-types';
 
 import type { Author } from '../../../../constants/flowtypes';
 
@@ -10,6 +10,11 @@ type Props = {
   author: Author,
   onClick: Function,
 };
+
+function bookCountString(count: number): string {
+  const pluralizer = count === 1 ? '' : 's';
+  return `${count} book${pluralizer}`;
+}
 
 function AuthorListDetail({
   author,
@@ -22,12 +27,14 @@ function AuthorListDetail({
       classes={['author-card']}
       onClick={onClick}
       title={authorName}
+      text={bookCountString(author.bookCount)}
     />
   );
 }
 
 AuthorListDetail.propTypes = {
   author: shape({
+    bookCount: number.isRequired,
     firstName: string.isRequired,
     lastName: string.isRequired,
   }),
