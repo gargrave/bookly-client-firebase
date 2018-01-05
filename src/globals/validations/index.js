@@ -3,13 +3,18 @@ import {
   authorHasAllFields,
   validateAuthor,
 } from './authorValidator';
-import { booksMatch, validateBook } from './bookValidator';
+import {
+  bookHasAllFields,
+  booksMatch,
+  validateBook,
+} from './bookValidator';
 import { validateLogin } from './loginValidator';
 
 export {
-  authorsMatch,
-  booksMatch,
   authorHasAllFields,
+  authorsMatch,
+  bookHasAllFields,
+  booksMatch,
   validateAuthor,
   validateBook,
   validateLogin,

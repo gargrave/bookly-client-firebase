@@ -4,6 +4,12 @@ import type { Book, BookErrors } from '../../constants/flowtypes';
 import { validationErrors } from '../errors';
 import { bookModel } from '../../models/Book.model';
 
+function bookHasAllFields(book: Book) {
+  return !!book.title
+    && !!book.author
+    && !!book.author.id;
+}
+
 function booksMatch(a: Book, b: Book): boolean {
   if (a.title && b.title &&
       a.title.trim() !== b.title.trim()) {
@@ -39,6 +45,7 @@ function validateBook(data: Book): BookErrors {
 }
 
 export {
+  bookHasAllFields,
   booksMatch,
   validateBook,
 };

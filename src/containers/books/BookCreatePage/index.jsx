@@ -6,7 +6,7 @@ import { array, func, object } from 'prop-types';
 import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { validateBook } from '../../../globals/validations';
+import { bookHasAllFields, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
 import { fetchAuthors } from '../../../store/actions/authorActions';
 import { createBook, fetchBooks } from '../../../store/actions/bookActions';
@@ -66,13 +66,13 @@ class BookCreatePage extends Component<Props, State> {
   onAuthorChange(event) {
     const authorId = event.target.value;
     const author = this.props.authors.find((a) => a.id === authorId);
+    const book = { ...this.state.book, author };
+    const submitDisabled = !bookHasAllFields(book);
 
     if (author) {
       this.setState({
-        book: {
-          ...this.state.book,
-          author,
-        },
+        book,
+        submitDisabled,
       });
     }
   }
@@ -82,7 +82,7 @@ class BookCreatePage extends Component<Props, State> {
     if (key in this.state.book) {
       const book = { ...this.state.book };
       book[key] = event.target.value;
-      const submitDisabled = !book.title || !book.author.id;
+      const submitDisabled = !bookHasAllFields(book);
 
       this.setState({
         book,

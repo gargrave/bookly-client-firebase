@@ -7,7 +7,7 @@ import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { parseError } from '../../../globals/errors';
-import { booksMatch, validateBook } from '../../../globals/validations';
+import { bookHasAllFields, booksMatch, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
 import { fetchBooks, updateBook } from '../../../store/actions/bookActions';
 
@@ -83,7 +83,9 @@ class BookDetailPage extends Component<Props, State> {
       ...this.state.editableBook,
       author,
     };
-    const submitDisabled = booksMatch(this.props.book, editableBook);
+    const submitDisabled =
+      !bookHasAllFields(editableBook) ||
+      booksMatch(this.props.book, editableBook);
 
     if (author) {
       this.setState({
@@ -98,7 +100,9 @@ class BookDetailPage extends Component<Props, State> {
     if (key in this.state.editableBook) {
       let editableBook = { ...this.state.editableBook};
       editableBook[key] = event.target.value;
-      const submitDisabled = booksMatch(this.props.book, editableBook);
+      const submitDisabled =
+        !bookHasAllFields(editableBook) ||
+        booksMatch(this.props.book, editableBook);
 
       this.setState({
         editableBook,
