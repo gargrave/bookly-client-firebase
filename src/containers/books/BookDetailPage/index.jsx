@@ -11,6 +11,7 @@ import { bookHasAllFields, booksMatch, validateBook } from '../../../globals/val
 import { bookModel } from '../../../models/Book.model';
 import { fetchBooks, updateBook } from '../../../store/actions/bookActions';
 
+import Alert from '../../../components/common/Alert';
 import BookDetailView from '../../../components/bookly/books/BookDetailView';
 import BookEditView from '../../../components/bookly/books/BookEditView';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
@@ -18,6 +19,7 @@ import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 type Props = {
   authors: Author[],
   book: Book,
+  bookId: string,
   createBook: Function,
   fetchBooks: Function,
   history: Object,
@@ -62,15 +64,12 @@ class BookDetailPage extends Component<Props, State> {
   async refreshBooks() {
     try {
       await this.props.fetchBooks();
-      if (!this.props.book.id) {
-        this.props.history.push(localUrls.authorsList);
-      } else {
-        this.setState({
-          formDisabled: false,
-        });
-      }
+      this.setState({
+        formDisabled: false,
+      });
     } catch (err) {
       this.setState({
+        formDisabled: false,
         topLevelError: parseError(err),
       });
     }
@@ -177,6 +176,7 @@ class BookDetailPage extends Component<Props, State> {
     const {
       authors,
       book,
+      bookId,
     } = this.props;
     const {
       editableBook,
@@ -189,14 +189,20 @@ class BookDetailPage extends Component<Props, State> {
 
     return (
       <div>
-        {!editing && (
+        {!book.id &&
+          <Alert
+            message={`No book found with id: ${bookId}`}
+            type={'info'}
+          />
+        }
+        {book.id && !editing && (
           <BookDetailView
             book={book}
             onEditClick={this.onEditClick}
             onBackClick={this.onBackClick}
           />
         )}
-        {editing && (
+        {book.id && editing && (
           <BookEditView
             authors={authors}
             book={editableBook}
@@ -221,6 +227,7 @@ BookDetailPage.propTypes = {
     author: object,
     title: string,
   }).isRequired,
+  bookId: string,
   fetchBooks: func.isRequired,
   history: object,
   updateBook: func.isRequired,
@@ -228,14 +235,15 @@ BookDetailPage.propTypes = {
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => {
-  const bookID = ownProps.match.params.id;
+  const bookId = ownProps.match.params.id;
   const book = state.books.data.find(
-    (a) => a.id === bookID
+    (a) => a.id === bookId
   ) || bookModel.empty();
 
   return {
     authors: state.authors.data,
     book,
+    bookId,
   };
 };
 

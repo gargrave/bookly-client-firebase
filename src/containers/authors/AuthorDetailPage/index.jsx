@@ -10,12 +10,14 @@ import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globa
 import { authorModel } from '../../../models/Author.model';
 import { fetchAuthors, updateAuthor } from '../../../store/actions/authorActions';
 
+import Alert from '../../../components/common/Alert';
 import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';
 import AuthorEditView from '../../../components/bookly/authors/AuthorEditView';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
 type Props = {
   author: Author,
+  authorId: string,
   history: Object,
   fetchAuthors: Function,
   updateAuthor: Function,
@@ -89,15 +91,12 @@ class AuthorDetailPage extends Component<Props, State> {
   async refreshAuthors() {
     try {
       await this.props.fetchAuthors();
-      if (!this.props.author.id) {
-        this.props.history.push(localUrls.authorsList);
-      } else {
-        this.setState({
-          formDisabled: false,
-        });
-      }
+      this.setState({
+        formDisabled: false,
+      });
     } catch (err) {
       this.setState({
+        formDisabled: false,
         topLevelError: err,
       });
     }
@@ -182,6 +181,7 @@ class AuthorDetailPage extends Component<Props, State> {
   render() {
     const {
       author,
+      authorId,
     } = this.props;
     const {
       editableAuthor,
@@ -194,10 +194,16 @@ class AuthorDetailPage extends Component<Props, State> {
 
     return (
       <div>
-        {!editing &&
+        {!author.id &&
+          <Alert
+            message={`No author found with id: ${authorId}`}
+            type={'info'}
+          />
+        }
+        {author.id && !editing &&
           detailView(author, this.onBackClick.bind(this), this.onEditClick.bind(this))
         }
-        {editing &&
+        {author.id && editing &&
           editView(editableAuthor, errors, formDisabled, submitDisabled, topLevelError,
             this.onCancel.bind(this), this.onInputChange.bind(this), this.onSubmit.bind(this))
         }
@@ -220,6 +226,7 @@ AuthorDetailPage.propTypes = {
     firstName: string,
     lastName: string,
   }).isRequired,
+  authorId: string,
   fetchAuthors: func.isRequired,
   history: object,
   updateAuthor: func.isRequired,
@@ -227,13 +234,14 @@ AuthorDetailPage.propTypes = {
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => {
-  const authorID = ownProps.match.params.id;
+  const authorId = ownProps.match.params.id;
   const author = state.authors.data.find(
-    (a) => a.id === authorID
+    (a) => a.id === authorId
   ) || {};
 
   return {
     author,
+    authorId,
   };
 };
 
