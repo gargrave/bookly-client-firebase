@@ -5,6 +5,10 @@ import isLength from 'validator/lib/isLength';
 import type { LoginErrors, LoginUser } from '../../constants/flowtypes';
 import { validationErrors } from '../errors';
 
+function loginHasAllFields(login: LoginUser) {
+  return !!login.email && !!login.password;
+}
+
 function validateLogin(data: LoginUser): LoginErrors {
   const errors = {
     found: false,
@@ -34,5 +38,6 @@ function validateLogin(data: LoginUser): LoginErrors {
 }
 
 export {
+  loginHasAllFields,
   validateLogin,
 };

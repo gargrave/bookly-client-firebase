@@ -7,7 +7,7 @@ import type { LoginErrors, LoginUser } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { login } from '../../../store/actions/authActions';
-import { validateLogin } from '../../../globals/validations/';
+import { loginHasAllFields, validateLogin } from '../../../globals/validations/';
 import { loginUserModel } from '../../../models/User.model';
 
 import Card from '../../../components/common/Card';
@@ -49,7 +49,7 @@ class LoginPage extends Component<Props, State> {
     if (key in this.state.loginUser) {
       const loginUser = this.state.loginUser;
       loginUser[key] = event.target.value;
-      const submitDisabled = !loginUser.email || !loginUser.password;
+      const submitDisabled = !loginHasAllFields(loginUser);
 
       this.setState({
         loginUser,

@@ -8,13 +8,17 @@ import {
   booksMatch,
   validateBook,
 } from './bookValidator';
-import { validateLogin } from './loginValidator';
+import {
+  loginHasAllFields,
+  validateLogin,
+} from './loginValidator';
 
 export {
   authorHasAllFields,
   authorsMatch,
   bookHasAllFields,
   booksMatch,
+  loginHasAllFields,
   validateAuthor,
   validateBook,
   validateLogin,
