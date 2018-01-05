@@ -86,7 +86,7 @@ class AuthorCreatePage extends Component<Props, State> {
       });
     } else {
       this.setState({
-        errors: authorModel.empty(),
+        errors: authorModel.emptyErrors(),
         formDisabled: true,
         topLevelError: '',
       }, async () => {

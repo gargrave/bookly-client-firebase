@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { authorModel } from '../../../../models/Author.model';
+import { bookModel } from '../../../../models/Book.model';
 
 import BookForm from './';
 import Form from '../../../common/Form';
@@ -24,10 +25,7 @@ describe('BookForm', () => {
           },
         },
         disabled: false,
-        errors: {
-          title: '',
-          author: '',
-        },
+        errors: bookModel.emptyErrors(),
         onAuthorChange: jest.fn(),
         onCancel: jest.fn(),
         onInputChange: jest.fn(),
