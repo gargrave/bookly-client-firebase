@@ -122,6 +122,7 @@ class BookDetailPage extends Component<Props, State> {
       this.setState({
         errors: bookModel.emptyErrors(),
         formDisabled: true,
+        topLevelError: '',
       }, async () => {
         try {
           const book = bookModel.toAPI({
