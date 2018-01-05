@@ -11,6 +11,7 @@ import { loginHasAllFields, validateLogin } from '../../../globals/validations/'
 import { loginUserModel } from '../../../models/User.model';
 
 import Card from '../../../components/common/Card';
+import CardList from '../../../components/common/CardList';
 import LoginForm from '../../../components/bookly/account/LoginForm';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
@@ -94,22 +95,24 @@ class LoginPage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <Card
-        classes={['card--top-margin-med']}
-        header={'Login'}
-        hoverable={false}
-      >
-        <LoginForm
-          disabled={formDisabled}
-          errors={errors}
-          loginUser={loginUser}
-          onInputChange={this.onInputChange}
-          onSubmit={this.onSubmit}
-          submitBtnText="Login"
-          submitDisabled={submitDisabled}
-          topLevelError={this.state.topLevelError}
-        />
-      </Card>
+      <CardList>
+        <Card
+          classes={['card--top-margin-med']}
+          header={'Login'}
+          hoverable={false}
+        >
+          <LoginForm
+            disabled={formDisabled}
+            errors={errors}
+            loginUser={loginUser}
+            onInputChange={this.onInputChange}
+            onSubmit={this.onSubmit}
+            submitBtnText="Login"
+            submitDisabled={submitDisabled}
+            topLevelError={this.state.topLevelError}
+          />
+        </Card>
+      </CardList>
     );
   }
 }
