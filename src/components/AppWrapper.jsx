@@ -6,6 +6,7 @@ import { func } from 'prop-types';
 import { auth } from '../globals/firebase/';
 import { setInitialized } from '../store/actions/appActions';
 import { setLocalUserData } from '../store/actions/authActions';
+import { fetchBooks } from '../store/actions/bookActions';
 
 import SimpleHeader from './bookly/header/SimpleHeader';
 import Routes from './Routes';
@@ -14,9 +15,10 @@ import './AppWrapper.css';
 
 class AppWrapper extends Component {
   async componentWillMount() {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
         this.props.setLocalUserData(user);
+        await this.props.fetchBooks();
       }
       this.props.setInitialized();
     });
@@ -48,6 +50,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchBooks() {
+    return dispatch(fetchBooks());
+  },
+
   setInitialized() {
     return dispatch(setInitialized());
   },
