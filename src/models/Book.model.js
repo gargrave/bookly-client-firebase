@@ -1,7 +1,7 @@
 // @flow
 import type { Author, Book, BookErrors, FbDoc } from '../constants/flowtypes';
 
-function hydrateAuthor(authors, id) {
+function hydrateAuthor(authors, id): Author {
   const author = authors.find((a) => a.id === id);
   return author || {
     firstName: '',
@@ -41,7 +41,7 @@ const bookModel = {
     };
   },
 
-  toAPI(data: any): any {
+  toAPI(data: Book): any {
     let payload: any = {
       title: data.title.trim(),
       authorId: data.author.id,

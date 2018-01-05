@@ -1,6 +1,6 @@
+// @flow
 import { LoginErrors, LoginUser, User } from '../constants/flowtypes';
 
-// @flow
 const userModel = {
   empty(): User {
     return {
@@ -13,7 +13,7 @@ const userModel = {
     };
   },
 
-  fromAPI(user) {
+  fromAPI(user: User): User {
     const {
       displayName,
       email,
