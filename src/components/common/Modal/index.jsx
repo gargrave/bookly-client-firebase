@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
 
 import { buildClasses } from '../../../utils/cssHelpers';
 
@@ -10,25 +10,33 @@ import ButtonRow from '../ButtonRow';
 import './styles.css';
 
 type Props = {
+  confirmText?: string,
+  message: string,
   onCancel: Function,
   onConfirm: Function,
 };
 
 function Modal({
+  confirmText,
+  message,
   onCancel,
   onConfirm,
 }: Props) {
   return (
     <div className={buildClasses(['modal'])}>
       <div className={buildClasses(['modal__body'])}>
-        OMG! This is a modal!
+
+        <div className={buildClasses(['modal__message'])}>
+          {message}
+        </div>
+
         <hr/>
         <div className={buildClasses(['modal__button-row'])}>
           <ButtonRow>
             <Button
               onClick={onConfirm}
               position="right"
-              text="Ok"
+              text={confirmText || 'Yes'}
             />
           </ButtonRow>
         </div>
@@ -44,6 +52,8 @@ function Modal({
 }
 
 Modal.propTypes = {
+  confirmText: string,
+  message: string.isRequired,
   onCancel: func.isRequired,
   onConfirm: func.isRequired,
 };

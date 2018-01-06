@@ -1,4 +1,8 @@
 .bookly-modal {
+  hr {
+    margin: 1rem 0;
+  }
+
   &__backdrop {
     background: rgba(0, 0, 0, .65);
     height: 100%;
