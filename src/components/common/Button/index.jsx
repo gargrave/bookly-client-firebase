@@ -13,7 +13,7 @@ type Props = {
   onClick: Function,
   position?: string,
   text: string,
-  type: string,
+  type?: string,
 };
 
 const acceptableTypes = [
@@ -28,6 +28,7 @@ const acceptableTypes = [
 
 const acceptablePositions = [
   'left',
+  'right',
 ];
 
 function buttonClass(type: string) {
@@ -83,7 +84,7 @@ Button.propTypes = {
   onClick: func.isRequired,
   position: oneOf(acceptablePositions),
   text: string.isRequired,
-  type: oneOf(acceptableTypes).isRequired,
+  type: oneOf(acceptableTypes),
 };
 
 export default Button;
