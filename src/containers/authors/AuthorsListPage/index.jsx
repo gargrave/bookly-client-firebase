@@ -141,6 +141,7 @@ class AuthorsListPage extends Component<Props, State> {
             message="Are you sure you want to delete this?"
             onCancel={this.onDialogCancel}
             onConfirm={this.onDialogConfirm}
+            title="Confirm Deletion"
           />
         }
       </div>

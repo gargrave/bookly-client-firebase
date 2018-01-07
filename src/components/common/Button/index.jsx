@@ -67,7 +67,7 @@ function Button({
 }: Props) {
   return (
     <button
-      className={buildClassList(type, position, classes)}
+      className={buildClassList(type || '', position, classes)}
       disabled={disabled || false}
       onClick={onClick}
       type={canSubmit ? 'submit' : 'button'}
