@@ -204,9 +204,20 @@ class AuthorDetailPage extends Component<Props, State> {
   }
 
   async onDeleteDialogConfirm() {
-    console.log('TODO: implement AuthorDetailPage.onDeleteDialogConfirm()');
-    await this.props.deleteAuthor(this.props.author);
-    this.props.history.push(localUrls.authorsList);
+    this.setState({
+      topLevelError: '',
+    }, async () => {
+      try {
+        await this.props.deleteAuthor(this.props.author);
+        this.props.history.push(localUrls.authorsList);
+      } catch (err) {
+        console.warn('TODO: show "topLevelError" in AuthorDetailView');
+        this.setState({
+          deleteDialogShowing: false,
+          topLevelError: err,
+        });
+      }
+    });
   }
 
   render() {

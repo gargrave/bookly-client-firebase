@@ -1,10 +1,10 @@
 // @flow
-import { AUTHORS } from '../actionTypes';
+import { APP, AUTHORS } from '../actionTypes';
 
-import type { Author, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
+import type { Author, FbCollection, FbDoc, FbDocRef, FbError } from '../../constants/flowtypes';
 
 import { refreshBooksByAuthor } from './bookActions';
-import { parseError } from '../../globals/errors';
+import { parseFbError } from '../../globals/errors';
 import { db, timestamp } from '../../globals/firebase/';
 import { authorModel } from '../../models/Author.model';
 
@@ -29,28 +29,45 @@ function _requestEnd() {
 function _fetchAuthors(authors: Author[]) {
   return {
     type: AUTHORS.FETCH_SUCCESS,
-    payload: { authors },
+    payload: {
+      authors,
+    },
   };
 }
 
 function _createAuthor(author: Author) {
   return {
     type: AUTHORS.CREATE_SUCCESS,
-    payload: { author },
+    payload: {
+      author,
+    },
   };
 }
 
 function _updateAuthor(author: Author) {
   return {
     type: AUTHORS.UPDATE_SUCCESS,
-    payload: { author },
+    payload: {
+      author,
+    },
   };
 }
 
 function _deleteAuthor(author: Author) {
   return {
     type: AUTHORS.DELETE_SUCCESS,
-    payload: { author },
+    payload: {
+      author,
+    },
+  };
+}
+
+function _apiError(err: FbError) {
+  return {
+    type: APP.API_ERROR,
+    payload: {
+      err,
+    },
   };
 }
 
@@ -142,7 +159,8 @@ function deleteAuthor(author: Author) {
   return async (dispatch: Function) => {
     dispatch(_requestStart());
     try {
-      const docRef: FbDocRef = await getDocRef(author.id);
+      const docRef: FbDocRef = await getDocRef('h9fwehhhhio');
+      // const docRef: FbDocRef = await getDocRef(author.id);
       await docRef.delete();
       console.warn('TODO: need to delete all existing books by this author');
 
@@ -151,9 +169,8 @@ function deleteAuthor(author: Author) {
       dispatch(refreshBooksByAuthor(author));
       return author;
     } catch (err) {
-      console.error('TODO: Deal with error in authorActions.deleteAuthor()');
-      console.error(err);
-      throw parseError(err);
+      dispatch(_apiError(err));
+      throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
     }
