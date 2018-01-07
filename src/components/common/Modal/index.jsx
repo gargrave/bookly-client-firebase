@@ -4,8 +4,10 @@ import { func, string } from 'prop-types';
 
 import { buildClasses } from '../../../utils/cssHelpers';
 
-import Button from '../Button';
-import ButtonRow from '../ButtonRow';
+import ModalBackdrop from './ModalBackdrop';
+import ModalBody from './ModalBody';
+import ModalFooter from './ModalFooter';
+import ModalHeader from './ModalHeader';
 
 import './styles.css';
 
@@ -18,19 +20,6 @@ type Props = {
   title?: string,
 };
 
-function renderHeader(title?: string) {
-  if (!title) {
-    return null;
-  }
-  return (
-    <div className={buildClasses(['modal__header'])}>
-      <div className={buildClasses(['modal__title'])}>
-        {title}
-      </div>
-    </div>
-  );
-}
-
 function Modal({
   cancelText,
   confirmText,
@@ -42,38 +31,20 @@ function Modal({
   return (
     <div className={buildClasses(['modal'])}>
       <div className={buildClasses(['modal__wrapper'])}>
-        {renderHeader(title)}
-        <div className={buildClasses(['modal__body'])}>
-          <div className={buildClasses(['modal__message'])}>
-            {message}
-          </div>
-        </div>
-
-        <div className={buildClasses(['modal__footer'])}>
-          <div className={buildClasses(['modal__button-row'])}>
-            <ButtonRow>
-              <Button
-                onClick={onCancel}
-                position="left"
-                text={cancelText || 'Cancel'}
-                type="secondary"
-              />
-
-              <Button
-                onClick={onConfirm}
-                position="right"
-                text={confirmText || 'Confirm'}
-              />
-            </ButtonRow>
-          </div>
-        </div>
+        <ModalHeader
+          title={title}
+        />
+        <ModalBody
+          message={message}
+        />
+        <ModalFooter
+          cancelText={cancelText}
+          confirmText={confirmText}
+          onCancel={onCancel}
+          onConfirm={onConfirm}
+        />
       </div>
-
-      <div
-        className={buildClasses(['modal__backdrop'])}
-        onClick={onCancel}
-      >
-      </div>
+      <ModalBackdrop onClick={onCancel} />
     </div>
   );
 }
