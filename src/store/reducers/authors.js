@@ -1,9 +1,9 @@
 import { AUTH, AUTHORS } from '../actionTypes';
 
-const defaultState = {
+const defaultState = Object.freeze({
   authorRequestPending: false,
   data: [],
-};
+});
 
 // TODO: implement better sort handling (including letting the user choose)
 function sortByLastName(authors) {
@@ -15,35 +15,40 @@ function sortByLastName(authors) {
 export default function authors(state = defaultState, action) {
   switch (action.type) {
     case AUTHORS.REQUEST_START:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         authorRequestPending: true,
-      });
+      };
 
     case AUTHORS.REQUEST_END:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         authorRequestPending: false,
-      });
+      };
 
     case AUTHORS.FETCH_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: sortByLastName(action.payload.authors),
-      });
+      };
 
     case AUTHORS.CREATE_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: sortByLastName([
           ...state.data,
           action.payload.author,
         ]),
-      });
+      };
 
     case AUTHORS.UPDATE_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: sortByLastName([
           ...state.data.filter((a) => a.id !== action.payload.author.id),
           action.payload.author,
         ]),
-      });
+      };
 
     case AUTHORS.DELETE_SUCCESS:
       return {
@@ -53,8 +58,11 @@ export default function authors(state = defaultState, action) {
         ),
       };
 
+    // clear authors data on logout
     case AUTH.LOGOUT:
-      return Object.assign({}, defaultState);
+      return {
+        ...defaultState,
+      };
 
     default:
       return state;
