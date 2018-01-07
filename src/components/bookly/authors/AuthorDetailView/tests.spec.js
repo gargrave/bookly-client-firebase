@@ -15,6 +15,7 @@ describe('AuthorDetailView', () => {
     props = {
       author: Object.create(authorMocks[0]),
       onBackClick: jest.fn(),
+      onDeleteClick: jest.fn(),
       onEditClick: jest.fn(),
     };
 

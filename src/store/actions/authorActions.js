@@ -127,8 +127,24 @@ function updateAuthor(author: Author) {
   };
 }
 
+function deleteAuthor(author: Author) {
+  return async (dispatch: Function) => {
+    dispatch(_requestStart());
+    try {
+      console.log('TODO: implement authorActions.deleteAuthor()');
+    } catch (err) {
+      console.error('TODO: Deal with error in authorActions.deleteAuthor()');
+      console.error(err);
+      throw parseError(err);
+    } finally {
+      dispatch(_requestEnd());
+    }
+  };
+}
+
 export {
   createAuthor,
+  deleteAuthor,
   fetchAuthors,
   updateAuthor,
 };

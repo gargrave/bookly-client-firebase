@@ -14,13 +14,15 @@ import Card from '../../../common/Card';
 type Props = {
   author: Author,
   onBackClick: Function,
+  onDeleteClick: Function,
   onEditClick: Function,
 };
 
 function AuthorDetailView({
   author,
-  onEditClick,
   onBackClick,
+  onDeleteClick,
+  onEditClick,
 }: Props) {
   return (
     <div className={buildClasses('author-detail-view')}>
@@ -48,7 +50,13 @@ function AuthorDetailView({
             type="info"
           />
           <Button
+            onClick={onDeleteClick}
+            text="Delete"
+            type="danger"
+          />
+          <Button
             onClick={onBackClick}
+            position="right"
             text="Back"
             type="light"
           />
@@ -73,6 +81,7 @@ AuthorDetailView.propTypes = {
     lastName: string,
   }),
   onBackClick: func.isRequired,
+  onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,
 };
 
