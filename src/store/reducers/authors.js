@@ -45,6 +45,14 @@ export default function authors(state = defaultState, action) {
         ]),
       });
 
+    case AUTHORS.DELETE_SUCCESS:
+      return {
+        ...state,
+        data: sortByLastName(
+          state.data.filter((a) => a.id !== action.payload.author.id),
+        ),
+      };
+
     case AUTH.LOGOUT:
       return Object.assign({}, defaultState);
 

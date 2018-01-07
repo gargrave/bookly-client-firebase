@@ -10,6 +10,10 @@ import { authorModel } from '../../models/Author.model';
 
 const DB = 'authors';
 
+async function getDocRef(id: string): FbDocRef {
+  return db.collection(DB).doc(id);
+}
+
 function _requestStart() {
   return {
     type: AUTHORS.REQUEST_START,
@@ -39,6 +43,13 @@ function _createAuthor(author: Author) {
 function _updateAuthor(author: Author) {
   return {
     type: AUTHORS.UPDATE_SUCCESS,
+    payload: { author },
+  };
+}
+
+function _deleteAuthor(author: Author) {
+  return {
+    type: AUTHORS.DELETE_SUCCESS,
     payload: { author },
   };
 }
@@ -131,7 +142,14 @@ function deleteAuthor(author: Author) {
   return async (dispatch: Function) => {
     dispatch(_requestStart());
     try {
-      console.log('TODO: implement authorActions.deleteAuthor()');
+      const docRef: FbDocRef = await getDocRef(author.id);
+      await docRef.delete();
+      console.warn('TODO: need to delete all existing books by this author');
+
+      // TODO: need to delete all existing books by this author
+      dispatch(_deleteAuthor(author));
+      dispatch(refreshBooksByAuthor(author));
+      return author;
     } catch (err) {
       console.error('TODO: Deal with error in authorActions.deleteAuthor()');
       console.error(err);

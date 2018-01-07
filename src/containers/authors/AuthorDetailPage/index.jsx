@@ -205,10 +205,8 @@ class AuthorDetailPage extends Component<Props, State> {
 
   async onDeleteDialogConfirm() {
     console.log('TODO: implement AuthorDetailPage.onDeleteDialogConfirm()');
-    await this.props.deleteAuthor();
-    this.setState({
-      deleteDialogShowing: false,
-    });
+    await this.props.deleteAuthor(this.props.author);
+    this.props.history.push(localUrls.authorsList);
   }
 
   render() {
@@ -289,8 +287,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  deleteAuthor() {
-    return dispatch(deleteAuthor());
+  deleteAuthor(author: Author) {
+    return dispatch(deleteAuthor(author));
   },
 
   fetchAuthors() {
