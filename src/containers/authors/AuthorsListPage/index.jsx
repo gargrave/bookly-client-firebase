@@ -14,7 +14,6 @@ import AuthorList from '../../../components/bookly/authors/AuthorList';
 import Button from '../../../components/common/Button';
 import CardList from '../../../components/common/CardList';
 import InputField from '../../../components/common/InputField';
-import Modal from '../../../components/common/Modal';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
 type Props = {
@@ -24,7 +23,6 @@ type Props = {
 };
 
 type State = {
-  dialogShowing: boolean,
   searchValue: string,
 }
 
@@ -33,7 +31,6 @@ class AuthorsListPage extends Component<Props, State> {
     super(props);
 
     this.state = {
-      dialogShowing: true,
       searchValue: '',
     };
 
@@ -41,8 +38,6 @@ class AuthorsListPage extends Component<Props, State> {
     _this.onAddClick = _this.onAddClick.bind(this);
     _this.onAuthorClick = _this.onAuthorClick.bind(this);
     _this.onInputChange = _this.onInputChange.bind(this);
-    _this.onDialogCancel = _this.onDialogCancel.bind(this);
-    _this.onDialogConfirm = _this.onDialogConfirm.bind(this);
   }
 
   componentDidMount() {
@@ -76,32 +71,12 @@ class AuthorsListPage extends Component<Props, State> {
     }
   }
 
-  showDialog() {
-    this.setState({
-      dialogShowing: true,
-    });
-  }
-
-  onDialogCancel() {
-    this.setState({
-      dialogShowing: false,
-    });
-  }
-
-  onDialogConfirm() {
-    console.log('Dialog confirm clicked!');
-    this.setState({
-      dialogShowing: false,
-    });
-  }
-
   render() {
     const {
       authors,
     } = this.props;
 
     const {
-      dialogShowing,
       searchValue,
     } = this.state;
 
@@ -110,7 +85,7 @@ class AuthorsListPage extends Component<Props, State> {
         <h2>
           My Authors
           <Button
-            onClick={this.showDialog.bind(this)/*this.onAddClick*/}
+            onClick={this.onAddClick}
             text="Add"
             type="success"
           />
@@ -135,15 +110,6 @@ class AuthorsListPage extends Component<Props, State> {
             onAuthorClick={this.onAuthorClick}
           />
         </CardList>
-
-        {dialogShowing &&
-          <Modal
-            message="Are you sure you want to delete this?"
-            onCancel={this.onDialogCancel}
-            onConfirm={this.onDialogConfirm}
-            title="Confirm Deletion"
-          />
-        }
       </div>
     );
   }
