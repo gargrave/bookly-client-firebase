@@ -90,7 +90,7 @@ function fetchAuthors() {
       } catch (err) {
         console.error('TODO: Deal with error in authorActions.fetchAuthors()');
         console.error(err);
-        throw parseError(err);
+        throw parseFbError(err);
       } finally {
         dispatch(_requestEnd());
       }
@@ -118,7 +118,7 @@ function createAuthor(author: Author) {
     } catch (err) {
       console.error('TODO: Deal with error in authorActions.createAuthor()');
       console.error(err);
-      throw parseError(err);
+      throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
     }
@@ -148,7 +148,7 @@ function updateAuthor(author: Author) {
     } catch (err) {
       console.error('TODO: Deal with error in authorActions.updateAuthor()');
       console.error(err);
-      throw parseError(err);
+      throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
     }
@@ -159,8 +159,7 @@ function deleteAuthor(author: Author) {
   return async (dispatch: Function) => {
     dispatch(_requestStart());
     try {
-      const docRef: FbDocRef = await getDocRef('h9fwehhhhio');
-      // const docRef: FbDocRef = await getDocRef(author.id);
+      const docRef: FbDocRef = await getDocRef(author.id);
       await docRef.delete();
       console.warn('TODO: need to delete all existing books by this author');
 

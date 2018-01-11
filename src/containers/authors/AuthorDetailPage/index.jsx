@@ -9,6 +9,7 @@ import { localUrls } from '../../../constants/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
 import { deleteAuthor, fetchAuthors, updateAuthor } from '../../../store/actions/authorActions';
+import { createSnackbar } from '../../../store/actions/snackbarActions';
 
 import Alert from '../../../components/common/Alert';
 import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';
@@ -19,6 +20,7 @@ import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 type Props = {
   author: Author,
   authorId: string,
+  createSnackbar: Function,
   deleteAuthor: Function,
   history: Object,
   fetchAuthors: Function,
@@ -209,6 +211,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }, async () => {
       try {
         await this.props.deleteAuthor(this.props.author);
+        this.props.createSnackbar('Author successfully deleted.');
         this.props.history.push(localUrls.authorsList);
       } catch (err) {
         console.warn('TODO: show "topLevelError" in AuthorDetailView');
@@ -224,6 +227,7 @@ class AuthorDetailPage extends Component<Props, State> {
     const {
       author,
       authorId,
+      createSnackbar,
     } = this.props;
     const {
       deleteDialogShowing,
@@ -237,6 +241,7 @@ class AuthorDetailPage extends Component<Props, State> {
 
     return (
       <div>
+        <button onClick={() => createSnackbar(`Snackbar: ${Math.random()}`)}>SNACKS</button>
         {!author.id &&
           <Alert
             message={`No author found with id: ${authorId}`}
@@ -251,6 +256,7 @@ class AuthorDetailPage extends Component<Props, State> {
             this.onCancel.bind(this), this.onInputChange.bind(this), this.onSubmit.bind(this))
         }
         {deleteDialogShowing &&
+          /* TODO: move this to a separate function */
           <Modal
             message="Are you sure you want to delete this author?"
             onCancel={this.hideDeleteDialog}
@@ -278,6 +284,7 @@ AuthorDetailPage.propTypes = {
     lastName: string,
   }).isRequired,
   authorId: string,
+  createSnackbar: func.isRequired,
   deleteAuthor: func.isRequired,
   fetchAuthors: func.isRequired,
   history: object,
@@ -285,7 +292,7 @@ AuthorDetailPage.propTypes = {
 };
 
 /* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: any, ownProps: any) => {
   const authorId = ownProps.match.params.id;
   const author = state.authors.data.find(
     (a) => a.id === authorId
@@ -297,7 +304,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
+  createSnackbar(message: string) {
+    return dispatch(createSnackbar(message));
+  },
+
   deleteAuthor(author: Author) {
     return dispatch(deleteAuthor(author));
   },

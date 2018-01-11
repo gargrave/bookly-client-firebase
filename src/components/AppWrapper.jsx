@@ -8,8 +8,9 @@ import { setInitialized } from '../store/actions/appActions';
 import { setLocalUserData } from '../store/actions/authActions';
 import { fetchBooks } from '../store/actions/bookActions';
 
-import SimpleHeader from './bookly/header/SimpleHeader';
 import Routes from './Routes';
+import Snackbar from '../containers/common/Snackbar/';
+import SimpleHeader from './bookly/header/SimpleHeader';
 
 import './AppWrapper.css';
 
@@ -33,6 +34,7 @@ class AppWrapper extends Component {
           <main className="main-view">
             <Routes />
           </main>
+          <Snackbar />
         </div>
       </BrowserRouter>
     );
