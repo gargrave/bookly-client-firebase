@@ -19,35 +19,40 @@ function sortByAuthorLastName(books) {
 export default function books(state = defaultState, action) {
   switch (action.type) {
     case BOOKS.REQUEST_START:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         bookRequestPending: true,
-      });
+      };
 
     case BOOKS.REQUEST_END:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         bookRequestPending: false,
-      });
+      };
 
     case BOOKS.FETCH_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: sortByAuthorLastName(action.payload.books),
-      });
+      };
 
     case BOOKS.CREATE_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: sortByAuthorLastName([
           ...state.data,
           action.payload.book,
         ]),
-      });
+      };
 
     case BOOKS.UPDATE_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: sortByAuthorLastName([
           ...state.data.filter((a) => a.id !== action.payload.book.id),
           action.payload.book,
         ]),
-      });
+      };
 
     case BOOKS.DELETE_BY_AUTHOR_SUCCESS:
       return {
@@ -58,7 +63,9 @@ export default function books(state = defaultState, action) {
       };
 
     case AUTH.LOGOUT:
-      return Object.assign({}, defaultState);
+      return {
+        ...defaultState,
+      };
 
     default:
       return state;
