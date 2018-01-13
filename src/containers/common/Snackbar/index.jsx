@@ -1,11 +1,11 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { array, func } from 'prop-types';
-import { CSSTransition } from 'react-transition-group';
 
 import { snackbarPop } from '../../../store/actions/snackbarActions';
 
+import { SlideInFromBottom } from '../../../components/common/hocs/Transitions';
 import SnackbarMessage from './SnackbarMessage/';
 
 import './styles.css';
@@ -78,22 +78,18 @@ class Snackbar extends React.Component<Props, State> {
     } = this.state;
 
     return (
-      <CSSTransition
+      <SlideInFromBottom
         in={showing}
-        timeout={1000}
-        classNames="slide-up"
         onExited={this.onSnackbarExited}
       >
-        <Fragment>
-          {currentMessage &&
-            <SnackbarMessage
-              message={currentMessage}
-              onClick={this.beginSnackbarHide}
-              onSnackbarDuration={this.beginSnackbarHide}
-            />
-          }
-        </Fragment>
-      </CSSTransition>
+        {currentMessage &&
+          <SnackbarMessage
+            message={currentMessage}
+            onClick={this.beginSnackbarHide}
+            onSnackbarDuration={this.beginSnackbarHide}
+          />
+        }
+      </SlideInFromBottom>
     );
   }
 }
