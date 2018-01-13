@@ -1,0 +1,23 @@
+@mixin slideInFromViewportBottom($height, $duration: 300ms) {
+  $topEnd: calc(100% - #{$height});
+  $topStart: 100%;
+  $transition: top $duration ease;
+
+  &.slide-up-enter {
+    top: $topStart;
+  }
+
+  &.slide-up-enter.slide-up-enter-active {
+    top: $topEnd;
+    transition: $transition;
+  }
+
+  &.slide-up-exit {
+    top: $topEnd;
+  }
+
+  &.slide-up-exit.slide-up-exit-active {
+    top: $topStart;
+    transition: $transition;
+  }
+}
