@@ -4,17 +4,8 @@ import { func, number, string } from 'prop-types';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 
-import './styles.css';
-
-type Props = {
-  duration?: number,
-  message: string,
-  onClick?: Function,
-  onSnackbarDuration: Function,
-};
-
 // clamp between MIN/MAX duration, with DEFAULT_DURATION as fallback
-function calculateDuration(duration) {
+function calculateDuration(duration?: number): number {
   const DEFAULT_DURATION = 3250;
   const MAX_DURATION = 10000;
   const MIN_DURATION = 1000;
@@ -27,6 +18,13 @@ function calculateDuration(duration) {
     )
   );
 }
+
+type Props = {
+  duration?: number,
+  message: string,
+  onClick?: Function,
+  onSnackbarDuration: Function,
+};
 
 let timeout;
 

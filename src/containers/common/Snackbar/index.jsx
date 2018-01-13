@@ -8,6 +8,8 @@ import { snackbarPop } from '../../../store/actions/snackbarActions';
 
 import SnackbarMessage from './SnackbarMessage/';
 
+import './styles.css';
+
 type Props = {
   queue: any[],
   snackbarPop: Function,
