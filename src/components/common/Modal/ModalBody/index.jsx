@@ -1,13 +1,20 @@
 // @flow
 import React from 'react';
-import { string } from 'prop-types';
+import { array, oneOfType, string } from 'prop-types';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 
 import './styles.css';
 
 type Props = {
-  message: string,
+  message: string | string[],
+};
+
+function renderText(message: string | string[]) {
+  if (!Array.isArray(message)) {
+    message = [message];
+  }
+  return message.map((msg) => <p key={msg}>{msg}</p>);
 };
 
 function ModalBody({
@@ -16,14 +23,14 @@ function ModalBody({
   return (
     <div className={buildClasses(['modal__body'])}>
       <div className={buildClasses(['modal__message'])}>
-        {message}
+        {renderText(message)}
       </div>
     </div>
   );
 }
 
 ModalBody.propTypes = {
-  message: string.isRequired,
+  message: oneOfType([array, string]).isRequired,
 };
 
 export default ModalBody;

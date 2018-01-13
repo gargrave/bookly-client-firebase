@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, string } from 'prop-types';
+import { array, func, oneOfType, string } from 'prop-types';
 
 import { buildClasses } from '../../../utils/cssHelpers';
 
@@ -14,7 +14,7 @@ import './styles.css';
 type Props = {
   cancelText?: string,
   confirmText?: string,
-  message: string,
+  message: string | string[],
   onCancel: Function,
   onConfirm: Function,
   title?: string,
@@ -52,7 +52,7 @@ function Modal({
 Modal.propTypes = {
   cancelText: string,
   confirmText: string,
-  message: string.isRequired,
+  message: oneOfType([array, string]).isRequired,
   onCancel: func.isRequired,
   onConfirm: func.isRequired,
   title: string,
