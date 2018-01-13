@@ -1,21 +1,57 @@
 // @flow
 import React from 'react';
-import { func, string } from 'prop-types';
+import { func, number, string } from 'prop-types';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 
 import './styles.css';
 
 type Props = {
+  duration?: number,
   message: string,
+  onClick?: Function,
   onSnackbarDuration: Function,
 };
 
-const DEFAULT_DURATION = 3500;
+// clamp between MIN/MAX duration, with DEFAULT_DURATION as fallback
+function calculateDuration(duration) {
+  const DEFAULT_DURATION = 3250;
+  const MAX_DURATION = 10000;
+  const MIN_DURATION = 1000;
+
+  return Math.max(
+    MIN_DURATION,
+    Math.min(
+      duration || DEFAULT_DURATION,
+      MAX_DURATION
+    )
+  );
+}
+
+let timeout;
 
 class SnackbarMessage extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
+
+    const _this: any = this;
+    _this.onSnackbarClick = this.onSnackbarClick.bind(this);
+  }
+
   componentDidMount() {
-    setTimeout(this.props.onSnackbarDuration, DEFAULT_DURATION);
+    timeout = setTimeout(
+      this.props.onSnackbarDuration,
+      calculateDuration(this.props.duration)
+    );
+  }
+
+  onSnackbarClick() {
+    if (this.props.onClick) {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      this.props.onClick();
+    }
   }
 
   render() {
@@ -24,7 +60,10 @@ class SnackbarMessage extends React.Component<Props> {
     } = this.props;
 
     return (
-      <div className={buildClasses(['snackbar'])}>
+      <div
+        className={buildClasses(['snackbar'])}
+        onClick={this.onSnackbarClick}
+      >
         <div className={buildClasses(['snackbar__message'])}>
           {message}
         </div>
@@ -34,7 +73,9 @@ class SnackbarMessage extends React.Component<Props> {
 }
 
 SnackbarMessage.propTypes = {
+  duration: number,
   message: string.isRequired,
+  onClick: func,
   onSnackbarDuration: func.isRequired,
 };
 

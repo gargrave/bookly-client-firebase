@@ -29,7 +29,7 @@ class Snackbar extends React.Component<Props, State> {
 
     const _this: any = this;
     _this.clearMessage = _this.clearMessage.bind(_this);
-    _this.onSnackbarDuration = _this.onSnackbarDuration.bind(_this);
+    _this.beginSnackbarHide = _this.beginSnackbarHide.bind(_this);
     _this.onSnackbarExited = _this.onSnackbarExited.bind(_this);
   }
 
@@ -49,7 +49,7 @@ class Snackbar extends React.Component<Props, State> {
     }
   }
 
-  onSnackbarDuration() {
+  beginSnackbarHide() {
     this.setState({
       showing: false,
     });
@@ -86,7 +86,8 @@ class Snackbar extends React.Component<Props, State> {
           {currentMessage &&
             <SnackbarMessage
               message={currentMessage}
-              onSnackbarDuration={this.onSnackbarDuration}
+              onClick={this.beginSnackbarHide}
+              onSnackbarDuration={this.beginSnackbarHide}
             />
           }
         </Fragment>
