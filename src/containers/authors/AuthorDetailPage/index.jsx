@@ -227,7 +227,6 @@ class AuthorDetailPage extends Component<Props, State> {
     const {
       author,
       authorId,
-      createSnackbar,
     } = this.props;
     const {
       deleteDialogShowing,
@@ -241,7 +240,6 @@ class AuthorDetailPage extends Component<Props, State> {
 
     return (
       <div>
-        <button onClick={() => createSnackbar(`Snackbar: ${Math.random()}`)}>SNACKS</button>
         {!author.id &&
           <Alert
             message={`No author found with id: ${authorId}`}
@@ -258,7 +256,10 @@ class AuthorDetailPage extends Component<Props, State> {
         {deleteDialogShowing &&
           /* TODO: move this to a separate function */
           <Modal
-            message="Are you sure you want to delete this author?"
+            message={[
+              'Are you sure you want to delete this author?',
+              'All books by this author will also be deleted.',
+            ]}
             onCancel={this.hideDeleteDialog}
             onConfirm={this.onDeleteDialogConfirm}
             title="Confirm Deletion"

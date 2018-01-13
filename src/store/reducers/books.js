@@ -49,6 +49,14 @@ export default function books(state = defaultState, action) {
         ]),
       });
 
+    case BOOKS.DELETE_BY_AUTHOR_SUCCESS:
+      return {
+        ...state,
+        data: state.data.filter(
+          (book) => book.author.id !== action.payload.author.id
+        ),
+      };
+
     case AUTH.LOGOUT:
       return Object.assign({}, defaultState);
 

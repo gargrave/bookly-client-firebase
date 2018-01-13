@@ -3,7 +3,7 @@ import { APP, AUTHORS } from '../actionTypes';
 
 import type { Author, FbCollection, FbDoc, FbDocRef, FbError } from '../../constants/flowtypes';
 
-import { refreshBooksByAuthor } from './bookActions';
+import { deleteBooksByAuthor, refreshBooksByAuthor } from './bookActions';
 import { parseFbError } from '../../globals/errors';
 import { db, timestamp } from '../../globals/firebase/';
 import { authorModel } from '../../models/Author.model';
@@ -159,13 +159,11 @@ function deleteAuthor(author: Author) {
   return async (dispatch: Function) => {
     dispatch(_requestStart());
     try {
+      dispatch(deleteBooksByAuthor(author));
       const docRef: FbDocRef = await getDocRef(author.id);
       await docRef.delete();
-      console.warn('TODO: need to delete all existing books by this author');
 
-      // TODO: need to delete all existing books by this author
       dispatch(_deleteAuthor(author));
-      dispatch(refreshBooksByAuthor(author));
       return author;
     } catch (err) {
       dispatch(_apiError(err));

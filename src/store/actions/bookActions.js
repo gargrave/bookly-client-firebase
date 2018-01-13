@@ -44,6 +44,15 @@ function _updateBook(book: Book) {
   };
 }
 
+function _deleteBooksByAuthor(author: Author) {
+  return {
+    type: BOOKS.DELETE_BY_AUTHOR_SUCCESS,
+    payload: {
+      author,
+    },
+  };
+}
+
 function refreshBooksByAuthor(author: Author) {
   return (dispatch: Function, getState: Function) => {
     const books = getState().books.data;
@@ -152,9 +161,34 @@ function updateBook(book: Book) {
   };
 }
 
+function deleteBooksByAuthor(author: Author) {
+  console.log('deleteBooksByAuthor');
+  return async (dispatch: Function, getState: Function) => {
+    dispatch(_requestStart());
+    try {
+      const userId = getState().auth.user.id;
+      const query = await db.collection(DB)
+        .where('owner', '==', userId)
+        .where('authorId', '==', author.id);
+      const results: FbCollection = await query.get();
+      const batch = db.batch();
+      results.docs.forEach(
+        (doc: FbDoc) => batch.delete(doc.ref)
+      );
+      await batch.commit();
+      dispatch(_deleteBooksByAuthor(author));
+    } catch (err) {
+      throw parseError(err);
+    } finally {
+      dispatch(_requestEnd());
+    }
+  };
+}
+
 export {
-  refreshBooksByAuthor,
   createBook,
+  deleteBooksByAuthor,
   fetchBooks,
+  refreshBooksByAuthor,
   updateBook,
 };
