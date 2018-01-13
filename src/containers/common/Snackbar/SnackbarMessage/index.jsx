@@ -8,12 +8,14 @@ import './styles.css';
 
 type Props = {
   message: string,
-  onSnackbarEnd: Function,
+  onSnackbarDuration: Function,
 };
+
+const DEFAULT_DURATION = 3500;
 
 class SnackbarMessage extends React.Component<Props> {
   componentDidMount() {
-    setTimeout(this.props.onSnackbarEnd, 2500);
+    setTimeout(this.props.onSnackbarDuration, DEFAULT_DURATION);
   }
 
   render() {
@@ -23,7 +25,9 @@ class SnackbarMessage extends React.Component<Props> {
 
     return (
       <div className={buildClasses(['snackbar'])}>
-        <h2>{message}</h2>
+        <div className={buildClasses(['snackbar__message'])}>
+          {message}
+        </div>
       </div>
     );
   }
@@ -31,7 +35,7 @@ class SnackbarMessage extends React.Component<Props> {
 
 SnackbarMessage.propTypes = {
   message: string.isRequired,
-  onSnackbarEnd: func.isRequired,
+  onSnackbarDuration: func.isRequired,
 };
 
 export default SnackbarMessage;

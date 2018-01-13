@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { array, func } from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
 import { snackbarPop } from '../../../store/actions/snackbarActions';
 
@@ -14,6 +15,7 @@ type Props = {
 
 type State = {
   currentMessage: string,
+  showing: boolean,
 };
 
 class Snackbar extends React.Component<Props, State> {
@@ -22,10 +24,13 @@ class Snackbar extends React.Component<Props, State> {
 
     this.state = {
       currentMessage: '',
+      showing: false,
     };
 
     const _this: any = this;
-    _this.onSnackbarEnd = _this.onSnackbarEnd.bind(_this);
+    _this.clearMessage = _this.clearMessage.bind(_this);
+    _this.onSnackbarDuration = _this.onSnackbarDuration.bind(_this);
+    _this.onSnackbarExited = _this.onSnackbarExited.bind(_this);
   }
 
   componentWillReceiveProps(nextProps: any) {
@@ -37,34 +42,55 @@ class Snackbar extends React.Component<Props, State> {
       const currentMessage = queue[0].message;
       this.setState({
         currentMessage,
+        showing: true,
       }, () => {
         this.props.snackbarPop();
       });
     }
   }
 
-  onSnackbarEnd() {
+  onSnackbarDuration() {
+    this.setState({
+      showing: false,
+    });
+  }
+
+  onSnackbarExited() {
+    this.clearMessage(this.checkQueue.bind(this));
+  }
+
+  clearMessage(cb?: Function) {
     this.setState({
       currentMessage: '',
     }, () => {
-      this.checkQueue();
+      if (cb) {
+        cb();
+      }
     });
   }
 
   render() {
     const {
       currentMessage,
+      showing,
     } = this.state;
 
     return (
-      <Fragment>
-        {currentMessage &&
-          <SnackbarMessage
-            message={currentMessage}
-            onSnackbarEnd={this.onSnackbarEnd}
-          />
-        }
-      </Fragment>
+      <CSSTransition
+        in={showing}
+        timeout={1000}
+        classNames="slide-up"
+        onExited={this.onSnackbarExited}
+      >
+        <Fragment>
+          {currentMessage &&
+            <SnackbarMessage
+              message={currentMessage}
+              onSnackbarDuration={this.onSnackbarDuration}
+            />
+          }
+        </Fragment>
+      </CSSTransition>
     );
   }
 }
