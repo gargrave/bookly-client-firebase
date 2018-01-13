@@ -49,9 +49,17 @@ export default function books(state = defaultState, action) {
       return {
         ...state,
         data: sortByAuthorLastName([
-          ...state.data.filter((a) => a.id !== action.payload.book.id),
+          ...state.data.filter((book) => book.id !== action.payload.book.id),
           action.payload.book,
         ]),
+      };
+
+    case BOOKS.DELETE_SUCCESS:
+      return {
+        ...state,
+        data: sortByAuthorLastName(
+          state.data.filter((book) => book.id !== action.payload.book.id),
+        ),
       };
 
     case BOOKS.DELETE_BY_AUTHOR_SUCCESS:

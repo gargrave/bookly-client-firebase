@@ -92,8 +92,8 @@ class AuthorDetailPage extends Component<Props, State> {
     };
 
     const _this: any = this;
-    _this.onBackClick = _this.onBackClick.bind(this);
     _this.hideDeleteDialog = _this.hideDeleteDialog.bind(this);
+    _this.onBackClick = _this.onBackClick.bind(this);
     _this.onDeleteDialogConfirm = _this.onDeleteDialogConfirm.bind(this);
     _this.onEditClick = _this.onEditClick.bind(this);
     _this.showDeleteDialog = _this.showDeleteDialog.bind(this);

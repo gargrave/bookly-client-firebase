@@ -1,8 +1,8 @@
 // @flow
-import { BOOKS } from '../actionTypes';
+import { APP, BOOKS } from '../actionTypes';
 
-import type { Author, Book, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
-import { parseError } from '../../globals/errors';
+import type { Author, Book, FbCollection, FbDoc, FbDocRef, FbError } from '../../constants/flowtypes';
+import { parseFbError } from '../../globals/errors';
 import { bookModel, refreshBookAuthor } from '../../models/Book.model';
 
 import { db, timestamp } from '../../globals/firebase/';
@@ -10,6 +10,11 @@ import { db, timestamp } from '../../globals/firebase/';
 import { fetchAuthors } from './authorActions';
 
 const DB = 'books';
+
+// TODO: move this to a helper module
+async function getDocRef(id: string): FbDocRef {
+  return db.collection(DB).doc(id);
+}
 
 function _requestStart() {
   return {
@@ -41,6 +46,25 @@ function _updateBook(book: Book) {
   return {
     type: BOOKS.UPDATE_SUCCESS,
     payload: { book },
+  };
+}
+
+function _deleteBook(book: Book) {
+  return {
+    type: BOOKS.DELETE_SUCCESS,
+    payload: {
+      book,
+    },
+  };
+}
+
+// TODO: move this to a separate module
+function _apiError(err: FbError) {
+  return {
+    type: APP.API_ERROR,
+    payload: {
+      err,
+    },
   };
 }
 
@@ -97,7 +121,9 @@ function fetchBooks() {
         dispatch(_fetchBooks(records));
         return records;
       } catch (err) {
-        throw parseError(err);
+        console.error('TODO: Deal with error in bookActions.fetchBooks()');
+        console.error(err);
+        throw parseFbError(err);
       } finally {
         dispatch(_requestEnd());
       }
@@ -124,8 +150,9 @@ function createBook(book: Book) {
       dispatch(_createBook(newRecord));
       return newRecord;
     } catch (err) {
-      console.error(`Error writing document: ${err}`);
-      throw parseError(err);
+      console.error('TODO: Deal with error in bookActions.createBook()');
+      console.error(err);
+      throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
     }
@@ -153,8 +180,26 @@ function updateBook(book: Book) {
       dispatch(_updateBook(updatedRecord));
       return updatedRecord;
     } catch (err) {
-      console.error(`Error updating document: ${err}`);
-      throw parseError(err);
+      console.error('TODO: Deal with error in bookActions.updateBook()');
+      console.error(err);
+      throw parseFbError(err);
+    } finally {
+      dispatch(_requestEnd());
+    }
+  };
+}
+
+function deleteBook(book: Book) {
+  return async (dispatch: Function) => {
+    dispatch(_requestStart());
+    try {
+      const docRef: FbDocRef = await getDocRef(book.id);
+      await docRef.delete();
+      dispatch(_deleteBook(book));
+      return book;
+    } catch (err) {
+      dispatch(_apiError(err));
+      throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
     }
@@ -162,7 +207,6 @@ function updateBook(book: Book) {
 }
 
 function deleteBooksByAuthor(author: Author) {
-  console.log('deleteBooksByAuthor');
   return async (dispatch: Function, getState: Function) => {
     dispatch(_requestStart());
     try {
@@ -178,7 +222,8 @@ function deleteBooksByAuthor(author: Author) {
       await batch.commit();
       dispatch(_deleteBooksByAuthor(author));
     } catch (err) {
-      throw parseError(err);
+      dispatch(_apiError(err));
+      throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
     }
@@ -187,6 +232,7 @@ function deleteBooksByAuthor(author: Author) {
 
 export {
   createBook,
+  deleteBook,
   deleteBooksByAuthor,
   fetchBooks,
   refreshBooksByAuthor,

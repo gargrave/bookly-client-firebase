@@ -14,12 +14,14 @@ import Card from '../../../common/Card';
 type Props = {
   book: Book,
   onBackClick: Function,
+  onDeleteClick: Function,
   onEditClick: Function,
 };
 
 function BookDetailView({
   book,
   onBackClick,
+  onDeleteClick,
   onEditClick,
 }: Props) {
   const {
@@ -54,9 +56,14 @@ function BookDetailView({
             text="Edit"
             type="info"
           />
-
+          <Button
+            onClick={onDeleteClick}
+            text="Delete"
+            type="danger"
+          />
           <Button
             onClick={onBackClick}
+            position="right"
             text="Back"
             type="light"
           />
@@ -83,6 +90,7 @@ BookDetailView.propTypes = {
     title: string,
   }).isRequired,
   onBackClick: func.isRequired,
+  onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,
 };
 

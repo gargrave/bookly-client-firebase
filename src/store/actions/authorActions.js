@@ -10,6 +10,7 @@ import { authorModel } from '../../models/Author.model';
 
 const DB = 'authors';
 
+// TODO: move this to a helper module
 async function getDocRef(id: string): FbDocRef {
   return db.collection(DB).doc(id);
 }
@@ -62,6 +63,7 @@ function _deleteAuthor(author: Author) {
   };
 }
 
+// TODO: move this to a separate module
 function _apiError(err: FbError) {
   return {
     type: APP.API_ERROR,

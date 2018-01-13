@@ -9,24 +9,28 @@ import { localUrls } from '../../../constants/urls';
 import { parseError } from '../../../globals/errors';
 import { bookHasAllFields, booksMatch, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
-import { fetchBooks, updateBook } from '../../../store/actions/bookActions';
+import { deleteBook, fetchBooks, updateBook } from '../../../store/actions/bookActions';
+import { createSnackbar } from '../../../store/actions/snackbarActions';
 
 import Alert from '../../../components/common/Alert';
 import BookDetailView from '../../../components/bookly/books/BookDetailView';
 import BookEditView from '../../../components/bookly/books/BookEditView';
+import Modal from '../../../components/common/Modal';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
 type Props = {
   authors: Author[],
   book: Book,
   bookId: string,
-  createBook: Function,
+  createSnackbar: Function,
+  deleteBook: Function,
   fetchBooks: Function,
   history: Object,
   updateBook: Function,
 };
 
 type State = {
+  deleteDialogShowing: boolean,
   editableBook: Book,
   editing: boolean,
   errors: BookErrors,
@@ -40,6 +44,7 @@ class BookDetailPage extends Component<Props, State> {
     super(props);
 
     this.state = {
+      deleteDialogShowing: false,
       editableBook: bookModel.empty(),
       editing: false,
       errors: bookModel.emptyErrors(),
@@ -49,12 +54,15 @@ class BookDetailPage extends Component<Props, State> {
     };
 
     const _this: any = this;
+    _this.hideDeleteDialog = _this.hideDeleteDialog.bind(this);
     _this.onAuthorChange = _this.onAuthorChange.bind(this);
+    _this.onBackClick = _this.onBackClick.bind(this);
+    _this.onCancel = _this.onCancel.bind(this);
+    _this.onDeleteDialogConfirm = _this.onDeleteDialogConfirm.bind(this);
+    _this.onEditClick = _this.onEditClick.bind(this);
     _this.onInputChange = _this.onInputChange.bind(this);
     _this.onSubmit = _this.onSubmit.bind(this);
-    _this.onEditClick = _this.onEditClick.bind(this);
-    _this.onCancel = _this.onCancel.bind(this);
-    _this.onBackClick = _this.onBackClick.bind(this);
+    _this.showDeleteDialog = _this.showDeleteDialog.bind(this);
   }
 
   componentDidMount() {
@@ -172,6 +180,36 @@ class BookDetailPage extends Component<Props, State> {
     this.props.history.push(localUrls.booksList);
   }
 
+  showDeleteDialog() {
+    this.setState({
+      deleteDialogShowing: true,
+    });
+  }
+
+  hideDeleteDialog() {
+    this.setState({
+      deleteDialogShowing: false,
+    });
+  }
+
+  async onDeleteDialogConfirm() {
+    this.setState({
+      topLevelError: '',
+    }, async () => {
+      try {
+        await this.props.deleteBook(this.props.book);
+        this.props.createSnackbar('Book successfully deleted.');
+        this.props.history.push(localUrls.booksList);
+      } catch (err) {
+        console.warn('TODO: show "topLevelError" in BookDetailView');
+        this.setState({
+          deleteDialogShowing: false,
+          topLevelError: err,
+        });
+      }
+    });
+  }
+
   render() {
     const {
       authors,
@@ -179,6 +217,7 @@ class BookDetailPage extends Component<Props, State> {
       bookId,
     } = this.props;
     const {
+      deleteDialogShowing,
       editableBook,
       editing,
       errors,
@@ -198,8 +237,9 @@ class BookDetailPage extends Component<Props, State> {
         {book.id && !editing && (
           <BookDetailView
             book={book}
-            onEditClick={this.onEditClick}
             onBackClick={this.onBackClick}
+            onDeleteClick={this.showDeleteDialog}
+            onEditClick={this.onEditClick}
           />
         )}
         {book.id && editing && (
@@ -216,6 +256,15 @@ class BookDetailPage extends Component<Props, State> {
             topLevelError={topLevelError}
           />
         )}
+        {deleteDialogShowing &&
+          /* TODO: move this to a separate function */
+          <Modal
+            message={'Are you sure you want to delete this book?'}
+            onCancel={this.hideDeleteDialog}
+            onConfirm={this.onDeleteDialogConfirm}
+            title="Confirm Deletion"
+          />
+        }
       </div>
     );
   }
@@ -228,6 +277,8 @@ BookDetailPage.propTypes = {
     title: string,
   }).isRequired,
   bookId: string,
+  createSnackbar: func.isRequired,
+  deleteBook: func.isRequired,
   fetchBooks: func.isRequired,
   history: object,
   updateBook: func.isRequired,
@@ -248,6 +299,14 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  createSnackbar(message: string) {
+    return dispatch(createSnackbar(message));
+  },
+
+  deleteBook(book: Book) {
+    return dispatch(deleteBook(book));
+  },
+
   fetchBooks() {
     return dispatch(fetchBooks());
   },
