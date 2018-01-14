@@ -5,18 +5,19 @@ import Alert from '../Alert';
 import Button from '../Button';
 import Form from './';
 
+const defaultProps = Object.freeze({
+  cancelBtnText: 'Cancel',
+  children: [],
+  classes: [],
+  disabled: false,
+  onCancel: jest.fn(),
+  onSubmit: jest.fn(),
+  submitBtnText: 'Submit',
+  submitDisabled: false,
+  topLevelError: '',
+});
+
 function getComponent(extraProps = {}) {
-  const defaultProps = {
-    cancelBtnText: 'Cancel',
-    children: [],
-    classes: [],
-    disabled: false,
-    onCancel: jest.fn(),
-    onSubmit: jest.fn(),
-    submitBtnText: 'Submit',
-    submitDisabled: false,
-    topLevelError: '',
-  };
   const props = Object.assign({}, defaultProps, extraProps);
   return shallow(<Form {...props} />);
 }

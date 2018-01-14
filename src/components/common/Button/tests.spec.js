@@ -3,12 +3,13 @@ import { shallow } from 'enzyme';
 
 import Button from './';
 
+const defaultProps = Object.freeze({
+  onClick: jest.fn(),
+  text: 'ButtonText',
+  type: 'success',
+});
+
 function getComponent(extraProps = {}) {
-  const defaultProps = {
-    onClick: jest.fn(),
-    text: 'ButtonText',
-    type: 'success',
-  };
   const props = Object.assign({}, defaultProps, extraProps);
   return shallow(<Button {...props} />);
 }

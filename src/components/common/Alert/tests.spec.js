@@ -3,30 +3,35 @@ import { shallow } from 'enzyme';
 
 import Alert from './';
 
-describe('InfoAlert', () => {
-  let props;
-  let wrapper;
+const defaultProps = Object.freeze({
+  message: 'This is the message.',
+  type: 'primary',
+});
 
-  beforeEach(() => {
-    props = {
-      message: 'This is the message.',
-      type: 'primary',
-    };
+function getComponent(extraProps = {}) {
+  const props = Object.assign({}, defaultProps, extraProps);
+  return shallow(<Alert {...props} />);
+}
+
+describe('InfoAlert', () => {
+  let component;
+
+  it('matches the snapshot', () => {
+    component = getComponent();
+    expect(component).toMatchSnapshot();
   });
 
   it('renders correctly as an "info" alert', () => {
-    props.type = 'info';
-    wrapper = shallow(<Alert {...props} />);
-    expect(wrapper.hasClass('bookly-alert')).toBeTruthy();
-    expect(wrapper.hasClass('alert-info')).toBeTruthy();
-    expect(wrapper.text()).toEqual(props.message);
+    component = getComponent({ type: 'info' });
+    expect(component.hasClass('bookly-alert')).toBeTruthy();
+    expect(component.hasClass('alert-info')).toBeTruthy();
+    expect(component.text()).toEqual(defaultProps.message);
   });
 
   it('renders correctly as an "danger" alert', () => {
-    props.type = 'danger';
-    wrapper = shallow(<Alert {...props} />);
-    expect(wrapper.hasClass('bookly-alert')).toBeTruthy();
-    expect(wrapper.hasClass('alert-danger')).toBeTruthy();
-    expect(wrapper.text()).toEqual(props.message);
+    component = getComponent({ type: 'danger' });
+    expect(component.hasClass('bookly-alert')).toBeTruthy();
+    expect(component.hasClass('alert-danger')).toBeTruthy();
+    expect(component.text()).toEqual(defaultProps.message);
   });
 });

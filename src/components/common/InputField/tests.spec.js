@@ -3,17 +3,18 @@ import { shallow } from 'enzyme';
 
 import InputField from './';
 
+const defaultProps = Object.freeze({
+  boundValue: '',
+  disabled: false,
+  error: '',
+  label: 'Whatever',
+  name: 'text',
+  onInputChange: jest.fn(),
+  placeholder: '',
+  type: 'text',
+});
+
 function getComponent(extraProps = {}) {
-  const defaultProps = {
-    boundValue: '',
-    disabled: false,
-    error: '',
-    label: 'Whatever',
-    name: 'text',
-    onInputChange: jest.fn(),
-    placeholder: '',
-    type: 'text',
-  };
   const props = Object.assign({}, defaultProps, extraProps);
   return shallow(<InputField {...props} />);
 }

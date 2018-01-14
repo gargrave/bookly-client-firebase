@@ -7,20 +7,21 @@ import Card from '../../../common/Card';
 
 import AccountDetailView from './';
 
+const defaultProps = Object.freeze({
+  onLogoutClick: jest.fn(),
+  user: Object.create(userMocks[0]),
+});
+
+function getComponent(extraProps = {}) {
+  const props = Object.assign({}, defaultProps, extraProps);
+  return shallow(<AccountDetailView {...props} />);
+}
+
 describe('AccountDetailView', () => {
-  let props;
   let component;
 
-  beforeEach(() => {
-    props = {
-      onLogoutClick: jest.fn(),
-      user: Object.create(userMocks[0]),
-    };
-
-    component = shallow(<AccountDetailView {...props} />);
-  });
-
   test('renders correctly', () => {
+    component = getComponent();
     expect(component).toMatchSnapshot();
     expect(component.find('.bookly-account-detail-view').length).toEqual(1);
     expect(component.find(Card).length).toEqual(1);
