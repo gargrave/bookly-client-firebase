@@ -12,6 +12,7 @@ import {
 import {
   Book,
   BookErrors,
+  BookBucket,
 } from './bookFlowtypes';
 
 import {
@@ -26,6 +27,7 @@ export {
   AuthorErrors,
   Book,
   BookErrors,
+  BookBucket,
   FbDoc,
   FbDocRef,
   FbCollection,

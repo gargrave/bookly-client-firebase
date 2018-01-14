@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import { array, func, string } from 'prop-types';
 
 import type { Book } from '../../../../constants/flowtypes';
 
 import Alert from '../../../common/Alert/';
-import BookListDetail from '../BookListDetail';
+import BookListBucket from '../BookListBucket/';
 
 type Props = {
   books: Book[],
@@ -13,7 +13,7 @@ type Props = {
   onBookClick: Function,
 };
 
-function filterBook(book: Book, filterBy?: string = '') {
+function filterBook(book: Book, filterBy?: string = ''): boolean {
   if (!filterBy) {
     return true;
   }
@@ -22,24 +22,44 @@ function filterBook(book: Book, filterBy?: string = '') {
   return title.includes(filterBy) || author.includes(filterBy);
 }
 
+function bucketByAuthor(books: Book[]): any[] {
+  const buckets = {};
+  books.forEach((book: Book) => {
+    const author = `${book.author.firstName} ${book.author.lastName}`;
+    if (!(author in buckets)) {
+      buckets[author] = [];
+    }
+    buckets[author].push(book);
+  });
+
+  return Object.keys(buckets).map((key) => {
+    return {
+      author: key,
+      books: buckets[key],
+    };
+  });
+}
+
 function bookList(
   books: Book[],
   onBookClick: Function,
   filterBy?: string,
 ) {
   return (
-    <div>
-      {books
-        .filter((b: Book) => filterBook(b, filterBy))
-        .map((book: Book) =>
-          <BookListDetail
-            book={book}
-            key={book.id}
-            onClick={onBookClick.bind(null, book.id)}
-          />
-        )
+    <Fragment>
+      {
+        bucketByAuthor(books.filter((b: Book) => filterBook(b, filterBy)))
+        .map((bucket: any) => {
+          return (
+            <BookListBucket
+              bucket={bucket}
+              key={bucket.author}
+              onBookClick={onBookClick}
+            />
+          );
+        })
       }
-    </div>
+    </Fragment>
   );
 }
 

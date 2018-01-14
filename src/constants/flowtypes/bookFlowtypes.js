@@ -15,3 +15,8 @@ export type BookErrors = {
   title: string,
   author: string,
 };
+
+export type BookBucket = {
+  author: string,
+  books: Book[],
+}
