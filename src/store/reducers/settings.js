@@ -2,7 +2,7 @@ import { SETTINGS } from '../actionTypes';
 
 const defaultState = Object.freeze({
   view: {
-    groupBooksByAuthor: false,
+    groupBooksByAuthor: true,
   },
 });
 

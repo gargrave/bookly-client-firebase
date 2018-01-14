@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { array, func, shape, string } from 'prop-types';
+import { array, bool, func, shape, string } from 'prop-types';
 
 import type { BookBucket } from '../../../../constants/flowtypes/';
 
@@ -14,18 +14,23 @@ import './styles.css';
 type Props = {
   bucket: BookBucket,
   onBookClick: Function,
+  showAuthors?: boolean,
 };
 
 function BookListBucket({
   bucket,
   onBookClick,
+  showAuthors,
 }: Props) {
   return (
     <div className={buildClasses(['book-bucket'])}>
-      <BookBucketHeader bucket={bucket} />
+      <BookBucketHeader
+        bucket={bucket}
+      />
       <BookBucketBooks
         bucket={bucket}
         onBookClick={onBookClick}
+        showAuthors={showAuthors}
       />
     </div>
   );
@@ -37,6 +42,7 @@ BookListBucket.propTypes = {
     books: array,
   }).isRequired,
   onBookClick: func.isRequired,
+  showAuthors: bool,
 };
 
 export default BookListBucket;

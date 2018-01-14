@@ -1,6 +1,6 @@
 // @flow
 import React, { Fragment } from 'react';
-import { array, func, string } from 'prop-types';
+import { array, bool, func, string } from 'prop-types';
 
 import type { Book } from '../../../../constants/flowtypes';
 
@@ -11,6 +11,7 @@ type Props = {
   books: Book[],
   filterBy?: string,
   onBookClick: Function,
+  showAuthors?: boolean,
 };
 
 function filterBook(book: Book, filterBy?: string = ''): boolean {
@@ -44,6 +45,7 @@ function bookList(
   books: Book[],
   onBookClick: Function,
   filterBy?: string,
+  showAuthors?: boolean,
 ) {
   return (
     <Fragment>
@@ -55,6 +57,7 @@ function bookList(
               bucket={bucket}
               key={bucket.author}
               onBookClick={onBookClick}
+              showAuthors={showAuthors}
             />
           );
         })
@@ -76,10 +79,11 @@ function BookList({
   books,
   filterBy,
   onBookClick,
+  showAuthors,
 }: Props) {
   return (
     books.length
-      ? bookList(books, onBookClick, filterBy)
+      ? bookList(books, onBookClick, filterBy, showAuthors)
       : noBooksMessage()
   );
 }
@@ -88,6 +92,7 @@ BookList.propTypes = {
   books: array.isRequired,
   filterBy: string,
   onBookClick: func.isRequired,
+  showAuthors: bool,
 };
 
 export default BookList;

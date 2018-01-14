@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
-import type { Book } from '../../../constants/flowtypes';
+import type { Book, ViewSettings } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { fetchBooks } from '../../../store/actions/bookActions';
@@ -19,6 +19,7 @@ type Props = {
   books: Book[],
   fetchBooks: Function,
   history: Object,
+  viewSettings: ViewSettings,
 };
 
 type State = {
@@ -74,6 +75,7 @@ class BooksListPage extends Component<Props, State> {
   render() {
     const {
       books,
+      viewSettings,
     } = this.props;
 
     const {
@@ -108,6 +110,7 @@ class BooksListPage extends Component<Props, State> {
             books={books}
             filterBy={searchValue}
             onBookClick={this.onBookClick}
+            showAuthors={!(viewSettings.groupBooksByAuthor)}
           />
         </CardList>
       </div>
@@ -119,11 +122,13 @@ BooksListPage.propTypes = {
   books: array.isRequired,
   fetchBooks: func.isRequired,
   history: object,
+  viewSettings: object.isRequired,
 };
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => ({
   books: state.books.data,
+  viewSettings: state.settings.view,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

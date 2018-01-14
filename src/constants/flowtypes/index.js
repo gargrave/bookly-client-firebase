@@ -22,6 +22,10 @@ import {
   FbError,
 } from './firebaseFlowtypes';
 
+import {
+  ViewSettings,
+} from './storeFlowtypes';
+
 export {
   Author,
   AuthorErrors,
@@ -35,4 +39,5 @@ export {
   LoginErrors,
   LoginUser,
   User,
+  ViewSettings,
 };

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, shape, string } from 'prop-types';
+import { bool, func, shape, string } from 'prop-types';
 
 import type { Book } from '../../../../constants/flowtypes';
 
@@ -9,17 +9,19 @@ import Card from '../../../common/Card';
 type Props = {
   book: Book,
   onClick: Function,
+  showAuthor?: boolean,
 };
 
 function BookListDetail({
   book,
   onClick,
+  showAuthor,
 }: Props) {
   const {
     author,
     title,
   } = book;
-  const authorName = `${author.firstName} ${author.lastName}`;
+  const authorName = showAuthor ? `${author.firstName} ${author.lastName}` : '';
 
   return (
     <Card
@@ -40,6 +42,7 @@ BookListDetail.propTypes = {
     title: string.isRequired,
   }).isRequired,
   onClick: func.isRequired,
+  showAuthor: bool,
 };
 
 export default BookListDetail;
