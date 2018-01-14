@@ -11,13 +11,11 @@ import BookListDetail from '../../BookListDetail/';
 type Props = {
   bucket: BookBucket,
   onBookClick: Function,
-  showAuthors?: boolean,
 };
 
 function booksFromBucket(
   bucket: BookBucket,
   onBookClick: Function,
-  showAuthors?: boolean,
 ) {
   return bucket.books.map((book: Book) => {
     return (
@@ -25,7 +23,7 @@ function booksFromBucket(
         book={book}
         key={book.id}
         onClick={onBookClick.bind(null, book.id)}
-        showAuthor={showAuthors}
+        showAuthor={false}
       />
     );
   });
@@ -34,11 +32,10 @@ function booksFromBucket(
 function BookBucketBookList({
   bucket,
   onBookClick,
-  showAuthors,
 }: Props) {
   return (
     <div className={buildClasses(['book-bucket__book-list'])}>
-      {booksFromBucket(bucket, onBookClick, showAuthors)}
+      {booksFromBucket(bucket, onBookClick)}
     </div>
   );
 }
@@ -49,7 +46,6 @@ BookBucketBookList.propTypes = {
     books: array,
   }).isRequired,
   onBookClick: func.isRequired,
-  showAuthors: bool,
 };
 
 export default BookBucketBookList;

@@ -14,13 +14,11 @@ import './styles.css';
 type Props = {
   bucket: BookBucket,
   onBookClick: Function,
-  showAuthors?: boolean,
 };
 
 function BookListBucket({
   bucket,
   onBookClick,
-  showAuthors,
 }: Props) {
   return (
     <div className={buildClasses(['book-bucket'])}>
@@ -30,7 +28,6 @@ function BookListBucket({
       <BookBucketBooks
         bucket={bucket}
         onBookClick={onBookClick}
-        showAuthors={showAuthors}
       />
     </div>
   );
@@ -42,7 +39,6 @@ BookListBucket.propTypes = {
     books: array,
   }).isRequired,
   onBookClick: func.isRequired,
-  showAuthors: bool,
 };
 
 export default BookListBucket;

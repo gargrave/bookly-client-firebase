@@ -32,7 +32,6 @@ function bucketedBookList(
               bucket={bucket}
               key={bucket.author}
               onBookClick={onBookClick}
-              showAuthors={false}
             />
           );
         })
