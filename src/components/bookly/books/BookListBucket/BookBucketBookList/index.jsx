@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { array, bool, func, shape, string } from 'prop-types';
+import { array, func, shape, string } from 'prop-types';
 
 import type { Book,BookBucket } from '../../../../../constants/flowtypes/';
 

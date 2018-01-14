@@ -6,7 +6,7 @@ import type { BookBucket } from '../../../../constants/flowtypes/';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 
-import BookBucketBooks from './BookBucketBooks/';
+import BookBucketBookList from './BookBucketBookList/';
 import BookBucketHeader from './BookBucketHeader/';
 
 import './styles.css';
@@ -25,7 +25,7 @@ function BookListBucket({
       <BookBucketHeader
         bucket={bucket}
       />
-      <BookBucketBooks
+      <BookBucketBookList
         bucket={bucket}
         onBookClick={onBookClick}
       />

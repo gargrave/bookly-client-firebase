@@ -3,18 +3,20 @@ import { shallow } from 'enzyme';
 
 import { bookBucketMocks } from '../../../../../utils/mocks/';
 
-import BookBucketHeader from './';
+import BookBucketBooks from './';
+import BookListDetail from '../../BookListDetail/';
 
 const defaultProps = Object.freeze({
   bucket: bookBucketMocks[0],
+  onBookClick: jest.fn(),
 });
 
 function getComponent(extraProps = {}) {
   const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<BookBucketHeader {...props} />);
+  return shallow(<BookBucketBooks {...props} />);
 }
 
-describe('BookBucketHeader', () => {
+describe('BookBucketBooks', () => {
   let component;
 
   it('matches the snapshot', () => {
@@ -24,11 +26,12 @@ describe('BookBucketHeader', () => {
 
   it('renders correctly', () => {
     component = getComponent();
-    const parentClass = '.bookly-book-bucket__header';
+    const parentClass = '.bookly-book-bucket__book-list';
     expect(component.find(parentClass).length).toEqual(1);
+  });
 
-    const authorString = `${bookBucketMocks[0].author}`;
-    const matched = component.find('p').text().match(new RegExp(authorString));
-    expect(matched.length).toBe(1);
+  it ('renders the correct number of BookListDetail childeren', () => {
+    const bookCount = bookBucketMocks[0].books.length;
+    expect(component.find(BookListDetail).length).toEqual(bookCount);
   });
 });
