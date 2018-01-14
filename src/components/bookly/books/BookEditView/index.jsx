@@ -4,6 +4,8 @@ import { array, bool, func, object, string } from 'prop-types';
 
 import type { Author, Book, BookErrors } from '../../../../constants/flowtypes';
 
+import { buildClasses } from '../../../../utils/cssHelpers';
+
 import BookForm from '../BookForm';
 import Card from '../../../common/Card';
 
@@ -33,7 +35,7 @@ function BookEditView({
   topLevelError,
 }: Props) {
   return (
-    <div className="book-edit-view">
+    <div className={buildClasses(['book-edit-view'])}>
       <Card
         classes={['card--top-margin-med']}
         header={'Update Book'}
@@ -60,6 +62,7 @@ BookEditView.propTypes = {
   authors: array.isRequired,
   book: object.isRequired,
   disabled: bool,
+  errors: object.isRequired,
   onAuthorChange: func.isRequired,
   onCancel: func.isRequired,
   onInputChange: func.isRequired,
