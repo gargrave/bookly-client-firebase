@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookListDetail matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <BookListDetail
+    book={
+      Object {
+        "author": Object {
+          "bookCount": 1,
+          "created": 2017-07-01T01:16:43.881Z,
+          "firstName": "Aldous",
+          "id": "oiw223h3qndlksadffl3ksdf",
+          "lastName": "Huxley",
+          "updated": 2017-07-01T01:16:43.881Z,
+        },
+        "created": 2018-01-14T01:36:26.220Z,
+        "id": "sv3hmbefpc95MRXQsTHr",
+        "title": "Brave New World",
+        "updated": 2018-01-14T01:36:26.220Z,
+      }
+    }
+    onClick={[Function]}
+    showAuthor={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "classes": Array [
+        "book-card",
+      ],
+      "onClick": [Function],
+      "text": "Aldous Huxley",
+      "title": "Brave New World",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "classes": Array [
+          "book-card",
+        ],
+        "onClick": [Function],
+        "text": "Aldous Huxley",
+        "title": "Brave New World",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
