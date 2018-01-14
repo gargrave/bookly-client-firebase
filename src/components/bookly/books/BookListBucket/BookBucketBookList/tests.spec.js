@@ -30,7 +30,7 @@ describe('BookBucketBooks', () => {
     expect(component.find(parentClass).length).toEqual(1);
   });
 
-  it ('renders the correct number of BookListDetail childeren', () => {
+  it ('renders the correct number of BookListDetail children', () => {
     const bookCount = bookBucketMocks[0].books.length;
     expect(component.find(BookListDetail).length).toEqual(bookCount);
   });
