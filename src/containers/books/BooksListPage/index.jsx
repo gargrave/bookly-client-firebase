@@ -110,7 +110,7 @@ class BooksListPage extends Component<Props, State> {
             books={books}
             filterBy={searchValue}
             onBookClick={this.onBookClick}
-            showAuthors={!(viewSettings.groupBooksByAuthor)}
+            groupBooksByAuthor={viewSettings.groupBooksByAuthor}
           />
         </CardList>
       </div>
