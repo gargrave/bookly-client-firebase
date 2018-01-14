@@ -14,6 +14,7 @@ import { createSnackbar } from '../../../store/actions/snackbarActions';
 import Alert from '../../../components/common/Alert';
 import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';
 import AuthorEditView from '../../../components/bookly/authors/AuthorEditView';
+import CardList from '../../../components/common/CardList';
 import Modal from '../../../components/common/Modal';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
@@ -239,7 +240,7 @@ class AuthorDetailPage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <div>
+      <CardList>
         {!author.id &&
           <Alert
             message={`No author found with id: ${authorId}`}
@@ -265,7 +266,7 @@ class AuthorDetailPage extends Component<Props, State> {
             title="Confirm Deletion"
           />
         }
-      </div>
+      </CardList>
     );
   }
 }

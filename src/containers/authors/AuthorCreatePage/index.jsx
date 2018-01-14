@@ -12,6 +12,7 @@ import { createAuthor, fetchAuthors } from '../../../store/actions/authorActions
 
 import AuthorForm from '../../../components/bookly/authors/AuthorForm';
 import Card from '../../../components/common/Card';
+import CardList from '../../../components/common/CardList';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
 type Props = {
@@ -119,22 +120,24 @@ class AuthorCreatePage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <Card
-        classes={['card--top-margin-med']}
-        header={'New Author'}
-        hoverable={false}
-      >
-        <AuthorForm
-          author={author}
-          disabled={formDisabled}
-          errors={errors}
-          onCancel={this.onCancel}
-          onInputChange={this.onInputChange}
-          onSubmit={this.onSubmit}
-          submitDisabled={submitDisabled}
-          topLevelError={topLevelError}
-        />
-      </Card>
+      <CardList>
+        <Card
+          classes={['card--top-margin-med']}
+          header={'New Author'}
+          hoverable={false}
+        >
+          <AuthorForm
+            author={author}
+            disabled={formDisabled}
+            errors={errors}
+            onCancel={this.onCancel}
+            onInputChange={this.onInputChange}
+            onSubmit={this.onSubmit}
+            submitDisabled={submitDisabled}
+            topLevelError={topLevelError}
+          />
+        </Card>
+      </CardList>
     );
   }
 }

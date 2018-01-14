@@ -13,6 +13,7 @@ import { createBook, fetchBooks } from '../../../store/actions/bookActions';
 
 import BookForm from '../../../components/bookly/books/BookForm';
 import Card from '../../../components/common/Card';
+import CardList from '../../../components/common/CardList';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
 type Props = {
@@ -134,24 +135,26 @@ class BookCreatePage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <Card
-        classes={['card--top-margin-med']}
-        header={'New Book'}
-        hoverable={false}
-      >
-        <BookForm
-          authors={authors}
-          book={book}
-          disabled={formDisabled}
-          errors={errors}
-          onAuthorChange={this.onAuthorChange}
-          onCancel={this.onCancel}
-          onInputChange={this.onInputChange}
-          onSubmit={this.onSubmit}
-          submitDisabled={submitDisabled}
-          topLevelError={topLevelError}
-        />
-      </Card>
+      <CardList>
+        <Card
+          classes={['card--top-margin-med']}
+          header={'New Book'}
+          hoverable={false}
+        >
+          <BookForm
+            authors={authors}
+            book={book}
+            disabled={formDisabled}
+            errors={errors}
+            onAuthorChange={this.onAuthorChange}
+            onCancel={this.onCancel}
+            onInputChange={this.onInputChange}
+            onSubmit={this.onSubmit}
+            submitDisabled={submitDisabled}
+            topLevelError={topLevelError}
+          />
+        </Card>
+      </CardList>
     );
   }
 }
