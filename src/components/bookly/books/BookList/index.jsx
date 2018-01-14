@@ -4,6 +4,8 @@ import { array, bool, func, string } from 'prop-types';
 
 import type { Book } from '../../../../constants/flowtypes';
 
+import { filterAndBucket } from '../helpers';
+
 import Alert from '../../../common/Alert/';
 import BookListBucket from '../BookListBucket/';
 
@@ -14,33 +16,6 @@ type Props = {
   showAuthors?: boolean,
 };
 
-function filterBook(book: Book, filterBy?: string = ''): boolean {
-  if (!filterBy) {
-    return true;
-  }
-  const title = `${book.title}`.toLowerCase();
-  const author = `${book.author.firstName} ${book.author.lastName}`.toLowerCase();
-  return title.includes(filterBy) || author.includes(filterBy);
-}
-
-function bucketByAuthor(books: Book[]): any[] {
-  const buckets = {};
-  books.forEach((book: Book) => {
-    const author = `${book.author.firstName} ${book.author.lastName}`;
-    if (!(author in buckets)) {
-      buckets[author] = [];
-    }
-    buckets[author].push(book);
-  });
-
-  return Object.keys(buckets).map((key) => {
-    return {
-      author: key,
-      books: buckets[key],
-    };
-  });
-}
-
 function bookList(
   books: Book[],
   onBookClick: Function,
@@ -50,7 +25,7 @@ function bookList(
   return (
     <Fragment>
       {
-        bucketByAuthor(books.filter((b: Book) => filterBook(b, filterBy)))
+        filterAndBucket(books, filterBy)
         .map((bucket: any) => {
           return (
             <BookListBucket
