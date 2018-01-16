@@ -1,40 +1,41 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Alert from '../../../common/Alert';
 import AuthorList from './';
 import AuthorListDetail from '../../../bookly/authors/AuthorListDetail';
 
-describe('AuthorList', () => {
-  let props;
-  let wrapper;
+const defaultProps = Object.freeze({
+  authors: [
+    { id: 0, firstName: 'A', lastName: 'B', bookCount: 1 },
+    { id: 1, firstName: 'C', lastName: 'D', bookCount: 1 },
+    { id: 2, firstName: 'E', lastName: 'F', bookCount: 1 },
+  ],
+  onAuthorClick: jest.fn(),
+});
 
-  beforeEach(() => {
-    props = {
-      authors: [
-        { id: 0, firstName: 'A', lastName: 'B', bookCount: 1 },
-        { id: 1, firstName: 'C', lastName: 'D', bookCount: 1 },
-        { id: 2, firstName: 'E', lastName: 'F', bookCount: 1 },
-      ],
-      onAuthorClick: jest.fn(),
-    };
-  });
+function getComponent(extraProps = {}) {
+  const props = Object.assign({}, defaultProps, extraProps);
+  return shallow(<AuthorList {...props} />);
+}
+
+describe('AuthorList', () => {
+  let component;
 
   it('matches the snapshot', () => {
-    wrapper = shallow(<AuthorList {...props} />);
-    expect(wrapper).toMatchSnapshot();
+    component = getComponent();
+    expect(component).toMatchSnapshot();
   });
 
-  it('renders the correct number of AuthorListDetail wrappers', () => {
-    wrapper = mount(<AuthorList {...props} />);
-    expect(wrapper.find(AuthorListDetail)).toHaveLength(props.authors.length);
-    expect(wrapper.find(Alert)).toHaveLength(0);
+  it('renders the correct number of AuthorListDetail components', () => {
+    component = getComponent();
+    expect(component.find(AuthorListDetail)).toHaveLength(defaultProps.authors.length);
+    expect(component.find(Alert)).toHaveLength(0);
   });
 
   it('renders a nice message when there are no authors', () => {
-    props.authors = [];
-    wrapper = mount(<AuthorList {...props} />);
-    expect(wrapper.find(AuthorListDetail)).toHaveLength(0);
-    expect(wrapper.find(Alert)).toHaveLength(1);
+    component = getComponent({ authors: [] });
+    expect(component.find(AuthorListDetail)).toHaveLength(0);
+    expect(component.find(Alert)).toHaveLength(1);
   });
 });
