@@ -29,18 +29,18 @@ describe('Form', () => {
     test('renders  correctly', () => {
       component = getComponent();
       expect(component).toMatchSnapshot();
-      expect(component.find(Alert).length).toEqual(0);
-      expect(component.find(Button).length).toEqual(2);
+      expect(component.find(Alert)).toHaveLength(0);
+      expect(component.find(Button)).toHaveLength(2);
     });
 
     test('does not render "cancel" button if prop is empty', () => {
       component = getComponent({ onCancel: null });
-      expect(component.find(Button).length).toEqual(1);
+      expect(component.find(Button)).toHaveLength(1);
     });
 
     test('renders an Alert if the prop is present', () => {
       component = getComponent({ topLevelError: 'OMFG' });
-      expect(component.find(Alert).length).toEqual(1);
+      expect(component.find(Alert)).toHaveLength(1);
     });
   });
 });

@@ -22,18 +22,18 @@ function getComponent(extraProps = {}) {
 describe('AuthorList', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders the correct number of AuthorListDetail components', () => {
+  test('renders the correct number of AuthorListDetail components', () => {
     component = getComponent();
     expect(component.find(AuthorListDetail)).toHaveLength(defaultProps.authors.length);
     expect(component.find(Alert)).toHaveLength(0);
   });
 
-  it('renders a nice message when there are no authors', () => {
+  test('renders a nice message when there are no authors', () => {
     component = getComponent({ authors: [] });
     expect(component.find(AuthorListDetail)).toHaveLength(0);
     expect(component.find(Alert)).toHaveLength(1);

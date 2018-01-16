@@ -20,22 +20,22 @@ function getComponent(extraProps = {}) {
 describe('BookListBucket', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     component = getComponent();
     const parentClass = '.bookly-book-bucket';
-    expect(component.find(parentClass).length).toEqual(1);
+    expect(component.find(parentClass)).toHaveLength(1);
   });
 
   it ('renders one BookBucketHeader', () => {
-    expect(component.find(BookBucketHeader).length).toEqual(1);
+    expect(component.find(BookBucketHeader)).toHaveLength(1);
   });
 
   it ('renders one BookBucketBookList', () => {
-    expect(component.find(BookBucketBookList).length).toEqual(1);
+    expect(component.find(BookBucketBookList)).toHaveLength(1);
   });
 });

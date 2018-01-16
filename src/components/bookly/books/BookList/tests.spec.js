@@ -24,30 +24,30 @@ function getComponent(extraProps = {}) {
 describe('BookList', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
   it ('renders a flat book list when "groupBooksByAuthor" is false', () => {
     component = getComponent();
-    expect(component.find(Alert).length).toEqual(0);
-    expect(component.find(BookListBucket).length).toEqual(0);
-    expect(component.find(BookListDetail).length).toEqual(bookMocks.length);
+    expect(component.find(Alert)).toHaveLength(0);
+    expect(component.find(BookListBucket)).toHaveLength(0);
+    expect(component.find(BookListDetail)).toHaveLength(bookMocks.length);
   });
 
   it ('renders a bucketed book list when "groupBooksByAuthor" is true', () => {
     component = getComponent({ groupBooksByAuthor: true });
     const expected = filterAndBucket(bookMocks).length;
-    expect(component.find(Alert).length).toEqual(0);
-    expect(component.find(BookListBucket).length).toEqual(expected);
-    expect(component.find(BookListDetail).length).toEqual(0);
+    expect(component.find(Alert)).toHaveLength(0);
+    expect(component.find(BookListBucket)).toHaveLength(expected);
+    expect(component.find(BookListDetail)).toHaveLength(0);
   });
 
   it ('renders just an Alert when no books are provided', () => {
     component = getComponent({ books: [] });
-    expect(component.find(Alert).length).toEqual(1);
-    expect(component.find(BookListBucket).length).toEqual(0);
-    expect(component.find(BookListDetail).length).toEqual(0);
+    expect(component.find(Alert)).toHaveLength(1);
+    expect(component.find(BookListBucket)).toHaveLength(0);
+    expect(component.find(BookListDetail)).toHaveLength(0);
   });
 });

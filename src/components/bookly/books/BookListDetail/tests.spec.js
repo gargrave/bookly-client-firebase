@@ -22,12 +22,12 @@ function getComponent(extraProps = {}) {
 describe('BookListDetail', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
   it ('renders one Card', () => {
-    expect(component.find(Card).length).toEqual(1);
+    expect(component.find(Card)).toHaveLength(1);
   });
 });

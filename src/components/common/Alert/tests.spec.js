@@ -16,19 +16,19 @@ function getComponent(extraProps = {}) {
 describe('InfoAlert', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly as an "info" alert', () => {
+  test('renders correctly as an "info" alert', () => {
     component = getComponent({ type: 'info' });
     expect(component.hasClass('bookly-alert')).toBeTruthy();
     expect(component.hasClass('alert-info')).toBeTruthy();
     expect(component.text()).toEqual(defaultProps.message);
   });
 
-  it('renders correctly as an "danger" alert', () => {
+  test('renders correctly as an "danger" alert', () => {
     component = getComponent({ type: 'danger' });
     expect(component.hasClass('bookly-alert')).toBeTruthy();
     expect(component.hasClass('alert-danger')).toBeTruthy();

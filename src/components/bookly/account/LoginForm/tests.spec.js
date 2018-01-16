@@ -34,8 +34,8 @@ describe('LoginForm', () => {
     test('renders correctly', () => {
       component = getComponent();
       expect(component).toMatchSnapshot();
-      expect(component.find(Form).length).toEqual(1);
-      expect(component.find(InputField).length).toEqual(2);
+      expect(component.find(Form)).toHaveLength(1);
+      expect(component.find(InputField)).toHaveLength(2);
     });
   });
 });

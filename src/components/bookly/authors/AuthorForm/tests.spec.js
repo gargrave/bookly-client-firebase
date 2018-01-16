@@ -31,12 +31,12 @@ describe('AuthorForm', () => {
   let component;
 
   describe('with "author" populated', () => {
-    it('matches the snapshot', () => {
+    test('matches the snapshot', () => {
       component = getComponent();
       expect(component).toMatchSnapshot();
     });
 
-    it('renders correctly', () => {
+    test('renders correctly', () => {
       component = getComponent();
       expect(component.find(Form)).toHaveLength(1);
       expect(component.find(InputField)).toHaveLength(2);

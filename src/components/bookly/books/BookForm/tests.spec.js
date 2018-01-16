@@ -38,8 +38,8 @@ describe('BookForm', () => {
 
     test('renders correctly', () => {
       expect(component).toMatchSnapshot();
-      expect(component.find(Form).length).toEqual(1);
-      expect(component.find(InputField).length).toEqual(1);
+      expect(component.find(Form)).toHaveLength(1);
+      expect(component.find(InputField)).toHaveLength(1);
     });
   });
 });

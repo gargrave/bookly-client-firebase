@@ -19,19 +19,19 @@ function getComponent(extraProps = {}) {
 describe('BookBucketBooks', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     component = getComponent();
     const parentClass = '.bookly-book-bucket__book-list';
-    expect(component.find(parentClass).length).toEqual(1);
+    expect(component.find(parentClass)).toHaveLength(1);
   });
 
   it ('renders the correct number of BookListDetail children', () => {
     const bookCount = bookBucketMocks[0].books.length;
-    expect(component.find(BookListDetail).length).toEqual(bookCount);
+    expect(component.find(BookListDetail)).toHaveLength(bookCount);
   });
 });

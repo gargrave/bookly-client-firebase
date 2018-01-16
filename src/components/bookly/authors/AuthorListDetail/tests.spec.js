@@ -22,6 +22,6 @@ describe('AuthorListDetail', () => {
   test('renders correctly', () => {
     const element = component.find(Card);
     expect(component).toMatchSnapshot();
-    expect(element.length).toEqual(1);
+    expect(element).toHaveLength(1);
   });
 });

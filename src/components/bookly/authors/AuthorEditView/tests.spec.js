@@ -27,18 +27,18 @@ function getComponent(extraProps = {}) {
 describe('AuthorEditView', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     component = getComponent();
     const element = component.find('.author-edit-view');
     expect(element).toHaveLength(1);
   });
 
-  it('renders the AuthorForm component', () => {
+  test('renders the AuthorForm component', () => {
     component = getComponent();
     expect(component.find(AuthorForm)).toHaveLength(1);
   });

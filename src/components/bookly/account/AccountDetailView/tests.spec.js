@@ -23,7 +23,7 @@ describe('AccountDetailView', () => {
   test('renders correctly', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
-    expect(component.find('.bookly-account-detail-view').length).toEqual(1);
-    expect(component.find(Card).length).toEqual(1);
+    expect(component.find('.bookly-account-detail-view')).toHaveLength(1);
+    expect(component.find(Card)).toHaveLength(1);
   });
 });

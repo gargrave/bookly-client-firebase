@@ -31,24 +31,24 @@ function getComponent(extraProps = {}) {
 describe('BookEditView', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     component = getComponent();
     const parentClass = '.bookly-book-edit-view';
-    expect(component.find(parentClass).length).toEqual(1);
+    expect(component.find(parentClass)).toHaveLength(1);
   });
 
-  it('renders one BookForm component', () => {
+  test('renders one BookForm component', () => {
     component = getComponent();
-    expect(component.find(BookForm).length).toEqual(1);
+    expect(component.find(BookForm)).toHaveLength(1);
   });
 
-  it('renders one Card component', () => {
+  test('renders one Card component', () => {
     component = getComponent();
-    expect(component.find(Card).length).toEqual(1);
+    expect(component.find(Card)).toHaveLength(1);
   });
 });

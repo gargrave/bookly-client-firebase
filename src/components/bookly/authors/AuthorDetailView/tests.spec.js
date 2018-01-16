@@ -22,14 +22,14 @@ function getComponent(extraProps = {}) {
 describe('AuthorDetailView', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     component = getComponent();
-    expect(component.find('.bookly-author-detail-view').length).toEqual(1);
-    expect(component.find(Card).length).toEqual(1);
+    expect(component.find('.bookly-author-detail-view')).toHaveLength(1);
+    expect(component.find(Card)).toHaveLength(1);
   });
 });

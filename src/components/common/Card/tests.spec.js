@@ -21,42 +21,42 @@ function getComponent(extraProps = {}) {
 describe('Card', () => {
   let component;
 
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
-    expect(component.find('.bookly-card').length).toEqual(1);
-    expect(component.find('.bookly-card__header').length).toEqual(1);
-    expect(component.find('.bookly-card__title').length).toEqual(1);
-    expect(component.find('.bookly-card__text').length).toEqual(1);
-    expect(component.find('.bookly-card--hoverable').length).toEqual(1);
+    expect(component.find('.bookly-card')).toHaveLength(1);
+    expect(component.find('.bookly-card__header')).toHaveLength(1);
+    expect(component.find('.bookly-card__title')).toHaveLength(1);
+    expect(component.find('.bookly-card__text')).toHaveLength(1);
+    expect(component.find('.bookly-card--hoverable')).toHaveLength(1);
   });
 
-  it('does not render header when prop is blank', () => {
+  test('does not render header when prop is blank', () => {
     component = getComponent({ header: '' });
-    expect(component.find('.bookly-card__header').length).toEqual(0);
+    expect(component.find('.bookly-card__header')).toHaveLength(0);
   });
 
-  it('does not render title when prop is blank', () => {
+  test('does not render title when prop is blank', () => {
     component = getComponent({ title: '' });
-    expect(component.find('.bookly-card__title').length).toEqual(0);
+    expect(component.find('.bookly-card__title')).toHaveLength(0);
   });
 
-  it('does not render text when prop is blank', () => {
+  test('does not render text when prop is blank', () => {
     component = getComponent({ text: '' });
-    expect(component.find('.bookly-card__text').length).toEqual(0);
+    expect(component.find('.bookly-card__text')).toHaveLength(0);
   });
 
-  it('adds extra classes correctly', () => {
+  test('adds extra classes correctly', () => {
     component = getComponent({ classes: ['oneclass', 'anotherclass'] });
-    expect(component.find('.bookly-oneclass.bookly-anotherclass').length).toEqual(1);
+    expect(component.find('.bookly-oneclass.bookly-anotherclass')).toHaveLength(1);
   });
 
-  it('does not add a hover state with "hoverable=false"', () => {
+  test('does not add a hover state with "hoverable=false"', () => {
     component = getComponent({ hoverable: false });
-    expect(component.find('.bookly--hoverable').length).toEqual(0);
+    expect(component.find('.bookly--hoverable')).toHaveLength(0);
   });
 
-  it('calls the "onClick" callback when clicked', () => {
+  test('calls the "onClick" callback when clicked', () => {
     component = getComponent();
     expect(defaultProps.onClick.mock.calls.length).toBe(0);
     component.simulate('click');

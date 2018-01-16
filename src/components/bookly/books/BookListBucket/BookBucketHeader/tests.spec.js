@@ -17,15 +17,15 @@ function getComponent(extraProps = {}) {
 describe('BookBucketHeader', () => {
   let component;
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     component = getComponent();
     const parentClass = '.bookly-book-bucket__header';
-    expect(component.find(parentClass).length).toEqual(1);
+    expect(component.find(parentClass)).toHaveLength(1);
 
     const authorString = `${bookBucketMocks[0].author}`;
     const matched = component.find('p').text().match(new RegExp(authorString));

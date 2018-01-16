@@ -27,13 +27,13 @@ describe('InputField', () => {
       const props = { label: 'test_label' };
       component = getComponent(props);
       const label = component.find('label');
-      expect(label.length).toEqual(1);
+      expect(label).toHaveLength(1);
       expect(label.text()).toMatch(new RegExp(props.label));
     });
 
     test('does not render a label if prop is empty', () => {
       component = getComponent({ label: '' });
-      expect(component.find('label').length).toEqual(0);
+      expect(component.find('label')).toHaveLength(0);
     });
   });
 
@@ -44,13 +44,13 @@ describe('InputField', () => {
       const errMsg = 'error_message';
       component = getComponent({ error: errMsg });
       const err = component.find(errClass);
-      expect(err.length).toEqual(1);
+      expect(err).toHaveLength(1);
       expect(err.text()).toMatch(new RegExp(errMsg));
     });
 
     test('does not render an error if prop is empty', () => {
       component = getComponent();
-      expect(component.find(errClass).length).toEqual(0);
+      expect(component.find(errClass)).toHaveLength(0);
     });
   });
 
@@ -58,9 +58,9 @@ describe('InputField', () => {
     test('renders a text input correctly', () => {
       component = getComponent();
       expect(component).toMatchSnapshot();
-      expect(component.find('input[type="email"]').length).toEqual(0);
-      expect(component.find('input[type="text"]').length).toEqual(1);
-      expect(component.find('input[type="password"]').length).toEqual(0);
+      expect(component.find('input[type="email"]')).toHaveLength(0);
+      expect(component.find('input[type="text"]')).toHaveLength(1);
+      expect(component.find('input[type="password"]')).toHaveLength(0);
     });
   });
 
@@ -68,9 +68,9 @@ describe('InputField', () => {
     test('renders a password input correctly', () => {
       component = getComponent({ type: 'password' });
       expect(component).toMatchSnapshot();
-      expect(component.find('input[type="email"]').length).toEqual(0);
-      expect(component.find('input[type="text"]').length).toEqual(0);
-      expect(component.find('input[type="password"]').length).toEqual(1);
+      expect(component.find('input[type="email"]')).toHaveLength(0);
+      expect(component.find('input[type="text"]')).toHaveLength(0);
+      expect(component.find('input[type="password"]')).toHaveLength(1);
     });
   });
 
@@ -78,9 +78,9 @@ describe('InputField', () => {
     test('renders an email input correctly', () => {
       component = getComponent({ type: 'email' });
       expect(component).toMatchSnapshot();
-      expect(component.find('input[type="email"]').length).toEqual(1);
-      expect(component.find('input[type="password"]').length).toEqual(0);
-      expect(component.find('input[type="text"]').length).toEqual(0);
+      expect(component.find('input[type="email"]')).toHaveLength(1);
+      expect(component.find('input[type="password"]')).toHaveLength(0);
+      expect(component.find('input[type="text"]')).toHaveLength(0);
     });
   });
 });
