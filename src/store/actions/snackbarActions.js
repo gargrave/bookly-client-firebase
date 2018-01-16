@@ -1,7 +1,7 @@
 // @flow
 import { SNACKBAR } from '../actionTypes';
 
-function _createSnackbar(message: string) {
+function _snackbarCreate(message: string) {
   return {
     type: SNACKBAR.SNACKBAR_CREATE,
     payload: {
@@ -16,9 +16,9 @@ function _snackbarPop() {
   };
 }
 
-function createSnackbar(message: string) {
+function snackbarCreate(message: string) {
   return async (dispatch: any) => {
-    dispatch(_createSnackbar(message));
+    dispatch(_snackbarCreate(message));
   };
 }
 
@@ -29,6 +29,6 @@ function snackbarPop() {
 }
 
 export {
-  createSnackbar,
+  snackbarCreate,
   snackbarPop,
 };

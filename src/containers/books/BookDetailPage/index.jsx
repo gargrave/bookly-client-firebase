@@ -10,7 +10,7 @@ import { parseError } from '../../../globals/errors';
 import { bookHasAllFields, booksMatch, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
 import { deleteBook, fetchBooks, updateBook } from '../../../store/actions/bookActions';
-import { createSnackbar } from '../../../store/actions/snackbarActions';
+import { snackbarCreate } from '../../../store/actions/snackbarActions';
 
 import Alert from '../../../components/common/Alert';
 import BookDetailView from '../../../components/bookly/books/BookDetailView';
@@ -23,7 +23,7 @@ type Props = {
   authors: Author[],
   book: Book,
   bookId: string,
-  createSnackbar: Function,
+  snackbarCreate: Function,
   deleteBook: Function,
   fetchBooks: Function,
   history: Object,
@@ -199,7 +199,7 @@ class BookDetailPage extends Component<Props, State> {
     }, async () => {
       try {
         await this.props.deleteBook(this.props.book);
-        this.props.createSnackbar('Book successfully deleted.');
+        this.props.snackbarCreate('Book successfully deleted.');
         this.props.history.push(localUrls.booksList);
       } catch (err) {
         this.setState({
@@ -278,7 +278,7 @@ BookDetailPage.propTypes = {
     title: string,
   }).isRequired,
   bookId: string,
-  createSnackbar: func.isRequired,
+  snackbarCreate: func.isRequired,
   deleteBook: func.isRequired,
   fetchBooks: func.isRequired,
   history: object,
@@ -300,8 +300,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
+  snackbarCreate(message: string) {
+    return dispatch(snackbarCreate(message));
   },
 
   deleteBook(book: Book) {

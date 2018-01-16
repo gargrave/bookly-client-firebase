@@ -9,7 +9,7 @@ import { localUrls } from '../../../constants/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
 import { deleteAuthor, fetchAuthors, updateAuthor } from '../../../store/actions/authorActions';
-import { createSnackbar } from '../../../store/actions/snackbarActions';
+import { snackbarCreate } from '../../../store/actions/snackbarActions';
 
 import Alert from '../../../components/common/Alert';
 import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';
@@ -21,7 +21,7 @@ import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 type Props = {
   author: Author,
   authorId: string,
-  createSnackbar: Function,
+  snackbarCreate: Function,
   deleteAuthor: Function,
   history: Object,
   fetchAuthors: Function,
@@ -214,7 +214,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }, async () => {
       try {
         await this.props.deleteAuthor(this.props.author);
-        this.props.createSnackbar('Author successfully deleted.');
+        this.props.snackbarCreate('Author successfully deleted.');
         this.props.history.push(localUrls.authorsList);
       } catch (err) {
         console.warn('TODO: show "topLevelError" in AuthorDetailView');
@@ -289,7 +289,7 @@ AuthorDetailPage.propTypes = {
     lastName: string,
   }).isRequired,
   authorId: string,
-  createSnackbar: func.isRequired,
+  snackbarCreate: func.isRequired,
   deleteAuthor: func.isRequired,
   fetchAuthors: func.isRequired,
   history: object,
@@ -310,8 +310,8 @@ const mapStateToProps = (state: any, ownProps: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
+  snackbarCreate(message: string) {
+    return dispatch(snackbarCreate(message));
   },
 
   deleteAuthor(author: Author) {

@@ -1,7 +1,9 @@
 import { APP } from '../actionTypes';
 
 function _setInitialized() {
-  return { type: APP.INITIALIZED };
+  return {
+    type: APP.INITIALIZED,
+  };
 }
 
 export function setInitialized() {
