@@ -1,4 +1,4 @@
-import authorMocks from './authorMocks';
+import { authorMocks } from './authorMocks';
 import { huxleyBooks, vonnegutBooks } from './bookMocks';
 
 const huxley = authorMocks[0];
