@@ -1,20 +1,15 @@
 // @flow
-import { APP, BOOKS } from '../actionTypes';
+import { BOOKS } from '../actionTypes';
 
-import type { Author, Book, FbCollection, FbDoc, FbDocRef, FbError } from '../../constants/flowtypes';
-import { parseFbError } from '../../globals/errors';
-import { bookModel, refreshBookAuthor } from '../../models/Book.model';
-
-import { db, timestamp } from '../../globals/firebase/';
+import type { Author, Book, FbCollection, FbDoc, FbDocRef } from '../../constants/flowtypes';
 
 import { fetchAuthors } from './authorActions';
+import { parseFbError } from '../../globals/errors';
+import { db, timestamp } from '../../globals/firebase/';
+import { bookModel, refreshBookAuthor } from '../../models/Book.model';
+import { apiErrorAction, getDocRef } from '../../utils/apiHelpers';
 
-const DB = 'books';
-
-// TODO: move this to a helper module
-async function getDocRef(id: string): FbDocRef {
-  return db.collection(DB).doc(id);
-}
+const DB_TABLE = 'books';
 
 function _requestStart() {
   return {
@@ -54,16 +49,6 @@ function _deleteBook(book: Book) {
     type: BOOKS.DELETE_SUCCESS,
     payload: {
       book,
-    },
-  };
-}
-
-// TODO: move this to a separate module
-function _apiError(err: FbError) {
-  return {
-    type: APP.API_ERROR,
-    payload: {
-      err,
     },
   };
 }
@@ -110,7 +95,7 @@ function fetchBooks() {
       dispatch(_requestStart());
       try {
         const userId = getState().auth.user.id;
-        const query = db.collection(DB)
+        const query = db.collection(DB_TABLE)
           .where('owner', '==', userId);
         const results: FbCollection = await query.get();
         const authors: Author[] = getState().authors.data;
@@ -142,7 +127,7 @@ function createBook(book: Book) {
         ...book,
       };
 
-      const docRef: FbDocRef = await db.collection(DB).add(payload);
+      const docRef: FbDocRef = await db.collection(DB_TABLE).add(payload);
       const doc: FbDoc = await docRef.get();
       const authors: Author[] = getState().authors.data;
       const newRecord: Book = bookModel.fromAPI(doc, authors);
@@ -171,7 +156,7 @@ function updateBook(book: Book) {
       };
 
       const id = book.id;
-      const docRef: FbDocRef = await db.collection(DB).doc(id);
+      const docRef: FbDocRef = await db.collection(DB_TABLE).doc(id);
       await docRef.update(payload);
       const doc: FbDoc = await docRef.get();
       const authors: Author[] = getState().authors.data;
@@ -193,12 +178,12 @@ function deleteBook(book: Book) {
   return async (dispatch: Function) => {
     dispatch(_requestStart());
     try {
-      const docRef: FbDocRef = await getDocRef(book.id);
+      const docRef: FbDocRef = await getDocRef(db, DB_TABLE, book.id);
       await docRef.delete();
       dispatch(_deleteBook(book));
       return book;
     } catch (err) {
-      dispatch(_apiError(err));
+      dispatch(apiErrorAction(err));
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
@@ -211,7 +196,7 @@ function deleteBooksByAuthor(author: Author) {
     dispatch(_requestStart());
     try {
       const userId = getState().auth.user.id;
-      const query = await db.collection(DB)
+      const query = await db.collection(DB_TABLE)
         .where('owner', '==', userId)
         .where('authorId', '==', author.id);
       const results: FbCollection = await query.get();
@@ -224,7 +209,7 @@ function deleteBooksByAuthor(author: Author) {
         dispatch(_deleteBooksByAuthor(author));
       }
     } catch (err) {
-      dispatch(_apiError(err));
+      dispatch(apiErrorAction(err));
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
