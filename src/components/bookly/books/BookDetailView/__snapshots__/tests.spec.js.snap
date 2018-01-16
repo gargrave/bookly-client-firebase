@@ -37,283 +37,9 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <Card
-        classes={
-          Array [
-            "card--top-margin-med",
-            "detail-card",
-            "book-detail-card",
-          ]
-        }
-        hoverable={false}
-        text="by Aldous Huxley"
-        title="Brave New World"
-      >
-        <hr />
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Added:
-          </strong>
-           
-          Jan. 13, 2018, 17:36:26
-        </p>
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Updated:
-          </strong>
-           
-          Jan. 13, 2018, 17:36:26
-        </p>
-        <hr />
-        <ButtonRow>
-          <Button
-            onClick={[Function]}
-            position="left"
-            text="Edit"
-            type="info"
-          />
-          <Button
-            onClick={[Function]}
-            text="Delete"
-            type="danger"
-          />
-          <Button
-            onClick={[Function]}
-            position="right"
-            text="Back"
-            type="light"
-          />
-        </ButtonRow>
-      </Card>,
-      "className": "bookly-book-detail-view",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": Array [
-          <hr />,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Added:
-            </strong>
-             
-            Jan. 13, 2018, 17:36:26
-          </p>,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Updated:
-            </strong>
-             
-            Jan. 13, 2018, 17:36:26
-          </p>,
-          <hr />,
-          <ButtonRow>
-            <Button
-              onClick={[Function]}
-              position="left"
-              text="Edit"
-              type="info"
-            />
-            <Button
-              onClick={[Function]}
-              text="Delete"
-              type="danger"
-            />
-            <Button
-              onClick={[Function]}
-              position="right"
-              text="Back"
-              type="light"
-            />
-          </ButtonRow>,
-        ],
-        "classes": Array [
-          "card--top-margin-med",
-          "detail-card",
-          "book-detail-card",
-        ],
-        "hoverable": false,
-        "text": "by Aldous Huxley",
-        "title": "Brave New World",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "hr",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <strong>
-                Added:
-              </strong>,
-              " ",
-              "Jan. 13, 2018, 17:36:26",
-            ],
-            "className": "bookly-card-text",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Added:",
-              },
-              "ref": null,
-              "rendered": "Added:",
-              "type": "strong",
-            },
-            " ",
-            "Jan. 13, 2018, 17:36:26",
-          ],
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <strong>
-                Updated:
-              </strong>,
-              " ",
-              "Jan. 13, 2018, 17:36:26",
-            ],
-            "className": "bookly-card-text",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Updated:",
-              },
-              "ref": null,
-              "rendered": "Updated:",
-              "type": "strong",
-            },
-            " ",
-            "Jan. 13, 2018, 17:36:26",
-          ],
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "hr",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": Array [
-              <Button
-                onClick={[Function]}
-                position="left"
-                text="Edit"
-                type="info"
-              />,
-              <Button
-                onClick={[Function]}
-                text="Delete"
-                type="danger"
-              />,
-              <Button
-                onClick={[Function]}
-                position="right"
-                text="Back"
-                type="light"
-              />,
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "onClick": [Function],
-                "position": "left",
-                "text": "Edit",
-                "type": "info",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "onClick": [Function],
-                "text": "Delete",
-                "type": "danger",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "onClick": [Function],
-                "position": "right",
-                "text": "Back",
-                "type": "light",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": [Function],
-        },
-      ],
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <Card
+      "children": Array [
+        undefined,
+        <Card
           classes={
             Array [
               "card--top-margin-med",
@@ -365,10 +91,13 @@ ShallowWrapper {
             />
           </ButtonRow>
         </Card>,
-        "className": "bookly-book-detail-view",
-      },
-      "ref": null,
-      "rendered": Object {
+      ],
+      "className": "bookly-book-detail-view",
+    },
+    "ref": null,
+    "rendered": Array [
+      undefined,
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
@@ -581,6 +310,289 @@ ShallowWrapper {
         ],
         "type": [Function],
       },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          undefined,
+          <Card
+            classes={
+              Array [
+                "card--top-margin-med",
+                "detail-card",
+                "book-detail-card",
+              ]
+            }
+            hoverable={false}
+            text="by Aldous Huxley"
+            title="Brave New World"
+          >
+            <hr />
+            <p
+              className="bookly-card-text"
+            >
+              <strong>
+                Added:
+              </strong>
+               
+              Jan. 13, 2018, 17:36:26
+            </p>
+            <p
+              className="bookly-card-text"
+            >
+              <strong>
+                Updated:
+              </strong>
+               
+              Jan. 13, 2018, 17:36:26
+            </p>
+            <hr />
+            <ButtonRow>
+              <Button
+                onClick={[Function]}
+                position="left"
+                text="Edit"
+                type="info"
+              />
+              <Button
+                onClick={[Function]}
+                text="Delete"
+                type="danger"
+              />
+              <Button
+                onClick={[Function]}
+                position="right"
+                text="Back"
+                type="light"
+              />
+            </ButtonRow>
+          </Card>,
+        ],
+        "className": "bookly-book-detail-view",
+      },
+      "ref": null,
+      "rendered": Array [
+        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <hr />,
+              <p
+                className="bookly-card-text"
+              >
+                <strong>
+                  Added:
+                </strong>
+                 
+                Jan. 13, 2018, 17:36:26
+              </p>,
+              <p
+                className="bookly-card-text"
+              >
+                <strong>
+                  Updated:
+                </strong>
+                 
+                Jan. 13, 2018, 17:36:26
+              </p>,
+              <hr />,
+              <ButtonRow>
+                <Button
+                  onClick={[Function]}
+                  position="left"
+                  text="Edit"
+                  type="info"
+                />
+                <Button
+                  onClick={[Function]}
+                  text="Delete"
+                  type="danger"
+                />
+                <Button
+                  onClick={[Function]}
+                  position="right"
+                  text="Back"
+                  type="light"
+                />
+              </ButtonRow>,
+            ],
+            "classes": Array [
+              "card--top-margin-med",
+              "detail-card",
+              "book-detail-card",
+            ],
+            "hoverable": false,
+            "text": "by Aldous Huxley",
+            "title": "Brave New World",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "hr",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <strong>
+                    Added:
+                  </strong>,
+                  " ",
+                  "Jan. 13, 2018, 17:36:26",
+                ],
+                "className": "bookly-card-text",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Added:",
+                  },
+                  "ref": null,
+                  "rendered": "Added:",
+                  "type": "strong",
+                },
+                " ",
+                "Jan. 13, 2018, 17:36:26",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <strong>
+                    Updated:
+                  </strong>,
+                  " ",
+                  "Jan. 13, 2018, 17:36:26",
+                ],
+                "className": "bookly-card-text",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Updated:",
+                  },
+                  "ref": null,
+                  "rendered": "Updated:",
+                  "type": "strong",
+                },
+                " ",
+                "Jan. 13, 2018, 17:36:26",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "hr",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <Button
+                    onClick={[Function]}
+                    position="left"
+                    text="Edit"
+                    type="info"
+                  />,
+                  <Button
+                    onClick={[Function]}
+                    text="Delete"
+                    type="danger"
+                  />,
+                  <Button
+                    onClick={[Function]}
+                    position="right"
+                    text="Back"
+                    type="light"
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "onClick": [Function],
+                    "position": "left",
+                    "text": "Edit",
+                    "type": "info",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "onClick": [Function],
+                    "text": "Delete",
+                    "type": "danger",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "onClick": [Function],
+                    "position": "right",
+                    "text": "Back",
+                    "type": "light",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
       "type": "div",
     },
   ],

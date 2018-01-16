@@ -215,12 +215,14 @@ function deleteBooksByAuthor(author: Author) {
         .where('owner', '==', userId)
         .where('authorId', '==', author.id);
       const results: FbCollection = await query.get();
-      const batch = db.batch();
-      results.docs.forEach(
-        (doc: FbDoc) => batch.delete(doc.ref)
-      );
-      await batch.commit();
-      dispatch(_deleteBooksByAuthor(author));
+      if (results.docs.length) {
+        const batch = db.batch();
+        results.docs.forEach(
+          (doc: FbDoc) => batch.delete(doc.ref)
+        );
+        await batch.commit();
+        dispatch(_deleteBooksByAuthor(author));
+      }
     } catch (err) {
       dispatch(_apiError(err));
       throw parseFbError(err);

@@ -148,8 +148,6 @@ function updateAuthor(author: Author) {
       dispatch(refreshBooksByAuthor(updatedRecord));
       return updatedRecord;
     } catch (err) {
-      console.error('TODO: Deal with error in authorActions.updateAuthor()');
-      console.error(err);
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());

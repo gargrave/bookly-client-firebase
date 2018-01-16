@@ -7,6 +7,7 @@ import type { Book } from '../../../../constants/flowtypes';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 
+import Alert from '../../../common/Alert';
 import Button from '../../../common/Button';
 import ButtonRow from '../../../common/ButtonRow';
 import Card from '../../../common/Card';
@@ -16,6 +17,7 @@ type Props = {
   onBackClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
+  topLevelError?: string,
 };
 
 function BookDetailView({
@@ -23,6 +25,7 @@ function BookDetailView({
   onBackClick,
   onDeleteClick,
   onEditClick,
+  topLevelError,
 }: Props) {
   const {
     created,
@@ -33,6 +36,13 @@ function BookDetailView({
 
   return (
     <div className={buildClasses('book-detail-view')}>
+      {topLevelError &&
+        <Alert
+          message={topLevelError}
+          type="danger"
+        />
+      }
+
       <Card
         classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
         hoverable={false}
@@ -92,6 +102,7 @@ BookDetailView.propTypes = {
   onBackClick: func.isRequired,
   onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,
+  topLevelError: string,
 };
 
 export default BookDetailView;

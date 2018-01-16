@@ -43,6 +43,7 @@ function detailView(
   onBackClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
+  topLevelError: string,
 ) {
   return (
     <AuthorDetailView
@@ -50,6 +51,7 @@ function detailView(
       onBackClick={onBackClick}
       onDeleteClick={onDeleteClick}
       onEditClick={onEditClick}
+      topLevelError={topLevelError}
     />
   );
 }
@@ -248,7 +250,8 @@ class AuthorDetailPage extends Component<Props, State> {
           />
         }
         {author.id && !editing &&
-          detailView(author, this.onBackClick, this.showDeleteDialog, this.onEditClick)
+          detailView(author, this.onBackClick, this.showDeleteDialog,
+            this.onEditClick, topLevelError)
         }
         {author.id && editing &&
           editView(editableAuthor, errors, formDisabled, submitDisabled, topLevelError,

@@ -202,7 +202,6 @@ class BookDetailPage extends Component<Props, State> {
         this.props.createSnackbar('Book successfully deleted.');
         this.props.history.push(localUrls.booksList);
       } catch (err) {
-        console.warn('TODO: show "topLevelError" in BookDetailView');
         this.setState({
           deleteDialogShowing: false,
           topLevelError: err,
@@ -241,6 +240,7 @@ class BookDetailPage extends Component<Props, State> {
             onBackClick={this.onBackClick}
             onDeleteClick={this.showDeleteDialog}
             onEditClick={this.onEditClick}
+            topLevelError={topLevelError}
           />
         )}
         {book.id && editing && (
