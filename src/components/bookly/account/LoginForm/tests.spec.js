@@ -30,10 +30,14 @@ function getComponent(extraProps = {}) {
 describe('LoginForm', () => {
   let component;
 
+  test('matches the snapshot', () => {
+    component = getComponent();
+    expect(component).toMatchSnapshot();
+  });
+
   describe('basic rendering', () => {
     test('renders correctly', () => {
       component = getComponent();
-      expect(component).toMatchSnapshot();
       expect(component.find(Form)).toHaveLength(1);
       expect(component.find(InputField)).toHaveLength(2);
     });

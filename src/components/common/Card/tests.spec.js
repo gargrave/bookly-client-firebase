@@ -21,9 +21,13 @@ function getComponent(extraProps = {}) {
 describe('Card', () => {
   let component;
 
-  test('renders correctly', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
+  });
+
+  test('renders correctly', () => {
+    component = getComponent();
     expect(component.find('.bookly-card')).toHaveLength(1);
     expect(component.find('.bookly-card__header')).toHaveLength(1);
     expect(component.find('.bookly-card__title')).toHaveLength(1);

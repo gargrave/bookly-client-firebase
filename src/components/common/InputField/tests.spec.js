@@ -22,6 +22,11 @@ function getComponent(extraProps = {}) {
 describe('InputField', () => {
   let component;
 
+  test('matches the snapshot', () => {
+    component = getComponent();
+    expect(component).toMatchSnapshot();
+  });
+
   describe('label display', () => {
     test('renders the correct label text', () => {
       const props = { label: 'test_label' };
@@ -57,7 +62,6 @@ describe('InputField', () => {
   describe('"text" type input field', () => {
     test('renders a text input correctly', () => {
       component = getComponent();
-      expect(component).toMatchSnapshot();
       expect(component.find('input[type="email"]')).toHaveLength(0);
       expect(component.find('input[type="text"]')).toHaveLength(1);
       expect(component.find('input[type="password"]')).toHaveLength(0);
@@ -67,7 +71,6 @@ describe('InputField', () => {
   describe('"password" type input field', () => {
     test('renders a password input correctly', () => {
       component = getComponent({ type: 'password' });
-      expect(component).toMatchSnapshot();
       expect(component.find('input[type="email"]')).toHaveLength(0);
       expect(component.find('input[type="text"]')).toHaveLength(0);
       expect(component.find('input[type="password"]')).toHaveLength(1);
@@ -77,7 +80,6 @@ describe('InputField', () => {
   describe('"email" type input field', () => {
     test('renders an email input correctly', () => {
       component = getComponent({ type: 'email' });
-      expect(component).toMatchSnapshot();
       expect(component.find('input[type="email"]')).toHaveLength(1);
       expect(component.find('input[type="password"]')).toHaveLength(0);
       expect(component.find('input[type="text"]')).toHaveLength(0);

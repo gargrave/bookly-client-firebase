@@ -25,10 +25,14 @@ function getComponent(extraProps = {}) {
 describe('Form', () => {
   let component;
 
+  test('matches the snapshot', () => {
+    component = getComponent();
+    expect(component).toMatchSnapshot();
+  });
+
   describe('basic rendering', () => {
     test('renders  correctly', () => {
       component = getComponent();
-      expect(component).toMatchSnapshot();
       expect(component.find(Alert)).toHaveLength(0);
       expect(component.find(Button)).toHaveLength(2);
     });

@@ -20,9 +20,13 @@ function getComponent(extraProps = {}) {
 describe('AccountDetailView', () => {
   let component;
 
-  test('renders correctly', () => {
+  test('matches the snapshot', () => {
     component = getComponent();
     expect(component).toMatchSnapshot();
+  });
+
+  test('renders correctly', () => {
+    component = getComponent();
     expect(component.find('.bookly-account-detail-view')).toHaveLength(1);
     expect(component.find(Card)).toHaveLength(1);
   });
