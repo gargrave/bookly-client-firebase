@@ -3,6 +3,7 @@ import { AUTH } from '../actionTypes';
 import { parseFbError } from '../../globals/errors';
 import { auth } from '../../globals/firebase';
 import { userModel } from '../../models/User.model';
+import { apiErrorAction } from '../../utils/apiHelpers';
 
 function _requestStart() {
   return {
@@ -45,6 +46,7 @@ function login({ email, password }) {
       const userData = setLocalUserData(result);
       return userData;
     } catch (err) {
+      dispatch(apiErrorAction(err));
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());

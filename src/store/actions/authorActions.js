@@ -76,8 +76,7 @@ function fetchAuthors() {
         dispatch(_fetchAuthors(records));
         return records;
       } catch (err) {
-        console.error('TODO: Deal with error in authorActions.fetchAuthors()');
-        console.error(err);
+        dispatch(apiErrorAction(err));
         throw parseFbError(err);
       } finally {
         dispatch(_requestEnd());
@@ -104,8 +103,7 @@ function createAuthor(author: Author) {
       dispatch(_createAuthor(newRecord));
       return newRecord;
     } catch (err) {
-      console.error('TODO: Deal with error in authorActions.createAuthor()');
-      console.error(err);
+      dispatch(apiErrorAction(err));
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
@@ -134,6 +132,7 @@ function updateAuthor(author: Author) {
       dispatch(refreshBooksByAuthor(updatedRecord));
       return updatedRecord;
     } catch (err) {
+      dispatch(apiErrorAction(err));
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());

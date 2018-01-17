@@ -106,8 +106,7 @@ function fetchBooks() {
         dispatch(_fetchBooks(records));
         return records;
       } catch (err) {
-        console.error('TODO: Deal with error in bookActions.fetchBooks()');
-        console.error(err);
+        dispatch(apiErrorAction(err));
         throw parseFbError(err);
       } finally {
         dispatch(_requestEnd());
@@ -135,8 +134,7 @@ function createBook(book: Book) {
       dispatch(_createBook(newRecord));
       return newRecord;
     } catch (err) {
-      console.error('TODO: Deal with error in bookActions.createBook()');
-      console.error(err);
+      dispatch(apiErrorAction(err));
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
@@ -165,8 +163,7 @@ function updateBook(book: Book) {
       dispatch(_updateBook(updatedRecord));
       return updatedRecord;
     } catch (err) {
-      console.error('TODO: Deal with error in bookActions.updateBook()');
-      console.error(err);
+      dispatch(apiErrorAction(err));
       throw parseFbError(err);
     } finally {
       dispatch(_requestEnd());
