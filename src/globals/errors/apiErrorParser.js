@@ -29,16 +29,6 @@ function simplifyApiError(msg: string): string {
   return `Unknown API error: ${msg}`;
 }
 
-function parseError(err: Object): string {
-  console.warn('TODO: use parseFbError() isntead of parseError().');
-  if (err.response && err.response.data) {
-    return err.response.data;
-  } else if (err.message) {
-    return simplifyApiError(err.message);
-  }
-  return 'An uknown error occurred.';
-}
-
 function parseFbError(err: FbError): string {
   // TODO: make better use of Firebase's error structure
   // https://firebase.google.com/docs/reference/js/firebase.auth.Auth?authuser=0#signInAndRetrieveDataWithEmailAndPassword
@@ -50,6 +40,5 @@ function parseFbError(err: FbError): string {
 }
 
 export {
-  parseError,
   parseFbError,
 };
