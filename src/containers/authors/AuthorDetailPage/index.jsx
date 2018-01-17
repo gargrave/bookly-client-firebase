@@ -258,7 +258,6 @@ class AuthorDetailPage extends Component<Props, State> {
             this.onCancel.bind(this), this.onInputChange.bind(this), this.onSubmit.bind(this))
         }
         {deleteDialogShowing &&
-          /* TODO: move this to a separate function */
           <Modal
             message={[
               'Are you sure you want to delete this author?',

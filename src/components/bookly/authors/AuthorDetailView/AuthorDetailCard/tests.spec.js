@@ -1,10 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorMocks } from '../../../../utils/mocks/';
+import { authorMocks } from '../../../../../utils/mocks/';
 
-import AuthorDetailView from './';
-import AuthorDetailCard from './AuthorDetailCard';
+import Card from '../../../../common/Card';
+
+import AuthorDetailCard from './';
 
 const defaultProps = Object.freeze({
   author: Object.create(authorMocks[0]),
@@ -15,10 +16,10 @@ const defaultProps = Object.freeze({
 
 function getComponent(extraProps = {}) {
   const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<AuthorDetailView {...props} />);
+  return shallow(<AuthorDetailCard {...props} />);
 }
 
-describe('AuthorDetailView', () => {
+describe('AuthorDetailCard', () => {
   let component;
 
   test('matches the snapshot', () => {
@@ -28,7 +29,6 @@ describe('AuthorDetailView', () => {
 
   test('renders correctly', () => {
     component = getComponent();
-    expect(component.find('.bookly-author-detail-view')).toHaveLength(1);
-    expect(component.find(AuthorDetailCard)).toHaveLength(1);
+    expect(component.find(Card)).toHaveLength(1);
   });
 });

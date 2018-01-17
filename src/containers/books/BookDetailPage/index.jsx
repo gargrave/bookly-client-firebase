@@ -258,7 +258,6 @@ class BookDetailPage extends Component<Props, State> {
           />
         )}
         {deleteDialogShowing &&
-          /* TODO: move this to a separate function */
           <Modal
             message={'Are you sure you want to delete this book?'}
             onCancel={this.hideDeleteDialog}
