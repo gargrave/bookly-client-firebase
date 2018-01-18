@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { instanceOf, func, object, oneOfType, shape, string } from 'prop-types';
+import { array, func, instanceOf, object, oneOfType, shape, string } from 'prop-types';
 
-import type { Author, AuthorErrors } from '../../../constants/flowtypes';
+import type { Author, AuthorErrors, Book } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globals/validations';
@@ -21,10 +21,11 @@ import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 type Props = {
   author: Author,
   authorId: string,
-  snackbarCreate: Function,
+  booksForAuthor: Book[],
   deleteAuthor: Function,
-  history: Object,
   fetchAuthors: Function,
+  history: Object,
+  snackbarCreate: Function,
   updateAuthor: Function,
 };
 
@@ -40,6 +41,7 @@ type State = {
 
 function detailView(
   author: Author,
+  booksForAuthor: Book[],
   onBackClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
@@ -48,6 +50,7 @@ function detailView(
   return (
     <AuthorDetailView
       author={author}
+      booksForAuthor={booksForAuthor}
       onBackClick={onBackClick}
       onDeleteClick={onDeleteClick}
       onEditClick={onEditClick}
@@ -230,6 +233,7 @@ class AuthorDetailPage extends Component<Props, State> {
     const {
       author,
       authorId,
+      booksForAuthor,
     } = this.props;
     const {
       deleteDialogShowing,
@@ -250,7 +254,7 @@ class AuthorDetailPage extends Component<Props, State> {
           />
         }
         {author.id && !editing &&
-          detailView(author, this.onBackClick, this.showDeleteDialog,
+          detailView(author, booksForAuthor, this.onBackClick, this.showDeleteDialog,
             this.onEditClick, topLevelError)
         }
         {author.id && editing &&
@@ -288,6 +292,7 @@ AuthorDetailPage.propTypes = {
     lastName: string,
   }).isRequired,
   authorId: string,
+  booksForAuthor: array,
   snackbarCreate: func.isRequired,
   deleteAuthor: func.isRequired,
   fetchAuthors: func.isRequired,
@@ -302,9 +307,13 @@ const mapStateToProps = (state: any, ownProps: any) => {
     (a) => a.id === authorId
   ) || {};
 
+  const booksForAuthor = state.books.data
+    .filter((book: Book) => book.author.id === authorId);
+
   return {
     author,
     authorId,
+    booksForAuthor,
   };
 };
 

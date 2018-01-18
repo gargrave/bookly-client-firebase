@@ -1,16 +1,18 @@
 // @flow
 import React from 'react';
-import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
+import { array, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 
-import type { Author } from '../../../../constants/flowtypes';
+import type { Author, Book } from '../../../../constants/flowtypes';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Alert from '../../../common/Alert';
 import AuthorDetailCard from './AuthorDetailCard';
+import BookList from '../../books/BookList';
 
 type Props = {
   author: Author,
+  booksForAuthor: Book[],
   onBackClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
@@ -19,6 +21,7 @@ type Props = {
 
 function AuthorDetailView({
   author,
+  booksForAuthor,
   onBackClick,
   onDeleteClick,
   onEditClick,
@@ -38,6 +41,12 @@ function AuthorDetailView({
         onDeleteClick={onDeleteClick}
         onEditClick={onEditClick}
       />
+
+      <hr/>
+      <BookList
+        books={booksForAuthor}
+        onBookClick={() => console.warn('TODO: implement onBookClick()')}
+      />
     </div>
   );
 }
@@ -56,6 +65,7 @@ AuthorDetailView.propTypes = {
     firstName: string,
     lastName: string,
   }),
+  booksForAuthor: array.isRequired,
   onBackClick: func.isRequired,
   onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,
