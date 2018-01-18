@@ -1,13 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { bookMocks } from '../../../../utils/mocks/';
+import { bookMocks } from '../../../../../utils/mocks/';
 
-import BookDetailView from './';
-import BookDetailCard from './BookDetailCard';
+import Card from '../../../../common/Card';
+
+import BookDetailCard from './';
 
 const defaultProps = Object.freeze({
-  book: bookMocks[0],
+  book: Object.create(bookMocks[0]),
   onBackClick: jest.fn(),
   onDeleteClick: jest.fn(),
   onEditClick: jest.fn(),
@@ -15,10 +16,10 @@ const defaultProps = Object.freeze({
 
 function getComponent(extraProps = {}) {
   const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<BookDetailView {...props} />);
+  return shallow(<BookDetailCard {...props} />);
 }
 
-describe('BookDetailView', () => {
+describe('BookDetailCard', () => {
   let component;
 
   test('matches the snapshot', () => {
@@ -28,7 +29,6 @@ describe('BookDetailView', () => {
 
   test('renders correctly', () => {
     component = getComponent();
-    expect(component.find('.bookly-book-detail-view')).toHaveLength(1);
-    expect(component.find(BookDetailCard)).toHaveLength(1);
+    expect(component.find(Card)).toHaveLength(1);
   });
 });
