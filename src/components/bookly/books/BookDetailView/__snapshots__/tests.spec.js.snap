@@ -48,9 +48,20 @@ ShallowWrapper {
             ]
           }
           hoverable={false}
-          text="by Aldous Huxley"
           title="Brave New World"
         >
+          <AuthorLink
+            author={
+              Object {
+                "bookCount": 1,
+                "created": 2017-07-01T01:16:43.881Z,
+                "firstName": "Aldous",
+                "id": "oiw223h3qndlksadffl3ksdf",
+                "lastName": "Huxley",
+                "updated": 2017-07-01T01:16:43.881Z,
+              }
+            }
+          />
           <hr />
           <p
             className="bookly-card-text"
@@ -103,6 +114,18 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "children": Array [
+            <AuthorLink
+              author={
+                Object {
+                  "bookCount": 1,
+                  "created": 2017-07-01T01:16:43.881Z,
+                  "firstName": "Aldous",
+                  "id": "oiw223h3qndlksadffl3ksdf",
+                  "lastName": "Huxley",
+                  "updated": 2017-07-01T01:16:43.881Z,
+                }
+              }
+            />,
             <hr />,
             <p
               className="bookly-card-text"
@@ -149,11 +172,28 @@ ShallowWrapper {
             "book-detail-card",
           ],
           "hoverable": false,
-          "text": "by Aldous Huxley",
           "title": "Brave New World",
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "author": Object {
+                "bookCount": 1,
+                "created": 2017-07-01T01:16:43.881Z,
+                "firstName": "Aldous",
+                "id": "oiw223h3qndlksadffl3ksdf",
+                "lastName": "Huxley",
+                "updated": 2017-07-01T01:16:43.881Z,
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -330,9 +370,20 @@ ShallowWrapper {
               ]
             }
             hoverable={false}
-            text="by Aldous Huxley"
             title="Brave New World"
           >
+            <AuthorLink
+              author={
+                Object {
+                  "bookCount": 1,
+                  "created": 2017-07-01T01:16:43.881Z,
+                  "firstName": "Aldous",
+                  "id": "oiw223h3qndlksadffl3ksdf",
+                  "lastName": "Huxley",
+                  "updated": 2017-07-01T01:16:43.881Z,
+                }
+              }
+            />
             <hr />
             <p
               className="bookly-card-text"
@@ -385,6 +436,18 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "children": Array [
+              <AuthorLink
+                author={
+                  Object {
+                    "bookCount": 1,
+                    "created": 2017-07-01T01:16:43.881Z,
+                    "firstName": "Aldous",
+                    "id": "oiw223h3qndlksadffl3ksdf",
+                    "lastName": "Huxley",
+                    "updated": 2017-07-01T01:16:43.881Z,
+                  }
+                }
+              />,
               <hr />,
               <p
                 className="bookly-card-text"
@@ -431,11 +494,28 @@ ShallowWrapper {
               "book-detail-card",
             ],
             "hoverable": false,
-            "text": "by Aldous Huxley",
             "title": "Brave New World",
           },
           "ref": null,
           "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "author": Object {
+                  "bookCount": 1,
+                  "created": 2017-07-01T01:16:43.881Z,
+                  "firstName": "Aldous",
+                  "id": "oiw223h3qndlksadffl3ksdf",
+                  "lastName": "Huxley",
+                  "updated": 2017-07-01T01:16:43.881Z,
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
             Object {
               "instance": null,
               "key": undefined,

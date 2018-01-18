@@ -8,6 +8,7 @@ import type { Book } from '../../../../constants/flowtypes';
 import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Alert from '../../../common/Alert';
+import AuthorLink from '../../authors/AuthorLink';
 import Button from '../../../common/Button';
 import ButtonRow from '../../../common/ButtonRow';
 import Card from '../../../common/Card';
@@ -32,7 +33,6 @@ function BookDetailView({
     title,
     updated,
   } = book;
-  const authorName = `${book.author.firstName} ${book.author.lastName}`;
 
   return (
     <div className={buildClasses('book-detail-view')}>
@@ -46,9 +46,11 @@ function BookDetailView({
       <Card
         classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
         hoverable={false}
-        text={`by ${authorName}`}
         title={title}
       >
+        <AuthorLink
+          author={book.author}
+        />
 
         <hr/>
         <p className={buildClasses('card-text')}>
