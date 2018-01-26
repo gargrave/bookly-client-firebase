@@ -11,6 +11,9 @@ import { apiErrorAction, getDocRef } from '../../utils/apiHelpers';
 
 const DB_TABLE = 'books';
 
+const bookHasValidAuthor = (book: Book, authors: Author[]) =>
+  authors.find((author: Author) => author.id === book.authorId);
+
 function _requestStart() {
   return {
     type: BOOKS.REQUEST_START,
@@ -117,8 +120,13 @@ function fetchBooks() {
 
 function createBook(book: Book) {
   return async (dispatch: Function, getState: Function) => {
-    dispatch(_requestStart());
     try {
+      // validate author before proceeding
+      if (!bookHasValidAuthor(book, getState().authors.data)) {
+        throw Error('Invalid Author data.');
+      }
+
+      dispatch(_requestStart());
       const payload = {
         owner: getState().auth.user.id,
         created: timestamp(),
@@ -144,8 +152,13 @@ function createBook(book: Book) {
 
 function updateBook(book: Book) {
   return async (dispatch: Function, getState: Function) => {
-    dispatch(_requestStart());
     try {
+      // validate author before proceeding
+      if (!bookHasValidAuthor(book, getState().authors.data)) {
+        throw Error('Invalid Author data.');
+      }
+
+      dispatch(_requestStart());
       const payload = {
         title: book.title,
         authorId: book.authorId,
