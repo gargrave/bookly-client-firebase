@@ -33,43 +33,43 @@ function BookDetailCard({
 
   return (
     <Card
-        classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
-        hoverable={false}
-        title={title}
-      >
-        <AuthorLink
-          author={book.author}
+      classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
+      hoverable={false}
+      title={title}
+    >
+      <AuthorLink
+        author={book.author}
+      />
+
+      <hr/>
+      <p className={buildClasses('card-text')}>
+        <strong>Added:</strong> {format(created, 'MMM. DD, YYYY, HH:mm:ss')}
+      </p>
+      <p className={buildClasses('card-text')}>
+        <strong>Updated:</strong> {format(updated, 'MMM. DD, YYYY, HH:mm:ss')}
+      </p>
+
+      <hr/>
+      <ButtonRow>
+        <Button
+          onClick={onEditClick}
+          position="left"
+          text="Edit"
+          type="info"
         />
-
-        <hr/>
-        <p className={buildClasses('card-text')}>
-          <strong>Added:</strong> {format(created, 'MMM. DD, YYYY, HH:mm:ss')}
-        </p>
-        <p className={buildClasses('card-text')}>
-          <strong>Updated:</strong> {format(updated, 'MMM. DD, YYYY, HH:mm:ss')}
-        </p>
-
-        <hr/>
-        <ButtonRow>
-          <Button
-            onClick={onEditClick}
-            position="left"
-            text="Edit"
-            type="info"
-          />
-          <Button
-            onClick={onDeleteClick}
-            text="Delete"
-            type="danger"
-          />
-          <Button
-            onClick={onBackClick}
-            position="right"
-            text="Back"
-            type="light"
-          />
-        </ButtonRow>
-      </Card>
+        <Button
+          onClick={onDeleteClick}
+          text="Delete"
+          type="danger"
+        />
+        <Button
+          onClick={onBackClick}
+          position="right"
+          text="Back"
+          type="light"
+        />
+      </ButtonRow>
+    </Card>
   );
 }
 
