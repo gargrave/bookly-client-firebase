@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
-import { number, string } from 'prop-types';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import { array, number, object, string } from 'prop-types';
 
 import { buildClasses } from '../../../utils/cssHelpers';
 
@@ -8,25 +10,58 @@ import './styles.css';
 
 type Props = {
   height?: number,
+  history: Object,
+  links?: any[],
   title: string,
 };
 
-const styles = (props: Props) => ({
-  height: props.height || 50,
+const styles = (height?: number) => ({
+  height: height || 50,
 });
 
 class SexyHeader extends React.Component<Props> {
+  isActiveLink(linkTo: string) {
+    return this.props.history.location.pathname === linkTo;
+  }
+
+  renderLinks(links?: any[] = []) {
+    return (
+      links.map((link: any) =>
+        <Link
+          className={buildClasses([
+            'header__link',
+            this.isActiveLink(link.to) ? 'header__link--active' : '',
+          ])}
+          key={link.to}
+          to={link.to}
+        >
+          {link.text}
+        </Link>
+      )
+    );
+  }
+
   render() {
     const {
+      height,
+      links,
       title,
     } = this.props;
 
     return (
       <header
         className={buildClasses(['header'])}
-        style={styles(this.props)}
+        style={styles(height)}
       >
-        <h3>{title}</h3>
+        <h3
+          className={buildClasses(['header__title'])}
+          style={{ lineHeight: `${+height * .9}px` }}
+        >
+          {title}
+        </h3>
+        <div className={buildClasses(['header__links'])}>
+          {this.renderLinks(links)}
+        </div>
       </header>
     );
   }
@@ -34,7 +69,9 @@ class SexyHeader extends React.Component<Props> {
 
 SexyHeader.propTypes = {
   height: number,
+  history: object,
+  links: array,
   title: string,
 };
 
-export default SexyHeader;
+export default withRouter(SexyHeader);
