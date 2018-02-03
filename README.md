@@ -4,20 +4,6 @@ Yet another version of the frontend codebase for my `Bookly` app, again using Re
 
 The app itself is not particularly interesting, as my primary goal is to just have a simple ongoing app where I can try out new libraries and technologies, and just generally mess around and try new things.
 
-## Points of Interest
-
-Having a look around? Here are some fun things to look at!
-
-- A nice, simple [Snackbar system](https://github.com/gargrave/bookly-client-firebase/tree/master/src/containers/common/Snackbar)
-
-## Major TODOs
-
-Some of the larger TODOs on my roadmap.
-
-- Add an abstraction layer for API calls. Right now, this codebase is tightly coupled to Firebase, so if I decided to swap it out for a different backup, it would require significant rework.
-- Add a better logging system, with custom font/colors/sizes for more clarity. I dump a lot to console, so it gets a little messy among all the other network calls and such.
-- Remove the Shoelace CSS dependency fo basic CSS. _Most_ of my styles are implemented locally, but Shoelace is still being used for some really basic stuff like buttons and form elements.
-
 ---
 
 ## Config/Setup
