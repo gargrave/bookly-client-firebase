@@ -21,7 +21,7 @@ const styles = () => ({
   marginTop: Math.floor(HEADER_HEIGHT * 1.5),
 });
 
-const links = () => (
+const loggedInLinks = () => (
   [
     { to: '/', text: 'Home' },
     { to: localUrls.booksList, text: 'Books' },
@@ -31,17 +31,34 @@ const links = () => (
 );
 
 class AppWrapper extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedIn: false,
+    };
+  }
+
   async componentWillMount() {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         this.props.setLocalUserData(user);
         await this.props.fetchBooks();
       }
-      this.props.setInitialized();
+
+      this.setState({
+        loggedIn: !!user,
+      }, () => {
+        this.props.setInitialized();
+      });
     });
   }
 
   render() {
+    const {
+      loggedIn,
+    } = this.state;
+
     return (
       <BrowserRouter>
         <div
@@ -51,7 +68,8 @@ class AppWrapper extends Component {
         >
           <SexyHeader
             height={HEADER_HEIGHT}
-            links={links()}
+            loggedIn={loggedIn}
+            loggedInLinks={loggedInLinks()}
             title={'Bookly'}
           />
           <main className="main-view">

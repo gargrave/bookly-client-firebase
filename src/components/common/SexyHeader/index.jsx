@@ -2,7 +2,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
-import { array, number, object, string } from 'prop-types';
+import { array, bool, number, object, string } from 'prop-types';
 
 import { buildClasses } from '../../../utils/cssHelpers';
 
@@ -11,7 +11,8 @@ import './styles.css';
 type Props = {
   height?: number,
   history: Object,
-  links?: any[],
+  loggedIn: boolean,
+  loggedInLinks?: any[],
   title: string,
 };
 
@@ -24,7 +25,7 @@ class SexyHeader extends React.Component<Props> {
     return this.props.history.location.pathname === linkTo;
   }
 
-  renderLinks(links?: any[] = []) {
+  renderLoggedInLinks(links?: any[] = []) {
     return (
       links.map((link: any) =>
         <Link
@@ -44,7 +45,8 @@ class SexyHeader extends React.Component<Props> {
   render() {
     const {
       height,
-      links,
+      loggedInLinks,
+      loggedIn,
       title,
     } = this.props;
 
@@ -60,7 +62,7 @@ class SexyHeader extends React.Component<Props> {
           {title}
         </h3>
         <div className={buildClasses(['header__links'])}>
-          {this.renderLinks(links)}
+          {loggedIn && this.renderLoggedInLinks(loggedInLinks)}
         </div>
       </header>
     );
@@ -70,7 +72,8 @@ class SexyHeader extends React.Component<Props> {
 SexyHeader.propTypes = {
   height: number,
   history: object,
-  links: array,
+  loggedIn: bool,
+  loggedInLinks: array,
   title: string,
 };
 
