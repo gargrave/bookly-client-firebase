@@ -21,14 +21,16 @@ const styles = () => ({
   marginTop: Math.floor(HEADER_HEIGHT * 1.5),
 });
 
-const loggedInLinks = () => (
-  [
-    { to: '/', text: 'Home' },
-    { to: localUrls.booksList, text: 'Books' },
-    { to: localUrls.authorsList, text: 'Authors' },
-    { to: localUrls.account, text: 'Account' },
-  ]
-);
+const notLoggedInLinks = [
+  { to: localUrls.login, text: 'Login' },
+];
+
+const loggedInLinks = [
+  { to: '/', text: 'Home' },
+  { to: localUrls.booksList, text: 'Books' },
+  { to: localUrls.authorsList, text: 'Authors' },
+  { to: localUrls.account, text: 'Account' },
+];
 
 class AppWrapper extends Component {
   constructor(props) {
@@ -69,7 +71,8 @@ class AppWrapper extends Component {
           <SexyHeader
             height={HEADER_HEIGHT}
             loggedIn={loggedIn}
-            loggedInLinks={loggedInLinks()}
+            loggedInLinks={loggedInLinks}
+            notLoggedInLinks={notLoggedInLinks}
             title={'Bookly'}
           />
           <main className="main-view">

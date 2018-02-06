@@ -13,6 +13,7 @@ type Props = {
   history: Object,
   loggedIn: boolean,
   loggedInLinks?: any[],
+  notLoggedInLinks?: any[],
   title: string,
 };
 
@@ -25,7 +26,7 @@ class SexyHeader extends React.Component<Props> {
     return this.props.history.location.pathname === linkTo;
   }
 
-  renderLoggedInLinks(links?: any[] = []) {
+  renderLinks(links?: any[] = []) {
     return (
       links.map((link: any) =>
         <Link
@@ -45,8 +46,9 @@ class SexyHeader extends React.Component<Props> {
   render() {
     const {
       height,
-      loggedInLinks,
       loggedIn,
+      loggedInLinks,
+      notLoggedInLinks,
       title,
     } = this.props;
 
@@ -62,7 +64,8 @@ class SexyHeader extends React.Component<Props> {
           {title}
         </h3>
         <div className={buildClasses(['header__links'])}>
-          {loggedIn && this.renderLoggedInLinks(loggedInLinks)}
+          {loggedIn && this.renderLinks(loggedInLinks)}
+          {!loggedIn && this.renderLinks(notLoggedInLinks)}
         </div>
       </header>
     );
@@ -74,6 +77,7 @@ SexyHeader.propTypes = {
   history: object,
   loggedIn: bool,
   loggedInLinks: array,
+  notLoggedInLinks: array,
   title: string,
 };
 
