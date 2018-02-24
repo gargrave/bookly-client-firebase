@@ -7,8 +7,8 @@ import type { Author, Book } from '../../../../constants/flowtypes';
 import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Alert from '../../../common/Alert';
+import AuthorBooksList from './AuthorBooksList';
 import AuthorDetailCard from './AuthorDetailCard';
-import BookList from '../../books/BookList';
 
 type Props = {
   author: Author,
@@ -27,6 +27,8 @@ function AuthorDetailView({
   onEditClick,
   topLevelError,
 }: Props) {
+  const authorName = `${author.firstName} ${author.lastName}`;
+
   return (
     <div className={buildClasses('author-detail-view')}>
       {topLevelError &&
@@ -43,9 +45,10 @@ function AuthorDetailView({
       />
 
       <hr/>
-      <BookList
+      <AuthorBooksList
+        authorName={authorName}
         books={booksForAuthor}
-        onBookClick={() => console.warn('TODO: implement onBookClick()')}
+        onBookClick={() => console.log('TODO: implement AuthorDetailView.onBookClick()')}
       />
     </div>
   );
