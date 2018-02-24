@@ -37,7 +37,6 @@ function BookEditView({
   return (
     <div className={buildClasses(['book-edit-view'])}>
       <Card
-        classes={['card--top-margin-med']}
         header={'Update Book'}
         hoverable={false}
       >

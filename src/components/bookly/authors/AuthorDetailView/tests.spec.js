@@ -1,13 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorMocks } from '../../../../utils/mocks/';
+import { authorMocks, bookMocks } from '../../../../utils/mocks/';
 
 import AuthorDetailView from './';
 import AuthorDetailCard from './AuthorDetailCard';
 
 const defaultProps = Object.freeze({
   author: Object.create(authorMocks[0]),
+  booksForAuthor: bookMocks,
   onBackClick: jest.fn(),
   onDeleteClick: jest.fn(),
   onEditClick: jest.fn(),

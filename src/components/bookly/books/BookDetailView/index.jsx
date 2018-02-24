@@ -25,7 +25,7 @@ function BookDetailView({
   topLevelError,
 }: Props) {
   return (
-    <div className={buildClasses('book-detail-view')}>
+    <div className={buildClasses(['detail-view', 'book-detail-view'])}>
       {topLevelError &&
         <Alert
           message={topLevelError}

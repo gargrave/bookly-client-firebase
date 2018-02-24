@@ -84,11 +84,6 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <Card
-        classes={
-          Array [
-            "card--top-margin-med",
-          ]
-        }
         header="Update Book"
         hoverable={false}
       >
@@ -235,9 +230,6 @@ ShallowWrapper {
           submitDisabled={false}
           topLevelError=""
         />,
-        "classes": Array [
-          "card--top-margin-med",
-        ],
         "header": "Update Book",
         "hoverable": false,
       },
@@ -322,11 +314,6 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <Card
-          classes={
-            Array [
-              "card--top-margin-med",
-            ]
-          }
           header="Update Book"
           hoverable={false}
         >
@@ -473,9 +460,6 @@ ShallowWrapper {
             submitDisabled={false}
             topLevelError=""
           />,
-          "classes": Array [
-            "card--top-margin-med",
-          ],
           "header": "Update Book",
           "hoverable": false,
         },

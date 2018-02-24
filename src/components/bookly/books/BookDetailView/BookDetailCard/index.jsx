@@ -33,7 +33,7 @@ function BookDetailCard({
 
   return (
     <Card
-      classes={['card--top-margin-med', 'detail-card', 'book-detail-card']}
+      classes={['detail-card', 'book-detail-card']}
       hoverable={false}
       title={title}
     >

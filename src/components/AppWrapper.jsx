@@ -13,8 +13,6 @@ import Routes from './Routes';
 import SexyHeader from './common/SexyHeader';
 import Snackbar from '../containers/common/Snackbar/';
 
-import './AppWrapper.css';
-
 const HEADER_HEIGHT = 50;
 
 const styles = () => ({

@@ -1,10 +1,14 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import { array, func, string } from 'prop-types';
 
 import type { Book } from '../../../../../constants/flowtypes';
 
+import { buildClasses } from '../../../../../utils/cssHelpers';
+
 import BookList from '../../../books/BookList';
+
+import './styles.css';
 
 type Props = {
   authorName: string,
@@ -12,19 +16,21 @@ type Props = {
   onBookClick: Function,
 };
 
+const prefixClass = (cls = '') => `author-books-list${cls}`;
+
 const AuthorBooksList = ({
   authorName,
   books,
   onBookClick,
 }: Props) => {
   return (
-    <Fragment>
-      <h4>Books by <em>{authorName}</em></h4>
+    <div className={buildClasses(prefixClass())}>
+      <h5 className={buildClasses(prefixClass('__header'))}>Books by {authorName}</h5>
       <BookList
         books={books}
         onBookClick={onBookClick}
       />
-    </Fragment>
+    </div>
   );
 };
 

@@ -137,7 +137,6 @@ class BookCreatePage extends Component<Props, State> {
     return (
       <CardList>
         <Card
-          classes={['card--top-margin-med']}
           header={'New Book'}
           hoverable={false}
         >

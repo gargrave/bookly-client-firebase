@@ -26,7 +26,7 @@ function AuthorDetailCard({
 }: Props) {
   return (
     <Card
-      classes={['card--top-margin-med', 'detail-card', 'author-detail-card']}
+      classes={['detail-card', 'author-detail-card']}
       hoverable={false}
       title={`${author.firstName} ${author.lastName}`}
     >

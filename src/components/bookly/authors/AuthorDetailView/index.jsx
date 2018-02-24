@@ -30,7 +30,7 @@ function AuthorDetailView({
   const authorName = `${author.firstName} ${author.lastName}`;
 
   return (
-    <div className={buildClasses('author-detail-view')}>
+    <div className={buildClasses(['detail-view', 'author-detail-view'])}>
       {topLevelError &&
         <Alert
           message={topLevelError}

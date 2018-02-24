@@ -76,7 +76,6 @@ ShallowWrapper {
         </ButtonRow>,
       ],
       "classes": Array [
-        "card--top-margin-med",
         "detail-card",
         "book-detail-card",
       ],
@@ -319,7 +318,6 @@ ShallowWrapper {
           </ButtonRow>,
         ],
         "classes": Array [
-          "card--top-margin-med",
           "detail-card",
           "book-detail-card",
         ],
