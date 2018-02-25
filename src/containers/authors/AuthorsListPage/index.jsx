@@ -6,6 +6,7 @@ import countBy from 'lodash/countBy';
 
 import type { Author } from '../../../constants/flowtypes';
 
+import { buildClasses } from '../../../utils/cssHelpers';
 import { localUrls } from '../../../constants/urls';
 import { fetchAuthors } from '../../../store/actions/authorActions';
 
@@ -81,15 +82,15 @@ class AuthorsListPage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <div>
-        <h2>
+      <div className={buildClasses(['list-view'])}>
+        <h3 className={buildClasses(['list-view__header'])}>
           My Authors
           <Button
             onClick={this.onAddClick}
             text="Add"
             type="success"
           />
-        </h2>
+        </h3>
         <CardList>
           <InputField
             boundValue={searchValue}

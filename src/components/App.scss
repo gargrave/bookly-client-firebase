@@ -10,6 +10,25 @@
   padding-top: 0;
 
   @media only screen and (min-width: $breakpointSm) {
-    padding-top: $paddingXXL;
+    padding-top: $spacingXL;
+  }
+}
+
+.bookly-list-view {
+  padding-top: 0;
+
+  @media only screen and (min-width: $breakpointSm) {
+    padding-top: $spacingMed;
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacingMed;
+  }
+
+  .bookly-input-field {
+    margin-bottom: $spacingXL;
   }
 }
