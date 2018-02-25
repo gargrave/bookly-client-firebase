@@ -7,6 +7,7 @@ const API_RE_REQUIRED = /\["(\w+)" is not allowed to be empty\]/;
 const API_RE_LENGTH = /\["(\w+)" length must be at least (\d) characters long\]/;
 const API_RE_EMAIL_FORMAT = /\["(\w+)" must be a valid email\]/;
 
+/* eslint-disable no-unused-vars */
 function simplifyApiError(msg: string): string {
   // 'required field' API errors
   let m = msg.match(API_RE_REQUIRED);

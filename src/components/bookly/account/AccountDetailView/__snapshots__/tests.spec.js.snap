@@ -68,7 +68,7 @@ ShallowWrapper {
           />
         </ButtonRow>
       </Card>,
-      "className": "bookly-account-detail-view",
+      "className": "bookly-detail-view bookly-account-detail-view",
     },
     "ref": null,
     "rendered": Object {
@@ -326,7 +326,7 @@ ShallowWrapper {
             />
           </ButtonRow>
         </Card>,
-        "className": "bookly-account-detail-view",
+        "className": "bookly-detail-view bookly-account-detail-view",
       },
       "ref": null,
       "rendered": Object {

@@ -7,12 +7,10 @@ import BookList from '../../../books/BookList';
 
 import AuthorBooksList from './';
 
-const authorName = `${authorMocks[0].firstName} ${authorMocks[0].lastName}`;
-const books = bookMocks.slice(-2);
-
 const defaultProps = Object.freeze({
-  authorName,
-  books,
+  author: authorMocks[0],
+  books: bookMocks.slice(-2),
+  onBookAddClick: jest.fn(),
   onBookClick: jest.fn(),
 });
 
@@ -21,7 +19,7 @@ function getComponent(extraProps = {}) {
   return shallow(<AuthorBooksList {...props} />);
 }
 
-describe('AuthorBooksList', () => {
+describe.only('AuthorBooksList', () => {
   let component;
 
   test('matches the snapshot', () => {

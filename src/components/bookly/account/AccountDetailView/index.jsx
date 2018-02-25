@@ -27,7 +27,7 @@ function AccountDetailView({
   } = user;
 
   return (
-    <div className={buildClasses('detail-view', 'account-detail-view')}>
+    <div className={buildClasses(['detail-view', 'account-detail-view'])}>
       <Card
         classes={['detail-card', 'account-detail-card']}
         hoverable={false}

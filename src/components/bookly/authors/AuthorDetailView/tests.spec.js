@@ -10,8 +10,11 @@ const defaultProps = Object.freeze({
   author: Object.create(authorMocks[0]),
   booksForAuthor: bookMocks,
   onBackClick: jest.fn(),
+  onBookClick: jest.fn(),
+  onBookAddClick: jest.fn(),
   onDeleteClick: jest.fn(),
   onEditClick: jest.fn(),
+  topLevelError: '',
 });
 
 function getComponent(extraProps = {}) {

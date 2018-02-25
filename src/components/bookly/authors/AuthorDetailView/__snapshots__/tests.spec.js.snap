@@ -81,8 +81,11 @@ ShallowWrapper {
       ]
     }
     onBackClick={[Function]}
+    onBookAddClick={[Function]}
+    onBookClick={[Function]}
     onDeleteClick={[Function]}
     onEditClick={[Function]}
+    topLevelError=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -97,7 +100,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        undefined,
+        "",
         <AuthorDetailCard
           author={Object {}}
           onBackClick={[Function]}
@@ -181,15 +184,15 @@ ShallowWrapper {
               },
             ]
           }
-          onBookAddClick={undefined}
-          onBookClick={undefined}
+          onBookAddClick={[Function]}
+          onBookClick={[Function]}
         />,
       ],
       "className": "bookly-detail-view bookly-author-detail-view",
     },
     "ref": null,
     "rendered": Array [
-      undefined,
+      "",
       Object {
         "instance": null,
         "key": undefined,
@@ -291,8 +294,8 @@ ShallowWrapper {
               "updated": 2017-11-01T01:39:26.220Z,
             },
           ],
-          "onBookAddClick": undefined,
-          "onBookClick": undefined,
+          "onBookAddClick": [Function],
+          "onBookClick": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -308,7 +311,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          undefined,
+          "",
           <AuthorDetailCard
             author={Object {}}
             onBackClick={[Function]}
@@ -392,15 +395,15 @@ ShallowWrapper {
                 },
               ]
             }
-            onBookAddClick={undefined}
-            onBookClick={undefined}
+            onBookAddClick={[Function]}
+            onBookClick={[Function]}
           />,
         ],
         "className": "bookly-detail-view bookly-author-detail-view",
       },
       "ref": null,
       "rendered": Array [
-        undefined,
+        "",
         Object {
           "instance": null,
           "key": undefined,
@@ -502,8 +505,8 @@ ShallowWrapper {
                 "updated": 2017-11-01T01:39:26.220Z,
               },
             ],
-            "onBookAddClick": undefined,
-            "onBookClick": undefined,
+            "onBookAddClick": [Function],
+            "onBookClick": [Function],
           },
           "ref": null,
           "rendered": null,

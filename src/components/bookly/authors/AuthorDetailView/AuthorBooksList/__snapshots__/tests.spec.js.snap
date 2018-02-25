@@ -5,7 +5,16 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <AuthorBooksList
-    authorName="Aldous Huxley"
+    author={
+      Object {
+        "bookCount": 1,
+        "created": 2017-07-01T01:16:43.881Z,
+        "firstName": "Aldous",
+        "id": "oiw223h3qndlksadffl3ksdf",
+        "lastName": "Huxley",
+        "updated": 2017-07-01T01:16:43.881Z,
+      }
+    }
     books={
       Array [
         Object {
@@ -38,6 +47,7 @@ ShallowWrapper {
         },
       ]
     }
+    onBookAddClick={[Function]}
     onBookClick={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -58,6 +68,11 @@ ShallowWrapper {
         >
           Books by 
           Aldous Huxley
+          <Button
+            onClick={[Function]}
+            text="Add"
+            type="success"
+          />
         </h5>,
         <BookList
           books={
@@ -107,6 +122,11 @@ ShallowWrapper {
           "children": Array [
             "Books by ",
             "Aldous Huxley",
+            <Button
+              onClick={[Function]}
+              text="Add"
+              type="success"
+            />,
           ],
           "className": "bookly-author-books-list__header",
         },
@@ -114,6 +134,19 @@ ShallowWrapper {
         "rendered": Array [
           "Books by ",
           "Aldous Huxley",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "onClick": [Function],
+              "text": "Add",
+              "type": "success",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
         ],
         "type": "h5",
       },
@@ -173,6 +206,11 @@ ShallowWrapper {
           >
             Books by 
             Aldous Huxley
+            <Button
+              onClick={[Function]}
+              text="Add"
+              type="success"
+            />
           </h5>,
           <BookList
             books={
@@ -222,6 +260,11 @@ ShallowWrapper {
             "children": Array [
               "Books by ",
               "Aldous Huxley",
+              <Button
+                onClick={[Function]}
+                text="Add"
+                type="success"
+              />,
             ],
             "className": "bookly-author-books-list__header",
           },
@@ -229,6 +272,19 @@ ShallowWrapper {
           "rendered": Array [
             "Books by ",
             "Aldous Huxley",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "onClick": [Function],
+                "text": "Add",
+                "type": "success",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
           ],
           "type": "h5",
         },
