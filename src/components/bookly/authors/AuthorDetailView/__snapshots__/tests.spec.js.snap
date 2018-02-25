@@ -106,7 +106,7 @@ ShallowWrapper {
         />,
         <hr />,
         <AuthorBooksList
-          authorName="Aldous Huxley"
+          author={Object {}}
           books={
             Array [
               Object {
@@ -181,7 +181,8 @@ ShallowWrapper {
               },
             ]
           }
-          onBookClick={[Function]}
+          onBookAddClick={undefined}
+          onBookClick={undefined}
         />,
       ],
       "className": "bookly-detail-view bookly-author-detail-view",
@@ -217,7 +218,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "authorName": "Aldous Huxley",
+          "author": Object {},
           "books": Array [
             Object {
               "author": Object {
@@ -290,7 +291,8 @@ ShallowWrapper {
               "updated": 2017-11-01T01:39:26.220Z,
             },
           ],
-          "onBookClick": [Function],
+          "onBookAddClick": undefined,
+          "onBookClick": undefined,
         },
         "ref": null,
         "rendered": null,
@@ -315,7 +317,7 @@ ShallowWrapper {
           />,
           <hr />,
           <AuthorBooksList
-            authorName="Aldous Huxley"
+            author={Object {}}
             books={
               Array [
                 Object {
@@ -390,7 +392,8 @@ ShallowWrapper {
                 },
               ]
             }
-            onBookClick={[Function]}
+            onBookAddClick={undefined}
+            onBookClick={undefined}
           />,
         ],
         "className": "bookly-detail-view bookly-author-detail-view",
@@ -426,7 +429,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "authorName": "Aldous Huxley",
+            "author": Object {},
             "books": Array [
               Object {
                 "author": Object {
@@ -499,7 +502,8 @@ ShallowWrapper {
                 "updated": 2017-11-01T01:39:26.220Z,
               },
             ],
-            "onBookClick": [Function],
+            "onBookAddClick": undefined,
+            "onBookClick": undefined,
           },
           "ref": null,
           "rendered": null,

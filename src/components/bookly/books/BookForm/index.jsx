@@ -17,6 +17,7 @@ type Props = {
   onCancel: Function,
   onInputChange: Function,
   onSubmit: Function,
+  preselectedAuthor?: Author,
   submitDisabled?: boolean,
   topLevelError?: string,
 };
@@ -30,6 +31,7 @@ function BookForm({
   onCancel,
   onInputChange,
   onSubmit,
+  preselectedAuthor,
   submitDisabled = false,
   topLevelError,
 }: Props) {
@@ -57,7 +59,7 @@ function BookForm({
       />
 
       <AuthorSelect
-        author={author}
+        author={preselectedAuthor || author}
         authors={authors}
         disabled={disabled || false}
         error={errors.author}
@@ -83,6 +85,7 @@ BookForm.propTypes = {
   onCancel: func.isRequired,
   onInputChange: func.isRequired,
   onSubmit: func.isRequired,
+  preselectedAuthor: object,
   submitDisabled: bool,
   topLevelError: string,
 };

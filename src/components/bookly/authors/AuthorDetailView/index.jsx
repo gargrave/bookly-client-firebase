@@ -15,6 +15,7 @@ type Props = {
   booksForAuthor: Book[],
   onBackClick: Function,
   onBookClick: Function,
+  onBookAddClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
   topLevelError?: string,
@@ -24,13 +25,12 @@ function AuthorDetailView({
   author,
   booksForAuthor,
   onBackClick,
+  onBookAddClick,
   onBookClick,
   onDeleteClick,
   onEditClick,
   topLevelError,
 }: Props) {
-  const authorName = `${author.firstName} ${author.lastName}`;
-
   return (
     <div className={buildClasses(['detail-view', 'author-detail-view'])}>
       {topLevelError &&
@@ -48,8 +48,9 @@ function AuthorDetailView({
 
       <hr/>
       <AuthorBooksList
-        authorName={authorName}
+        author={author}
         books={booksForAuthor}
+        onBookAddClick={onBookAddClick}
         onBookClick={onBookClick}
       />
     </div>
@@ -73,6 +74,7 @@ AuthorDetailView.propTypes = {
   booksForAuthor: array.isRequired,
   onBackClick: func.isRequired,
   onBookClick: func.isRequired,
+  onBookAddClick: func.isRequired,
   onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,
   topLevelError: string,

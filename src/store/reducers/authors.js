@@ -3,6 +3,7 @@ import { AUTH, AUTHORS } from '../actionTypes';
 const defaultState = Object.freeze({
   authorRequestPending: false,
   data: [],
+  preselectedAuthor: null,
 });
 
 // TODO: implement better sort handling (including letting the user choose)
@@ -56,6 +57,18 @@ export default function authors(state = defaultState, action) {
         data: sortByLastName(
           state.data.filter((a) => a.id !== action.payload.author.id),
         ),
+      };
+
+    case AUTHORS.SET_PRESELECTED:
+      return {
+        ...state,
+        preselectedAuthor: action.payload.author,
+      };
+
+    case AUTHORS.CLEAR_PRESELECTED:
+      return {
+        ...state,
+        preselectedAuthor: null,
       };
 
     // clear authors data on logout

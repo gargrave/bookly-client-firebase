@@ -8,7 +8,7 @@ import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
 import { localUrls } from '../../../constants/urls';
 import { bookHasAllFields, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
-import { fetchAuthors } from '../../../store/actions/authorActions';
+import { clearPreselectedAuthor, fetchAuthors } from '../../../store/actions/authorActions';
 import { createBook, fetchBooks } from '../../../store/actions/bookActions';
 
 import BookForm from '../../../components/bookly/books/BookForm';
@@ -18,10 +18,12 @@ import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
 type Props = {
   authors: Author[],
+  clearPreselectedAuthor: Function,
   createBook: Function,
   fetchAuthors: Function,
   fetchBooks: Function,
   history: Object,
+  preselectedAuthor: Author,
 };
 
 type State = {
@@ -55,6 +57,12 @@ class BookCreatePage extends Component<Props, State> {
     try {
       await this.props.fetchAuthors();
       await this.props.fetchBooks();
+
+      if (this.props.preselectedAuthor) {
+        this.updateAuthor(this.props.preselectedAuthor.id);
+        this.props.clearPreselectedAuthor();
+      }
+
       this.setState({
         formDisabled: false,
       });
@@ -64,8 +72,7 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  onAuthorChange(event) {
-    const authorId = event.target.value;
+  updateAuthor(authorId: string) {
     const author = this.props.authors.find((a) => a.id === authorId);
     const book = { ...this.state.book, author };
     const submitDisabled = !bookHasAllFields(book);
@@ -76,6 +83,11 @@ class BookCreatePage extends Component<Props, State> {
         submitDisabled,
       });
     }
+  }
+
+  onAuthorChange(event) {
+    const authorId = event.target.value;
+    this.updateAuthor(authorId);
   }
 
   onInputChange(event) {
@@ -125,7 +137,10 @@ class BookCreatePage extends Component<Props, State> {
   }
 
   render() {
-    const { authors } = this.props;
+    const {
+      authors,
+      preselectedAuthor,
+    } = this.props;
     const {
       book,
       errors,
@@ -149,6 +164,7 @@ class BookCreatePage extends Component<Props, State> {
             onCancel={this.onCancel}
             onInputChange={this.onInputChange}
             onSubmit={this.onSubmit}
+            preselectedAuthor={preselectedAuthor}
             submitDisabled={submitDisabled}
             topLevelError={topLevelError}
           />
@@ -160,20 +176,27 @@ class BookCreatePage extends Component<Props, State> {
 
 BookCreatePage.propTypes = {
   authors: array.isRequired,
+  clearPreselectedAuthor: func.isRequired,
   createBook: func.isRequired,
   fetchAuthors: func.isRequired,
   fetchBooks: func.isRequired,
   history: object,
+  preselectedAuthor: object,
 };
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => {
   return {
     authors: state.authors.data,
+    preselectedAuthor: state.authors.preselectedAuthor,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  clearPreselectedAuthor() {
+    return dispatch(clearPreselectedAuthor());
+  },
+
   createBook(book) {
     return dispatch(createBook(book));
   },

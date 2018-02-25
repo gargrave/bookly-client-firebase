@@ -8,8 +8,14 @@ import type { Author, AuthorErrors, Book } from '../../../constants/flowtypes';
 import { localUrls } from '../../../constants/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
-import { deleteAuthor, fetchAuthors, updateAuthor } from '../../../store/actions/authorActions';
 import { snackbarCreate } from '../../../store/actions/snackbarActions';
+
+import {
+  deleteAuthor,
+  fetchAuthors,
+  setPreselectedAuthor,
+  updateAuthor,
+} from '../../../store/actions/authorActions';
 
 import Alert from '../../../components/common/Alert';
 import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';
@@ -25,6 +31,7 @@ type Props = {
   deleteAuthor: Function,
   fetchAuthors: Function,
   history: Object,
+  setPreselectedAuthor: Function,
   snackbarCreate: Function,
   updateAuthor: Function,
 };
@@ -43,6 +50,7 @@ function detailView(
   author: Author,
   booksForAuthor: Book[],
   onBackClick: Function,
+  onBookAddClick: Function,
   onBookClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
@@ -53,6 +61,7 @@ function detailView(
       author={author}
       booksForAuthor={booksForAuthor}
       onBackClick={onBackClick}
+      onBookAddClick={onBookAddClick}
       onBookClick={onBookClick}
       onDeleteClick={onDeleteClick}
       onEditClick={onEditClick}
@@ -103,6 +112,7 @@ class AuthorDetailPage extends Component<Props, State> {
     _this.hideDeleteDialog = _this.hideDeleteDialog.bind(this);
     _this.onBackClick = _this.onBackClick.bind(this);
     _this.onBookClick = _this.onBookClick.bind(this);
+    _this.onBookAddClick = _this.onBookAddClick.bind(this);
     _this.onDeleteDialogConfirm = _this.onDeleteDialogConfirm.bind(this);
     _this.onEditClick = _this.onEditClick.bind(this);
     _this.showDeleteDialog = _this.showDeleteDialog.bind(this);
@@ -206,6 +216,14 @@ class AuthorDetailPage extends Component<Props, State> {
     this.props.history.push(`${localUrls.booksList}/${id}`);
   }
 
+  onBookAddClick(author: any) {
+    if (author && author.id) {
+      this.props.setPreselectedAuthor(author);
+    }
+    this.props.history.push(localUrls.bookCreate);
+  }
+
+
   showDeleteDialog() {
     this.setState({
       deleteDialogShowing: true,
@@ -261,8 +279,8 @@ class AuthorDetailPage extends Component<Props, State> {
           />
         }
         {author.id && !editing &&
-          detailView(author, booksForAuthor, this.onBackClick, this.onBookClick,
-            this.showDeleteDialog, this.onEditClick, topLevelError)
+          detailView(author, booksForAuthor, this.onBackClick, this.onBookAddClick,
+            this.onBookClick, this.showDeleteDialog, this.onEditClick, topLevelError)
         }
         {author.id && editing &&
           editView(editableAuthor, errors, formDisabled, submitDisabled, topLevelError,
@@ -304,6 +322,7 @@ AuthorDetailPage.propTypes = {
   deleteAuthor: func.isRequired,
   fetchAuthors: func.isRequired,
   history: object,
+  setPreselectedAuthor: func.isRequired,
   updateAuthor: func.isRequired,
 };
 
@@ -335,6 +354,10 @@ const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
 
   fetchAuthors() {
     return dispatch(fetchAuthors());
+  },
+
+  setPreselectedAuthor(author: Author) {
+    return dispatch(setPreselectedAuthor(author));
   },
 
   updateAuthor(author) {

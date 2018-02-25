@@ -159,6 +159,21 @@ function deleteAuthor(author: Author) {
   };
 }
 
+export function setPreselectedAuthor(author: Author) {
+  return {
+    type: AUTHORS.SET_PRESELECTED,
+    payload: {
+      author,
+    },
+  };
+}
+
+export function clearPreselectedAuthor() {
+  return {
+    type: AUTHORS.CLEAR_PRESELECTED,
+  };
+}
+
 export {
   createAuthor,
   deleteAuthor,
