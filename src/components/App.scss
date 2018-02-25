@@ -1,6 +1,7 @@
 @import '../styles/_index';
 
 .App {
+  color: $textColorDefault;
   margin: auto;
   max-width: 800px;
   text-align: center;
@@ -22,9 +23,7 @@
   }
 
   &__header {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    @include centerAlignedHeader();
     margin-bottom: $spacingMed;
   }
 

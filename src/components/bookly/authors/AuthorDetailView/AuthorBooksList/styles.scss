@@ -1,6 +1,9 @@
+@import '../../../../../styles/_index';
+
 .bookly-author-books-list {
   &__header {
-    color: rgba(25, 25, 25, .5);
+    @include centerAlignedHeader();
+    color: $textColorFaded;
     margin-bottom: 20px;
   }
 }
