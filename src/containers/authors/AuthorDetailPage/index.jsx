@@ -43,6 +43,7 @@ function detailView(
   author: Author,
   booksForAuthor: Book[],
   onBackClick: Function,
+  onBookClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
   topLevelError: string,
@@ -52,6 +53,7 @@ function detailView(
       author={author}
       booksForAuthor={booksForAuthor}
       onBackClick={onBackClick}
+      onBookClick={onBookClick}
       onDeleteClick={onDeleteClick}
       onEditClick={onEditClick}
       topLevelError={topLevelError}
@@ -100,6 +102,7 @@ class AuthorDetailPage extends Component<Props, State> {
     const _this: any = this;
     _this.hideDeleteDialog = _this.hideDeleteDialog.bind(this);
     _this.onBackClick = _this.onBackClick.bind(this);
+    _this.onBookClick = _this.onBookClick.bind(this);
     _this.onDeleteDialogConfirm = _this.onDeleteDialogConfirm.bind(this);
     _this.onEditClick = _this.onEditClick.bind(this);
     _this.showDeleteDialog = _this.showDeleteDialog.bind(this);
@@ -199,6 +202,10 @@ class AuthorDetailPage extends Component<Props, State> {
     this.props.history.push(localUrls.authorsList);
   }
 
+  onBookClick(id: number) {
+    this.props.history.push(`${localUrls.booksList}/${id}`);
+  }
+
   showDeleteDialog() {
     this.setState({
       deleteDialogShowing: true,
@@ -254,8 +261,8 @@ class AuthorDetailPage extends Component<Props, State> {
           />
         }
         {author.id && !editing &&
-          detailView(author, booksForAuthor, this.onBackClick, this.showDeleteDialog,
-            this.onEditClick, topLevelError)
+          detailView(author, booksForAuthor, this.onBackClick, this.onBookClick,
+            this.showDeleteDialog, this.onEditClick, topLevelError)
         }
         {author.id && editing &&
           editView(editableAuthor, errors, formDisabled, submitDisabled, topLevelError,

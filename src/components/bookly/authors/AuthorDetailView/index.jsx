@@ -14,6 +14,7 @@ type Props = {
   author: Author,
   booksForAuthor: Book[],
   onBackClick: Function,
+  onBookClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
   topLevelError?: string,
@@ -23,6 +24,7 @@ function AuthorDetailView({
   author,
   booksForAuthor,
   onBackClick,
+  onBookClick,
   onDeleteClick,
   onEditClick,
   topLevelError,
@@ -48,7 +50,7 @@ function AuthorDetailView({
       <AuthorBooksList
         authorName={authorName}
         books={booksForAuthor}
-        onBookClick={() => console.log('TODO: implement AuthorDetailView.onBookClick()')}
+        onBookClick={onBookClick}
       />
     </div>
   );
@@ -70,6 +72,7 @@ AuthorDetailView.propTypes = {
   }),
   booksForAuthor: array.isRequired,
   onBackClick: func.isRequired,
+  onBookClick: func.isRequired,
   onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,
   topLevelError: string,
