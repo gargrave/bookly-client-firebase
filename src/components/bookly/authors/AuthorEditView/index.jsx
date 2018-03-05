@@ -4,6 +4,8 @@ import { bool, func, object, string } from 'prop-types';
 
 import type { Author, AuthorErrors } from '../../../../constants/flowtypes';
 
+import { buildClasses } from '../../../../utils/cssHelpers';
+
 import AuthorForm from '../AuthorForm';
 import Card from '../../../common/Card';
 
@@ -29,7 +31,7 @@ function AuthorEditView({
   topLevelError,
 }: Props) {
   return (
-    <div className="author-edit-view">
+    <div className={buildClasses(['edit-view', 'author-edit-view'])}>
       <Card
         header={'Update Author'}
         hoverable={false}

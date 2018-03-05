@@ -35,7 +35,7 @@ function BookEditView({
   topLevelError,
 }: Props) {
   return (
-    <div className={buildClasses(['book-edit-view'])}>
+    <div className={buildClasses(['edit-view', 'book-edit-view'])}>
       <Card
         header={'Update Book'}
         hoverable={false}

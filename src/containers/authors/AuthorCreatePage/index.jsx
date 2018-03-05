@@ -9,6 +9,7 @@ import { localUrls } from '../../../constants/urls';
 import { authorHasAllFields, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
 import { createAuthor, fetchAuthors } from '../../../store/actions/authorActions';
+import { buildClasses } from '../../../utils/cssHelpers';
 
 import AuthorForm from '../../../components/bookly/authors/AuthorForm';
 import Card from '../../../components/common/Card';
@@ -120,23 +121,25 @@ class AuthorCreatePage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <CardList>
-        <Card
-          header={'New Author'}
-          hoverable={false}
-        >
-          <AuthorForm
-            author={author}
-            disabled={formDisabled}
-            errors={errors}
-            onCancel={this.onCancel}
-            onInputChange={this.onInputChange}
-            onSubmit={this.onSubmit}
-            submitDisabled={submitDisabled}
-            topLevelError={topLevelError}
-          />
-        </Card>
-      </CardList>
+      <div className={buildClasses(['create-view', 'author-create-view'])}>
+        <CardList>
+          <Card
+            header={'New Author'}
+            hoverable={false}
+          >
+            <AuthorForm
+              author={author}
+              disabled={formDisabled}
+              errors={errors}
+              onCancel={this.onCancel}
+              onInputChange={this.onInputChange}
+              onSubmit={this.onSubmit}
+              submitDisabled={submitDisabled}
+              topLevelError={topLevelError}
+            />
+          </Card>
+        </CardList>
+      </div>
     );
   }
 }

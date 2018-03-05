@@ -7,7 +7,9 @@
   text-align: center;
 }
 
-.bookly-detail-view {
+.bookly-create-view,
+.bookly-detail-view,
+.bookly-edit-view {
   padding-top: 0;
 
   @media only screen and (min-width: $breakpointSm) {

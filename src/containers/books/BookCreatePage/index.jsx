@@ -10,6 +10,7 @@ import { bookHasAllFields, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
 import { clearPreselectedAuthor, fetchAuthors } from '../../../store/actions/authorActions';
 import { createBook, fetchBooks } from '../../../store/actions/bookActions';
+import { buildClasses } from '../../../utils/cssHelpers';
 
 import BookForm from '../../../components/bookly/books/BookForm';
 import Card from '../../../components/common/Card';
@@ -150,26 +151,28 @@ class BookCreatePage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <CardList>
-        <Card
-          header={'New Book'}
-          hoverable={false}
-        >
-          <BookForm
-            authors={authors}
-            book={book}
-            disabled={formDisabled}
-            errors={errors}
-            onAuthorChange={this.onAuthorChange}
-            onCancel={this.onCancel}
-            onInputChange={this.onInputChange}
-            onSubmit={this.onSubmit}
-            preselectedAuthor={preselectedAuthor}
-            submitDisabled={submitDisabled}
-            topLevelError={topLevelError}
-          />
-        </Card>
-      </CardList>
+      <div className={buildClasses(['create-view', 'book-create-view'])}>
+        <CardList>
+          <Card
+            header={'New Book'}
+            hoverable={false}
+          >
+            <BookForm
+              authors={authors}
+              book={book}
+              disabled={formDisabled}
+              errors={errors}
+              onAuthorChange={this.onAuthorChange}
+              onCancel={this.onCancel}
+              onInputChange={this.onInputChange}
+              onSubmit={this.onSubmit}
+              preselectedAuthor={preselectedAuthor}
+              submitDisabled={submitDisabled}
+              topLevelError={topLevelError}
+            />
+          </Card>
+        </CardList>
+      </div>
     );
   }
 }
