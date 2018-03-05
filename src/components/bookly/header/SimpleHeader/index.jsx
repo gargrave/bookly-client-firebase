@@ -6,25 +6,25 @@ import { bool } from 'prop-types';
 
 import { localUrls } from '../../../../constants/urls';
 
+const loggedInContent = () => (
+  <span>
+    <Link to={localUrls.booksList}>Books</Link>
+    {' | '}
+    <Link to={localUrls.authorsList}>Authors</Link>
+    {' | '}
+    <Link to={localUrls.account}>Account</Link>
+  </span>
+);
+
+const notLoggedInContent = () => (
+  <Link to={localUrls.login}>Login</Link>
+);
+
 class SimpleHeader extends Component<any> {
-  loggedInContent() {
-    return (
-      <span>
-        <Link to={localUrls.booksList}>Books</Link>
-        {' | '}
-        <Link to={localUrls.authorsList}>Authors</Link>
-        {' | '}
-        <Link to={localUrls.account}>Account</Link>
-      </span>
-    );
-  }
-
-  notLoggedInContent() {
-    return <Link to={localUrls.login}>Login</Link>;
-  }
-
   render() {
-    const content = this.props.loggedIn ? this.loggedInContent : this.notLoggedInContent;
+    const content = this.props.loggedIn
+      ? loggedInContent
+      : notLoggedInContent;
     return (
       <div>
         <Link to="/">Home</Link>
