@@ -50,7 +50,7 @@ ShallowWrapper {
           topLevelError=""
         />
       </Card>,
-      "className": "author-edit-view",
+      "className": "bookly-edit-view bookly-author-edit-view",
     },
     "ref": null,
     "rendered": Object {
@@ -128,7 +128,7 @@ ShallowWrapper {
             topLevelError=""
           />
         </Card>,
-        "className": "author-edit-view",
+        "className": "bookly-edit-view bookly-author-edit-view",
       },
       "ref": null,
       "rendered": Object {

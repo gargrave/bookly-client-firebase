@@ -34,7 +34,7 @@ describe('AuthorEditView', () => {
 
   test('renders correctly', () => {
     component = getComponent();
-    const element = component.find('.author-edit-view');
+    const element = component.find('.bookly-author-edit-view');
     expect(element).toHaveLength(1);
   });
 
