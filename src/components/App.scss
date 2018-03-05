@@ -10,7 +10,8 @@
 .bookly-create-view,
 .bookly-detail-view,
 .bookly-edit-view,
-.bookly-login-view {
+.bookly-login-view,
+.bookly-register-view {
   padding-top: 0;
 
   @media only screen and (min-width: $breakpointSm) {

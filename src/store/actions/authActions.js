@@ -17,6 +17,13 @@ function _requestEnd() {
   };
 }
 
+function _register(user) {
+  return {
+    type: AUTH.REGISTER,
+    payload: { user },
+  };
+}
+
 function _login(user) {
   return {
     type: AUTH.LOGIN,
@@ -30,7 +37,7 @@ function _logout() {
   };
 }
 
-function setLocalUserData(user) {
+export function setLocalUserData(user) {
   return async(dispatch) => {
     const userData = userModel.fromAPI(user);
     dispatch(_login(userData));
@@ -38,8 +45,17 @@ function setLocalUserData(user) {
   };
 }
 
-function login({ email, password }) {
-  return async (dispatch) => {
+export function register() {
+  return async(dispatch) => {
+    dispatch(_requestStart());
+    console.log('TODO: implement authActions.register()');
+    dispatch(_register({}));
+    dispatch(_requestEnd());
+  };
+}
+
+export function login({ email, password }) {
+  return async(dispatch) => {
     dispatch(_requestStart());
     try {
       const result = await auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
@@ -54,15 +70,9 @@ function login({ email, password }) {
   };
 }
 
-function logout() {
-  return async (dispatch) => {
+export function logout() {
+  return async(dispatch) => {
     await auth.signOut();
     dispatch(_logout());
   };
 }
-
-export {
-  login,
-  logout,
-  setLocalUserData,
-};

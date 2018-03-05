@@ -21,6 +21,7 @@ class COMPONENT_NAME extends React.Component<Props, State> {
 COMPONENT_NAME.propTypes = {
 };
 
+/* eslint-disable no-unused-vars */
 const mapStateToProps = (state: any, ownProps: any) => {
   return {};
 };

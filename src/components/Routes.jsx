@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import AccountDetailPage from '../containers/account/AccountDetailPage';
 import LoginPage from '../containers/account/LoginPage';
+import RegisterPage from '../containers/account/RegisterPage';
 
 import AuthorCreatePage from '../containers/authors/AuthorCreatePage';
 import AuthorDetailPage from '../containers/authors/AuthorDetailPage';
@@ -23,6 +24,7 @@ function routes() {
       <Route exact path="/" component={HomePage} />
       <Route exact path={localUrls.account} component={AccountDetailPage} />
       <Route exact path={localUrls.login} component={LoginPage} />
+      <Route exact path={localUrls.register} component={RegisterPage} />
       <Route exact path={localUrls.authorsList} component={AuthorsListPage} />
       <Route exact path={`${localUrls.authorsList}/new`} component={AuthorCreatePage} />
       <Route exact path={`${localUrls.authorsList}/:id`} component={AuthorDetailPage} />

@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterForm matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RegisterForm
+    disabled={false}
+    errors={
+      Object {
+        "email": "",
+        "password": "",
+      }
+    }
+    loginUser={
+      Object {
+        "email": "whatever@gmail.com",
+        "password": "password",
+      }
+    }
+    onInputChange={[Function]}
+    onSubmit={[Function]}
+    submitDisabled={false}
+    topLevelError=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <InputField
+          boundValue="whatever@gmail.com"
+          disabled={false}
+          error=""
+          label="Email"
+          name="email"
+          onInputChange={[Function]}
+          type="email"
+        />,
+        <InputField
+          boundValue="password"
+          disabled={false}
+          error=""
+          label="Password"
+          name="password"
+          onInputChange={[Function]}
+          type="password"
+        />,
+      ],
+      "classes": Array [
+        "register-form",
+      ],
+      "disabled": false,
+      "onSubmit": [Function],
+      "submitBtnText": undefined,
+      "submitDisabled": false,
+      "topLevelError": "",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "boundValue": "whatever@gmail.com",
+          "disabled": false,
+          "error": "",
+          "label": "Email",
+          "name": "email",
+          "onInputChange": [Function],
+          "type": "email",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "boundValue": "password",
+          "disabled": false,
+          "error": "",
+          "label": "Password",
+          "name": "password",
+          "onInputChange": [Function],
+          "type": "password",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <InputField
+            boundValue="whatever@gmail.com"
+            disabled={false}
+            error=""
+            label="Email"
+            name="email"
+            onInputChange={[Function]}
+            type="email"
+          />,
+          <InputField
+            boundValue="password"
+            disabled={false}
+            error=""
+            label="Password"
+            name="password"
+            onInputChange={[Function]}
+            type="password"
+          />,
+        ],
+        "classes": Array [
+          "register-form",
+        ],
+        "disabled": false,
+        "onSubmit": [Function],
+        "submitBtnText": undefined,
+        "submitDisabled": false,
+        "topLevelError": "",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "boundValue": "whatever@gmail.com",
+            "disabled": false,
+            "error": "",
+            "label": "Email",
+            "name": "email",
+            "onInputChange": [Function],
+            "type": "email",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "boundValue": "password",
+            "disabled": false,
+            "error": "",
+            "label": "Password",
+            "name": "password",
+            "onInputChange": [Function],
+            "type": "password",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
