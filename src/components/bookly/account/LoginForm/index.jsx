@@ -18,7 +18,7 @@ type Props = {
   topLevelError?: string,
 };
 
-function LoginForm({
+const LoginForm = ({
   disabled = false,
   errors,
   loginUser,
@@ -27,38 +27,36 @@ function LoginForm({
   submitBtnText,
   submitDisabled,
   topLevelError,
-}: Props) {
-  return (
-    <Form
-      classes={['login-form']}
+}: Props) => (
+  <Form
+    classes={['login-form']}
+    disabled={disabled}
+    onSubmit={onSubmit}
+    submitBtnText={submitBtnText}
+    submitDisabled={submitDisabled}
+    topLevelError={topLevelError}
+  >
+    <InputField
+      boundValue={loginUser.email}
       disabled={disabled}
-      onSubmit={onSubmit}
-      submitBtnText={submitBtnText}
-      submitDisabled={submitDisabled}
-      topLevelError={topLevelError}
-    >
-      <InputField
-        boundValue={loginUser.email}
-        disabled={disabled}
-        error={errors.email}
-        label="Email"
-        name="email"
-        onInputChange={onInputChange}
-        type="email"
-      />
+      error={errors.email}
+      label="Email"
+      name="email"
+      onInputChange={onInputChange}
+      type="email"
+    />
 
-      <InputField
-        boundValue={loginUser.password}
-        disabled={disabled}
-        error={errors.password}
-        label="Password"
-        name="password"
-        onInputChange={onInputChange}
-        type="password"
-      />
-    </Form>
-  );
-}
+    <InputField
+      boundValue={loginUser.password}
+      disabled={disabled}
+      error={errors.password}
+      label="Password"
+      name="password"
+      onInputChange={onInputChange}
+      type="password"
+    />
+  </Form>
+);
 
 LoginForm.propTypes = {
   disabled: bool,

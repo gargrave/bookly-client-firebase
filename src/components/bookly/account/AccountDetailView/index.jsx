@@ -16,10 +16,10 @@ type Props = {
   user: User,
 };
 
-function AccountDetailView({
+const AccountDetailView = ({
   onLogoutClick,
   user,
-}: Props) {
+}: Props) => {
   const {
     email,
     lastLogin,
@@ -57,7 +57,7 @@ function AccountDetailView({
       </Card>
     </div>
   );
-}
+};
 
 AccountDetailView.propTypes = {
   onLogoutClick: func.isRequired,
