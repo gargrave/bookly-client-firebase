@@ -28,3 +28,4 @@ src/**/*.css
 
 # secret/config files
 src/secrets
+.idea

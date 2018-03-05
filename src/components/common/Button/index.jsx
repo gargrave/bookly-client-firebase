@@ -52,7 +52,7 @@ function buildClassList(
 ) {
   return buildClasses(
     ['button', positionClass(position)],
-    [buttonClass(type), ...classes.split(' ')]
+    [buttonClass(type), ...classes.split(' ')],
   );
 }
 
@@ -72,7 +72,7 @@ function Button({
       onClick={onClick}
       type={canSubmit ? 'submit' : 'button'}
     >
-      { text }
+      {text}
     </button>
   );
 }
