@@ -9,6 +9,7 @@ import { localUrls } from '../../../constants/urls';
 import { login } from '../../../store/actions/authActions';
 import { loginHasAllFields, validateLogin } from '../../../globals/validations/';
 import { loginUserModel } from '../../../models/User.model';
+import { buildClasses } from '../../../utils/cssHelpers';
 
 import Card from '../../../components/common/Card';
 import CardList from '../../../components/common/CardList';
@@ -71,7 +72,7 @@ class LoginPage extends Component<Props, State> {
         errors: loginUserModel.emptyErrors(),
         formDisabled: true,
         topLevelError: '',
-      }, async () => {
+      }, async() => {
         try {
           const loginUser = loginUserModel.toAPI(this.state.loginUser);
           await this.props.login(loginUser);
@@ -95,23 +96,25 @@ class LoginPage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <CardList>
-        <Card
-          header={'Login'}
-          hoverable={false}
-        >
-          <LoginForm
-            disabled={formDisabled}
-            errors={errors}
-            loginUser={loginUser}
-            onInputChange={this.onInputChange}
-            onSubmit={this.onSubmit}
-            submitBtnText="Login"
-            submitDisabled={submitDisabled}
-            topLevelError={this.state.topLevelError}
-          />
-        </Card>
-      </CardList>
+      <div className={buildClasses(['login-view'])}>
+        <CardList>
+          <Card
+            header={'Login'}
+            hoverable={false}
+          >
+            <LoginForm
+              disabled={formDisabled}
+              errors={errors}
+              loginUser={loginUser}
+              onInputChange={this.onInputChange}
+              onSubmit={this.onSubmit}
+              submitBtnText="Login"
+              submitDisabled={submitDisabled}
+              topLevelError={this.state.topLevelError}
+            />
+          </Card>
+        </CardList>
+      </div>
     );
   }
 }

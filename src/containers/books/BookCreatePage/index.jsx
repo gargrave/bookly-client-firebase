@@ -117,7 +117,7 @@ class BookCreatePage extends Component<Props, State> {
         errors: bookModel.emptyErrors(),
         formDisabled: true,
         topLevelError: '',
-      }, async () => {
+      }, async() => {
         try {
           const book = bookModel.toAPI(this.state.book);
           await this.props.createBook(book);
