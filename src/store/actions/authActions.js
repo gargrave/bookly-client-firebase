@@ -17,13 +17,6 @@ function _requestEnd() {
   };
 }
 
-function _register(user) {
-  return {
-    type: AUTH.REGISTER,
-    payload: { user },
-  };
-}
-
 function _login(user) {
   return {
     type: AUTH.LOGIN,
