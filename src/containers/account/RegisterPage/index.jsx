@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
@@ -14,6 +15,7 @@ import { buildClasses } from '../../../utils/cssHelpers';
 import Card from '../../../components/common/Card';
 import CardList from '../../../components/common/CardList';
 import RegisterForm from '../../../components/bookly/account/RegisterForm';
+import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
 type Props = {
   history: any,
@@ -98,7 +100,7 @@ class RegisterPage extends React.Component<Props, State> {
       <div className={buildClasses(['register-view'])}>
         <CardList>
           <Card
-            header={'Sign Up'}
+            header={'Create an Account'}
             hoverable={false}
           >
             <RegisterForm
@@ -112,6 +114,9 @@ class RegisterPage extends React.Component<Props, State> {
               topLevelError={this.state.topLevelError}
             />
           </Card>
+          <p className={buildClasses(['big-link'])}>
+            or <Link to={localUrls.login}>sign in to your account</Link>
+          </p>
         </CardList>
       </div>
     );
@@ -133,4 +138,6 @@ const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  RequiresAuth(RegisterPage, localUrls.account, false)
+);

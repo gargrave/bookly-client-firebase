@@ -21,6 +21,7 @@ const styles = () => ({
 
 const notLoggedInLinks = [
   { to: localUrls.login, text: 'Login' },
+  { to: localUrls.register, text: 'Register' },
 ];
 
 const loggedInLinks = [

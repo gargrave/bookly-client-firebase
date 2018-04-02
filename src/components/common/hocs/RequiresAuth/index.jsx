@@ -12,6 +12,7 @@ export default function(WrappedComponent, redirectTo, requireAuth = true) {
     content() {
       if (this.props.initialized) {
         const shouldRedirect = requireAuth ? !this.props.loggedIn : this.props.loggedIn;
+        console.log({ loggedin: this.props.loggedIn, requireAuth });
         return shouldRedirect ? <Redirect to={redirectTo} /> : <WrappedComponent {...this.props} />;
       } else {
         return <p>Loading...</p>;

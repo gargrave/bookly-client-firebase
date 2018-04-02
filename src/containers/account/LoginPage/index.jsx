@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
@@ -113,6 +114,9 @@ class LoginPage extends Component<Props, State> {
               topLevelError={this.state.topLevelError}
             />
           </Card>
+          <p className={buildClasses(['big-link'])}>
+            or <Link to={localUrls.register}>create an account</Link>
+          </p>
         </CardList>
       </div>
     );
