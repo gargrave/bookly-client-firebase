@@ -46,46 +46,44 @@ class RegisterPage extends React.Component<Props, State> {
   }
 
   onInputChange(event) {
-    console.log('TODO: implement RegisterPage.onInputChange');
-    // const key = event.target.name;
-    // if (key in this.state.loginUser) {
-    //   const loginUser = this.state.loginUser;
-    //   loginUser[key] = event.target.value;
-    //   const submitDisabled = !registerUserHasAllFields(loginUser);
-    //
-    //   this.setState({
-    //     loginUser,
-    //     submitDisabled,
-    //   });
-    // }
+    const key = event.target.name;
+    if (key in this.state.registerUser) {
+      const registerUser = this.state.registerUser;
+      registerUser[key] = event.target.value;
+      const submitDisabled = !registerUserHasAllFields(registerUser);
+
+      this.setState({
+        registerUser,
+        submitDisabled,
+      });
+    }
   }
 
   async onSubmit(event) {
-    console.log('TODO: implement RegisterPage.onSubmit');
-    // event.preventDefault();
-    // const errors = validateLogin(this.state.loginUser);
-    // if (errors.found) {
-    //   this.setState({
-    //     errors,
-    //   });
-    // } else {
-    //   this.setState({
-    //     errors: loginUserModel.emptyErrors(),
-    //     formDisabled: true,
-    //     topLevelError: '',
-    //   }, async() => {
-    //     try {
-    //       const loginUser = loginUserModel.toAPI(this.state.loginUser);
-    //       await this.props.login(loginUser);
-    //       this.props.history.push(localUrls.account);
-    //     } catch (err) {
-    //       this.setState({
-    //         formDisabled: false,
-    //         topLevelError: err,
-    //       });
-    //     }
-    //   });
-    // }
+    event.preventDefault();
+    const errors = validateRegisterUser(this.state.registerUser);
+    if (errors.found) {
+      this.setState({
+        errors,
+      });
+    } else {
+      this.setState({
+        errors: registerUserModel.emptyErrors(),
+        formDisabled: true,
+        topLevelError: '',
+      }, async() => {
+        try {
+          const registerUser = registerUserModel.toAPI(this.state.registerUser);
+          await this.props.register(registerUser);
+          this.props.history.push(localUrls.account);
+        } catch (err) {
+          this.setState({
+            formDisabled: false,
+            topLevelError: err,
+          });
+        }
+      });
+    }
   }
 
   render() {

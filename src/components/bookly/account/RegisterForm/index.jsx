@@ -55,6 +55,16 @@ const RegisterPage = ({
       onInputChange={onInputChange}
       type="password"
     />
+
+    <InputField
+      boundValue={registerUser.passwordConfirm}
+      disabled={disabled}
+      error={errors.passwordConfirm}
+      label="Confirm Password"
+      name="passwordConfirm"
+      onInputChange={onInputChange}
+      type="password"
+    />
   </Form>
 );
 

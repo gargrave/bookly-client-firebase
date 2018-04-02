@@ -45,12 +45,20 @@ export function setLocalUserData(user) {
   };
 }
 
-export function register() {
+export function register({ email, password }) {
   return async(dispatch) => {
     dispatch(_requestStart());
-    console.log('TODO: implement authActions.register()');
-    dispatch(_register({}));
-    dispatch(_requestEnd());
+
+    try {
+      const result = await auth.createUserWithEmailAndPassword(email, password);
+      const userData = setLocalUserData(result);
+      return userData;
+    } catch (err) {
+      dispatch(apiErrorAction(err));
+      throw parseFbError(err);
+    } finally {
+      dispatch(_requestEnd());
+    }
   };
 }
 
