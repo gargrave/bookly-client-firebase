@@ -16,24 +16,30 @@ type Props = {
   title?: string,
 };
 
-function renderText(text?: string, classname: string) {
+const renderText = (
+  text?: string,
+  classname: string,
+) => {
+  if (!text) {
+    return null;
+  }
   return (
-    text
-      ? <p className={buildClasses(classname)}>{text}</p>
-      : null
+    <p className={buildClasses(classname)}>
+      {text}
+    </p>
   );
-}
+};
 
-function rawClassList(
+const rawClassList = (
   classes: string[] = [],
   hoverable: boolean = true
-) {
+) => {
   const extras = [];
   if (hoverable) {
     extras.push('card--hoverable');
   }
   return ['card', ...classes, ...extras];
-}
+};
 
 function Card({
   children,
