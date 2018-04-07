@@ -10,41 +10,51 @@ import { buildClasses } from '../../../../utils/cssHelpers';
 import Button from '../../../common/Button';
 import ButtonRow from '../../../common/ButtonRow';
 import Card from '../../../common/Card';
+import CardDivider from '../../../common/Card/CardDivider';
+import CardTextList from '../../../common/Card/CardTextList';
 
 type Props = {
   onLogoutClick: Function,
   user: User,
 };
 
-const AccountDetailView = ({
-  onLogoutClick,
-  user,
-}: Props) => {
+const userBasicDetailsTextList = (user: User) => {
   const {
     email,
+  } = user;
+
+  return [
+    { title: 'Email', value: email },
+  ];
+};
+
+const userRegDetailsTextList = (user: User) => {
+  const {
     lastLogin,
     registered,
   } = user;
 
+  return [
+    { title: 'Registered', value: format(registered, 'MMM. DD, YYYY, HH:mm:ss') },
+    { title: 'Last login', value: format(lastLogin, 'MMM. DD, YYYY, HH:mm:ss') },
+  ];
+};
+
+const AccountDetailView = ({
+  onLogoutClick,
+  user,
+}: Props) => {
   return (
     <div className={buildClasses(['detail-view', 'account-detail-view'])}>
       <Card
         classes={['detail-card', 'account-detail-card']}
         hoverable={false}
         title="My Account">
-        <p className={buildClasses('card-text')}>
-          <strong>Email:</strong> {email}
-        </p>
 
-        <hr/>
-        <p className={buildClasses('card-text')}>
-          <strong>Registered:</strong> {format(registered, 'MMM. DD, YYYY, HH:mm:ss')}
-        </p>
-        <p className={buildClasses('card-text')}>
-          <strong>Last login:</strong> {format(lastLogin, 'MMM. DD, YYYY, HH:mm:ss')}
-        </p>
-
-        <hr/>
+        <CardTextList textList={userBasicDetailsTextList(user)} />
+        <CardDivider />
+        <CardTextList textList={userRegDetailsTextList(user)} />
+        <CardDivider />
 
         <ButtonRow>
           <Button

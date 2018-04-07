@@ -30,35 +30,32 @@ ShallowWrapper {
         hoverable={false}
         title="My Account"
       >
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Email:
-          </strong>
-           
-          mockuser1@gmail.com
-        </p>
-        <hr />
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Registered:
-          </strong>
-           
-          Jun. 30, 2017, 12:52:54
-        </p>
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Last login:
-          </strong>
-           
-          Jun. 30, 2017, 18:11:03
-        </p>
-        <hr />
+        <CardTextList
+          textList={
+            Array [
+              Object {
+                "title": "Email",
+                "value": "mockuser1@gmail.com",
+              },
+            ]
+          }
+        />
+        <CardDivider />
+        <CardTextList
+          textList={
+            Array [
+              Object {
+                "title": "Registered",
+                "value": "Jun. 30, 2017, 12:52:54",
+              },
+              Object {
+                "title": "Last login",
+                "value": "Jun. 30, 2017, 18:11:03",
+              },
+            ]
+          }
+        />
+        <CardDivider />
         <ButtonRow>
           <Button
             onClick={[Function]}
@@ -77,35 +74,32 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Email:
-            </strong>
-             
-            mockuser1@gmail.com
-          </p>,
-          <hr />,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Registered:
-            </strong>
-             
-            Jun. 30, 2017, 12:52:54
-          </p>,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Last login:
-            </strong>
-             
-            Jun. 30, 2017, 18:11:03
-          </p>,
-          <hr />,
+          <CardTextList
+            textList={
+              Array [
+                Object {
+                  "title": "Email",
+                  "value": "mockuser1@gmail.com",
+                },
+              ]
+            }
+          />,
+          <CardDivider />,
+          <CardTextList
+            textList={
+              Array [
+                Object {
+                  "title": "Registered",
+                  "value": "Jun. 30, 2017, 12:52:54",
+                },
+                Object {
+                  "title": "Last login",
+                  "value": "Jun. 30, 2017, 18:11:03",
+                },
+              ]
+            }
+          />,
+          <CardDivider />,
           <ButtonRow>
             <Button
               onClick={[Function]}
@@ -127,116 +121,56 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              <strong>
-                Email:
-              </strong>,
-              " ",
-              "mockuser1@gmail.com",
+            "textList": Array [
+              Object {
+                "title": "Email",
+                "value": "mockuser1@gmail.com",
+              },
             ],
-            "className": "bookly-card-text",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Email:",
-              },
-              "ref": null,
-              "rendered": "Email:",
-              "type": "strong",
-            },
-            " ",
-            "mockuser1@gmail.com",
-          ],
-          "type": "p",
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "hr",
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              <strong>
-                Registered:
-              </strong>,
-              " ",
-              "Jun. 30, 2017, 12:52:54",
+            "textList": Array [
+              Object {
+                "title": "Registered",
+                "value": "Jun. 30, 2017, 12:52:54",
+              },
+              Object {
+                "title": "Last login",
+                "value": "Jun. 30, 2017, 18:11:03",
+              },
             ],
-            "className": "bookly-card-text",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Registered:",
-              },
-              "ref": null,
-              "rendered": "Registered:",
-              "type": "strong",
-            },
-            " ",
-            "Jun. 30, 2017, 12:52:54",
-          ],
-          "type": "p",
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <strong>
-                Last login:
-              </strong>,
-              " ",
-              "Jun. 30, 2017, 18:11:03",
-            ],
-            "className": "bookly-card-text",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Last login:",
-              },
-              "ref": null,
-              "rendered": "Last login:",
-              "type": "strong",
-            },
-            " ",
-            "Jun. 30, 2017, 18:11:03",
-          ],
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "hr",
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -288,35 +222,32 @@ ShallowWrapper {
           hoverable={false}
           title="My Account"
         >
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Email:
-            </strong>
-             
-            mockuser1@gmail.com
-          </p>
-          <hr />
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Registered:
-            </strong>
-             
-            Jun. 30, 2017, 12:52:54
-          </p>
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Last login:
-            </strong>
-             
-            Jun. 30, 2017, 18:11:03
-          </p>
-          <hr />
+          <CardTextList
+            textList={
+              Array [
+                Object {
+                  "title": "Email",
+                  "value": "mockuser1@gmail.com",
+                },
+              ]
+            }
+          />
+          <CardDivider />
+          <CardTextList
+            textList={
+              Array [
+                Object {
+                  "title": "Registered",
+                  "value": "Jun. 30, 2017, 12:52:54",
+                },
+                Object {
+                  "title": "Last login",
+                  "value": "Jun. 30, 2017, 18:11:03",
+                },
+              ]
+            }
+          />
+          <CardDivider />
           <ButtonRow>
             <Button
               onClick={[Function]}
@@ -335,35 +266,32 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "children": Array [
-            <p
-              className="bookly-card-text"
-            >
-              <strong>
-                Email:
-              </strong>
-               
-              mockuser1@gmail.com
-            </p>,
-            <hr />,
-            <p
-              className="bookly-card-text"
-            >
-              <strong>
-                Registered:
-              </strong>
-               
-              Jun. 30, 2017, 12:52:54
-            </p>,
-            <p
-              className="bookly-card-text"
-            >
-              <strong>
-                Last login:
-              </strong>
-               
-              Jun. 30, 2017, 18:11:03
-            </p>,
-            <hr />,
+            <CardTextList
+              textList={
+                Array [
+                  Object {
+                    "title": "Email",
+                    "value": "mockuser1@gmail.com",
+                  },
+                ]
+              }
+            />,
+            <CardDivider />,
+            <CardTextList
+              textList={
+                Array [
+                  Object {
+                    "title": "Registered",
+                    "value": "Jun. 30, 2017, 12:52:54",
+                  },
+                  Object {
+                    "title": "Last login",
+                    "value": "Jun. 30, 2017, 18:11:03",
+                  },
+                ]
+              }
+            />,
+            <CardDivider />,
             <ButtonRow>
               <Button
                 onClick={[Function]}
@@ -385,116 +313,56 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <strong>
-                  Email:
-                </strong>,
-                " ",
-                "mockuser1@gmail.com",
+              "textList": Array [
+                Object {
+                  "title": "Email",
+                  "value": "mockuser1@gmail.com",
+                },
               ],
-              "className": "bookly-card-text",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Email:",
-                },
-                "ref": null,
-                "rendered": "Email:",
-                "type": "strong",
-              },
-              " ",
-              "mockuser1@gmail.com",
-            ],
-            "type": "p",
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {},
             "ref": null,
             "rendered": null,
-            "type": "hr",
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <strong>
-                  Registered:
-                </strong>,
-                " ",
-                "Jun. 30, 2017, 12:52:54",
+              "textList": Array [
+                Object {
+                  "title": "Registered",
+                  "value": "Jun. 30, 2017, 12:52:54",
+                },
+                Object {
+                  "title": "Last login",
+                  "value": "Jun. 30, 2017, 18:11:03",
+                },
               ],
-              "className": "bookly-card-text",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Registered:",
-                },
-                "ref": null,
-                "rendered": "Registered:",
-                "type": "strong",
-              },
-              " ",
-              "Jun. 30, 2017, 12:52:54",
-            ],
-            "type": "p",
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <strong>
-                  Last login:
-                </strong>,
-                " ",
-                "Jun. 30, 2017, 18:11:03",
-              ],
-              "className": "bookly-card-text",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Last login:",
-                },
-                "ref": null,
-                "rendered": "Last login:",
-                "type": "strong",
-              },
-              " ",
-              "Jun. 30, 2017, 18:11:03",
-            ],
-            "type": "p",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {},
             "ref": null,
             "rendered": null,
-            "type": "hr",
+            "type": [Function],
           },
           Object {
             "instance": null,
