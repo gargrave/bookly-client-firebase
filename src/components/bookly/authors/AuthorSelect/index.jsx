@@ -14,21 +14,21 @@ type Props = {
   onChange: Function,
 };
 
-function options(authors: Author[]) {
+const options = (authors: Author[]) => {
   return authors.map((a: Author) => (
     <option key={a.id} value={a.id}>
       {a.firstName} {a.lastName}
     </option>
   ));
-}
+};
 
-function AuthorSelect({
+const AuthorSelect = ({
   author,
   authors,
   disabled,
   error,
   onChange,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['input-field'], ['input-field'])}>
       <select
@@ -48,7 +48,7 @@ function AuthorSelect({
       }
     </div>
   );
-}
+};
 
 AuthorSelect.propTypes = {
   author: shape({

@@ -10,15 +10,15 @@ type Props = {
   children?: any,
 }
 
-function CardList({
+const CardList = ({
   children,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['card-list'])}>
       {children}
     </div>
   );
-}
+};
 
 CardList.propTypes = {
   children: any,

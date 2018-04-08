@@ -15,9 +15,9 @@ type Props = {
   history?: Object,
 };
 
-function AuthorLink({
+const AuthorLink = ({
   author,
-}: Props) {
+}: Props) => {
   return (
     <p className={buildClasses(['author-link'])}>
       by&nbsp;
@@ -26,7 +26,7 @@ function AuthorLink({
       </Link>
     </p>
   );
-}
+};
 
 AuthorLink.propTypes = {
   author: object.isRequired,

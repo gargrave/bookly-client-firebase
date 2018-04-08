@@ -10,15 +10,15 @@ type Props = {
   bucket: BookBucket,
 };
 
-function BookBucketHeader({
+const BookBucketHeader = ({
   bucket,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['book-bucket__header'])}>
       <p>{bucket.author}</p>
     </div>
   );
-}
+};
 
 BookBucketHeader.propTypes = {
   bucket: shape({

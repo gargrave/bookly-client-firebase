@@ -2,7 +2,7 @@
 import React from 'react';
 import { array, func, shape, string } from 'prop-types';
 
-import type { Book,BookBucket } from '../../../../../constants/flowtypes/';
+import type { Book, BookBucket } from '../../../../../constants/flowtypes/';
 
 import { buildClasses } from '../../../../../utils/cssHelpers';
 
@@ -13,10 +13,10 @@ type Props = {
   onBookClick: Function,
 };
 
-function booksFromBucket(
+const booksFromBucket = (
   bucket: BookBucket,
   onBookClick: Function,
-) {
+) => {
   return bucket.books.map((book: Book) => {
     return (
       <BookListDetail
@@ -29,16 +29,16 @@ function booksFromBucket(
   });
 };
 
-function BookBucketBookList({
+const BookBucketBookList = ({
   bucket,
   onBookClick,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['book-bucket__book-list'])}>
       {booksFromBucket(bucket, onBookClick)}
     </div>
   );
-}
+};
 
 BookBucketBookList.propTypes = {
   bucket: shape({

@@ -16,10 +16,10 @@ type Props = {
   onBookClick: Function,
 };
 
-function BookListBucket({
+const BookListBucket = ({
   bucket,
   onBookClick,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['book-bucket'])}>
       <BookBucketHeader
@@ -31,7 +31,7 @@ function BookListBucket({
       />
     </div>
   );
-}
+};
 
 BookListBucket.propTypes = {
   bucket: shape({

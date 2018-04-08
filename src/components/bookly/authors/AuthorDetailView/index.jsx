@@ -21,7 +21,7 @@ type Props = {
   topLevelError?: string,
 };
 
-function AuthorDetailView({
+const AuthorDetailView = ({
   author,
   booksForAuthor,
   onBackClick,
@@ -30,7 +30,7 @@ function AuthorDetailView({
   onDeleteClick,
   onEditClick,
   topLevelError,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['detail-view', 'author-detail-view'])}>
       {topLevelError &&
@@ -54,7 +54,7 @@ function AuthorDetailView({
       />
     </div>
   );
-}
+};
 
 AuthorDetailView.propTypes = {
   author: shape({

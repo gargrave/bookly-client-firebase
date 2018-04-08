@@ -31,32 +31,32 @@ const acceptablePositions = [
   'right',
 ];
 
-function buttonClass(type: string) {
+const buttonClass = (type: string) => {
   if (acceptableTypes.includes(type)) {
     return `button-${type}`;
   }
   return '';
-}
+};
 
-function positionClass(position: string) {
+const positionClass = (position: string) => {
   if (acceptablePositions.includes(position)) {
     return `button--${position}`;
   }
   return '';
-}
+};
 
-function buildClassList(
+const buildClassList = (
   type: string,
   position: string,
   classes: string,
-) {
+) => {
   return buildClasses(
     ['button', positionClass(position)],
     [buttonClass(type), ...classes.split(' ')],
   );
-}
+};
 
-function Button({
+const Button = ({
   canSubmit,
   classes = '',
   disabled,
@@ -64,7 +64,7 @@ function Button({
   position = '',
   text,
   type,
-}: Props) {
+}: Props) => {
   return (
     <button
       className={buildClassList(type || '', position, classes)}
@@ -75,7 +75,7 @@ function Button({
       {text}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   canSubmit: bool,

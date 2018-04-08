@@ -13,11 +13,11 @@ type Props = {
   showAuthor?: boolean,
 };
 
-function BookListDetail({
+const BookListDetail = ({
   book,
   onClick,
   showAuthor,
-}: Props) {
+}: Props) => {
   const {
     author,
     title,
@@ -36,7 +36,7 @@ function BookListDetail({
       {showAuthor && <CardTextLine text={authorName} />}
     </Card>
   );
-}
+};
 
 BookListDetail.propTypes = {
   book: shape({

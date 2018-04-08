@@ -22,7 +22,7 @@ type Props = {
   topLevelError?: string,
 };
 
-function BookEditView({
+const BookEditView = ({
   authors,
   book,
   disabled,
@@ -33,7 +33,7 @@ function BookEditView({
   onSubmit,
   submitDisabled = false,
   topLevelError,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['edit-view', 'book-edit-view'])}>
       <Card
@@ -55,7 +55,7 @@ function BookEditView({
       </Card>
     </div>
   );
-}
+};
 
 BookEditView.propTypes = {
   authors: array.isRequired,

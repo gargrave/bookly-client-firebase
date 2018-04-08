@@ -16,12 +16,12 @@ type Props = {
   onConfirm: Function,
 };
 
-function ModalFooter({
+const ModalFooter = ({
   cancelText,
   confirmText,
   onCancel,
   onConfirm,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['modal__footer'])}>
       <div className={buildClasses(['modal__button-row'])}>
@@ -42,7 +42,7 @@ function ModalFooter({
       </div>
     </div>
   );
-}
+};
 
 ModalFooter.propTypes = {
   cancelText: string,

@@ -18,7 +18,7 @@ type Props = {
   submitDisabled?: boolean,
 };
 
-function AuthorForm({
+const AuthorForm = ({
   author,
   disabled = false,
   errors,
@@ -27,7 +27,7 @@ function AuthorForm({
   onSubmit,
   submitDisabled,
   topLevelError,
-}: Props) {
+}: Props) => {
   return (
     <Form
       classes={['author-form']}
@@ -56,7 +56,7 @@ function AuthorForm({
       />
     </Form>
   );
-}
+};
 
 AuthorForm.propTypes = {
   author: shape({

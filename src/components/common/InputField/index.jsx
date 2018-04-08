@@ -24,7 +24,7 @@ const acceptableTypes = [
   'text',
 ];
 
-function InputField({
+const InputField = ({
   boundValue,
   disabled,
   error,
@@ -33,7 +33,7 @@ function InputField({
   onInputChange,
   placeholder,
   type,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['input-field'], ['input-field'])}>
       {label && <label htmlFor={name}>{label}:</label>}
@@ -56,7 +56,7 @@ function InputField({
       }
     </div>
   );
-}
+};
 
 InputField.propTypes = {
   boundValue: string.isRequired,

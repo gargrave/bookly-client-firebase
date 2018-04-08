@@ -12,15 +12,15 @@ type Props = {
   onClick: Function,
 };
 
-function bookCountString(count: number): string {
+const bookCountString = (count: number): string => {
   const pluralizer = count === 1 ? '' : 's';
   return `${count} book${pluralizer}`;
-}
+};
 
-function AuthorListDetail({
+const AuthorListDetail = ({
   author,
   onClick,
-}: Props) {
+}: Props) => {
   const authorName = `${author.firstName} ${author.lastName}`;
 
   return (

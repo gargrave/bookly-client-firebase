@@ -22,7 +22,7 @@ type Props = {
   topLevelError?: string,
 };
 
-function BookForm({
+const BookForm = ({
   authors,
   book,
   disabled,
@@ -34,7 +34,7 @@ function BookForm({
   preselectedAuthor,
   submitDisabled = false,
   topLevelError,
-}: Props) {
+}: Props) => {
   const {
     author,
     title,
@@ -67,7 +67,7 @@ function BookForm({
       />
     </Form>
   );
-}
+};
 
 
 BookForm.propTypes = {

@@ -10,15 +10,15 @@ type Props = {
   children?: any,
 };
 
-function ButtonRow({
+const ButtonRow = ({
   children,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses('button-row')}>
       {children}
     </div>
   );
-}
+};
 
 ButtonRow.propTypes = {
   children: oneOfType([array, object]),

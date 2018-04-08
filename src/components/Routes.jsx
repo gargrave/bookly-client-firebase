@@ -18,7 +18,7 @@ import BooksListPage from '../containers/books/BooksListPage';
 
 import { localUrls } from '../constants/urls';
 
-function routes() {
+const routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={HomePage} />

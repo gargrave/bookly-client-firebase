@@ -21,7 +21,7 @@ type Props = {
   topLevelError?: string,
 };
 
-function Form({
+const Form = ({
   cancelBtnText,
   children,
   classes,
@@ -31,7 +31,7 @@ function Form({
   submitBtnText,
   submitDisabled = false,
   topLevelError,
-}: Props) {
+}: Props) => {
   return (
     <div>
       {topLevelError &&
@@ -69,7 +69,7 @@ function Form({
       </form>
     </div>
   );
-}
+};
 
 Form.propTypes = {
   cancelBtnText: string,

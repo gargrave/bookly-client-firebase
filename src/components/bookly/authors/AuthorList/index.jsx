@@ -13,19 +13,22 @@ type Props = {
   onAuthorClick: Function,
 };
 
-function filterAuthor(author: Author, filterBy?: string = '') {
+const filterAuthor = (
+  author: Author,
+  filterBy?: string = ''
+) => {
   if (!filterBy) {
     return true;
   }
   const name = `${author.firstName} ${author.lastName}`.toLowerCase();
   return name.includes(filterBy);
-}
+};
 
-function authorList(
+const authorList = (
   authors: Author[],
   onAuthorClick: Function,
   filterBy?: string,
-) {
+) => {
   return (
     <div>
       {authors
@@ -40,28 +43,28 @@ function authorList(
       }
     </div>
   );
-}
+};
 
-function noAuthorsMessage() {
+const noAuthorsMessage = () => {
   return (
     <Alert
       message={'No Authors created yet!'}
       type={'info'}
     />
   );
-}
+};
 
-function AuthorList({
+const AuthorList = ({
   authors,
   filterBy,
   onAuthorClick,
-}: Props) {
+}: Props) => {
   return (
     authors.length
       ? authorList(authors, onAuthorClick, filterBy)
       : noAuthorsMessage()
   );
-}
+};
 
 AuthorList.propTypes = {
   authors: array.isRequired,

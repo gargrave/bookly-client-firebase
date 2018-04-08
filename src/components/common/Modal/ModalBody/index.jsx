@@ -10,16 +10,16 @@ type Props = {
   message: string | string[],
 };
 
-function renderText(message: string | string[]) {
+const renderText = (message: string | string[]) => {
   if (!Array.isArray(message)) {
     message = [message];
   }
   return message.map((msg) => <p key={msg}>{msg}</p>);
 };
 
-function ModalBody({
+const ModalBody = ({
   message,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['modal__body'])}>
       <div className={buildClasses(['modal__message'])}>
@@ -27,7 +27,7 @@ function ModalBody({
       </div>
     </div>
   );
-}
+};
 
 ModalBody.propTypes = {
   message: oneOfType([array, string]).isRequired,

@@ -41,7 +41,7 @@ const rawClassList = (
   return ['card', ...classes, ...extras];
 };
 
-function Card({
+const Card = ({
   children,
   classes,
   header,
@@ -49,7 +49,7 @@ function Card({
   onClick,
   text,
   title,
-}: Props) {
+}: Props) => {
   return (
     <div
       className={buildClasses(rawClassList(classes, hoverable))}
@@ -61,7 +61,7 @@ function Card({
       {children}
     </div>
   );
-}
+};
 
 Card.propTypes = {
   children: any,

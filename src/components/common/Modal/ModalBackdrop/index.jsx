@@ -10,9 +10,9 @@ type Props = {
   onClick: Function,
 };
 
-function ModalFooter({
+const ModalFooter = ({
   onClick,
-}: Props) {
+}: Props) => {
   return (
     <div
       className={buildClasses(['modal__backdrop'])}
@@ -20,7 +20,7 @@ function ModalFooter({
     >
     </div>
   );
-}
+};
 
 ModalFooter.propTypes = {
   onClick: func,

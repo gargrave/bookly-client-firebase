@@ -20,7 +20,7 @@ type Props = {
   topLevelError?: string,
 };
 
-function AuthorEditView({
+const AuthorEditView = ({
   author,
   disabled,
   errors,
@@ -29,7 +29,7 @@ function AuthorEditView({
   onSubmit,
   submitDisabled = false,
   topLevelError,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['edit-view', 'author-edit-view'])}>
       <Card
@@ -49,7 +49,7 @@ function AuthorEditView({
       </Card>
     </div>
   );
-}
+};
 
 AuthorEditView.propTypes = {
   author: object.isRequired,

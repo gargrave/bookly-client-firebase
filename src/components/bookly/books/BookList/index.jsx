@@ -17,85 +17,85 @@ type Props = {
   groupBooksByAuthor?: boolean,
 };
 
-function bucketedBookList(
+const bucketedBookList = (
   books: Book[],
   onBookClick: Function,
   filterBy?: string,
-) {
+) => {
   return (
     <Fragment>
       {
         filterAndBucket(books, filterBy)
-        .map((bucket: BookBucket) => {
-          return (
-            <BookListBucket
-              bucket={bucket}
-              key={bucket.author}
-              onBookClick={onBookClick}
-            />
-          );
-        })
+          .map((bucket: BookBucket) => {
+            return (
+              <BookListBucket
+                bucket={bucket}
+                key={bucket.author}
+                onBookClick={onBookClick}
+              />
+            );
+          })
       }
     </Fragment>
   );
-}
+};
 
-function flatBookList(
+const flatBookList = (
   books: Book[],
   onBookClick: Function,
   filterBy?: string,
-) {
+) => {
   return (
     <Fragment>
       {
         filterBooksByTitle(books, filterBy)
-        .map((book: Book) => {
-          return (
-            <BookListDetail
-              book={book}
-              key={book.id}
-              onClick={onBookClick.bind(null, book.id)}
-              showAuthor={true}
-            />
-          );
-        })
+          .map((book: Book) => {
+            return (
+              <BookListDetail
+                book={book}
+                key={book.id}
+                onClick={onBookClick.bind(null, book.id)}
+                showAuthor={true}
+              />
+            );
+          })
       }
     </Fragment>
   );
-}
+};
 
-function renderBookList(
+const renderBookList = (
   books: Book[],
   onBookClick: Function,
   filterBy?: string,
   groupBooksByAuthor?: boolean,
-) {
+) => {
   return groupBooksByAuthor
     ? bucketedBookList(books, onBookClick, filterBy)
     : flatBookList(books, onBookClick, filterBy);
-}
+};
 
-function noBooksMessage() {
+const noBooksMessage = () => {
   return (
     <Alert
       message={'No Books created yet!'}
       type={'info'}
     />
   );
-}
+};
 
-function BookList({
+const BookList = ({
   books,
   filterBy,
   onBookClick,
   groupBooksByAuthor,
-}: Props) {
+}: Props) => {
   return (
     books.length
       ? renderBookList(books, onBookClick, filterBy, groupBooksByAuthor)
       : noBooksMessage()
   );
-}
+};
 
 BookList.propTypes = {
   books: array.isRequired,

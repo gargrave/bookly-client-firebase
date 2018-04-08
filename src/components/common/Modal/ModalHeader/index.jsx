@@ -10,9 +10,9 @@ type Props = {
   title?: string,
 };
 
-function ModalFooter({
+const ModalFooter = ({
   title,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['modal__header'])}>
       <div className={buildClasses(['modal__title'])}>
@@ -20,7 +20,7 @@ function ModalFooter({
       </div>
     </div>
   );
-}
+};
 
 ModalFooter.propTypes = {
   title: string,

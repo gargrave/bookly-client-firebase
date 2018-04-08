@@ -8,10 +8,10 @@ type Props = {
   props?: any,
 };
 
-function SlideInFromBottom({
+const SlideInFromBottom = ({
   children,
   ...props
-}: Props) {
+}: Props) => {
   return (
     <CSSTransition
       {...props}
@@ -23,7 +23,7 @@ function SlideInFromBottom({
       </Fragment>
     </CSSTransition>
   );
-}
+};
 
 SlideInFromBottom.propTypes = {
   children: any,

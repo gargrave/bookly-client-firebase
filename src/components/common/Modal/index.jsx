@@ -20,14 +20,14 @@ type Props = {
   title?: string,
 };
 
-function Modal({
+const Modal = ({
   cancelText,
   confirmText,
   message,
   onCancel,
   onConfirm,
   title,
-}: Props) {
+}: Props) => {
   return (
     <div className={buildClasses(['modal'])}>
       <div className={buildClasses(['modal__wrapper'])}>
@@ -47,7 +47,7 @@ function Modal({
       <ModalBackdrop onClick={onCancel} />
     </div>
   );
-}
+};
 
 Modal.propTypes = {
   cancelText: string,
