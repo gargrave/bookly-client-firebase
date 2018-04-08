@@ -25,7 +25,10 @@ function BookListDetail({
 
   return (
     <Card
-      classes={['book-card']}
+      classes={[
+        'list-detail-card',
+        'book-list-detail-card',
+      ]}
       onClick={onClick}
       text={authorName}
       title={title}

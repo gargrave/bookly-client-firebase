@@ -47,6 +47,8 @@
 }
 
 .bookly-detail-card {
+  padding: 15px;
+
   .bookly-card__title {
     font-size: 1.3rem;
     line-height: 2.5rem;
@@ -54,5 +56,11 @@
 
   .bookly-card__title + .bookly-card__text {
     font-size: 1.1rem;
+  }
+}
+
+.bookly {
+  &-list-detail-card {
+    padding: 10px
   }
 }

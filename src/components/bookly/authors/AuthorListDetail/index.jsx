@@ -24,7 +24,10 @@ function AuthorListDetail({
 
   return (
     <Card
-      classes={['author-card']}
+      classes={[
+        'list-detail-card',
+        'author-list-detail-card',
+      ]}
       onClick={onClick}
       title={authorName}
       text={bookCountString(author.bookCount)}
