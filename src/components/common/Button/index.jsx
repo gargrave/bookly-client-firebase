@@ -2,7 +2,14 @@
 import React from 'react';
 import { bool, func, oneOf, string } from 'prop-types';
 
-import { buildClasses } from '../../../utils/cssHelpers';
+import {
+  POSITIONS,
+  TYPES,
+} from './constants';
+
+import {
+  buildClassList,
+} from './helpers';
 
 import './styles.css';
 
@@ -16,46 +23,6 @@ type Props = {
   type?: string,
 };
 
-const acceptableTypes = [
-  'success',
-  'secondary',
-  'info',
-  'warning',
-  'danger',
-  'light',
-  'dark',
-];
-
-const acceptablePositions = [
-  'left',
-  'right',
-];
-
-const buttonClass = (type: string) => {
-  if (acceptableTypes.includes(type)) {
-    return `button-${type}`;
-  }
-  return '';
-};
-
-const positionClass = (position: string) => {
-  if (acceptablePositions.includes(position)) {
-    return `button--${position}`;
-  }
-  return '';
-};
-
-const buildClassList = (
-  type: string,
-  position: string,
-  classes: string,
-) => {
-  return buildClasses(
-    ['button', positionClass(position)],
-    [buttonClass(type), ...classes.split(' ')],
-  );
-};
-
 const Button = ({
   canSubmit,
   classes = '',
@@ -67,7 +34,9 @@ const Button = ({
 }: Props) => {
   return (
     <button
-      className={buildClassList(type || '', position, classes)}
+      className={buildClassList(
+        type || '', position, classes
+      )}
       disabled={disabled || false}
       onClick={onClick}
       type={canSubmit ? 'submit' : 'button'}
@@ -82,9 +51,9 @@ Button.propTypes = {
   classes: string,
   disabled: bool,
   onClick: func.isRequired,
-  position: oneOf(acceptablePositions),
+  position: oneOf(POSITIONS),
   text: string.isRequired,
-  type: oneOf(acceptableTypes),
+  type: oneOf(TYPES),
 };
 
 export default Button;
