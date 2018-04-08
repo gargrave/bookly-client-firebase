@@ -10,6 +10,8 @@ import { buildClasses } from '../../../../../utils/cssHelpers';
 import Button from '../../../../common/Button';
 import ButtonRow from '../../../../common/ButtonRow';
 import Card from '../../../../common/Card';
+import CardSpacer from '../../../../common/Card/CardSpacer';
+import CardTextList from '../../../../common/Card/CardTextList';
 
 type Props = {
   author: Author,
@@ -18,28 +20,33 @@ type Props = {
   onEditClick: Function,
 };
 
-function AuthorDetailCard({
+const authorDatesTextList = (author: Author) => {
+  const {
+    created,
+    updated,
+  } = author;
+
+  return [
+    { title: 'Added', value: format(created, 'MMM. DD, YYYY, HH:mm:ss') },
+    { title: 'Updated', value: format(updated, 'MMM. DD, YYYY, HH:mm:ss') },
+  ];
+};
+
+const AuthorDetailCard = ({
   author,
   onBackClick,
   onDeleteClick,
   onEditClick,
-}: Props) {
+}: Props) => {
   return (
     <Card
       classes={['detail-card', 'author-detail-card']}
+      header={`${author.firstName} ${author.lastName}`}
       hoverable={false}
-      title={`${author.firstName} ${author.lastName}`}
     >
-
-      <hr/>
-      <p className={buildClasses('card-text')}>
-        <strong>Added:</strong> {format(author.created, 'MMM. DD, YYYY, HH:mm:ss')}
-      </p>
-      <p className={buildClasses('card-text')}>
-        <strong>Updated:</strong> {format(author.updated, 'MMM. DD, YYYY, HH:mm:ss')}
-      </p>
-
-      <hr/>
+      <CardSpacer />
+      <CardTextList textList={authorDatesTextList(author)} />
+      <CardSpacer size='large' />
 
       <ButtonRow>
         <Button
@@ -62,7 +69,7 @@ function AuthorDetailCard({
       </ButtonRow>
     </Card>
   );
-}
+};
 
 AuthorDetailCard.propTypes = {
   author: shape({

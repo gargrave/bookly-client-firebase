@@ -5,12 +5,12 @@ import { format } from 'date-fns';
 
 import type { Book } from '../../../../../constants/flowtypes';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
 import AuthorLink from '../../../authors/AuthorLink';
 import Button from '../../../../common/Button';
 import ButtonRow from '../../../../common/ButtonRow';
 import Card from '../../../../common/Card';
+import CardSpacer from '../../../../common/Card/CardSpacer';
+import CardTextList from '../../../../common/Card/CardTextList';
 
 type Props = {
   book: Book,
@@ -19,37 +19,41 @@ type Props = {
   onEditClick: Function,
 };
 
-function BookDetailCard({
+const bookDatesTextList = (book: Book) => {
+  const {
+    created,
+    updated,
+  } = book;
+
+  return [
+    { title: 'Added', value: format(created, 'MMM. DD, YYYY, HH:mm:ss') },
+    { title: 'Updated', value: format(updated, 'MMM. DD, YYYY, HH:mm:ss') },
+  ];
+};
+
+const BookDetailCard = ({
   book,
   onBackClick,
   onDeleteClick,
   onEditClick,
-}: Props) {
+}: Props) => {
   const {
-    created,
     title,
-    updated,
   } = book;
 
   return (
     <Card
       classes={['detail-card', 'book-detail-card']}
+      header={title}
       hoverable={false}
-      title={title}
     >
       <AuthorLink
         author={book.author}
       />
 
-      <hr/>
-      <p className={buildClasses('card-text')}>
-        <strong>Added:</strong> {format(created, 'MMM. DD, YYYY, HH:mm:ss')}
-      </p>
-      <p className={buildClasses('card-text')}>
-        <strong>Updated:</strong> {format(updated, 'MMM. DD, YYYY, HH:mm:ss')}
-      </p>
+      <CardTextList textList={bookDatesTextList(book)} />
+      <CardSpacer size='large' />
 
-      <hr/>
       <ButtonRow>
         <Button
           onClick={onEditClick}
@@ -71,7 +75,7 @@ function BookDetailCard({
       </ButtonRow>
     </Card>
   );
-}
+};
 
 BookDetailCard.propTypes = {
   book: shape({

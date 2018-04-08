@@ -16,7 +16,6 @@ function BookBucketHeader({
   return (
     <div className={buildClasses(['book-bucket__header'])}>
       <p>{bucket.author}</p>
-      <hr/>
     </div>
   );
 }

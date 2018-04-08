@@ -5,6 +5,7 @@ import { bool, func, shape, string } from 'prop-types';
 import type { Book } from '../../../../constants/flowtypes';
 
 import Card from '../../../common/Card';
+import CardTextLine from '../../../common/Card/CardTextLine';
 
 type Props = {
   book: Book,
@@ -21,7 +22,7 @@ function BookListDetail({
     author,
     title,
   } = book;
-  const authorName = showAuthor ? `${author.firstName} ${author.lastName}` : '';
+  const authorName = `${author.firstName} ${author.lastName}`;
 
   return (
     <Card
@@ -30,9 +31,10 @@ function BookListDetail({
         'book-list-detail-card',
       ]}
       onClick={onClick}
-      text={authorName}
-      title={title}
-    />
+    >
+      <CardTextLine bold text={title} />
+      {showAuthor && <CardTextLine text={authorName} />}
+    </Card>
   );
 }
 

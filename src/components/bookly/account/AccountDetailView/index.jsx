@@ -10,7 +10,6 @@ import { buildClasses } from '../../../../utils/cssHelpers';
 import Button from '../../../common/Button';
 import ButtonRow from '../../../common/ButtonRow';
 import Card from '../../../common/Card';
-import CardDivider from '../../../common/Card/CardDivider';
 import CardSpacer from '../../../common/Card/CardSpacer';
 import CardTextList from '../../../common/Card/CardTextList';
 
@@ -49,9 +48,11 @@ const AccountDetailView = ({
     <div className={buildClasses(['detail-view', 'account-detail-view'])}>
       <Card
         classes={['detail-card', 'account-detail-card']}
+        header="My Account"
         hoverable={false}
-        title="My Account">
+      >
 
+        <CardSpacer />
         <CardTextList textList={userBasicDetailsTextList(user)} />
         <CardSpacer />
         <CardTextList textList={userRegDetailsTextList(user)} />

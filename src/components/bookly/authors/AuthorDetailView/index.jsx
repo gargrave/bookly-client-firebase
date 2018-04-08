@@ -46,7 +46,6 @@ function AuthorDetailView({
         onEditClick={onEditClick}
       />
 
-      <hr/>
       <AuthorBooksList
         author={author}
         books={booksForAuthor}

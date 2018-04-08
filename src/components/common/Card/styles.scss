@@ -1,65 +1,73 @@
 @import '../../../styles/_index';
 
-.bookly-card {
-  @include boxShadowMed;
-  background-color: #f9f9f9;
-  border: solid 1px #bbb;
-  border-radius: 5px;
-  margin: 8px auto;
-  max-width: 600px;
-  padding: 10px 20px;
-
-  &--top-margin-med {
-    margin-top: 50px;
-  }
-
-  hr {
-    margin: 12px 0;
-  }
-
-  &--hoverable:hover {
-    background: #e4effc;
-    cursor: pointer;
-  }
-
-  &__header,
-  &__title,
-  &__text {
-    margin: 0;
-  }
-
-  &__header,
-  &__title {
-    font-weight: bold;
-  }
-
-  &__header {
-    font-size: 1.5rem;
-  }
-
-  &__text {
-    color: #6e6969;
-  }
-
-  &__text + &__text {
-    margin-top: 8px;
-  }
-}
-
-.bookly-detail-card {
-  padding: 15px;
-
-  .bookly-card__title {
-    font-size: 1.3rem;
-    line-height: 2.5rem;
-  }
-
-  .bookly-card__title + .bookly-card__text {
-    font-size: 1.1rem;
-  }
-}
-
 .bookly {
+  &-card {
+    $textColor: #6e6969;
+    $titleColor: #5d5656;
+
+    @include boxShadowMed;
+    background-color: #f9f9f9;
+    border: solid 1px #bbb;
+    border-radius: 5px;
+    margin: 8px auto;
+    max-width: 550px;
+    padding: 10px 20px;
+
+    &--top-margin-med {
+      margin-top: 50px;
+    }
+
+    hr {
+      margin: 12px 0;
+    }
+
+    &--hoverable:hover {
+      background: #e4effc;
+      cursor: pointer;
+    }
+
+    &__header,
+    &__title,
+    &__text {
+      margin: 0;
+    }
+
+    &__header,
+    &__title {
+      color: $titleColor;
+      font-weight: bold;
+    }
+
+    &__header {
+      font-size: 1.4rem;
+    }
+
+    &__text {
+      color: $textColor;
+
+      &--bold {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-detail-card {
+    padding: 15px;
+
+    .bookly-card__title {
+      font-size: 1.3rem;
+      line-height: 2.5rem;
+    }
+
+    .bookly-card__title + .bookly-card__text {
+      font-size: 1.1rem;
+    }
+
+    .bookly-card__text + .bookly-card__text {
+      margin-top: 8px;
+    }
+  }
+
   &-list-detail-card {
     padding: 10px
   }
