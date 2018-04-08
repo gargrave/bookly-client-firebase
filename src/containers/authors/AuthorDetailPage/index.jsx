@@ -46,7 +46,7 @@ type State = {
   topLevelError: string,
 };
 
-function detailView(
+const detailView = (
   author: Author,
   booksForAuthor: Book[],
   onBackClick: Function,
@@ -55,7 +55,7 @@ function detailView(
   onDeleteClick: Function,
   onEditClick: Function,
   topLevelError: string,
-) {
+) => {
   return (
     <AuthorDetailView
       author={author}
@@ -68,9 +68,9 @@ function detailView(
       topLevelError={topLevelError}
     />
   );
-}
+};
 
-function editView(
+const editView = (
   author: Author,
   errors: AuthorErrors,
   formDisabled: boolean,
@@ -79,7 +79,7 @@ function editView(
   onCancel: Function,
   onInputChange: Function,
   onSubmit: Function,
-) {
+) => {
   return (
     <AuthorEditView
       author={author}
@@ -92,7 +92,7 @@ function editView(
       topLevelError={topLevelError}
     />
   );
-}
+};
 
 class AuthorDetailPage extends Component<Props, State> {
   constructor(props: Props) {
