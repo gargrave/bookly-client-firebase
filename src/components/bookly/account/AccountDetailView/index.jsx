@@ -11,6 +11,7 @@ import Button from '../../../common/Button';
 import ButtonRow from '../../../common/ButtonRow';
 import Card from '../../../common/Card';
 import CardDivider from '../../../common/Card/CardDivider';
+import CardSpacer from '../../../common/Card/CardSpacer';
 import CardTextList from '../../../common/Card/CardTextList';
 
 type Props = {
@@ -52,9 +53,9 @@ const AccountDetailView = ({
         title="My Account">
 
         <CardTextList textList={userBasicDetailsTextList(user)} />
-        <CardDivider />
+        <CardSpacer />
         <CardTextList textList={userRegDetailsTextList(user)} />
-        <CardDivider />
+        <CardSpacer />
 
         <ButtonRow>
           <Button

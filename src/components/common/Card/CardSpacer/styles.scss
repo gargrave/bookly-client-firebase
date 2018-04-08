@@ -1,0 +1,19 @@
+@import '../../../../styles/_index';
+
+.bookly-card__spacer {
+  $heightSm: 10px;
+  $heightMd: 20px;
+  $heightLg: 30px;
+
+  &--small {
+    height: $heightSm;
+  }
+
+  &--medium {
+    height: $heightMd;
+  }
+
+  &--large {
+    height: $heightLg;
+  }
+}
