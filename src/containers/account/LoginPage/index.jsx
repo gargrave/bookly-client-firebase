@@ -7,7 +7,7 @@ import { func, object } from 'prop-types';
 import type { LoginErrors, LoginUser } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { login } from '../../../store/actions/authActions';
+import { login } from '../../../store/actions';
 import { loginHasAllFields, validateLogin } from '../../../globals/validations/';
 import { loginUserModel } from '../../../models/User.model';
 import { buildClasses } from '../../../utils/cssHelpers';

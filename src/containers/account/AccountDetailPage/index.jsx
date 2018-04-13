@@ -6,7 +6,7 @@ import { object } from 'prop-types';
 import type { User } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { logout } from '../../../store/actions/authActions';
+import { logout } from '../../../store/actions';
 
 import AccountDetailView from '../../../components/bookly/account/AccountDetailView/AccountDetailView';
 import CardList from '../../../components/common/CardList';

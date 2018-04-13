@@ -7,7 +7,7 @@ import { func, object } from 'prop-types';
 import type { RegisterErrors, RegisterUser } from '../../../constants/flowtypes';
 
 import { localUrls } from '../../../constants/urls';
-import { register } from '../../../store/actions/authActions';
+import { register } from '../../../store/actions';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../globals/validations';
 import { registerUserModel } from '../../../models/User.model';
 import { buildClasses } from '../../../utils/cssHelpers';

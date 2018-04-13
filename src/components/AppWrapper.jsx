@@ -7,7 +7,7 @@ import { auth } from '../globals/firebase/';
 import { fetchBooks } from '../store/actions/bookActions';
 import { localUrls } from '../constants/urls';
 import { setInitialized } from '../store/actions/appActions';
-import { setLocalUserData } from '../store/actions/authActions';
+import { setLocalUserData } from '../store/actions';
 
 import Routes from './Routes';
 import SexyHeader from './common/SexyHeader';
