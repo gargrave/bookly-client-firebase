@@ -8,7 +8,7 @@ import type { Author, AuthorErrors } from '../../../constants/flowtypes';
 import { localUrls } from '../../../constants/urls';
 import { authorHasAllFields, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
-import { createAuthor, fetchAuthors } from '../../../store/actions/authorActions';
+import { createAuthor, fetchAuthors } from '../../../store/actions';
 import { buildClasses } from '../../../utils/cssHelpers';
 
 import AuthorForm from '../../../components/bookly/authors/AuthorForm';

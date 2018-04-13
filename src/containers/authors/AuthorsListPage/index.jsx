@@ -8,7 +8,7 @@ import type { Author } from '../../../constants/flowtypes';
 
 import { buildClasses } from '../../../utils/cssHelpers';
 import { localUrls } from '../../../constants/urls';
-import { fetchAuthors } from '../../../store/actions/authorActions';
+import { fetchAuthors } from '../../../store/actions';
 
 import Alert from '../../../components/common/Alert';
 import AuthorList from '../../../components/bookly/authors/AuthorList';

@@ -8,8 +8,8 @@ import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
 import { localUrls } from '../../../constants/urls';
 import { bookHasAllFields, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
-import { clearPreselectedAuthor, fetchAuthors } from '../../../store/actions/authorActions';
-import { createBook, fetchBooks } from '../../../store/actions/bookActions';
+import { clearPreselectedAuthor, fetchAuthors } from '../../../store/actions';
+import { createBook, fetchBooks } from '../../../store/actions';
 import { buildClasses } from '../../../utils/cssHelpers';
 
 import BookForm from '../../../components/bookly/books/BookForm';

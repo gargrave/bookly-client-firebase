@@ -1,6 +1,6 @@
-import { AUTH } from '../../actionTypes';
-
 import { userModel } from '../../../models/User.model';
+
+import { AUTH } from '../../actionTypes';
 
 const login = (user) => ({
   type: AUTH.LOGIN,

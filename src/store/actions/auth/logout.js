@@ -1,6 +1,6 @@
-import { AUTH } from '../../actionTypes';
-
 import { auth } from '../../../globals/firebase';
+
+import { AUTH } from '../../actionTypes';
 
 const _logout = () => ({ type: AUTH.LOGOUT });
 

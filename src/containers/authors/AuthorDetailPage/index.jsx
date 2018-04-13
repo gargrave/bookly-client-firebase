@@ -15,7 +15,7 @@ import {
   fetchAuthors,
   setPreselectedAuthor,
   updateAuthor,
-} from '../../../store/actions/authorActions';
+} from '../../../store/actions';
 
 import Alert from '../../../components/common/Alert';
 import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';

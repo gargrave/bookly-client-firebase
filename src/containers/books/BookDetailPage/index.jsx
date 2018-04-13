@@ -9,7 +9,7 @@ import { localUrls } from '../../../constants/urls';
 import { parseFbError } from '../../../globals/errors';
 import { bookHasAllFields, booksMatch, validateBook } from '../../../globals/validations';
 import { bookModel } from '../../../models/Book.model';
-import { deleteBook, fetchBooks, updateBook } from '../../../store/actions/bookActions';
+import { deleteBook, fetchBooks, updateBook } from '../../../store/actions';
 import { snackbarCreate } from '../../../store/actions/snackbarActions';
 
 import Alert from '../../../components/common/Alert';

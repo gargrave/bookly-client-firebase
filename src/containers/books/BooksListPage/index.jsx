@@ -7,7 +7,7 @@ import type { Book, ViewSettings } from '../../../constants/flowtypes';
 
 import { buildClasses } from '../../../utils/cssHelpers';
 import { localUrls } from '../../../constants/urls';
-import { fetchBooks } from '../../../store/actions/bookActions';
+import { fetchBooks } from '../../../store/actions';
 
 import Alert from '../../../components/common/Alert';
 import BookList from '../../../components/bookly/books/BookList';
