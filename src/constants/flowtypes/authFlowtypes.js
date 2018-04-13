@@ -28,5 +28,6 @@ export type User = {
   registered?: Date | string,
   lastLogin?: Date | string,
   email: string,
+  emailVerified?: boolean,
   password?: string,
 };

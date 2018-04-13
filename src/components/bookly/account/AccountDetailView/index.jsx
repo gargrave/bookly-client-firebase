@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
+import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 import { format } from 'date-fns';
 
 import type { User } from '../../../../constants/flowtypes';
@@ -21,10 +21,12 @@ type Props = {
 const userBasicDetailsTextList = (user: User) => {
   const {
     email,
+    emailVerified,
   } = user;
 
   return [
     { title: 'Email', value: email },
+    { title: 'Verified', value: `${emailVerified}` },
   ];
 };
 
@@ -75,6 +77,7 @@ AccountDetailView.propTypes = {
   onLogoutClick: func.isRequired,
   user: shape({
     email: string,
+    emailVerified: bool,
     lastLogin: oneOfType([
       instanceOf(Date),
       string,
