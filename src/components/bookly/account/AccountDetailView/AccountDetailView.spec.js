@@ -5,7 +5,7 @@ import { userMocks } from '../../../../utils/mocks/';
 
 import Card from '../../../common/Card';
 
-import AccountDetailView from './';
+import AccountDetailView from './AccountDetailView';
 
 const defaultProps = Object.freeze({
   onLogoutClick: jest.fn(),

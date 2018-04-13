@@ -1,11 +1,15 @@
 // @flow
 import React from 'react';
 import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
-import { format } from 'date-fns';
 
 import type { User } from '../../../../constants/flowtypes';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
+
+import {
+  userBasicDetailsTextList,
+  userRegDetailsTextList,
+} from './helpers';
 
 import Button from '../../../common/Button';
 import ButtonRow from '../../../common/ButtonRow';
@@ -16,30 +20,6 @@ import CardTextList from '../../../common/Card/CardTextList';
 type Props = {
   onLogoutClick: Function,
   user: User,
-};
-
-const userBasicDetailsTextList = (user: User) => {
-  const {
-    email,
-    emailVerified,
-  } = user;
-
-  return [
-    { title: 'Email', value: email },
-    { title: 'Verified', value: `${emailVerified}` },
-  ];
-};
-
-const userRegDetailsTextList = (user: User) => {
-  const {
-    lastLogin,
-    registered,
-  } = user;
-
-  return [
-    { title: 'Registered', value: format(registered, 'MMM. DD, YYYY, HH:mm:ss') },
-    { title: 'Last login', value: format(lastLogin, 'MMM. DD, YYYY, HH:mm:ss') },
-  ];
 };
 
 const AccountDetailView = ({

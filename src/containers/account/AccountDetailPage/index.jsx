@@ -8,7 +8,7 @@ import type { User } from '../../../constants/flowtypes';
 import { localUrls } from '../../../constants/urls';
 import { logout } from '../../../store/actions/authActions';
 
-import AccountDetailView from '../../../components/bookly/account/AccountDetailView';
+import AccountDetailView from '../../../components/bookly/account/AccountDetailView/AccountDetailView';
 import CardList from '../../../components/common/CardList';
 import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
 
