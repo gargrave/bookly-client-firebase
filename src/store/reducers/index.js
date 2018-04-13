@@ -4,7 +4,6 @@ import app from './app';
 import auth from './auth';
 import authors from './authors';
 import books from './books';
-import settings from './settings';
 import snackbar from './snackbar';
 
 export default combineReducers({
@@ -12,6 +11,5 @@ export default combineReducers({
   auth,
   authors,
   books,
-  settings,
   snackbar,
 });

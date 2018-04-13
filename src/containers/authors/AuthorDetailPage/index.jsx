@@ -8,7 +8,7 @@ import type { Author, AuthorErrors, Book } from '../../../constants/flowtypes';
 import { localUrls } from '../../../constants/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globals/validations';
 import { authorModel } from '../../../models/Author.model';
-import { snackbarCreate } from '../../../store/actions/snackbarActions';
+import { createSnackbar } from '../../../store/actions';
 
 import {
   deleteAuthor,
@@ -32,7 +32,7 @@ type Props = {
   fetchAuthors: Function,
   history: Object,
   setPreselectedAuthor: Function,
-  snackbarCreate: Function,
+  createSnackbar: Function,
   updateAuthor: Function,
 };
 
@@ -242,7 +242,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }, async () => {
       try {
         await this.props.deleteAuthor(this.props.author);
-        this.props.snackbarCreate('Author successfully deleted.');
+        this.props.createSnackbar('Author successfully deleted.');
         this.props.history.push(localUrls.authorsList);
       } catch (err) {
         console.warn('TODO: show "topLevelError" in AuthorDetailView');
@@ -318,7 +318,7 @@ AuthorDetailPage.propTypes = {
   }).isRequired,
   authorId: string,
   booksForAuthor: array,
-  snackbarCreate: func.isRequired,
+  createSnackbar: func.isRequired,
   deleteAuthor: func.isRequired,
   fetchAuthors: func.isRequired,
   history: object,
@@ -344,8 +344,8 @@ const mapStateToProps = (state: any, ownProps: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  snackbarCreate(message: string) {
-    return dispatch(snackbarCreate(message));
+  createSnackbar(message: string) {
+    return dispatch(createSnackbar(message));
   },
 
   deleteAuthor(author: Author) {

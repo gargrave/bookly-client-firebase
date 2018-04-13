@@ -6,8 +6,7 @@ import { func } from 'prop-types';
 import { auth } from '../globals/firebase/';
 import { fetchBooks } from '../store/actions';
 import { localUrls } from '../constants/urls';
-import { setInitialized } from '../store/actions/appActions';
-import { setLocalUserData } from '../store/actions';
+import { setInitialized, setLocalUserData } from '../store/actions';
 
 import Routes from './Routes';
 import SexyHeader from './common/SexyHeader';

@@ -1,3 +1,5 @@
+import setInitialized from './app/setInitialized';
+
 import login from './auth/login';
 import logout from './auth/logout';
 import register from './auth/register';
@@ -17,7 +19,12 @@ import fetchBooks from './books/fetchBooks';
 import refreshBooksByAuthor from './books/refreshBooksByAuthor';
 import updateBook from './books/updateBook';
 
+import createSnackbar from './snackbar/createSnackbar';
+import popSnackbar from './snackbar/popSnackbar';
+
 export {
+  setInitialized,
+
   login,
   logout,
   register,
@@ -36,4 +43,7 @@ export {
   fetchBooks,
   refreshBooksByAuthor,
   updateBook,
+
+  createSnackbar,
+  popSnackbar,
 };

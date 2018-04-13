@@ -6,7 +6,7 @@ const defaultState = Object.freeze({
 
 export default function snackbar(state = defaultState, action) {
   switch (action.type) {
-    case SNACKBAR.SNACKBAR_CREATE:
+    case SNACKBAR.CREATE_SNACKBAR:
       return {
         ...state,
         queue: [
@@ -17,7 +17,7 @@ export default function snackbar(state = defaultState, action) {
         ],
       };
 
-    case SNACKBAR.SNACKBAR_POP:
+    case SNACKBAR.POP_SNACKBAR:
       return {
         ...state,
         queue: state.queue.slice(1),

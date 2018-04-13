@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { array, func } from 'prop-types';
 
-import { snackbarPop } from '../../../store/actions/snackbarActions';
+import { popSnackbar } from '../../../store/actions';
 
 import { SlideInFromBottom } from '../../../components/common/hocs/Transitions';
 import SnackbarMessage from './SnackbarMessage/';
@@ -12,7 +12,7 @@ import './styles.css';
 
 type Props = {
   queue: any[],
-  snackbarPop: Function,
+  popSnackbar: Function,
 };
 
 type State = {
@@ -46,7 +46,7 @@ class Snackbar extends React.Component<Props, State> {
         currentMessage,
         showing: true,
       }, () => {
-        this.props.snackbarPop();
+        this.props.popSnackbar();
       });
     }
   }
@@ -96,7 +96,7 @@ class Snackbar extends React.Component<Props, State> {
 
 Snackbar.propTypes = {
   queue: array.isRequired,
-  snackbarPop: func.isRequired,
+  popSnackbar: func.isRequired,
 };
 
 /* eslint-disable no-unused-vars */
@@ -107,8 +107,8 @@ const mapStateToProps = (state: any, ownProps: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  snackbarPop() {
-    return dispatch(snackbarPop());
+  popSnackbar() {
+    return dispatch(popSnackbar());
   },
 });
 
