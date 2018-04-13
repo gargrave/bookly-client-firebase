@@ -1,7 +1,7 @@
 import { BOOKS } from '../../actionTypes';
 
-const authorRequestEnd = () => ({
-  type: BOOKS.REQUEST_End,
+const bookRequestEnd = () => ({
+  type: BOOKS.REQUEST_END,
 });
 
-export default authorRequestEnd;
+export default bookRequestEnd;

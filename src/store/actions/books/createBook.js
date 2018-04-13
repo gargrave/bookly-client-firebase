@@ -4,9 +4,10 @@ import type { Author, Book, FbDoc, FbDocRef } from '../../../constants/flowtypes
 import { parseFbError } from '../../../globals/errors';
 import { db, timestamp } from '../../../globals/firebase/';
 import { bookModel } from '../../../models/Book.model';
-import { apiErrorAction } from '../../../utils/apiHelpers';
 
 import { BOOKS } from '../../actionTypes';
+
+import apiError from '../app/apiError';
 
 import { DB_TABLE } from './constants';
 import { bookHasValidAuthor } from './helpers';
@@ -42,7 +43,7 @@ const createBook = (book: Book) =>
       dispatch(_createBook(newRecord));
       return newRecord;
     } catch (err) {
-      dispatch(apiErrorAction(err));
+      dispatch(apiError(err));
       throw parseFbError(err);
     } finally {
       dispatch(bookRequestEnd());

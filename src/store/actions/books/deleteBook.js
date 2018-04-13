@@ -3,9 +3,11 @@ import type { Book, FbDocRef } from '../../../constants/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
 import { db } from '../../../globals/firebase/';
-import { apiErrorAction, getDocRef } from '../../../utils/apiHelpers';
+import { getDocRef } from '../../../utils/apiHelpers';
 
 import { BOOKS } from '../../actionTypes';
+
+import apiError from '../app/apiError';
 
 import { DB_TABLE } from './constants';
 import bookRequestEnd from './bookRequestEnd';
@@ -26,7 +28,7 @@ const deleteBook = (book: Book) =>
       dispatch(_deleteBook(book));
       return book;
     } catch (err) {
-      dispatch(apiErrorAction(err));
+      dispatch(apiError(err));
       throw parseFbError(err);
     } finally {
       dispatch(bookRequestEnd());

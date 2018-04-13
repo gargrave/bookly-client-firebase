@@ -3,10 +3,11 @@ import type { Author, FbDocRef } from '../../../constants/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
 import { db } from '../../../globals/firebase/';
-import { apiErrorAction, getDocRef } from '../../../utils/apiHelpers';
+import { getDocRef } from '../../../utils/apiHelpers';
 
 import { AUTHORS } from '../../actionTypes';
 
+import apiError from '../app/apiError';
 import deleteBooksByAuthor from '../books/deleteBooksByAuthor';
 
 import { DB_TABLE } from './constants';
@@ -32,7 +33,7 @@ const deleteAuthor = (author: Author) =>
       dispatch(_deleteAuthor(author));
       return author;
     } catch (err) {
-      dispatch(apiErrorAction(err));
+      dispatch(apiError(err));
       throw parseFbError(err);
     } finally {
       dispatch(authorRequestEnd());

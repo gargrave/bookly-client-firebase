@@ -1,6 +1,7 @@
 import { parseFbError } from '../../../globals/errors';
 import { auth } from '../../../globals/firebase';
-import { apiErrorAction } from '../../../utils/apiHelpers';
+
+import apiError from '../app/apiError';
 
 import authRequestEnd from './authRequestEnd';
 import authRequestStart from './authRequestStart';
@@ -18,7 +19,7 @@ const login = ({
       const userData = setLocalUserData(result);
       return userData;
     } catch (err) {
-      dispatch(apiErrorAction(err));
+      dispatch(apiError(err));
       throw parseFbError(err);
     } finally {
       dispatch(authRequestEnd());

@@ -3,9 +3,10 @@ import type { Author, FbCollection, FbDoc } from '../../../constants/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
 import { db } from '../../../globals/firebase/';
-import { apiErrorAction } from '../../../utils/apiHelpers';
 
 import { BOOKS } from '../../actionTypes';
+
+import apiError from '../app/apiError';
 
 import { DB_TABLE } from './constants';
 import bookRequestEnd from './bookRequestEnd';
@@ -36,7 +37,7 @@ const deleteBooksByAuthor = (author: Author) =>
         dispatch(_deleteBooksByAuthor(author));
       }
     } catch (err) {
-      dispatch(apiErrorAction(err));
+      dispatch(apiError(err));
       throw parseFbError(err);
     } finally {
       dispatch(bookRequestEnd());

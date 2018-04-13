@@ -4,10 +4,10 @@ import type { Author, FbDoc, FbDocRef } from '../../../constants/flowtypes';
 import { parseFbError } from '../../../globals/errors';
 import { db, timestamp } from '../../../globals/firebase/';
 import { authorModel } from '../../../models/Author.model';
-import { apiErrorAction } from '../../../utils/apiHelpers';
 
 import { AUTHORS } from '../../actionTypes';
 
+import apiError from '../app/apiError';
 import refreshBooksByAuthor from '../books/refreshBooksByAuthor';
 
 import { DB_TABLE } from './constants';
@@ -41,7 +41,7 @@ const updateAuthor = (author: Author) =>
       dispatch(refreshBooksByAuthor(updatedRecord));
       return updatedRecord;
     } catch (err) {
-      dispatch(apiErrorAction(err));
+      dispatch(apiError(err));
       throw parseFbError(err);
     } finally {
       dispatch(authorRequestEnd());

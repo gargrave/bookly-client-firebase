@@ -4,9 +4,10 @@ import type { Author, FbDoc, FbDocRef } from '../../../constants/flowtypes';
 import { parseFbError } from '../../../globals/errors';
 import { db, timestamp } from '../../../globals/firebase/';
 import { authorModel } from '../../../models/Author.model';
-import { apiErrorAction } from '../../../utils/apiHelpers';
 
 import { AUTHORS } from '../../actionTypes';
+
+import apiError from '../app/apiError';
 
 import { DB_TABLE } from './constants';
 import authorRequestEnd from './authorRequestEnd';
@@ -36,7 +37,7 @@ const createAuthor = (author: Author) =>
       dispatch(_createAuthor(newRecord));
       return newRecord;
     } catch (err) {
-      dispatch(apiErrorAction(err));
+      dispatch(apiError(err));
       throw parseFbError(err);
     } finally {
       dispatch(authorRequestEnd());

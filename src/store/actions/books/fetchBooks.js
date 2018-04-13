@@ -4,10 +4,10 @@ import type { Author, Book, FbCollection, FbDoc } from '../../../constants/flowt
 import { parseFbError } from '../../../globals/errors';
 import { db } from '../../../globals/firebase/';
 import { bookModel } from '../../../models/Book.model';
-import { apiErrorAction } from '../../../utils/apiHelpers';
 
 import { BOOKS } from '../../actionTypes';
 
+import apiError from '../app/apiError';
 import fetchAuthors from '../authors/fetchAuthors';
 
 import { DB_TABLE } from './constants';
@@ -45,7 +45,7 @@ const fetchBooks = () =>
         dispatch(_fetchBooks(records));
         return records;
       } catch (err) {
-        dispatch(apiErrorAction(err));
+        dispatch(apiError(err));
         throw parseFbError(err);
       } finally {
         dispatch(bookRequestEnd());

@@ -1,3 +1,4 @@
+import apiError from './app/apiError';
 import setInitialized from './app/setInitialized';
 
 import login from './auth/login';
@@ -23,6 +24,7 @@ import createSnackbar from './snackbar/createSnackbar';
 import popSnackbar from './snackbar/popSnackbar';
 
 export {
+  apiError,
   setInitialized,
 
   login,

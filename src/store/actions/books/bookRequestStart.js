@@ -1,7 +1,7 @@
 import { BOOKS } from '../../actionTypes';
 
-const authorRequestStart = () => ({
+const bookRequestStart = () => ({
   type: BOOKS.REQUEST_START,
 });
 
-export default authorRequestStart;
+export default bookRequestStart;
