@@ -1,5 +1,5 @@
 import { parseFbError } from '../../../globals/errors';
-import { submitLogin } from '../../../modules/auth';
+import { submitLogin } from '../../../wrappers/auth';
 
 import apiError from '../app/apiError';
 

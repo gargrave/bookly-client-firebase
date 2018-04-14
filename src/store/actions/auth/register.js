@@ -1,4 +1,4 @@
-import { submitRegister } from '../../../modules/auth';
+import { submitRegister } from '../../../wrappers/auth';
 
 import apiError from '../app/apiError';
 

@@ -8,3 +8,5 @@ export const submitLogout = async () => firebaseAuth.signOut();
 
 export const submitRegister = async (email: string, password: string) =>
   firebaseAuth.createUserWithEmailAndPassword(email, password);
+
+export const getCurrentUserId = () => firebaseAuth.currentUser && firebaseAuth.currentUser.uid;

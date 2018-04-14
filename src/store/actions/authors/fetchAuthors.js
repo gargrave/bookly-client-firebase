@@ -4,6 +4,7 @@ import type { Author, FbCollection } from '../../../globals/flowtypes';
 import { parseFbError } from '../../../globals/errors';
 import { db } from '../../../globals/firebase/';
 import { authorModel } from '../../../models/Author.model';
+import { getCurrentUserId } from '../../../wrappers/auth';
 
 import { AUTHORS } from '../../actionTypes';
 
