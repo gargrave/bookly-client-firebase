@@ -3,18 +3,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
-import type { Book } from '../../../constants/flowtypes';
+import type { Book } from '../../../../constants/flowtypes';
 
-import { buildClasses } from '../../../utils/cssHelpers';
-import { localUrls } from '../../../constants/urls';
-import { fetchBooks } from '../../../store/actions';
+import { buildClasses } from '../../../../utils/cssHelpers';
+import { localUrls } from '../../../../constants/urls';
+import { fetchBooks } from '../../../../store/actions';
 
-import Alert from '../../../components/common/Alert';
-import BookList from '../../../components/bookly/books/BookList';
-import Button from '../../../components/common/Button';
-import CardList from '../../../components/common/CardList';
-import InputField from '../../../components/common/InputField';
-import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
+import Alert from '../../../common/Alert';
+import BookList from '../../../bookly/books/BookList';
+import Button from '../../../common/Button';
+import CardList from '../../../common/CardList';
+import InputField from '../../../common/InputField';
+import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {
   books: Book[],

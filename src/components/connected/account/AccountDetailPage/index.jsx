@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
-import type { User } from '../../../constants/flowtypes';
+import type { User } from '../../../../constants/flowtypes';
 
-import { localUrls } from '../../../constants/urls';
-import { logout } from '../../../store/actions';
+import { localUrls } from '../../../../constants/urls';
+import { logout } from '../../../../store/actions';
 
-import AccountDetailView from '../../../components/bookly/account/AccountDetailView/AccountDetailView';
-import CardList from '../../../components/common/CardList';
-import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
+import AccountDetailView from '../../../bookly/account/AccountDetailView/AccountDetailView';
+import CardList from '../../../common/CardList';
+import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {
   history: any,

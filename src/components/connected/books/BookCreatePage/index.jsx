@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
-import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
+import type { Author, Book, BookErrors } from '../../../../constants/flowtypes';
 
-import { localUrls } from '../../../constants/urls';
-import { bookHasAllFields, validateBook } from '../../../globals/validations';
-import { bookModel } from '../../../models/Book.model';
-import { clearPreselectedAuthor, fetchAuthors } from '../../../store/actions';
-import { createBook, fetchBooks } from '../../../store/actions';
-import { buildClasses } from '../../../utils/cssHelpers';
+import { localUrls } from '../../../../constants/urls';
+import { bookHasAllFields, validateBook } from '../../../../globals/validations';
+import { bookModel } from '../../../../models/Book.model';
+import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions';
+import { createBook, fetchBooks } from '../../../../store/actions';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
-import BookForm from '../../../components/bookly/books/BookForm';
-import Card from '../../../components/common/Card';
-import CardList from '../../../components/common/CardList';
-import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
+import BookForm from '../../../bookly/books/BookForm';
+import Card from '../../../common/Card';
+import CardList from '../../../common/CardList';
+import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {
   authors: Author[],

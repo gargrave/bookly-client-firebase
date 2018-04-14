@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { RegisterErrors, RegisterUser } from '../../../constants/flowtypes';
+import type { RegisterErrors, RegisterUser } from '../../../../constants/flowtypes';
 
-import { localUrls } from '../../../constants/urls';
-import { register } from '../../../store/actions';
-import { registerUserHasAllFields, validateRegisterUser } from '../../../globals/validations';
-import { registerUserModel } from '../../../models/User.model';
-import { buildClasses } from '../../../utils/cssHelpers';
+import { localUrls } from '../../../../constants/urls';
+import { register } from '../../../../store/actions';
+import { registerUserHasAllFields, validateRegisterUser } from '../../../../globals/validations';
+import { registerUserModel } from '../../../../models/User.model';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
-import Card from '../../../components/common/Card';
-import CardList from '../../../components/common/CardList';
-import RegisterForm from '../../../components/bookly/account/RegisterForm';
-import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
+import Card from '../../../common/Card';
+import CardList from '../../../common/CardList';
+import RegisterForm from '../../../bookly/account/RegisterForm';
+import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {
   history: any,

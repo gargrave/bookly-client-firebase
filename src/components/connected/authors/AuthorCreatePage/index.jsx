@@ -3,18 +3,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { Author, AuthorErrors } from '../../../constants/flowtypes';
+import type { Author, AuthorErrors } from '../../../../constants/flowtypes';
 
-import { localUrls } from '../../../constants/urls';
-import { authorHasAllFields, validateAuthor } from '../../../globals/validations';
-import { authorModel } from '../../../models/Author.model';
-import { createAuthor, fetchAuthors } from '../../../store/actions';
-import { buildClasses } from '../../../utils/cssHelpers';
+import { localUrls } from '../../../../constants/urls';
+import { authorHasAllFields, validateAuthor } from '../../../../globals/validations';
+import { authorModel } from '../../../../models/Author.model';
+import { createAuthor, fetchAuthors } from '../../../../store/actions';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
-import AuthorForm from '../../../components/bookly/authors/AuthorForm';
-import Card from '../../../components/common/Card';
-import CardList from '../../../components/common/CardList';
-import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
+import AuthorForm from '../../../bookly/authors/AuthorForm';
+import Card from '../../../common/Card';
+import CardList from '../../../common/CardList';
+import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {
   createAuthor: Function,

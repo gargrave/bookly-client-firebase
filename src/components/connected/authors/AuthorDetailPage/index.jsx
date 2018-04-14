@@ -3,26 +3,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, instanceOf, object, oneOfType, shape, string } from 'prop-types';
 
-import type { Author, AuthorErrors, Book } from '../../../constants/flowtypes';
+import type { Author, AuthorErrors, Book } from '../../../../constants/flowtypes';
 
-import { localUrls } from '../../../constants/urls';
-import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../globals/validations';
-import { authorModel } from '../../../models/Author.model';
-import { createSnackbar } from '../../../store/actions';
+import { localUrls } from '../../../../constants/urls';
+import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../../globals/validations';
+import { authorModel } from '../../../../models/Author.model';
+import { createSnackbar } from '../../../../store/actions';
 
 import {
   deleteAuthor,
   fetchAuthors,
   setPreselectedAuthor,
   updateAuthor,
-} from '../../../store/actions';
+} from '../../../../store/actions';
 
-import Alert from '../../../components/common/Alert';
-import AuthorDetailView from '../../../components/bookly/authors/AuthorDetailView';
-import AuthorEditView from '../../../components/bookly/authors/AuthorEditView';
-import CardList from '../../../components/common/CardList';
-import Modal from '../../../components/common/Modal';
-import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
+import Alert from '../../../common/Alert';
+import AuthorDetailView from '../../../bookly/authors/AuthorDetailView';
+import AuthorEditView from '../../../bookly/authors/AuthorEditView';
+import CardList from '../../../common/CardList';
+import Modal from '../../../common/Modal';
+import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {
   author: Author,

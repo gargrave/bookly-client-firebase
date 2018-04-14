@@ -3,21 +3,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object, shape, string } from 'prop-types';
 
-import type { Author, Book, BookErrors } from '../../../constants/flowtypes';
+import type { Author, Book, BookErrors } from '../../../../constants/flowtypes';
 
-import { localUrls } from '../../../constants/urls';
-import { parseFbError } from '../../../globals/errors';
-import { bookHasAllFields, booksMatch, validateBook } from '../../../globals/validations';
-import { bookModel } from '../../../models/Book.model';
-import { deleteBook, fetchBooks, updateBook } from '../../../store/actions';
-import { createSnackbar } from '../../../store/actions';
+import { localUrls } from '../../../../constants/urls';
+import { parseFbError } from '../../../../globals/errors';
+import { bookHasAllFields, booksMatch, validateBook } from '../../../../globals/validations';
+import { bookModel } from '../../../../models/Book.model';
+import { deleteBook, fetchBooks, updateBook } from '../../../../store/actions';
+import { createSnackbar } from '../../../../store/actions';
 
-import Alert from '../../../components/common/Alert';
-import BookDetailView from '../../../components/bookly/books/BookDetailView';
-import BookEditView from '../../../components/bookly/books/BookEditView';
-import CardList from '../../../components/common/CardList';
-import Modal from '../../../components/common/Modal';
-import RequiresAuth from '../../../components/common/hocs/RequiresAuth';
+import Alert from '../../../common/Alert';
+import BookDetailView from '../../../bookly/books/BookDetailView';
+import BookEditView from '../../../bookly/books/BookEditView';
+import CardList from '../../../common/CardList';
+import Modal from '../../../common/Modal';
+import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {
   authors: Author[],

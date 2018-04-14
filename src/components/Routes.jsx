@@ -1,20 +1,20 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import AccountDetailPage from '../containers/account/AccountDetailPage';
-import LoginPage from '../containers/account/LoginPage';
-import RegisterPage from '../containers/account/RegisterPage';
+import AccountDetailPage from './connected/account/AccountDetailPage';
+import LoginPage from './connected/account/LoginPage';
+import RegisterPage from './connected/account/RegisterPage';
 
-import AuthorCreatePage from '../containers/authors/AuthorCreatePage';
-import AuthorDetailPage from '../containers/authors/AuthorDetailPage';
-import AuthorsListPage from '../containers/authors/AuthorsListPage';
+import AuthorCreatePage from './connected/authors/AuthorCreatePage';
+import AuthorDetailPage from './connected/authors/AuthorDetailPage';
+import AuthorsListPage from './connected/authors/AuthorsListPage';
 
-import HomePage from '../containers/basic/HomePage';
-import NotFoundPage from '../containers/basic/NotFoundPage';
+import HomePage from './connected/basic/HomePage';
+import NotFoundPage from './connected/basic/NotFoundPage';
 
-import BookCreatePage from '../containers/books/BookCreatePage';
-import BookDetailPage from '../containers/books/BookDetailPage';
-import BooksListPage from '../containers/books/BooksListPage';
+import BookCreatePage from './connected/books/BookCreatePage';
+import BookDetailPage from './connected/books/BookDetailPage';
+import BooksListPage from './connected/books/BooksListPage';
 
 import { localUrls } from '../constants/urls';
 
