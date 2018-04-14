@@ -2,7 +2,7 @@
 import { SNACKBAR } from '../../actionTypes';
 
 const _createSnackbar = (message: string) => ({
-  type: SNACKBAR.SNACKBAR_CREATE,
+  type: SNACKBAR.CREATE_SNACKBAR,
   payload: { message },
 });
 
