@@ -4,22 +4,24 @@ exports[`RegisterForm matches the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <RegisterForm
+  Symbol(enzyme.__unrendered__): <RegisterPage
     disabled={false}
     errors={
       Object {
         "email": "",
         "password": "",
-      }
-    }
-    loginUser={
-      Object {
-        "email": "whatever@gmail.com",
-        "password": "password",
+        "passwordConfirm": "",
       }
     }
     onInputChange={[Function]}
     onSubmit={[Function]}
+    registerUser={
+      Object {
+        "email": "whatever@gmail.com",
+        "password": "password",
+        "passwordConfirm": "password",
+      }
+    }
     submitDisabled={false}
     topLevelError=""
   />,
@@ -51,6 +53,15 @@ ShallowWrapper {
           error=""
           label="Password"
           name="password"
+          onInputChange={[Function]}
+          type="password"
+        />,
+        <InputField
+          boundValue="password"
+          disabled={false}
+          error=""
+          label="Confirm Password"
+          name="passwordConfirm"
           onInputChange={[Function]}
           type="password"
         />,
@@ -100,6 +111,23 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "boundValue": "password",
+          "disabled": false,
+          "error": "",
+          "label": "Confirm Password",
+          "name": "passwordConfirm",
+          "onInputChange": [Function],
+          "type": "password",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": [Function],
   },
@@ -125,6 +153,15 @@ ShallowWrapper {
             error=""
             label="Password"
             name="password"
+            onInputChange={[Function]}
+            type="password"
+          />,
+          <InputField
+            boundValue="password"
+            disabled={false}
+            error=""
+            label="Confirm Password"
+            name="passwordConfirm"
             onInputChange={[Function]}
             type="password"
           />,
@@ -167,6 +204,23 @@ ShallowWrapper {
             "error": "",
             "label": "Password",
             "name": "password",
+            "onInputChange": [Function],
+            "type": "password",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "boundValue": "password",
+            "disabled": false,
+            "error": "",
+            "label": "Confirm Password",
+            "name": "passwordConfirm",
             "onInputChange": [Function],
             "type": "password",
           },

@@ -9,7 +9,7 @@ import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, validateAuthor } from '../../../../globals/validations';
 import { authorModel } from '../../../../models/Author.model';
 import { createAuthor, fetchAuthors } from '../../../../store/actions';
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import AuthorForm from '../../../bookly/authors/AuthorForm';
 import Card from '../../../common/Card';

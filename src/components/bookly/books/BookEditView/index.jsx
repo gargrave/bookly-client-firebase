@@ -4,7 +4,7 @@ import { array, bool, func, object, string } from 'prop-types';
 
 import type { Author, Book, BookErrors } from '../../../../globals/flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import BookForm from '../BookForm';
 import Card from '../../../common/Card';

@@ -10,7 +10,7 @@ import { setInitialized, setLocalUserData } from '../store/actions';
 
 import Routes from './Routes';
 import SexyHeader from './common/SexyHeader';
-import Snackbar from '../containers/common/Snackbar/';
+import Snackbar from './connected/common/Snackbar/';
 
 const HEADER_HEIGHT = 50;
 

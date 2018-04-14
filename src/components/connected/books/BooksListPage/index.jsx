@@ -5,7 +5,7 @@ import { array, func, object } from 'prop-types';
 
 import type { Book } from '../../../../globals/flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 import { fetchBooks } from '../../../../store/actions';
 

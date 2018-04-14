@@ -6,7 +6,7 @@ import countBy from 'lodash/countBy';
 
 import type { Author } from '../../../../globals/flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 import { fetchAuthors } from '../../../../store/actions';
 

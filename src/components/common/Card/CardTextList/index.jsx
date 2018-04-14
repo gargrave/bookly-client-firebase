@@ -4,7 +4,7 @@ import { array } from 'prop-types';
 
 import type { CardTextListItem } from '../types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 type Props = {
   textList: CardTextListItem[],

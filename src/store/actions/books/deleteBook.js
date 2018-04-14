@@ -3,7 +3,7 @@ import type { Book, FbDocRef } from '../../../globals/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
 import { db } from '../../../globals/firebase/';
-import { getDocRef } from '../../../utils/apiHelpers';
+import { getDocRef } from '../../../globals/utils/apiHelpers';
 
 import { BOOKS } from '../../actionTypes';
 

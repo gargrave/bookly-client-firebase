@@ -10,7 +10,7 @@ import { localUrls } from '../../../../globals/urls';
 import { register } from '../../../../store/actions';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../../globals/validations';
 import { registerUserModel } from '../../../../models/User.model';
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import Card from '../../../common/Card';
 import CardList from '../../../common/CardList';

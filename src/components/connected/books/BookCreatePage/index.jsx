@@ -10,7 +10,7 @@ import { bookHasAllFields, validateBook } from '../../../../globals/validations'
 import { bookModel } from '../../../../models/Book.model';
 import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions';
 import { createBook, fetchBooks } from '../../../../store/actions';
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import BookForm from '../../../bookly/books/BookForm';
 import Card from '../../../common/Card';

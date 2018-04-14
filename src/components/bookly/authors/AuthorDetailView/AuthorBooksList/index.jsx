@@ -4,7 +4,7 @@ import { array, func, object } from 'prop-types';
 
 import type { Author, Book } from '../../../../../globals/flowtypes';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../../globals/utils/cssHelpers';
 
 import BookList from '../../../books/BookList';
 import Button from '../../../../common/Button';

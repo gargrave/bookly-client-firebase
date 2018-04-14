@@ -11,10 +11,12 @@ const defaultProps = Object.freeze({
   errors: {
     email: '',
     password: '',
+    passwordConfirm: '',
   },
-  loginUser: {
+  registerUser: {
     email: 'whatever@gmail.com',
     password: 'password',
+    passwordConfirm: 'password',
   },
   onInputChange: jest.fn(),
   onSubmit: jest.fn(),
@@ -39,7 +41,7 @@ describe('RegisterForm', () => {
     test('renders correctly', () => {
       component = getComponent();
       expect(component.find(Form)).toHaveLength(1);
-      expect(component.find(InputField)).toHaveLength(2);
+      expect(component.find(InputField)).toHaveLength(3);
     });
   });
 });

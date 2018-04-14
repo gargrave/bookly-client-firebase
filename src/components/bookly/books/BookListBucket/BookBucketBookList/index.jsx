@@ -4,7 +4,7 @@ import { array, func, shape, string } from 'prop-types';
 
 import type { Book, BookBucket } from '../../../../../globals/flowtypes/';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../../globals/utils/cssHelpers';
 
 import BookListDetail from '../../BookListDetail/';
 

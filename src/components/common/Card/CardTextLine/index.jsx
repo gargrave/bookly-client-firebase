@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, string } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 type Props = {
   bold?: boolean,
