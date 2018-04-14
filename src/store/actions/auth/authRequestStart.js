@@ -1,3 +1,5 @@
+import { AUTH } from '../../actionTypes';
+
 const authRequestStart = () => ({
   type: AUTH.REQUEST_START,
 });
