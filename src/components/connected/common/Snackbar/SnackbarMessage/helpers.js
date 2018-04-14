@@ -1,3 +1,5 @@
+// @flow
+
 // clamp between MIN/MAX duration, with DEFAULT_DURATION as fallback
 export const calculateDuration = (duration?: number): number => {
   const DEFAULT_DURATION = 3250;
