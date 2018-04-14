@@ -2,7 +2,7 @@
 import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
 
-import type { RegisterErrors, RegisterUser } from '../../constants/flowtypes';
+import type { RegisterErrors, RegisterUser } from '../../globals/flowtypes';
 import { validationErrors } from '../errors';
 
 export function registerUserHasAllFields(registerUser: RegisterUser) {

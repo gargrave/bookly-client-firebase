@@ -1,5 +1,5 @@
 // @flow
-import type { FbDocRef } from '../constants/flowtypes';
+import type { FbDocRef } from '../globals/flowtypes';
 
 async function getDocRef(
   db: any,

@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
-import type { Author, Book, BookErrors } from '../../../../constants/flowtypes';
+import type { Author, Book, BookErrors } from '../../../../globals/flowtypes';
 
-import { localUrls } from '../../../../constants/urls';
+import { localUrls } from '../../../../globals/urls';
 import { bookHasAllFields, validateBook } from '../../../../globals/validations';
 import { bookModel } from '../../../../models/Book.model';
 import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions';

@@ -1,5 +1,5 @@
 //@flow
-import type { Book, BookBucket } from '../../../constants/flowtypes';
+import type { Book, BookBucket } from '../../../globals/flowtypes';
 
 function bucketBooksByAuthor(books: Book[]): BookBucket[] {
   const buckets = {};

@@ -1,5 +1,5 @@
 // @flow
-import type { Author, Book } from '../../../constants/flowtypes';
+import type { Author, Book } from '../../../globals/flowtypes';
 import { refreshBookAuthor } from '../../../models/Book.model';
 
 import { BOOKS } from '../../actionTypes';

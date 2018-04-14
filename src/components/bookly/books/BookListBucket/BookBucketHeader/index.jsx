@@ -2,7 +2,7 @@
 import React from 'react';
 import { array, shape, string } from 'prop-types';
 
-import type { BookBucket } from '../../../../../constants/flowtypes/';
+import type { BookBucket } from '../../../../../globals/flowtypes/';
 
 import { buildClasses } from '../../../../../utils/cssHelpers';
 

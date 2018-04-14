@@ -3,9 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { object } from 'prop-types';
 
-import type { Author } from '../../../../constants/flowtypes/';
+import type { Author } from '../../../../globals/flowtypes/';
 
-import { localUrls } from '../../../../constants/urls';
+import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../utils/cssHelpers';
 
 import './styles.css';

@@ -2,7 +2,7 @@
 import React from 'react';
 import { array, func, string } from 'prop-types';
 
-import type { Author } from '../../../../constants/flowtypes';
+import type { Author } from '../../../../globals/flowtypes';
 
 import Alert from '../../../common/Alert/';
 import AuthorListDetail from '../AuthorListDetail';

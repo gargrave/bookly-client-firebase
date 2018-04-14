@@ -1,5 +1,5 @@
 // @flow
-import type { Author, Book, FbCollection, FbDoc } from '../../../constants/flowtypes';
+import type { Author, Book, FbCollection, FbDoc } from '../../../globals/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
 import { db } from '../../../globals/firebase/';

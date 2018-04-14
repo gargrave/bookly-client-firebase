@@ -5,7 +5,7 @@ import { func } from 'prop-types';
 
 import { auth } from '../globals/firebase/';
 import { fetchBooks } from '../store/actions';
-import { localUrls } from '../constants/urls';
+import { localUrls } from '../globals/urls';
 import { setInitialized, setLocalUserData } from '../store/actions';
 
 import Routes from './Routes';

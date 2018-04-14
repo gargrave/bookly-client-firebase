@@ -5,7 +5,7 @@ import {
   RegisterErrors,
   RegisterUser,
   User,
-} from '../constants/flowtypes';
+} from '../globals/flowtypes';
 
 export const userModel = {
   empty(): User {

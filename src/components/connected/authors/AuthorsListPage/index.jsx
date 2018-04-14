@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 import countBy from 'lodash/countBy';
 
-import type { Author } from '../../../../constants/flowtypes';
+import type { Author } from '../../../../globals/flowtypes';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
-import { localUrls } from '../../../../constants/urls';
+import { localUrls } from '../../../../globals/urls';
 import { fetchAuthors } from '../../../../store/actions';
 
 import Alert from '../../../common/Alert';

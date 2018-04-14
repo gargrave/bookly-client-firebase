@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 
-import type { User } from '../../../../constants/flowtypes';
+import type { User } from '../../../../globals/flowtypes';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
 import { format } from 'date-fns';
 
-import type { Author } from '../../../../../constants/flowtypes';
+import type { Author } from '../../../../../globals/flowtypes';
 
 import Button from '../../../../common/Button';
 import ButtonRow from '../../../../common/ButtonRow';

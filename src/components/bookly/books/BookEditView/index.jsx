@@ -2,7 +2,7 @@
 import React from 'react';
 import { array, bool, func, object, string } from 'prop-types';
 
-import type { Author, Book, BookErrors } from '../../../../constants/flowtypes';
+import type { Author, Book, BookErrors } from '../../../../globals/flowtypes';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 

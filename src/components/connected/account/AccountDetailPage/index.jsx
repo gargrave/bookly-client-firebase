@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
-import type { User } from '../../../../constants/flowtypes';
+import type { User } from '../../../../globals/flowtypes';
 
-import { localUrls } from '../../../../constants/urls';
+import { localUrls } from '../../../../globals/urls';
 import { logout } from '../../../../store/actions';
 
 import AccountDetailView from '../../../bookly/account/AccountDetailView/AccountDetailView';

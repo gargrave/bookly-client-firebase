@@ -1,5 +1,5 @@
 // @flow
-import type { Author } from '../../constants/flowtypes';
+import type { Author } from '../../globals/flowtypes';
 import { validationErrors } from '../errors';
 
 function authorHasAllFields(author: Author) {

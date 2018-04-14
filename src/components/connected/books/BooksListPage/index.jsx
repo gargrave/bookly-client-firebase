@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
-import type { Book } from '../../../../constants/flowtypes';
+import type { Book } from '../../../../globals/flowtypes';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
-import { localUrls } from '../../../../constants/urls';
+import { localUrls } from '../../../../globals/urls';
 import { fetchBooks } from '../../../../store/actions';
 
 import Alert from '../../../common/Alert';

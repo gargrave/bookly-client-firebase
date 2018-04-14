@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { RegisterErrors, RegisterUser } from '../../../../constants/flowtypes';
+import type { RegisterErrors, RegisterUser } from '../../../../globals/flowtypes';
 
-import { localUrls } from '../../../../constants/urls';
+import { localUrls } from '../../../../globals/urls';
 import { register } from '../../../../store/actions';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../../globals/validations';
 import { registerUserModel } from '../../../../models/User.model';
