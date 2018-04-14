@@ -1,14 +1,16 @@
 // @flow
-import type { Author, FbCollection, FbDoc } from '../../../globals/flowtypes';
+import type { Author, FbCollection } from '../../../globals/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
-import { db } from '../../../globals/firebase/';
+import {
+  deleteBooksFromAPI,
+  fetchBooksByAuthorFromAPI,
+} from '../../../wrappers/api';
 
 import { BOOKS } from '../../actionTypes';
 
 import apiError from '../app/apiError';
 
-import { DB_TABLE } from './constants';
 import bookRequestEnd from './bookRequestEnd';
 import bookRequestStart from './bookRequestStart';
 
@@ -18,22 +20,13 @@ const _deleteBooksByAuthor = (author: Author) => ({
 });
 
 const deleteBooksByAuthor = (author: Author) =>
-  async (dispatch: Function, getState: Function) => {
+  async (dispatch: Function) => {
     dispatch(bookRequestStart());
 
     try {
-      const userId = getState().auth.user.id;
-      const query = await db.collection(DB_TABLE)
-        .where('owner', '==', userId)
-        .where('authorId', '==', author.id);
-      const results: FbCollection = await query.get();
-
-      if (results.docs.length) {
-        const batch = db.batch();
-        results.docs.forEach(
-          (doc: FbDoc) => batch.delete(doc.ref)
-        );
-        await batch.commit();
+      const booksByAuthor: FbCollection = await fetchBooksByAuthorFromAPI(author);
+      if (booksByAuthor.docs.length) {
+        await deleteBooksFromAPI(booksByAuthor);
         dispatch(_deleteBooksByAuthor(author));
       }
     } catch (err) {

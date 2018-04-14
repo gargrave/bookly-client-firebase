@@ -1,16 +1,14 @@
 // @flow
-import type { Author, Book, FbCollection, FbDoc } from '../../../globals/flowtypes';
+import type { Author, Book } from '../../../globals/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
-import { db } from '../../../globals/firebase/';
-import { bookModel } from '../../../models/Book.model';
+import { fetchBooksFromAPI } from '../../../wrappers/api';
 
 import { BOOKS } from '../../actionTypes';
 
 import apiError from '../app/apiError';
 import fetchAuthors from '../authors/fetchAuthors';
 
-import { DB_TABLE } from './constants';
 import bookRequestEnd from './bookRequestEnd';
 import bookRequestStart from './bookRequestStart';
 
@@ -22,9 +20,9 @@ const _fetchBooks = (books: Book[]) => ({
 const fetchBooks = () =>
   async (dispatch: Function, getState: Function) => {
     // ensure that Author data has been loaded
-    const authors = getState().authors.data;
+    let authors: Author[] = getState().authors.data;
     if (!authors.length) {
-      await dispatch(fetchAuthors());
+      authors = await dispatch(fetchAuthors());
     }
 
     const books = getState().books.data;
@@ -34,15 +32,7 @@ const fetchBooks = () =>
       dispatch(bookRequestStart());
 
       try {
-        const userId = getState().auth.user.id;
-        const query = db.collection(DB_TABLE)
-          .where('owner', '==', userId);
-        const results: FbCollection = await query.get();
-        const authors: Author[] = getState().authors.data;
-        const records: Book[] = results.docs.map(
-          (doc: FbDoc) => bookModel.fromAPI(doc, authors)
-        );
-
+        const records: Book[] = await fetchBooksFromAPI(authors);
         dispatch(_fetchBooks(records));
         return records;
       } catch (err) {

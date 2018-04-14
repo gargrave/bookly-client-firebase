@@ -1,15 +1,13 @@
 // @flow
-import type { Book, FbDocRef } from '../../../globals/flowtypes';
+import type { Book } from '../../../globals/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
-import { db } from '../../../globals/firebase/';
-import { getDocRef } from '../../../globals/utils/apiHelpers';
+import { deleteBookFromAPI } from '../../../wrappers/api';
 
 import { BOOKS } from '../../actionTypes';
 
 import apiError from '../app/apiError';
 
-import { DB_TABLE } from './constants';
 import bookRequestEnd from './bookRequestEnd';
 import bookRequestStart from './bookRequestStart';
 
@@ -23,8 +21,7 @@ const deleteBook = (book: Book) =>
     dispatch(bookRequestStart());
 
     try {
-      const docRef: FbDocRef = await getDocRef(db, DB_TABLE, book.id);
-      await docRef.delete();
+      await deleteBookFromAPI(book);
       dispatch(_deleteBook(book));
       return book;
     } catch (err) {
