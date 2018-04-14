@@ -1,15 +1,13 @@
 // @flow
-import type { Author, FbDoc, FbDocRef } from '../../../globals/flowtypes';
+import type { Author } from '../../../globals/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
-import { db, timestamp } from '../../../globals/firebase/';
-import { authorModel } from '../../../models/Author.model';
+import { createAuthorOnAPI } from '../../../wrappers/api';
 
 import { AUTHORS } from '../../actionTypes';
 
 import apiError from '../app/apiError';
 
-import { DB_TABLE } from './constants';
 import authorRequestEnd from './authorRequestEnd';
 import authorRequestStart from './authorRequestStart';
 
@@ -19,21 +17,11 @@ const _createAuthor = (author: Author) => ({
 });
 
 const createAuthor = (author: Author) =>
-  async (dispatch: Function, getState: Function) => {
+  async (dispatch: Function) => {
     dispatch(authorRequestStart());
 
     try {
-      const payload = {
-        owner: getState().auth.user.id,
-        created: timestamp(),
-        updated: timestamp(),
-        ...author,
-      };
-
-      const docRef: FbDocRef = await db.collection(DB_TABLE).add(payload);
-      const doc: FbDoc = await docRef.get();
-      const newRecord: Author = authorModel.fromAPI(doc);
-
+      const newRecord: Author = await createAuthorOnAPI(author);
       dispatch(_createAuthor(newRecord));
       return newRecord;
     } catch (err) {

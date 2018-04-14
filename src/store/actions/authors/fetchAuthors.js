@@ -1,16 +1,13 @@
 // @flow
-import type { Author, FbCollection } from '../../../globals/flowtypes';
+import type { Author } from '../../../globals/flowtypes';
 
 import { parseFbError } from '../../../globals/errors';
-import { db } from '../../../globals/firebase/';
-import { authorModel } from '../../../models/Author.model';
-import { getCurrentUserId } from '../../../wrappers/auth';
+import { fetchAuthorsFromAPI } from '../../../wrappers/api';
 
 import { AUTHORS } from '../../actionTypes';
 
 import apiError from '../app/apiError';
 
-import { DB_TABLE } from './constants';
 import authorRequestEnd from './authorRequestEnd';
 import authorRequestStart from './authorRequestStart';
 
@@ -29,12 +26,7 @@ const fetchAuthors = () =>
       dispatch(authorRequestStart());
 
       try {
-        const userId = getState().auth.user.id;
-        const query = db.collection(DB_TABLE)
-          .where('owner', '==', userId);
-        const results: FbCollection = await query.get();
-        const records: Author[] = results.docs.map((doc) => authorModel.fromAPI(doc));
-
+        const records = await fetchAuthorsFromAPI();
         dispatch(_fetchAuthors(records));
         return records;
       } catch (err) {

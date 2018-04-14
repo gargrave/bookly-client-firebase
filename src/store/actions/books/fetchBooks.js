@@ -32,6 +32,7 @@ const fetchBooks = () =>
       return books;
     } else {
       dispatch(bookRequestStart());
+
       try {
         const userId = getState().auth.user.id;
         const query = db.collection(DB_TABLE)
