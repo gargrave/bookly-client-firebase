@@ -1,7 +1,7 @@
 // @flow
 import type { Author, FbDoc, FbDocRef } from '../../../globals/flowtypes';
 
-import { db, timestamp } from '../../../globals/firebase/';
+import { db, fbTimestamp } from '../../../globals/firebase/';
 import { authorModel } from '../../../models/Author.model';
 
 import { getCurrentUserId } from '../../auth';
@@ -14,8 +14,8 @@ const createAuthorOnAPI = async (author: Author): Promise<?Author> => {
 
   const payload = {
     owner: userId,
-    created: timestamp(),
-    updated: timestamp(),
+    created: fbTimestamp(),
+    updated: fbTimestamp(),
     ...author,
   };
 

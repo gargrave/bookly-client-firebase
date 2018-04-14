@@ -14,12 +14,12 @@ if (!initialized) {
   initialized = true;
 }
 
-function timestamp() {
+function fbTimestamp() {
   return firebase.firestore.FieldValue.serverTimestamp();
 }
 
 export {
   firebaseAuth,
   db,
-  timestamp,
+  fbTimestamp,
 };
