@@ -1,4 +1,4 @@
-import { auth } from '../../../globals/firebase';
+import { submitLogout } from '../../../modules/auth';
 
 import { AUTH } from '../../actionTypes';
 
@@ -6,7 +6,7 @@ const _logout = () => ({ type: AUTH.LOGOUT });
 
 const logout = () =>
   async (dispatch) => {
-    await auth.signOut();
+    await submitLogout();
     dispatch(_logout());
   };
 

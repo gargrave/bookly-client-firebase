@@ -4,12 +4,12 @@ import 'firebase/firestore';
 import firebaseConfig from '../../secrets/firebaseConfig.js';
 
 let initialized = false;
-let auth;
+let firebaseAuth;
 let db;
 
 if (!initialized) {
   firebase.initializeApp(firebaseConfig);
-  auth = firebase.auth();
+  firebaseAuth = firebase.auth();
   db = firebase.firestore();
   initialized = true;
 }
@@ -19,7 +19,7 @@ function timestamp() {
 }
 
 export {
-  auth,
+  firebaseAuth,
   db,
   timestamp,
 };

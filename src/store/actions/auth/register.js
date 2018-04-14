@@ -1,4 +1,4 @@
-import { auth } from '../../../globals/firebase';
+import { submitRegister } from '../../../modules/auth';
 
 import apiError from '../app/apiError';
 
@@ -14,7 +14,7 @@ const register = ({
     dispatch(authRequestEnd());
 
     try {
-      const result = await auth.createUserWithEmailAndPassword(email, password);
+      const result = await submitRegister(email, password);
       const userData = setLocalUserData(result);
       return userData;
     } catch (err) {

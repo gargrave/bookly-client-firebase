@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
 
-import { auth } from '../globals/firebase/';
+import { firebaseAuth } from '../globals/firebase/';
 import { fetchBooks } from '../store/actions';
 import { localUrls } from '../globals/urls';
 import { setInitialized, setLocalUserData } from '../store/actions';
@@ -40,7 +40,7 @@ class AppWrapper extends Component {
   }
 
   async componentWillMount() {
-    auth.onAuthStateChanged(async (user) => {
+    firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         this.props.setLocalUserData(user);
         await this.props.fetchBooks();

@@ -1,5 +1,5 @@
 import { parseFbError } from '../../../globals/errors';
-import { auth } from '../../../globals/firebase';
+import { submitLogin } from '../../../modules/auth';
 
 import apiError from '../app/apiError';
 
@@ -15,7 +15,7 @@ const login = ({
     dispatch(authRequestStart());
 
     try {
-      const result = await auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
+      const result = await submitLogin(email, password);
       const userData = setLocalUserData(result);
       return userData;
     } catch (err) {
