@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorMocks } from '../../../../utils/mocks/';
+import { authorMocks } from '../../../../globals/mocks/';
 
 import AuthorEditView from './';
 import AuthorForm from '../../authors/AuthorForm';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorMocks } from '../../../../utils/mocks/';
+import { authorMocks } from '../../../../globals/mocks/';
 
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField';

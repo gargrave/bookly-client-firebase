@@ -23,26 +23,24 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <hr />,
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Added:
-          </strong>
-           
-          Jun. 30, 2017, 18:16:43
-        </p>,
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Updated:
-          </strong>
-           
-          Jun. 30, 2017, 18:16:43
-        </p>,
-        <hr />,
+        <CardSpacer />,
+        <CardTextList
+          textList={
+            Array [
+              Object {
+                "title": "Added",
+                "value": "Jun. 30, 2017, 18:16:43",
+              },
+              Object {
+                "title": "Updated",
+                "value": "Jun. 30, 2017, 18:16:43",
+              },
+            ]
+          }
+        />,
+        <CardSpacer
+          size="large"
+        />,
         <ButtonRow>
           <Button
             onClick={[Function]}
@@ -67,92 +65,50 @@ ShallowWrapper {
         "detail-card",
         "author-detail-card",
       ],
+      "header": "Aldous Huxley",
       "hoverable": false,
-      "title": "Aldous Huxley",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {},
         "ref": null,
         "rendered": null,
-        "type": "hr",
+        "type": [Function],
       },
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": Array [
-            <strong>
-              Added:
-            </strong>,
-            " ",
-            "Jun. 30, 2017, 18:16:43",
-          ],
-          "className": "bookly-card-text",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Added:",
+          "textList": Array [
+            Object {
+              "title": "Added",
+              "value": "Jun. 30, 2017, 18:16:43",
             },
-            "ref": null,
-            "rendered": "Added:",
-            "type": "strong",
-          },
-          " ",
-          "Jun. 30, 2017, 18:16:43",
-        ],
-        "type": "p",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <strong>
-              Updated:
-            </strong>,
-            " ",
-            "Jun. 30, 2017, 18:16:43",
-          ],
-          "className": "bookly-card-text",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Updated:",
+            Object {
+              "title": "Updated",
+              "value": "Jun. 30, 2017, 18:16:43",
             },
-            "ref": null,
-            "rendered": "Updated:",
-            "type": "strong",
-          },
-          " ",
-          "Jun. 30, 2017, 18:16:43",
-        ],
-        "type": "p",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {},
+          ],
+        },
         "ref": null,
         "rendered": null,
-        "type": "hr",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "size": "large",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -235,26 +191,24 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <hr />,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Added:
-            </strong>
-             
-            Jun. 30, 2017, 18:16:43
-          </p>,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Updated:
-            </strong>
-             
-            Jun. 30, 2017, 18:16:43
-          </p>,
-          <hr />,
+          <CardSpacer />,
+          <CardTextList
+            textList={
+              Array [
+                Object {
+                  "title": "Added",
+                  "value": "Jun. 30, 2017, 18:16:43",
+                },
+                Object {
+                  "title": "Updated",
+                  "value": "Jun. 30, 2017, 18:16:43",
+                },
+              ]
+            }
+          />,
+          <CardSpacer
+            size="large"
+          />,
           <ButtonRow>
             <Button
               onClick={[Function]}
@@ -279,92 +233,50 @@ ShallowWrapper {
           "detail-card",
           "author-detail-card",
         ],
+        "header": "Aldous Huxley",
         "hoverable": false,
-        "title": "Aldous Huxley",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "hr",
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              <strong>
-                Added:
-              </strong>,
-              " ",
-              "Jun. 30, 2017, 18:16:43",
-            ],
-            "className": "bookly-card-text",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Added:",
+            "textList": Array [
+              Object {
+                "title": "Added",
+                "value": "Jun. 30, 2017, 18:16:43",
               },
-              "ref": null,
-              "rendered": "Added:",
-              "type": "strong",
-            },
-            " ",
-            "Jun. 30, 2017, 18:16:43",
-          ],
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <strong>
-                Updated:
-              </strong>,
-              " ",
-              "Jun. 30, 2017, 18:16:43",
-            ],
-            "className": "bookly-card-text",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Updated:",
+              Object {
+                "title": "Updated",
+                "value": "Jun. 30, 2017, 18:16:43",
               },
-              "ref": null,
-              "rendered": "Updated:",
-              "type": "strong",
-            },
-            " ",
-            "Jun. 30, 2017, 18:16:43",
-          ],
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
+            ],
+          },
           "ref": null,
           "rendered": null,
-          "type": "hr",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "size": "large",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,

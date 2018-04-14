@@ -35,26 +35,23 @@ ShallowWrapper {
             }
           }
         />,
-        <hr />,
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Added:
-          </strong>
-           
-          Jan. 13, 2018, 17:36:26
-        </p>,
-        <p
-          className="bookly-card-text"
-        >
-          <strong>
-            Updated:
-          </strong>
-           
-          Jan. 13, 2018, 17:36:26
-        </p>,
-        <hr />,
+        <CardTextList
+          textList={
+            Array [
+              Object {
+                "title": "Added",
+                "value": "Jan. 13, 2018, 17:36:26",
+              },
+              Object {
+                "title": "Updated",
+                "value": "Jan. 13, 2018, 17:36:26",
+              },
+            ]
+          }
+        />,
+        <CardSpacer
+          size="large"
+        />,
         <ButtonRow>
           <Button
             onClick={[Function]}
@@ -79,8 +76,8 @@ ShallowWrapper {
         "detail-card",
         "book-detail-card",
       ],
+      "header": "Brave New World",
       "hoverable": false,
-      "title": "Brave New World",
     },
     "ref": null,
     "rendered": Array [
@@ -105,84 +102,33 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": "hr",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": Array [
-            <strong>
-              Added:
-            </strong>,
-            " ",
-            "Jan. 13, 2018, 17:36:26",
+          "textList": Array [
+            Object {
+              "title": "Added",
+              "value": "Jan. 13, 2018, 17:36:26",
+            },
+            Object {
+              "title": "Updated",
+              "value": "Jan. 13, 2018, 17:36:26",
+            },
           ],
-          "className": "bookly-card-text",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Added:",
-            },
-            "ref": null,
-            "rendered": "Added:",
-            "type": "strong",
-          },
-          " ",
-          "Jan. 13, 2018, 17:36:26",
-        ],
-        "type": "p",
+        "rendered": null,
+        "type": [Function],
       },
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": Array [
-            <strong>
-              Updated:
-            </strong>,
-            " ",
-            "Jan. 13, 2018, 17:36:26",
-          ],
-          "className": "bookly-card-text",
+          "size": "large",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Updated:",
-            },
-            "ref": null,
-            "rendered": "Updated:",
-            "type": "strong",
-          },
-          " ",
-          "Jan. 13, 2018, 17:36:26",
-        ],
-        "type": "p",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {},
-        "ref": null,
         "rendered": null,
-        "type": "hr",
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -277,26 +223,23 @@ ShallowWrapper {
               }
             }
           />,
-          <hr />,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Added:
-            </strong>
-             
-            Jan. 13, 2018, 17:36:26
-          </p>,
-          <p
-            className="bookly-card-text"
-          >
-            <strong>
-              Updated:
-            </strong>
-             
-            Jan. 13, 2018, 17:36:26
-          </p>,
-          <hr />,
+          <CardTextList
+            textList={
+              Array [
+                Object {
+                  "title": "Added",
+                  "value": "Jan. 13, 2018, 17:36:26",
+                },
+                Object {
+                  "title": "Updated",
+                  "value": "Jan. 13, 2018, 17:36:26",
+                },
+              ]
+            }
+          />,
+          <CardSpacer
+            size="large"
+          />,
           <ButtonRow>
             <Button
               onClick={[Function]}
@@ -321,8 +264,8 @@ ShallowWrapper {
           "detail-card",
           "book-detail-card",
         ],
+        "header": "Brave New World",
         "hoverable": false,
-        "title": "Brave New World",
       },
       "ref": null,
       "rendered": Array [
@@ -347,84 +290,33 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "hr",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              <strong>
-                Added:
-              </strong>,
-              " ",
-              "Jan. 13, 2018, 17:36:26",
+            "textList": Array [
+              Object {
+                "title": "Added",
+                "value": "Jan. 13, 2018, 17:36:26",
+              },
+              Object {
+                "title": "Updated",
+                "value": "Jan. 13, 2018, 17:36:26",
+              },
             ],
-            "className": "bookly-card-text",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Added:",
-              },
-              "ref": null,
-              "rendered": "Added:",
-              "type": "strong",
-            },
-            " ",
-            "Jan. 13, 2018, 17:36:26",
-          ],
-          "type": "p",
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              <strong>
-                Updated:
-              </strong>,
-              " ",
-              "Jan. 13, 2018, 17:36:26",
-            ],
-            "className": "bookly-card-text",
+            "size": "large",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Updated:",
-              },
-              "ref": null,
-              "rendered": "Updated:",
-              "type": "strong",
-            },
-            " ",
-            "Jan. 13, 2018, 17:36:26",
-          ],
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
           "rendered": null,
-          "type": "hr",
+          "type": [Function],
         },
         Object {
           "instance": null,

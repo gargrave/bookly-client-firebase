@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { bookMocks } from '../../../../utils/mocks/';
+import { bookMocks } from '../../../../globals/mocks/';
 
 import BookDetailView from './';
 import BookDetailCard from './BookDetailCard';

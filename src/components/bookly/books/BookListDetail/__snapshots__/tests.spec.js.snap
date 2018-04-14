@@ -36,15 +36,47 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
+      "children": Array [
+        <CardTextLine
+          bold={true}
+          text="Brave New World"
+        />,
+        <CardTextLine
+          text="Aldous Huxley"
+        />,
+      ],
       "classes": Array [
-        "book-card",
+        "list-detail-card",
+        "book-list-detail-card",
       ],
       "onClick": [Function],
-      "text": "Aldous Huxley",
-      "title": "Brave New World",
     },
     "ref": null,
-    "rendered": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "bold": true,
+          "text": "Brave New World",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "text": "Aldous Huxley",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -53,15 +85,47 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
+        "children": Array [
+          <CardTextLine
+            bold={true}
+            text="Brave New World"
+          />,
+          <CardTextLine
+            text="Aldous Huxley"
+          />,
+        ],
         "classes": Array [
-          "book-card",
+          "list-detail-card",
+          "book-list-detail-card",
         ],
         "onClick": [Function],
-        "text": "Aldous Huxley",
-        "title": "Brave New World",
       },
       "ref": null,
-      "rendered": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "bold": true,
+            "text": "Brave New World",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "text": "Aldous Huxley",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
       "type": [Function],
     },
   ],

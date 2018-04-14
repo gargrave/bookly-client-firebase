@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorMocks } from '../../../../utils/mocks/';
+import { authorMocks } from '../../../../globals/mocks/';
 
 import AuthorListDetail from './';
 import Card from '../../../common/Card';

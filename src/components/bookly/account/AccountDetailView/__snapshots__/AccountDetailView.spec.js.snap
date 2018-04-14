@@ -27,9 +27,10 @@ ShallowWrapper {
             "account-detail-card",
           ]
         }
+        header="My Account"
         hoverable={false}
-        title="My Account"
       >
+        <CardSpacer />
         <CardTextList
           textList={
             Array [
@@ -37,10 +38,14 @@ ShallowWrapper {
                 "title": "Email",
                 "value": "mockuser1@gmail.com",
               },
+              Object {
+                "title": "Verified",
+                "value": "undefined",
+              },
             ]
           }
         />
-        <CardDivider />
+        <CardSpacer />
         <CardTextList
           textList={
             Array [
@@ -55,7 +60,7 @@ ShallowWrapper {
             ]
           }
         />
-        <CardDivider />
+        <CardSpacer />
         <ButtonRow>
           <Button
             onClick={[Function]}
@@ -74,6 +79,7 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
+          <CardSpacer />,
           <CardTextList
             textList={
               Array [
@@ -81,10 +87,14 @@ ShallowWrapper {
                   "title": "Email",
                   "value": "mockuser1@gmail.com",
                 },
+                Object {
+                  "title": "Verified",
+                  "value": "undefined",
+                },
               ]
             }
           />,
-          <CardDivider />,
+          <CardSpacer />,
           <CardTextList
             textList={
               Array [
@@ -99,7 +109,7 @@ ShallowWrapper {
               ]
             }
           />,
-          <CardDivider />,
+          <CardSpacer />,
           <ButtonRow>
             <Button
               onClick={[Function]}
@@ -113,11 +123,20 @@ ShallowWrapper {
           "detail-card",
           "account-detail-card",
         ],
+        "header": "My Account",
         "hoverable": false,
-        "title": "My Account",
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -127,6 +146,10 @@ ShallowWrapper {
               Object {
                 "title": "Email",
                 "value": "mockuser1@gmail.com",
+              },
+              Object {
+                "title": "Verified",
+                "value": "undefined",
               },
             ],
           },
@@ -219,9 +242,10 @@ ShallowWrapper {
               "account-detail-card",
             ]
           }
+          header="My Account"
           hoverable={false}
-          title="My Account"
         >
+          <CardSpacer />
           <CardTextList
             textList={
               Array [
@@ -229,10 +253,14 @@ ShallowWrapper {
                   "title": "Email",
                   "value": "mockuser1@gmail.com",
                 },
+                Object {
+                  "title": "Verified",
+                  "value": "undefined",
+                },
               ]
             }
           />
-          <CardDivider />
+          <CardSpacer />
           <CardTextList
             textList={
               Array [
@@ -247,7 +275,7 @@ ShallowWrapper {
               ]
             }
           />
-          <CardDivider />
+          <CardSpacer />
           <ButtonRow>
             <Button
               onClick={[Function]}
@@ -266,6 +294,7 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "children": Array [
+            <CardSpacer />,
             <CardTextList
               textList={
                 Array [
@@ -273,10 +302,14 @@ ShallowWrapper {
                     "title": "Email",
                     "value": "mockuser1@gmail.com",
                   },
+                  Object {
+                    "title": "Verified",
+                    "value": "undefined",
+                  },
                 ]
               }
             />,
-            <CardDivider />,
+            <CardSpacer />,
             <CardTextList
               textList={
                 Array [
@@ -291,7 +324,7 @@ ShallowWrapper {
                 ]
               }
             />,
-            <CardDivider />,
+            <CardSpacer />,
             <ButtonRow>
               <Button
                 onClick={[Function]}
@@ -305,11 +338,20 @@ ShallowWrapper {
             "detail-card",
             "account-detail-card",
           ],
+          "header": "My Account",
           "hoverable": false,
-          "title": "My Account",
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -319,6 +361,10 @@ ShallowWrapper {
                 Object {
                   "title": "Email",
                   "value": "mockuser1@gmail.com",
+                },
+                Object {
+                  "title": "Verified",
+                  "value": "undefined",
                 },
               ],
             },

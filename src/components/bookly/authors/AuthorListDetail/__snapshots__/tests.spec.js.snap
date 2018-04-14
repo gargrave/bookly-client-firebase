@@ -20,15 +20,49 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
+      "children": Array [
+        <CardTextLine
+          bold={true}
+          text="Aldous Huxley"
+        />,
+        <CardTextLine
+          condensed={true}
+          text="1 book"
+        />,
+      ],
       "classes": Array [
-        "author-card",
+        "list-detail-card",
+        "author-list-detail-card",
       ],
       "onClick": [Function],
-      "text": "1 book",
-      "title": "Aldous Huxley",
     },
     "ref": null,
-    "rendered": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "bold": true,
+          "text": "Aldous Huxley",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "condensed": true,
+          "text": "1 book",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -37,15 +71,49 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
+        "children": Array [
+          <CardTextLine
+            bold={true}
+            text="Aldous Huxley"
+          />,
+          <CardTextLine
+            condensed={true}
+            text="1 book"
+          />,
+        ],
         "classes": Array [
-          "author-card",
+          "list-detail-card",
+          "author-list-detail-card",
         ],
         "onClick": [Function],
-        "text": "1 book",
-        "title": "Aldous Huxley",
       },
       "ref": null,
-      "rendered": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "bold": true,
+            "text": "Aldous Huxley",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "condensed": true,
+            "text": "1 book",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
       "type": [Function],
     },
   ],

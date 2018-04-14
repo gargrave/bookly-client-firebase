@@ -107,7 +107,6 @@ ShallowWrapper {
           onDeleteClick={[Function]}
           onEditClick={[Function]}
         />,
-        <hr />,
         <AuthorBooksList
           author={Object {}}
           books={
@@ -206,15 +205,6 @@ ShallowWrapper {
         "ref": null,
         "rendered": null,
         "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": "hr",
       },
       Object {
         "instance": null,
@@ -318,7 +308,6 @@ ShallowWrapper {
             onDeleteClick={[Function]}
             onEditClick={[Function]}
           />,
-          <hr />,
           <AuthorBooksList
             author={Object {}}
             books={
@@ -417,15 +406,6 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "hr",
         },
         Object {
           "instance": null,
