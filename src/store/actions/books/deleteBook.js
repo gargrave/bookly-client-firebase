@@ -1,8 +1,8 @@
 // @flow
 import type { Book } from '../../../globals/flowtypes';
 
-import { parseFbError } from '../../../globals/errors';
 import { deleteBookFromAPI } from '../../../wrappers/api';
+import { parseAPIError } from '../../../wrappers/errors';
 
 import { BOOKS } from '../../actionTypes';
 
@@ -26,7 +26,7 @@ const deleteBook = (book: Book) =>
       return book;
     } catch (err) {
       dispatch(apiError(err));
-      throw parseFbError(err);
+      throw parseAPIError(err);
     } finally {
       dispatch(bookRequestEnd());
     }

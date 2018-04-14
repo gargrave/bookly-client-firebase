@@ -1,5 +1,5 @@
-import { parseFbError } from '../../../globals/errors';
 import { submitLogin } from '../../../wrappers/auth';
+import { parseAPIError } from '../../../wrappers/errors';
 
 import apiError from '../app/apiError';
 
@@ -20,7 +20,7 @@ const login = ({
       return userData;
     } catch (err) {
       dispatch(apiError(err));
-      throw parseFbError(err);
+      throw parseAPIError(err);
     } finally {
       dispatch(authRequestEnd());
     }

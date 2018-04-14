@@ -1,8 +1,8 @@
 // @flow
 import type { Author, Book } from '../../../globals/flowtypes';
 
-import { parseFbError } from '../../../globals/errors';
 import { createBookOnAPI } from '../../../wrappers/api';
+import { parseAPIError } from '../../../wrappers/errors';
 
 import { BOOKS } from '../../actionTypes';
 
@@ -33,7 +33,7 @@ const createBook = (book: Book) =>
       return newRecord;
     } catch (err) {
       dispatch(apiError(err));
-      throw parseFbError(err);
+      throw parseAPIError(err);
     } finally {
       dispatch(bookRequestEnd());
     }

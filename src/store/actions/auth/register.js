@@ -1,4 +1,5 @@
 import { submitRegister } from '../../../wrappers/auth';
+import { parseAPIError } from '../../../wrappers/errors';
 
 import apiError from '../app/apiError';
 
@@ -19,7 +20,7 @@ const register = ({
       return userData;
     } catch (err) {
       dispatch(apiError(err));
-      throw parseFbError(err);
+      throw parseAPIError(err);
     } finally {
       dispatch(authRequestStart());
     }

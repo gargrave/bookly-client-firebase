@@ -1,11 +1,11 @@
 // @flow
 import type { Author, FbCollection } from '../../../globals/flowtypes';
 
-import { parseFbError } from '../../../globals/errors';
 import {
   deleteBooksFromAPI,
   fetchBooksByAuthorFromAPI,
 } from '../../../wrappers/api';
+import { parseAPIError } from '../../../wrappers/errors';
 
 import { BOOKS } from '../../actionTypes';
 
@@ -31,7 +31,7 @@ const deleteBooksByAuthor = (author: Author) =>
       }
     } catch (err) {
       dispatch(apiError(err));
-      throw parseFbError(err);
+      throw parseAPIError(err);
     } finally {
       dispatch(bookRequestEnd());
     }

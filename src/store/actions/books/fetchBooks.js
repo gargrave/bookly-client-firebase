@@ -1,8 +1,8 @@
 // @flow
 import type { Author, Book } from '../../../globals/flowtypes';
 
-import { parseFbError } from '../../../globals/errors';
 import { fetchBooksFromAPI } from '../../../wrappers/api';
+import { parseAPIError } from '../../../wrappers/errors';
 
 import { BOOKS } from '../../actionTypes';
 
@@ -37,7 +37,7 @@ const fetchBooks = () =>
         return records;
       } catch (err) {
         dispatch(apiError(err));
-        throw parseFbError(err);
+        throw parseAPIError(err);
       } finally {
         dispatch(bookRequestEnd());
       }

@@ -6,7 +6,6 @@ import { array, func, object, shape, string } from 'prop-types';
 import type { Author, Book, BookErrors } from '../../../../globals/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { parseFbError } from '../../../../globals/errors';
 import { bookHasAllFields, booksMatch, validateBook } from '../../../../globals/validations';
 import { bookModel } from '../../../../models/Book.model';
 import { deleteBook, fetchBooks, updateBook } from '../../../../store/actions';
@@ -79,7 +78,7 @@ class BookDetailPage extends Component<Props, State> {
     } catch (err) {
       this.setState({
         formDisabled: false,
-        topLevelError: parseFbError(err),
+        topLevelError: err,
       });
     }
   }

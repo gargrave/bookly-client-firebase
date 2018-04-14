@@ -1,8 +1,8 @@
 // @flow
 import type { Author } from '../../../globals/flowtypes';
 
-import { parseFbError } from '../../../globals/errors';
 import { deleteAuthorFromAPI } from '../../../wrappers/api';
+import { parseAPIError } from '../../../wrappers/errors';
 
 import { AUTHORS } from '../../actionTypes';
 
@@ -30,7 +30,7 @@ const deleteAuthor = (author: Author) =>
       return author;
     } catch (err) {
       dispatch(apiError(err));
-      throw parseFbError(err);
+      throw parseAPIError(err);
     } finally {
       dispatch(authorRequestEnd());
     }
