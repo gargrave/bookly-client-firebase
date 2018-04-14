@@ -8,8 +8,8 @@ import apiError from './apiError';
 import setInitialized from './setInitialized';
 
 const actions = {
-  [APP.INITIALIZED]: setInitialized,
   [APP.API_ERROR]: apiError,
+  [APP.INITIALIZED]: setInitialized,
 };
 
 export default actionContainer(defaultState, actions);
