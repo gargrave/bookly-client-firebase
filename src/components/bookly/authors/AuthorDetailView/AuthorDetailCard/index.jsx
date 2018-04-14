@@ -5,8 +5,6 @@ import { format } from 'date-fns';
 
 import type { Author } from '../../../../../constants/flowtypes';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
 import Button from '../../../../common/Button';
 import ButtonRow from '../../../../common/ButtonRow';
 import Card from '../../../../common/Card';

@@ -139,4 +139,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RequiresAuth(LoginPage, localUrls.account, false));
+export default connect(mapStateToProps, mapDispatchToProps)(
+  RequiresAuth(LoginPage, localUrls.account, false)
+);

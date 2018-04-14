@@ -1,8 +1,6 @@
 // @flow
 import type { FbError } from '../../constants/flowtypes';
 
-import { validationErrors } from './validationErrors';
-
 export const parseFbError = (err: FbError): string => {
   // TODO: make better use of Firebase's error structure
   // https://firebase.google.com/docs/reference/js/firebase.auth.Auth?authuser=0#signInWithEmailAndPassword

@@ -128,6 +128,7 @@ RegisterPage.propTypes = {
   register: func.isRequired,
 };
 
+/* eslint-disable no-unused-vars */
 const mapStateToProps = (state: any, ownProps: any) => {
   return {};
 };
