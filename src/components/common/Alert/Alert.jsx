@@ -5,7 +5,7 @@ import { any, oneOf, string } from 'prop-types';
 import { buildClasses } from '../../../globals/utils/cssHelpers';
 
 type Props = {
-  children: any,
+  children?: any,
   message: string,
   type: string,
 };

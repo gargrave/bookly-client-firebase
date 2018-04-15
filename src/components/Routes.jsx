@@ -14,7 +14,7 @@ import NotFoundPage from './connected/basic/NotFoundPage';
 
 import BookCreatePage from './connected/books/BookCreatePage';
 import BookDetailPage from './connected/books/BookDetailPage';
-import BooksListPage from './connected/books/BooksListPage';
+import BooksListPage from './connected/books/BooksListPage/BooksListPage';
 
 import { localUrls } from '../globals/urls';
 

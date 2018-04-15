@@ -9,17 +9,18 @@ import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 import { fetchBooks } from '../../../../store/actions';
 
-import Alert from '../../../common/Alert/Alert';
-import BookList from '../../../bookly/books/BookList';
 import Button from '../../../common/Button';
 import CardList from '../../../common/CardList';
-import InputField from '../../../common/InputField';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import UnverifiedNotice from '../../../bookly/account/UnverifiedNotice/UnverifiedNotice';
+
+import BooksListVerified from './BooksListVerified/BooksListVerified';
 
 type Props = {
   books: Book[],
   fetchBooks: Function,
   history: Object,
+  user: Object,
 };
 
 type State = {
@@ -33,11 +34,6 @@ class BooksListPage extends Component<Props, State> {
     this.state = {
       searchValue: '',
     };
-
-    const _this: any = this;
-    _this.onAddClick = _this.onAddClick.bind(this);
-    _this.onBookClick = _this.onBookClick.bind(this);
-    _this.onInputChange = _this.onInputChange.bind(this);
   }
 
   componentDidMount() {
@@ -53,17 +49,17 @@ class BooksListPage extends Component<Props, State> {
     }
   }
 
-  onAddClick() {
+  onAddClick = () => {
     this.props.history.push(localUrls.bookCreate);
   }
 
-  onBookClick(bookId?: string | number) {
+  onBookClick = (bookId?: string | number) => {
     if (bookId) {
       this.props.history.push(`/books/${bookId}`);
     }
   }
 
-  onInputChange(event) {
+  onInputChange = (event) => {
     const key = event.target.name;
     if (key in this.state) {
       this.setState({
@@ -72,45 +68,46 @@ class BooksListPage extends Component<Props, State> {
     }
   }
 
+  renderAddBookButton() {
+    const { user } = this.props;
+    if (!user || !user.emailVerified) {
+      return null;
+    }
+
+    return (
+      <Button
+        onClick={this.onAddClick}
+        text="Add"
+        type="success"
+      />
+    );
+  }
+
+  renderContent() {
+    const { user } = this.props;
+    if (!user || !user.emailVerified) {
+      return <UnverifiedNotice />;
+    }
+
+    return (
+      <BooksListVerified
+        books={this.props.books}
+        onBookClick={this.onBookClick}
+        onInputChange={this.onInputChange}
+        searchValue={this.state.searchValue}
+      />
+    );
+  }
+
   render() {
-    const {
-      books,
-    } = this.props;
-
-    const {
-      searchValue,
-    } = this.state;
-
     return (
       <div className={buildClasses(['list-view'])}>
         <h3 className={buildClasses(['list-view__header'])}>
           My Books
-          <Button
-            onClick={this.onAddClick}
-            text="Add"
-            type="success"
-          />
+          {this.renderAddBookButton()}
         </h3>
         <CardList>
-          <InputField
-            boundValue={searchValue}
-            name="searchValue"
-            onInputChange={this.onInputChange}
-            placeholder={'Filter by title...'}
-            type="search"
-          />
-          {searchValue &&
-            <Alert
-              message={`Showing results matching "${searchValue}"`}
-              type="info"
-            />
-          }
-          <BookList
-            books={books}
-            filterBy={searchValue}
-            onBookClick={this.onBookClick}
-            groupBooksByAuthor={true}
-          />
+          {this.renderContent()}
         </CardList>
       </div>
     );
@@ -121,11 +118,13 @@ BooksListPage.propTypes = {
   books: array.isRequired,
   fetchBooks: func.isRequired,
   history: object,
+  user: object.isRequired,
 };
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => ({
   books: state.books.data,
+  user: state.auth.user,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
