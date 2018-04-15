@@ -6,7 +6,7 @@ import defaultState from './defaultState';
 
 import authorRequestEnd from './authorRequestEnd';
 import authorRequestStart from './authorRequestStart';
-import clearAll from './clearAll';
+import clearAuthors from './clearAuthors';
 import clearPreselected from './clearPreselected';
 import createAuthor from './createAuthor';
 import deleteAuthor from './deleteAuthor';
@@ -15,7 +15,7 @@ import setPreselected from './setPreselected';
 import updateAuthor from './updateAuthor';
 
 const actions = {
-  [AUTH.LOGOUT]: clearAll,
+  [AUTH.LOGOUT]: clearAuthors,
   [AUTHORS.CLEAR_PRESELECTED]: clearPreselected,
   [AUTHORS.CREATE_SUCCESS]: createAuthor,
   [AUTHORS.DELETE_SUCCESS]: deleteAuthor,

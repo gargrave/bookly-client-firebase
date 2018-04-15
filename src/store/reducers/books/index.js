@@ -6,7 +6,7 @@ import defaultState from './defaultState';
 
 import bookRequestEnd from './bookRequestEnd';
 import bookRequestStart from './bookRequestStart';
-import clearAll from './clearAll';
+import clearBooks from './clearBooks';
 import createBook from './createBook';
 import deleteBook from './deleteBook';
 import deleteBooksByAuthor from './deleteBooksByAuthor';
@@ -14,7 +14,7 @@ import fetchBooks from './fetchBooks';
 import updateBook from './updateBook';
 
 const actions = {
-  [AUTH.LOGOUT]: clearAll,
+  [AUTH.LOGOUT]: clearBooks,
   [BOOKS.CREATE_SUCCESS]: createBook,
   [BOOKS.DELETE_SUCCESS]: deleteBook,
   [BOOKS.DELETE_BY_AUTHOR_SUCCESS]: deleteBooksByAuthor,

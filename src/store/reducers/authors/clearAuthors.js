@@ -2,7 +2,7 @@ import { AUTH } from '../../actionTypes';
 
 import defaultState from './defaultState';
 
-const clearPreselectedAuthorReducer = (state, action) => {
+const clearAuthorsReducer = (state, action) => {
   if (action.type !== AUTH.LOGOUT) {
     return state;
   }
@@ -10,4 +10,4 @@ const clearPreselectedAuthorReducer = (state, action) => {
   return { ...defaultState };
 };
 
-export default clearPreselectedAuthorReducer;
+export default clearAuthorsReducer;
