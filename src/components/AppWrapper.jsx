@@ -9,7 +9,7 @@ import { localUrls } from '../globals/urls';
 import { setInitialized, setLocalUserData } from '../store/actions';
 
 import Routes from './Routes';
-import SexyHeader from './common/SexyHeader';
+import SexyHeader from './common/SexyHeader/SexyHeader';
 import Snackbar from './connected/common/Snackbar/';
 
 const HEADER_HEIGHT = 50;

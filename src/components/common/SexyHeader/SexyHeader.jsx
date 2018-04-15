@@ -6,7 +6,7 @@ import { array, bool, number, object, string } from 'prop-types';
 
 import { buildClasses } from '../../../globals/utils/cssHelpers';
 
-import './styles.css';
+import './SexyHeader.css';
 
 type Props = {
   height?: number,
