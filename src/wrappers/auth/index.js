@@ -13,3 +13,6 @@ export const getCurrentUserId = () => firebaseAuth.currentUser && firebaseAuth.c
 
 export const sendAccountVerificationEmail = () =>
   firebaseAuth.currentUser.sendEmailVerification();
+
+export const sendPasswordResetEmail = (email: string) =>
+  firebaseAuth.sendPasswordResetEmail(email);
