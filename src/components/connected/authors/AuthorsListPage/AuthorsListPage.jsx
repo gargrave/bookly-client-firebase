@@ -10,17 +10,18 @@ import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 import { fetchAuthors } from '../../../../store/actions';
 
-import Alert from '../../../common/Alert';
-import AuthorList from '../../../bookly/authors/AuthorList';
 import Button from '../../../common/Button';
 import CardList from '../../../common/CardList';
-import InputField from '../../../common/InputField';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
+
+import AuthorsListUnverified from './AuthorsListUnverified/AuthorsListUnverified';
+import AuthorsListVerified from './AuthorsListVerified/AuthorsListVerified';
 
 type Props = {
   authors: Author[],
   fetchAuthors: Function,
   history: Object,
+  user: Object,
 };
 
 type State = {
@@ -34,11 +35,6 @@ class AuthorsListPage extends Component<Props, State> {
     this.state = {
       searchValue: '',
     };
-
-    const _this: any = this;
-    _this.onAddClick = _this.onAddClick.bind(this);
-    _this.onAuthorClick = _this.onAuthorClick.bind(this);
-    _this.onInputChange = _this.onInputChange.bind(this);
   }
 
   componentDidMount() {
@@ -53,17 +49,17 @@ class AuthorsListPage extends Component<Props, State> {
     }
   }
 
-  onAddClick() {
+  onAddClick = () => {
     this.props.history.push(localUrls.authorCreate);
   }
 
-  onAuthorClick(authorId?: string | number) {
+  onAuthorClick = (authorId?: string | number) => {
     if (authorId) {
       this.props.history.push(`/authors/${authorId}`);
     }
   }
 
-  onInputChange(event) {
+  onInputChange = (event) => {
     const key = event.target.name;
     if (key in this.state) {
       this.setState({
@@ -72,44 +68,46 @@ class AuthorsListPage extends Component<Props, State> {
     }
   }
 
+  renderAddAuthorButton() {
+    const { user } = this.props;
+    if (!user || !user.emailVerified) {
+      return null;
+    }
+
+    return (
+      <Button
+        onClick={this.onAddClick}
+        text="Add"
+        type="success"
+      />
+    );
+  }
+
+  renderContent() {
+    const { user } = this.props;
+    if (!user || !user.emailVerified) {
+      return <AuthorsListUnverified />;
+    }
+
+    return (
+      <AuthorsListVerified
+        authors={this.props.authors}
+        onAuthorClick={this.onAuthorClick}
+        onInputChange={this.onInputChange}
+        searchValue={this.state.searchValue}
+      />
+    );
+  }
+
   render() {
-    const {
-      authors,
-    } = this.props;
-
-    const {
-      searchValue,
-    } = this.state;
-
     return (
       <div className={buildClasses(['list-view'])}>
         <h3 className={buildClasses(['list-view__header'])}>
           My Authors
-          <Button
-            onClick={this.onAddClick}
-            text="Add"
-            type="success"
-          />
+          {this.renderAddAuthorButton()}
         </h3>
         <CardList>
-          <InputField
-            boundValue={searchValue}
-            name="searchValue"
-            onInputChange={this.onInputChange}
-            placeholder={'Filter by author name...'}
-            type="search"
-          />
-          {searchValue &&
-            <Alert
-              message={`Showing results matching "${searchValue}"`}
-              type="info"
-            />
-          }
-          <AuthorList
-            authors={authors}
-            filterBy={searchValue}
-            onAuthorClick={this.onAuthorClick}
-          />
+          {this.renderContent()}
         </CardList>
       </div>
     );
@@ -120,6 +118,7 @@ AuthorsListPage.propTypes = {
   authors: array.isRequired,
   fetchAuthors: func.isRequired,
   history: object.isRequired,
+  user: object.isRequired,
 };
 
 /* eslint-disable no-unused-vars */
@@ -134,6 +133,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     authors,
+    user: state.auth.user,
   };
 };
 
