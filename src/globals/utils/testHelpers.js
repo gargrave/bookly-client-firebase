@@ -1,10 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 export class ComponentBuilder {
   constructor(component, defaultProps) {
     this.component = component;
-    this.defaultProps = defaultProps;
+    this.defaultProps = { ...defaultProps };
   }
 
   shallowGetComponent(extraProps = {}) {
@@ -13,5 +13,13 @@ export class ComponentBuilder {
       ...extraProps,
     };
     return shallow(<this.component {...props} />);
+  }
+
+  mountComponent(extraProps = {}) {
+    const props = {
+      ...this.defaultProps,
+      ...extraProps,
+    };
+    return mount(<this.component {...props} />);
   }
 }
