@@ -7,10 +7,11 @@ import { func, object } from 'prop-types';
 import type { RegisterErrors, RegisterUser } from '../../../../globals/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { register } from '../../../../store/actions';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../../globals/validations';
 import { registerUserModel } from '../../../../models/User.model';
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { register } from '../../../../store/actions';
+import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
 import Card from '../../../common/Card';
 import CardList from '../../../common/CardList';
@@ -77,6 +78,7 @@ class RegisterPage extends React.Component<Props, State> {
         try {
           const registerUser = registerUserModel.toAPI(this.state.registerUser);
           await this.props.register(registerUser);
+          sendAccountVerificationEmail();
           this.props.history.push(localUrls.account);
         } catch (err) {
           this.setState({

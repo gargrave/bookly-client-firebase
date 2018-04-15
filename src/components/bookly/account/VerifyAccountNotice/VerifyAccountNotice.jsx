@@ -5,7 +5,7 @@ import { bool, func } from 'prop-types';
 import Button from '../../../common/Button';
 import Card from '../../../common/Card';
 import CardSpacer from '../../../common/Card/CardSpacer';
-import CardTextLine from '../../../common/Card/CardTextLine';
+import CardTextList from '../../../common/Card/CardTextList';
 
 type Props = {
   emailHasBeenSent: boolean,
@@ -18,9 +18,15 @@ const buttonText = (emailHasBeenSent) =>
 const buttonClass = (emailHasBeenSent) =>
   emailHasBeenSent ? 'info' : 'warning';
 
-const textLineEmail = 'You must verify your email address before your account will be fully activated.';
-const textLineNewLink = 'You should have received a verification link at your email address when you registered, ' +
-  'but if you need a new link, you can request one below.';
+const textList = [
+  { title: '', value: 'You must verify your email address before your account will be fully activated.' },
+  {
+    title: '',
+    value: 'You should have received a verification link at your email address when you registered, ' +
+      'but if you need a new link, you can request one below.',
+  },
+  { title: 'NOTE', value: 'After verifying your email, you MUST log out and log back in one time for the activation to take effect.' },
+];
 
 const VerifyAccountNotice = ({
   emailHasBeenSent,
@@ -33,11 +39,11 @@ const VerifyAccountNotice = ({
       title={'Your email address has not been verified!'}
     >
       <CardSpacer />
-      <CardTextLine text={textLineEmail} />
-      <CardTextLine text={textLineNewLink} />
+      <CardTextList textList={textList} />
       <CardSpacer />
 
       <Button
+        disabled={emailHasBeenSent}
         onClick={onSendLinkClick}
         text={buttonText(emailHasBeenSent)}
         type={buttonClass(emailHasBeenSent)}

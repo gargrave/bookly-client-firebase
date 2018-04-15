@@ -31,7 +31,7 @@ class AccountDetailPage extends Component<Props> {
 
   onVerifyAccountClick = async () => {
     try {
-      // await sendAccountVerificationEmail();
+      await sendAccountVerificationEmail();
       this.props.markVerificationEmailSent();
     } catch (err) {
       this.props.createSnackbar('There was an error sending the email.');
