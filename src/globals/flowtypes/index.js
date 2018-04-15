@@ -22,6 +22,11 @@ import {
   FbError,
 } from './firebaseFlowtypes';
 
+import {
+  Profile,
+  ProfileErrors,
+} from './profileFlowtypes';
+
 export {
   Author,
   AuthorErrors,
@@ -34,5 +39,7 @@ export {
   FbError,
   LoginErrors,
   LoginUser,
+  Profile,
+  ProfileErrors,
   User,
 };
