@@ -7,7 +7,7 @@ import { filterAndBucket } from '../helpers';
 import Alert from '../../../common/Alert/Alert';
 import BookList from './';
 import BookListBucket from '../BookListBucket/';
-import BookListDetail from '../BookListDetail/';
+import BookListDetail from '../BookListDetail/BookListDetail';
 
 const defaultProps = Object.freeze({
   books: bookMocks,

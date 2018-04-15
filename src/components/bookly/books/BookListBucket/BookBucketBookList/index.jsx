@@ -6,7 +6,7 @@ import type { Book, BookBucket } from '../../../../../globals/flowtypes/';
 
 import { buildClasses } from '../../../../../globals/utils/cssHelpers';
 
-import BookListDetail from '../../BookListDetail/';
+import BookListDetail from '../../BookListDetail/BookListDetail';
 
 type Props = {
   bucket: BookBucket,

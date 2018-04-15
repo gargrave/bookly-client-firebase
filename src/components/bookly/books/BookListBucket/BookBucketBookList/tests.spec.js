@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { bookBucketMocks } from '../../../../../globals/mocks/';
 
 import BookBucketBooks from './';
-import BookListDetail from '../../BookListDetail/';
+import BookListDetail from '../../BookListDetail/BookListDetail';
 
 const defaultProps = Object.freeze({
   bucket: bookBucketMocks[0],
