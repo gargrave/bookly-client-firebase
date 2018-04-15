@@ -9,7 +9,7 @@ import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 import { fetchBooks } from '../../../../store/actions';
 
-import Alert from '../../../common/Alert';
+import Alert from '../../../common/Alert/Alert';
 import BookList from '../../../bookly/books/BookList';
 import Button from '../../../common/Button';
 import CardList from '../../../common/CardList';

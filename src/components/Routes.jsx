@@ -7,7 +7,7 @@ import RegisterPage from './connected/account/RegisterPage';
 
 import AuthorCreatePage from './connected/authors/AuthorCreatePage';
 import AuthorDetailPage from './connected/authors/AuthorDetailPage';
-import AuthorsListPage from './connected/authors/AuthorsListPage';
+import AuthorsListPage from './connected/authors/AuthorsListPage/AuthorsListPage';
 
 import HomePage from './connected/basic/HomePage';
 import NotFoundPage from './connected/basic/NotFoundPage';

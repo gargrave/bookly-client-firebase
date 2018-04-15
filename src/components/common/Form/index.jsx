@@ -4,7 +4,7 @@ import { any, array, func, bool, string} from 'prop-types';
 
 import { buildClasses } from '../../../globals/utils/cssHelpers';
 
-import Alert from '../../common/Alert';
+import Alert from '../../common/Alert/Alert';
 import Button from '../../common/Button';
 
 import './styles.css';

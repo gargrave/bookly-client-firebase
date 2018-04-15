@@ -6,7 +6,7 @@ import type { Book, BookBucket } from '../../../../globals/flowtypes';
 
 import { filterAndBucket, filterBooksByTitle } from '../helpers';
 
-import Alert from '../../../common/Alert/';
+import Alert from '../../../common/Alert/Alert';
 import BookListBucket from '../BookListBucket/';
 import BookListDetail from '../BookListDetail/';
 

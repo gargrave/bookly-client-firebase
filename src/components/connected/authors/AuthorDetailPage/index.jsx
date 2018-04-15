@@ -17,7 +17,7 @@ import {
   updateAuthor,
 } from '../../../../store/actions';
 
-import Alert from '../../../common/Alert';
+import Alert from '../../../common/Alert/Alert';
 import AuthorDetailView from '../../../bookly/authors/AuthorDetailView';
 import AuthorEditView from '../../../bookly/authors/AuthorEditView';
 import CardList from '../../../common/CardList';

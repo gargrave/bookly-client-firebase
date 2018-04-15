@@ -11,7 +11,7 @@ import { bookModel } from '../../../../models/Book.model';
 import { deleteBook, fetchBooks, updateBook } from '../../../../store/actions';
 import { createSnackbar } from '../../../../store/actions';
 
-import Alert from '../../../common/Alert';
+import Alert from '../../../common/Alert/Alert';
 import BookDetailView from '../../../bookly/books/BookDetailView';
 import BookEditView from '../../../bookly/books/BookEditView';
 import CardList from '../../../common/CardList';

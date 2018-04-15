@@ -6,7 +6,7 @@ import type { Book } from '../../../../globals/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import Alert from '../../../common/Alert';
+import Alert from '../../../common/Alert/Alert';
 import BookDetailCard from './BookDetailCard/';
 
 type Props = {
