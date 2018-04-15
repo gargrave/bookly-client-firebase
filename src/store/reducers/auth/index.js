@@ -8,14 +8,14 @@ import authRequestEnd from './authRequestEnd';
 import authRequestStart from './authRequestStart';
 import login from './login';
 import logout from './logout';
-import sendVerifyEmail from './sendVerifyEmail';
+import markVerificationEmailSent from './markVerificationEmailSent';
 
 const actions = {
   [AUTH.LOGIN]: login,
   [AUTH.LOGOUT]: logout,
   [AUTH.REQUEST_END]: authRequestEnd,
   [AUTH.REQUEST_START]: authRequestStart,
-  [AUTH.VERIFICATION_EMAIL_SENT]: sendVerifyEmail,
+  [AUTH.VERIFICATION_EMAIL_SENT]: markVerificationEmailSent,
 };
 
 export default actionContainer(defaultState, actions);

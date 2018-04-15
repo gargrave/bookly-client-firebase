@@ -1,7 +1,7 @@
 import { AUTH } from '../../actionTypes';
 
-const verificationEmailSent = () => ({
+const markVerificationEmailSent = () => ({
   type: AUTH.VERIFICATION_EMAIL_SENT,
 });
 
-export default verificationEmailSent;
+export default markVerificationEmailSent;

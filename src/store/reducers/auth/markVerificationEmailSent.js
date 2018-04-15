@@ -1,6 +1,6 @@
 import { AUTH } from '../../actionTypes';
 
-const sendVerifyEmailReducer = (state, action) => {
+const markVerificationEmailSentReducer = (state, action) => {
   if (action.type !== AUTH.VERIFICATION_EMAIL_SENT) {
     return state;
   }
@@ -11,4 +11,4 @@ const sendVerifyEmailReducer = (state, action) => {
   };
 };
 
-export default sendVerifyEmailReducer;
+export default markVerificationEmailSentReducer;
