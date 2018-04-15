@@ -5,7 +5,7 @@ import { bool, func, shape, string } from 'prop-types';
 import type { Book } from '../../../../globals/flowtypes';
 
 import Card from '../../../common/Card/Card';
-import CardTextLine from '../../../common/Card/CardTextLine';
+import CardTextLine from '../../../common/Card/CardTextLine/CardTextLine';
 
 type Props = {
   book: Book,

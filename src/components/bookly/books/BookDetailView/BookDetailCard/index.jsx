@@ -10,7 +10,7 @@ import Button from '../../../../common/Button';
 import ButtonRow from '../../../../common/ButtonRow';
 import Card from '../../../../common/Card/Card';
 import CardSpacer from '../../../../common/Card/CardSpacer/CardSpacer';
-import CardTextList from '../../../../common/Card/CardTextList';
+import CardTextList from '../../../../common/Card/CardTextList/CardTextList';
 
 type Props = {
   book: Book,
