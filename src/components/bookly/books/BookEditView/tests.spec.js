@@ -6,7 +6,7 @@ import { bookModel } from '../../../../models/Book.model';
 
 import BookEditView from './';
 import BookForm from '../BookForm';
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 
 const testBook = bookMocks[0];
 

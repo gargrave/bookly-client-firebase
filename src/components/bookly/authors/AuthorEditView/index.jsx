@@ -7,7 +7,7 @@ import type { Author, AuthorErrors } from '../../../../globals/flowtypes';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import AuthorForm from '../AuthorForm';
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 
 type Props = {
   author: Author,

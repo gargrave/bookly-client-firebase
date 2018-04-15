@@ -12,7 +12,7 @@ import { createAuthor, fetchAuthors } from '../../../../store/actions';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import AuthorForm from '../../../bookly/authors/AuthorForm';
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 import CardList from '../../../common/CardList';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
 

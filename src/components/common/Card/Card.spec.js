@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Card from './';
+import Card from './Card';
 
 const defaultProps = Object.freeze({
   children: null,

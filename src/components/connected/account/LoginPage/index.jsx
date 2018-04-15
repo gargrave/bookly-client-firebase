@@ -12,7 +12,7 @@ import { loginHasAllFields, validateLogin } from '../../../../globals/validation
 import { loginUserModel } from '../../../../models/User.model';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 import CardList from '../../../common/CardList';
 import LoginForm from '../../../bookly/account/LoginForm';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';

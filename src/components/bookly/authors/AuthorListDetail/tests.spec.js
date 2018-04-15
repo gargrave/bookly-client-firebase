@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { authorMocks } from '../../../../globals/mocks/';
 
 import AuthorListDetail from './';
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 
 const defaultProps = Object.freeze({
   author: Object.create(authorMocks[0]),

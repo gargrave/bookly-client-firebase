@@ -12,7 +12,7 @@ import {
 } from './helpers';
 
 import Button from '../../../common/Button';
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 import CardSpacer from '../../../common/Card/CardSpacer';
 import CardTextList from '../../../common/Card/CardTextList';
 import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';

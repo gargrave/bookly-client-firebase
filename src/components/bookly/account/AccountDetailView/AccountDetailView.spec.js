@@ -1,7 +1,7 @@
 import { userMocks } from '../../../../globals/mocks/';
 import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
 
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 
 import AccountDetailView from './AccountDetailView';
 

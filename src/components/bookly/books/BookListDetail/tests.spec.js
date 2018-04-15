@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { bookMocks } from '../../../../globals/mocks/';
 
 import BookListDetail from './';
-import Card from '../../../common/Card/';
+import Card from '../../../common/Card/Card';
 
 const testBook = bookMocks[0];
 

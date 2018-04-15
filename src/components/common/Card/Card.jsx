@@ -4,7 +4,7 @@ import { any, array, bool, func, string } from 'prop-types';
 
 import { buildClasses } from '../../../globals/utils/cssHelpers';
 
-import './styles.css';
+import './Card.css';
 
 type Props = {
   children?: any,

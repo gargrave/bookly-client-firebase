@@ -13,7 +13,7 @@ import { registerUserModel } from '../../../../models/User.model';
 import { register } from '../../../../store/actions';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
-import Card from '../../../common/Card';
+import Card from '../../../common/Card/Card';
 import CardList from '../../../common/CardList';
 import RegisterForm from '../../../bookly/account/RegisterForm';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';

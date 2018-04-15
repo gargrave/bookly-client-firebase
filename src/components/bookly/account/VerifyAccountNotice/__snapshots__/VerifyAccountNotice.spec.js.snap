@@ -21,15 +21,28 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <CardTextLine
-          bold={true}
-          text="Your email address has not been verified!"
-        />,
-        <CardTextLine
-          text="Your must verify your email address before your account will be active."
+        <CardSpacer />,
+        <CardTextList
+          textList={
+            Array [
+              Object {
+                "title": "",
+                "value": "You must verify your email address before your account will be fully activated.",
+              },
+              Object {
+                "title": "",
+                "value": "You should have received a verification link at your email address when you registered, but if you need a new link, you can request one below.",
+              },
+              Object {
+                "title": "NOTE",
+                "value": "After verifying your email, you MUST log out and log back in one time for the activation to take effect.",
+              },
+            ]
+          }
         />,
         <CardSpacer />,
         <Button
+          disabled={false}
           onClick={[Function]}
           text="Resend Verification Link"
           type="warning"
@@ -40,6 +53,7 @@ ShallowWrapper {
         "verify-account-card",
       ],
       "hoverable": false,
+      "title": "Your email address has not been verified!",
     },
     "ref": null,
     "rendered": Array [
@@ -47,10 +61,7 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {
-          "bold": true,
-          "text": "Your email address has not been verified!",
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -60,7 +71,20 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "text": "Your must verify your email address before your account will be active.",
+          "textList": Array [
+            Object {
+              "title": "",
+              "value": "You must verify your email address before your account will be fully activated.",
+            },
+            Object {
+              "title": "",
+              "value": "You should have received a verification link at your email address when you registered, but if you need a new link, you can request one below.",
+            },
+            Object {
+              "title": "NOTE",
+              "value": "After verifying your email, you MUST log out and log back in one time for the activation to take effect.",
+            },
+          ],
         },
         "ref": null,
         "rendered": null,
@@ -80,6 +104,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "disabled": false,
           "onClick": [Function],
           "text": "Resend Verification Link",
           "type": "warning",
@@ -98,15 +123,28 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <CardTextLine
-            bold={true}
-            text="Your email address has not been verified!"
-          />,
-          <CardTextLine
-            text="Your must verify your email address before your account will be active."
+          <CardSpacer />,
+          <CardTextList
+            textList={
+              Array [
+                Object {
+                  "title": "",
+                  "value": "You must verify your email address before your account will be fully activated.",
+                },
+                Object {
+                  "title": "",
+                  "value": "You should have received a verification link at your email address when you registered, but if you need a new link, you can request one below.",
+                },
+                Object {
+                  "title": "NOTE",
+                  "value": "After verifying your email, you MUST log out and log back in one time for the activation to take effect.",
+                },
+              ]
+            }
           />,
           <CardSpacer />,
           <Button
+            disabled={false}
             onClick={[Function]}
             text="Resend Verification Link"
             type="warning"
@@ -117,6 +155,7 @@ ShallowWrapper {
           "verify-account-card",
         ],
         "hoverable": false,
+        "title": "Your email address has not been verified!",
       },
       "ref": null,
       "rendered": Array [
@@ -124,10 +163,7 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {
-            "bold": true,
-            "text": "Your email address has not been verified!",
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -137,7 +173,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "text": "Your must verify your email address before your account will be active.",
+            "textList": Array [
+              Object {
+                "title": "",
+                "value": "You must verify your email address before your account will be fully activated.",
+              },
+              Object {
+                "title": "",
+                "value": "You should have received a verification link at your email address when you registered, but if you need a new link, you can request one below.",
+              },
+              Object {
+                "title": "NOTE",
+                "value": "After verifying your email, you MUST log out and log back in one time for the activation to take effect.",
+              },
+            ],
           },
           "ref": null,
           "rendered": null,
@@ -157,6 +206,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "disabled": false,
             "onClick": [Function],
             "text": "Resend Verification Link",
             "type": "warning",
