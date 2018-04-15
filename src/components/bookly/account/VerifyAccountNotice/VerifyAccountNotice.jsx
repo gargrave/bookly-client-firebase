@@ -18,6 +18,10 @@ const buttonText = (emailHasBeenSent) =>
 const buttonClass = (emailHasBeenSent) =>
   emailHasBeenSent ? 'info' : 'warning';
 
+const textLineEmail = 'You must verify your email address before your account will be fully activated.';
+const textLineNewLink = 'You should have received a verification link at your email address when you registered, ' +
+  'but if you need a new link, you can request one below.';
+
 const VerifyAccountNotice = ({
   emailHasBeenSent,
   onSendLinkClick,
@@ -26,14 +30,11 @@ const VerifyAccountNotice = ({
     <Card
       classes={['detail-card', 'verify-account-card']}
       hoverable={false}
+      title={'Your email address has not been verified!'}
     >
-      <CardTextLine
-        bold={true}
-        text={'Your email address has not been verified!'}
-      />
-      <CardTextLine
-        text={'Your must verify your email address before your account will be active.'}
-      />
+      <CardSpacer />
+      <CardTextLine text={textLineEmail} />
+      <CardTextLine text={textLineNewLink} />
       <CardSpacer />
 
       <Button
