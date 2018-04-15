@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { func } from 'prop-types';
 
 import { firebaseAuth } from '../globals/firebase/';
-import { fetchBooks } from '../store/actions';
+import { fetchBooks, fetchProfile } from '../store/actions';
 import { localUrls } from '../globals/urls';
 import { setInitialized, setLocalUserData } from '../store/actions';
 
@@ -43,6 +43,7 @@ class AppWrapper extends Component {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         this.props.setLocalUserData(user);
+        this.props.fetchProfile();
         await this.props.fetchBooks();
       }
 
@@ -84,6 +85,8 @@ class AppWrapper extends Component {
 }
 
 AppWrapper.propTypes = {
+  fetchBooks: func.isRequired,
+  fetchProfile: func.isRequired,
   setInitialized: func.isRequired,
   setLocalUserData: func.isRequired,
 };
@@ -96,6 +99,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchBooks() {
     return dispatch(fetchBooks());
+  },
+
+  fetchProfile() {
+    return dispatch(fetchProfile());
   },
 
   setInitialized() {

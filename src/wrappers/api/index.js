@@ -10,6 +10,8 @@ import fetchBooksByAuthorFromAPI from './books/fetchBooksByAuthor';
 import fetchBooksFromAPI from './books/fetchBooks';
 import updateBookOnAPI from './books/updateBook';
 
+import fetchProfileFromAPI from './profile/fetchProfile';
+
 export {
   createAuthorOnAPI,
   deleteAuthorFromAPI,
@@ -22,4 +24,6 @@ export {
   fetchBooksByAuthorFromAPI,
   fetchBooksFromAPI,
   updateBookOnAPI,
+
+  fetchProfileFromAPI,
 };
