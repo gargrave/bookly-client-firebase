@@ -4,7 +4,7 @@ import { bool, func } from 'prop-types';
 
 import Button from '../../../common/Button';
 import Card from '../../../common/Card/Card';
-import CardSpacer from '../../../common/Card/CardSpacer';
+import CardSpacer from '../../../common/Card/CardSpacer/CardSpacer';
 import CardTextList from '../../../common/Card/CardTextList';
 
 type Props = {

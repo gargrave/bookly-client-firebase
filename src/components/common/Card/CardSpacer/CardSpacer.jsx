@@ -4,7 +4,7 @@ import { oneOf } from 'prop-types';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import './styles.css';
+import './CardSpacer.css';
 
 type Props = {
   size?: string,

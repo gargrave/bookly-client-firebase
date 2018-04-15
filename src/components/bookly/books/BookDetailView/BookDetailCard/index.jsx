@@ -9,7 +9,7 @@ import AuthorLink from '../../../authors/AuthorLink';
 import Button from '../../../../common/Button';
 import ButtonRow from '../../../../common/ButtonRow';
 import Card from '../../../../common/Card/Card';
-import CardSpacer from '../../../../common/Card/CardSpacer';
+import CardSpacer from '../../../../common/Card/CardSpacer/CardSpacer';
 import CardTextList from '../../../../common/Card/CardTextList';
 
 type Props = {
