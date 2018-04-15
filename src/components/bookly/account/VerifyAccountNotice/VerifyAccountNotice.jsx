@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func } from 'prop-types';
+import { bool, func } from 'prop-types';
 
 import Button from '../../../common/Button';
 import Card from '../../../common/Card';
@@ -8,10 +8,18 @@ import CardSpacer from '../../../common/Card/CardSpacer';
 import CardTextLine from '../../../common/Card/CardTextLine';
 
 type Props = {
+  emailHasBeenSent: boolean,
   onSendLinkClick: Function,
 };
 
+const buttonText = (emailHasBeenSent) =>
+  emailHasBeenSent ? 'Verification Link Has Been Sent!' : 'Resend Verification Link';
+
+const buttonClass = (emailHasBeenSent) =>
+  emailHasBeenSent ? 'info' : 'warning';
+
 const VerifyAccountNotice = ({
+  emailHasBeenSent,
   onSendLinkClick,
 }: Props) => {
   return (
@@ -30,14 +38,15 @@ const VerifyAccountNotice = ({
 
       <Button
         onClick={onSendLinkClick}
-        text="Resend Verification Link"
-        type="warning"
+        text={buttonText(emailHasBeenSent)}
+        type={buttonClass(emailHasBeenSent)}
       />
     </Card>
   );
 };
 
 VerifyAccountNotice.propTypes = {
+  emailHasBeenSent: bool.isRequired,
   onSendLinkClick: func.isRequired,
 };
 

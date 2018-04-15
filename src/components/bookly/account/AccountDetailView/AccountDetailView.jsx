@@ -21,12 +21,14 @@ type Props = {
   onLogoutClick: Function,
   onVerifyAccountClick: Function,
   user: User,
+  verificationEmailHasBeenSent: boolean,
 };
 
 const AccountDetailView = ({
   onLogoutClick,
   onVerifyAccountClick,
   user,
+  verificationEmailHasBeenSent,
 }: Props) => {
   return (
     <div className={buildClasses(['detail-view', 'account-detail-view'])}>
@@ -50,6 +52,7 @@ const AccountDetailView = ({
       </Card>
       {!user.emailVerified &&
         <VerifyAccountNotice
+          emailHasBeenSent={verificationEmailHasBeenSent}
           onSendLinkClick={onVerifyAccountClick}
         />
       }
@@ -72,6 +75,7 @@ AccountDetailView.propTypes = {
       string,
     ]),
   }).isRequired,
+  verificationEmailHasBeenSent: bool.isRequired,
 };
 
 export default AccountDetailView;

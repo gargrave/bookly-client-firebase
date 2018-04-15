@@ -8,6 +8,7 @@ ShallowWrapper {
     onLogoutClick={[Function]}
     onVerifyAccountClick={[Function]}
     user={Object {}}
+    verificationEmailHasBeenSent={false}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -66,6 +67,7 @@ ShallowWrapper {
           />
         </Card>,
         <VerifyAccountNotice
+          emailHasBeenSent={false}
           onSendLinkClick={[Function]}
         />,
       ],
@@ -205,6 +207,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "emailHasBeenSent": false,
           "onSendLinkClick": [Function],
         },
         "ref": null,
@@ -265,6 +268,7 @@ ShallowWrapper {
             />
           </Card>,
           <VerifyAccountNotice
+            emailHasBeenSent={false}
             onSendLinkClick={[Function]}
           />,
         ],
@@ -404,6 +408,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "emailHasBeenSent": false,
             "onSendLinkClick": [Function],
           },
           "ref": null,

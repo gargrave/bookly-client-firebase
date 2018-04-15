@@ -9,6 +9,7 @@ const defaultProps = {
   onLogoutClick: jest.fn(),
   onVerifyAccountClick: jest.fn(),
   user: Object.create(userMocks[0]),
+  verificationEmailHasBeenSent: false,
 };
 
 const builder = new ComponentBuilder(

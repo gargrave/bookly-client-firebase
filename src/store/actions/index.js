@@ -5,7 +5,7 @@ import login from './auth/login';
 import logout from './auth/logout';
 import register from './auth/register';
 import setLocalUserData from './auth/setLocalUserData';
-import verificationEmailSent from './auth/verificationEmailSent';
+import markVerificationEmailSent from './auth/markVerificationEmailSent';
 
 import clearPreselectedAuthor from './authors/clearPreselectedAuthor';
 import createAuthor from './authors/createAuthor';
@@ -32,7 +32,7 @@ export {
   logout,
   register,
   setLocalUserData,
-  verificationEmailSent,
+  markVerificationEmailSent,
 
   clearPreselectedAuthor,
   createAuthor,
