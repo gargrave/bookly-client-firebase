@@ -13,8 +13,8 @@ import { fetchAuthors } from '../../../../store/actions';
 import Button from '../../../common/Button';
 import CardList from '../../../common/CardList';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import UnverifiedNotice from '../../../bookly/account/UnverifiedNotice/UnverifiedNotice';
 
-import AuthorsListUnverified from './AuthorsListUnverified/AuthorsListUnverified';
 import AuthorsListVerified from './AuthorsListVerified/AuthorsListVerified';
 
 type Props = {
@@ -86,7 +86,7 @@ class AuthorsListPage extends Component<Props, State> {
   renderContent() {
     const { user } = this.props;
     if (!user || !user.emailVerified) {
-      return <AuthorsListUnverified />;
+      return <UnverifiedNotice />;
     }
 
     return (
