@@ -12,18 +12,20 @@ import {
 } from './helpers';
 
 import Button from '../../../common/Button';
-import ButtonRow from '../../../common/ButtonRow';
 import Card from '../../../common/Card';
 import CardSpacer from '../../../common/Card/CardSpacer';
 import CardTextList from '../../../common/Card/CardTextList';
+import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';
 
 type Props = {
   onLogoutClick: Function,
+  onVerifyAccountClick: Function,
   user: User,
 };
 
 const AccountDetailView = ({
   onLogoutClick,
+  onVerifyAccountClick,
   user,
 }: Props) => {
   return (
@@ -40,21 +42,24 @@ const AccountDetailView = ({
         <CardTextList textList={userRegDetailsTextList(user)} />
         <CardSpacer />
 
-        <ButtonRow>
-          <Button
-            onClick={onLogoutClick}
-            position="left"
-            text="Logout"
-            type="info"
-          />
-        </ButtonRow>
+        <Button
+          onClick={onLogoutClick}
+          text="Logout"
+          type="info"
+        />
       </Card>
+      {!user.emailVerified &&
+        <VerifyAccountNotice
+          onSendLinkClick={onVerifyAccountClick}
+        />
+      }
     </div>
   );
 };
 
 AccountDetailView.propTypes = {
   onLogoutClick: func.isRequired,
+  onVerifyAccountClick: func.isRequired,
   user: shape({
     email: string,
     emailVerified: bool,

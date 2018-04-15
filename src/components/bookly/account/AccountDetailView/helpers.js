@@ -9,9 +9,11 @@ export const userBasicDetailsTextList = (user: User) => {
     emailVerified,
   } = user;
 
+  const verifiedStr = emailVerified ? '' : ' (unverified)';
+  const emailStr = `${email}${verifiedStr}`;
+
   return [
-    { title: 'Email', value: email },
-    { title: 'Verified', value: `${emailVerified}` },
+    { title: 'Email', value: emailStr },
   ];
 };
 

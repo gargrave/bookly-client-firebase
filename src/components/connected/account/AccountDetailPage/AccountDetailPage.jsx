@@ -19,17 +19,14 @@ type Props = {
 };
 
 class AccountDetailPage extends Component<Props> {
-  constructor(props: Props) {
-    super(props);
-
-    const _this: any = this;
-    _this.onLogoutClick = _this.onLogoutClick.bind(this);
-  }
-
-  async onLogoutClick(event) {
+  onLogoutClick = async (event) => {
     event.preventDefault();
     await this.props.logout();
     this.props.history.push(localUrls.login);
+  }
+
+  onVerifyAccountClick = async () => {
+    console.log('%conVerifyAccountClick', 'color: pink;font-size: 12px;background:#454;padding:2px 4px;');
   }
 
   render() {
@@ -40,6 +37,7 @@ class AccountDetailPage extends Component<Props> {
       <CardList>
         <AccountDetailView
           onLogoutClick={this.onLogoutClick}
+          onVerifyAccountClick={this.onVerifyAccountClick}
           user={user}
         />
       </CardList>
@@ -63,4 +61,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RequiresAuth(AccountDetailPage, localUrls.login));
+export default connect(mapStateToProps, mapDispatchToProps)(
+  RequiresAuth(AccountDetailPage, localUrls.login)
+);

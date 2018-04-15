@@ -1,32 +1,31 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import { userMocks } from '../../../../globals/mocks/';
+import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
 
 import Card from '../../../common/Card';
 
 import AccountDetailView from './AccountDetailView';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   onLogoutClick: jest.fn(),
+  onVerifyAccountClick: jest.fn(),
   user: Object.create(userMocks[0]),
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<AccountDetailView {...props} />);
-}
+const builder = new ComponentBuilder(
+  AccountDetailView,
+  defaultProps,
+);
 
 describe('AccountDetailView', () => {
   let component;
 
   test('matches the snapshot', () => {
-    component = getComponent();
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
   test('renders correctly', () => {
-    component = getComponent();
+    component = builder.shallowGetComponent();
     expect(component.find('.bookly-account-detail-view')).toHaveLength(1);
     expect(component.find(Card)).toHaveLength(1);
   });
