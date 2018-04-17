@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bool, func, object } from 'prop-types';
 
-import type { User } from '../../../../globals/flowtypes';
+import type { Profile, User } from '../../../../globals/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { createSnackbar, logout, markVerificationEmailSent } from '../../../../store/actions';
@@ -18,11 +18,22 @@ type Props = {
   history: any,
   logout: Function,
   markVerificationEmailSent: Function,
+  profile: Profile,
   user: User,
   verificationEmailHasBeenSent: boolean,
 };
 
 class AccountDetailPage extends Component<Props> {
+  static propTypes = {
+    createSnackbar: func.isRequired,
+    history: object.isRequired,
+    logout: func.isRequired,
+    markVerificationEmailSent: func.isRequired,
+    profile: object.isRequired,
+    user: object.isRequired,
+    verificationEmailHasBeenSent: bool.isRequired,
+  };
+
   onLogoutClick = async (event) => {
     event.preventDefault();
     await this.props.logout();
@@ -40,14 +51,17 @@ class AccountDetailPage extends Component<Props> {
 
   render() {
     const {
+      profile,
       user,
       verificationEmailHasBeenSent,
     } = this.props;
+
     return (
       <CardList>
         <AccountDetailView
           onLogoutClick={this.onLogoutClick}
           onVerifyAccountClick={this.onVerifyAccountClick}
+          profile={profile}
           user={user}
           verificationEmailHasBeenSent={verificationEmailHasBeenSent}
         />
@@ -56,17 +70,9 @@ class AccountDetailPage extends Component<Props> {
   }
 }
 
-AccountDetailPage.propTypes = {
-  createSnackbar: func.isRequired,
-  history: object.isRequired,
-  logout: func.isRequired,
-  markVerificationEmailSent: func.isRequired,
-  user: object.isRequired,
-  verificationEmailHasBeenSent: bool.isRequired,
-};
-
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state, ownProps) => ({
+  profile: state.profile.data,
   user: state.auth.user,
   verificationEmailHasBeenSent: state.auth.verificationEmailSent,
 });

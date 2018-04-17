@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 
-import type { User } from '../../../../globals/flowtypes';
+import type { Profile, User } from '../../../../globals/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
@@ -20,6 +20,7 @@ import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';
 type Props = {
   onLogoutClick: Function,
   onVerifyAccountClick: Function,
+  profile: Profile,
   user: User,
   verificationEmailHasBeenSent: boolean,
 };
@@ -27,6 +28,7 @@ type Props = {
 const AccountDetailView = ({
   onLogoutClick,
   onVerifyAccountClick,
+  profile,
   user,
   verificationEmailHasBeenSent,
 }: Props) => {
@@ -39,7 +41,7 @@ const AccountDetailView = ({
       >
 
         <CardSpacer />
-        <CardTextList textList={userBasicDetailsTextList(user)} />
+        <CardTextList textList={userBasicDetailsTextList(user, profile)} />
         <CardSpacer />
         <CardTextList textList={userRegDetailsTextList(user)} />
         <CardSpacer />
