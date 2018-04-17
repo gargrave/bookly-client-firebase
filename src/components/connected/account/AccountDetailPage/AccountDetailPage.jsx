@@ -10,6 +10,7 @@ import { createSnackbar, logout, markVerificationEmailSent } from '../../../../s
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
 import AccountDetailView from '../../../bookly/account/AccountDetailView/AccountDetailView';
+import AccountEditView from '../../../bookly/account/AccountEditView/AccountEditView';
 import CardList from '../../../common/CardList';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
@@ -23,7 +24,11 @@ type Props = {
   verificationEmailHasBeenSent: boolean,
 };
 
-class AccountDetailPage extends Component<Props> {
+type State = {
+  editing: boolean,
+};
+
+class AccountDetailPage extends Component<Props, State> {
   static propTypes = {
     createSnackbar: func.isRequired,
     history: object.isRequired,
@@ -34,8 +39,20 @@ class AccountDetailPage extends Component<Props> {
     verificationEmailHasBeenSent: bool.isRequired,
   };
 
-  onEditClick = async () => {
-    // TODO: navigate to ProfileEditPage
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      editing: false,
+    };
+  }
+
+  onEditClick = () => {
+    this.setState({ editing: true });
+  }
+
+  onCancelClick = () => {
+    this.setState({ editing: false });
   }
 
   onLogoutClick = async () => {
@@ -52,7 +69,7 @@ class AccountDetailPage extends Component<Props> {
     }
   }
 
-  render() {
+  renderDetailView() {
     const {
       profile,
       user,
@@ -60,15 +77,39 @@ class AccountDetailPage extends Component<Props> {
     } = this.props;
 
     return (
+      <AccountDetailView
+        onEditClick={this.onEditClick}
+        onLogoutClick={this.onLogoutClick}
+        onVerifyAccountClick={this.onVerifyAccountClick}
+        profile={profile}
+        user={user}
+        verificationEmailHasBeenSent={verificationEmailHasBeenSent}
+      />
+    );
+  }
+
+  renderEditView() {
+    const {
+      profile,
+      user,
+    } = this.props;
+
+    return (
+      <AccountEditView
+        onCancelClick={this.onCancelClick}
+        profile={profile}
+        user={user}
+      />
+    );
+  }
+
+  render() {
+    const { editing } = this.state;
+
+    return (
       <CardList>
-        <AccountDetailView
-          onEditClick={this.onEditClick}
-          onLogoutClick={this.onLogoutClick}
-          onVerifyAccountClick={this.onVerifyAccountClick}
-          profile={profile}
-          user={user}
-          verificationEmailHasBeenSent={verificationEmailHasBeenSent}
-        />
+        {!editing && this.renderDetailView()}
+        {editing && this.renderEditView()}
       </CardList>
     );
   }

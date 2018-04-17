@@ -1,4 +1,4 @@
-import { userMocks } from '../../../../globals/mocks/';
+import { profileMocks, userMocks } from '../../../../globals/mocks/';
 import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
 
 import Card from '../../../common/Card/Card';
@@ -6,9 +6,11 @@ import Card from '../../../common/Card/Card';
 import AccountDetailView from './AccountDetailView';
 
 const defaultProps = {
+  onEditClick: jest.fn(),
   onLogoutClick: jest.fn(),
   onVerifyAccountClick: jest.fn(),
-  user: Object.create(userMocks[0]),
+  profile: { ...profileMocks[0] },
+  user: { ...userMocks[0] },
   verificationEmailHasBeenSent: false,
 };
 

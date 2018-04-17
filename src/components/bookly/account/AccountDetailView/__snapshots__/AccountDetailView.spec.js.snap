@@ -5,9 +5,27 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <AccountDetailView
+    onEditClick={[Function]}
     onLogoutClick={[Function]}
     onVerifyAccountClick={[Function]}
-    user={Object {}}
+    profile={
+      Object {
+        "created": 2017-07-01T01:16:43.881Z,
+        "firstName": "Larry",
+        "lastName": "Finklestein",
+        "owner": "oiw223h3qndlksadffl3ksdf",
+        "updated": 2017-07-01T01:16:43.881Z,
+      }
+    }
+    user={
+      Object {
+        "email": "mockuser1@gmail.com",
+        "lastLogin": 2017-07-01T01:11:03.942Z,
+        "registered": 2017-06-30T19:52:54.644Z,
+        "uid": "h6EfCE6MrJ5IVf2ay3QsPdX5Jd23",
+        "verified": true,
+      }
+    }
     verificationEmailHasBeenSent={false}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -38,6 +56,10 @@ ShallowWrapper {
             textList={
               Array [
                 Object {
+                  "title": "Name",
+                  "value": "Larry Finklestein",
+                },
+                Object {
                   "title": "Email",
                   "value": "mockuser1@gmail.com (unverified)",
                 },
@@ -60,11 +82,20 @@ ShallowWrapper {
             }
           />
           <CardSpacer />
-          <Button
-            onClick={[Function]}
-            text="Logout"
-            type="info"
-          />
+          <ButtonRow>
+            <Button
+              onClick={[Function]}
+              position="left"
+              text="Logout"
+              type="info"
+            />
+            <Button
+              onClick={[Function]}
+              position="right"
+              text="Edit"
+              type="secondary"
+            />
+          </ButtonRow>
         </Card>,
         <VerifyAccountNotice
           emailHasBeenSent={false}
@@ -85,6 +116,10 @@ ShallowWrapper {
             <CardTextList
               textList={
                 Array [
+                  Object {
+                    "title": "Name",
+                    "value": "Larry Finklestein",
+                  },
                   Object {
                     "title": "Email",
                     "value": "mockuser1@gmail.com (unverified)",
@@ -108,11 +143,20 @@ ShallowWrapper {
               }
             />,
             <CardSpacer />,
-            <Button
-              onClick={[Function]}
-              text="Logout"
-              type="info"
-            />,
+            <ButtonRow>
+              <Button
+                onClick={[Function]}
+                position="left"
+                text="Logout"
+                type="info"
+              />
+              <Button
+                onClick={[Function]}
+                position="right"
+                text="Edit"
+                type="secondary"
+              />
+            </ButtonRow>,
           ],
           "classes": Array [
             "detail-card",
@@ -139,6 +183,10 @@ ShallowWrapper {
             "props": Object {
               "textList": Array [
                 Object {
+                  "title": "Name",
+                  "value": "Larry Finklestein",
+                },
+                Object {
                   "title": "Email",
                   "value": "mockuser1@gmail.com (unverified)",
                 },
@@ -191,12 +239,52 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
-              "onClick": [Function],
-              "text": "Logout",
-              "type": "info",
+              "children": Array [
+                <Button
+                  onClick={[Function]}
+                  position="left"
+                  text="Logout"
+                  type="info"
+                />,
+                <Button
+                  onClick={[Function]}
+                  position="right"
+                  text="Edit"
+                  type="secondary"
+                />,
+              ],
             },
             "ref": null,
-            "rendered": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "onClick": [Function],
+                  "position": "left",
+                  "text": "Logout",
+                  "type": "info",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "onClick": [Function],
+                  "position": "right",
+                  "text": "Edit",
+                  "type": "secondary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
             "type": [Function],
           },
         ],
@@ -239,6 +327,10 @@ ShallowWrapper {
               textList={
                 Array [
                   Object {
+                    "title": "Name",
+                    "value": "Larry Finklestein",
+                  },
+                  Object {
                     "title": "Email",
                     "value": "mockuser1@gmail.com (unverified)",
                   },
@@ -261,11 +353,20 @@ ShallowWrapper {
               }
             />
             <CardSpacer />
-            <Button
-              onClick={[Function]}
-              text="Logout"
-              type="info"
-            />
+            <ButtonRow>
+              <Button
+                onClick={[Function]}
+                position="left"
+                text="Logout"
+                type="info"
+              />
+              <Button
+                onClick={[Function]}
+                position="right"
+                text="Edit"
+                type="secondary"
+              />
+            </ButtonRow>
           </Card>,
           <VerifyAccountNotice
             emailHasBeenSent={false}
@@ -286,6 +387,10 @@ ShallowWrapper {
               <CardTextList
                 textList={
                   Array [
+                    Object {
+                      "title": "Name",
+                      "value": "Larry Finklestein",
+                    },
                     Object {
                       "title": "Email",
                       "value": "mockuser1@gmail.com (unverified)",
@@ -309,11 +414,20 @@ ShallowWrapper {
                 }
               />,
               <CardSpacer />,
-              <Button
-                onClick={[Function]}
-                text="Logout"
-                type="info"
-              />,
+              <ButtonRow>
+                <Button
+                  onClick={[Function]}
+                  position="left"
+                  text="Logout"
+                  type="info"
+                />
+                <Button
+                  onClick={[Function]}
+                  position="right"
+                  text="Edit"
+                  type="secondary"
+                />
+              </ButtonRow>,
             ],
             "classes": Array [
               "detail-card",
@@ -340,6 +454,10 @@ ShallowWrapper {
               "props": Object {
                 "textList": Array [
                   Object {
+                    "title": "Name",
+                    "value": "Larry Finklestein",
+                  },
+                  Object {
                     "title": "Email",
                     "value": "mockuser1@gmail.com (unverified)",
                   },
@@ -392,12 +510,52 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "onClick": [Function],
-                "text": "Logout",
-                "type": "info",
+                "children": Array [
+                  <Button
+                    onClick={[Function]}
+                    position="left"
+                    text="Logout"
+                    type="info"
+                  />,
+                  <Button
+                    onClick={[Function]}
+                    position="right"
+                    text="Edit"
+                    type="secondary"
+                  />,
+                ],
               },
               "ref": null,
-              "rendered": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "onClick": [Function],
+                    "position": "left",
+                    "text": "Logout",
+                    "type": "info",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "onClick": [Function],
+                    "position": "right",
+                    "text": "Edit",
+                    "type": "secondary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
               "type": [Function],
             },
           ],
