@@ -34,8 +34,11 @@ class AccountDetailPage extends Component<Props> {
     verificationEmailHasBeenSent: bool.isRequired,
   };
 
-  onLogoutClick = async (event) => {
-    event.preventDefault();
+  onEditClick = async () => {
+    // TODO: navigate to ProfileEditPage
+  }
+
+  onLogoutClick = async () => {
     await this.props.logout();
     this.props.history.push(localUrls.login);
   }
@@ -59,6 +62,7 @@ class AccountDetailPage extends Component<Props> {
     return (
       <CardList>
         <AccountDetailView
+          onEditClick={this.onEditClick}
           onLogoutClick={this.onLogoutClick}
           onVerifyAccountClick={this.onVerifyAccountClick}
           profile={profile}

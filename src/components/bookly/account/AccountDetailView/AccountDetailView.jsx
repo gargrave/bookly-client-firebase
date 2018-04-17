@@ -12,12 +12,14 @@ import {
 } from './helpers';
 
 import Button from '../../../common/Button';
+import ButtonRow from '../../../common/ButtonRow';
 import Card from '../../../common/Card/Card';
 import CardSpacer from '../../../common/Card/CardSpacer/CardSpacer';
 import CardTextList from '../../../common/Card/CardTextList/CardTextList';
 import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';
 
 type Props = {
+  onEditClick: Function,
   onLogoutClick: Function,
   onVerifyAccountClick: Function,
   profile: Profile,
@@ -26,6 +28,7 @@ type Props = {
 };
 
 const AccountDetailView = ({
+  onEditClick,
   onLogoutClick,
   onVerifyAccountClick,
   profile,
@@ -46,11 +49,20 @@ const AccountDetailView = ({
         <CardTextList textList={userRegDetailsTextList(user)} />
         <CardSpacer />
 
-        <Button
-          onClick={onLogoutClick}
-          text="Logout"
-          type="info"
-        />
+        <ButtonRow>
+          <Button
+            onClick={onLogoutClick}
+            position="left"
+            text="Logout"
+            type="info"
+          />
+          <Button
+            onClick={onEditClick}
+            position="right"
+            text="Edit"
+            type="secondary"
+          />
+        </ButtonRow>
       </Card>
       {!user.emailVerified &&
         <VerifyAccountNotice
