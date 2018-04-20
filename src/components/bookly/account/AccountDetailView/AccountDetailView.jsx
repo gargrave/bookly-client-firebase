@@ -75,6 +75,7 @@ const AccountDetailView = ({
 };
 
 AccountDetailView.propTypes = {
+  onEditClick: func.isRequired,
   onLogoutClick: func.isRequired,
   onVerifyAccountClick: func.isRequired,
   user: shape({

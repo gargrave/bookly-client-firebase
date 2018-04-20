@@ -18,6 +18,11 @@ type Props = {
   submitDisabled?: boolean,
 };
 
+const profileShape = shape({
+  firstName: string.isRequired,
+  lastName: string.isRequired,
+});
+
 const AccountForm = ({
   disabled = false,
   errors,
@@ -59,15 +64,9 @@ const AccountForm = ({
 };
 
 AccountForm.propTypes = {
-  profile: shape({
-    firstName: string.isRequired,
-    lastName: string.isRequired,
-  }).isRequired,
+  profile: profileShape.isRequired,
   disabled: bool,
-  errors: shape({
-    firstName: string.isRequired,
-    lastName: string.isRequired,
-  }).isRequired,
+  errors: profileShape.isRequired,
   onCancel: func.isRequired,
   onInputChange: func.isRequired,
   onSubmit: func.isRequired,

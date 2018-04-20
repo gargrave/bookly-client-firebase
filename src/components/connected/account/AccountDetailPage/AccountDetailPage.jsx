@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bool, func, object } from 'prop-types';
 
-import type { Profile, User } from '../../../../globals/flowtypes';
+import type { Profile, ProfileErrors, User } from '../../../../globals/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { createSnackbar, logout, markVerificationEmailSent } from '../../../../store/actions';
+import profileModel from '../../../../models/Profile.model';
+import { createSnackbar, logout, markVerificationEmailSent, updateProfile } from '../../../../store/actions';
+import { profileHasAllFields, profilesMatch, validateProfile } from '../../../../globals/validations';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
 import AccountDetailView from '../../../bookly/account/AccountDetailView/AccountDetailView';
@@ -20,12 +22,18 @@ type Props = {
   logout: Function,
   markVerificationEmailSent: Function,
   profile: Profile,
+  updateProfile: Function,
   user: User,
   verificationEmailHasBeenSent: boolean,
 };
 
 type State = {
+  editableProfile: Profile,
   editing: boolean,
+  errors: ProfileErrors,
+  formDisabled: boolean,
+  submitDisabled: boolean,
+  topLevelError: string,
 };
 
 class AccountDetailPage extends Component<Props, State> {
@@ -35,6 +43,7 @@ class AccountDetailPage extends Component<Props, State> {
     logout: func.isRequired,
     markVerificationEmailSent: func.isRequired,
     profile: object.isRequired,
+    updateProfile: func.isRequired,
     user: object.isRequired,
     verificationEmailHasBeenSent: bool.isRequired,
   };
@@ -43,12 +52,39 @@ class AccountDetailPage extends Component<Props, State> {
     super(props);
 
     this.state = {
+      editableProfile: profileModel.empty(),
       editing: false,
+      errors: profileModel.emptyErrors(),
+      formDisabled: false,
+      submitDisabled: true,
     };
   }
 
+  onInputChange = (e) => {
+    const key = e.target.name;
+    if (key in this.state.editableProfile) {
+      const editableProfile = {
+        ...this.state.editableProfile,
+        [key]: e.target.value,
+      };
+      const submitDisabled =
+        profilesMatch(this.props.profile, editableProfile)
+        || !profileHasAllFields(editableProfile);
+
+      this.setState({
+        editableProfile,
+        submitDisabled,
+      });
+    }
+  }
+
   onEditClick = () => {
-    this.setState({ editing: true });
+    this.setState({
+      editableProfile: { ...this.props.profile },
+      editing: true,
+      formDisabled: false,
+      submitDisabled: true,
+    });
   }
 
   onCancelClick = () => {
@@ -58,6 +94,39 @@ class AccountDetailPage extends Component<Props, State> {
   onLogoutClick = async () => {
     await this.props.logout();
     this.props.history.push(localUrls.login);
+  }
+
+  onSubmit = async (e) => {
+    e.preventDefault();
+    const profile = this.state.editableProfile;
+    const errors = validateProfile(profile);
+    if (errors.found) {
+      this.setState({ errors });
+    } else {
+        this.setState({
+        errors: profileModel.emptyErrors(),
+        formDisabled: true,
+        topLevelError: '',
+      }, async () => {
+        try {
+          const profile = profileModel.toAPI({
+            ...this.props.profile,
+            ...this.state.editableProfile,
+          });
+
+          await this.props.updateProfile(profile);
+          this.setState({
+            editing: false,
+            formDisabled: false,
+          });
+        } catch (err) {
+          this.setState({
+            formDisabled: false,
+            topLevelError: err,
+          });
+        }
+      });
+    }
   }
 
   onVerifyAccountClick = async () => {
@@ -78,6 +147,7 @@ class AccountDetailPage extends Component<Props, State> {
 
     return (
       <AccountDetailView
+        onCancelClick={this.onCancelClick}
         onEditClick={this.onEditClick}
         onLogoutClick={this.onLogoutClick}
         onVerifyAccountClick={this.onVerifyAccountClick}
@@ -90,15 +160,23 @@ class AccountDetailPage extends Component<Props, State> {
 
   renderEditView() {
     const {
-      profile,
-      user,
-    } = this.props;
+      editableProfile,
+      errors,
+      formDisabled,
+      submitDisabled,
+      topLevelError,
+    } = this.state;
 
     return (
       <AccountEditView
+        disabled={formDisabled}
+        errors={errors}
         onCancelClick={this.onCancelClick}
-        profile={profile}
-        user={user}
+        onInputChange={this.onInputChange}
+        onSubmit={this.onSubmit}
+        profile={editableProfile}
+        submitDisabled={submitDisabled}
+        topLevelError={topLevelError}
       />
     );
   }
@@ -133,6 +211,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
   markVerificationEmailSent() {
     return dispatch(markVerificationEmailSent());
+  },
+
+  updateProfile(profile: Profile) {
+    return dispatch(updateProfile(profile));
   },
 });
 

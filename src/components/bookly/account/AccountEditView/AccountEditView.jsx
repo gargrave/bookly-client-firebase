@@ -1,24 +1,34 @@
 // @flow
 import React from 'react';
-import { object } from 'prop-types';
+import { bool, func, object, string } from 'prop-types';
 
-import type { Profile, User } from '../../../../globals/flowtypes';
+import type { Profile } from '../../../../globals/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
-import profileModel from '../../../../models/Profile.model';
 
 import Card from '../../../common/Card/Card';
-
 import AccountForm from '../AccountForm/AccountForm';
 
 type Props = {
+  disabled: boolean,
+  errors: Object,
+  onCancelClick: Function,
+  onInputChange: Function,
+  onSubmit: Function,
   profile: Profile,
-  user: User,
+  submitDisabled: boolean,
+  topLevelError: string,
 };
 
 const AccountEditView = ({
+  disabled,
+  errors,
+  onCancelClick,
+  onInputChange,
+  onSubmit,
   profile,
-  user,
+  submitDisabled = false,
+  topLevelError,
 }: Props) => {
   return (
     <div className={buildClasses(['detail-view', 'account-edit-view'])}>
@@ -28,14 +38,14 @@ const AccountEditView = ({
         hoverable={false}
       >
         <AccountForm
-          disabled={false}
-          errors={profileModel.emptyErrors()}
-          onCancel={() => {}}
-          onInputChange={() => {}}
-          onSubmit={() => {}}
+          disabled={disabled}
+          errors={errors}
+          onCancel={onCancelClick}
+          onInputChange={onInputChange}
+          onSubmit={onSubmit}
           profile={profile}
-          submitDisabled={false}
-          topLevelError={''}
+          submitDisabled={submitDisabled}
+          topLevelError={topLevelError}
         />
       </Card>
     </div>
@@ -43,8 +53,14 @@ const AccountEditView = ({
 };
 
 AccountEditView.propTypes = {
+  disabled: bool.isRequired,
+  errors: object.isRequired,
+  onCancelClick: func.isRequired,
+  onInputChange: func.isRequired,
+  onSubmit: func.isRequired,
   profile: object.isRequired,
-  user: object.isRequired,
+  submitDisabled: bool.isRequired,
+  topLevelError: string,
 };
 
 export default AccountEditView;
