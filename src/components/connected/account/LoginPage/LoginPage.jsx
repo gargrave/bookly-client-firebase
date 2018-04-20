@@ -17,6 +17,8 @@ import CardList from '../../../common/CardList';
 import LoginForm from '../../../bookly/account/LoginForm';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
+import './LoginPage.css';
+
 type Props = {
   history: any,
   login: Function,
@@ -113,6 +115,9 @@ class LoginPage extends Component<Props, State> {
               submitDisabled={submitDisabled}
               topLevelError={this.state.topLevelError}
             />
+            <div className={buildClasses(['password-reset-link'])}>
+              <Link to={localUrls.pwResetRequest}>Forgot your password?</Link>
+            </div>
           </Card>
           <p className={buildClasses(['big-link'])}>
             or <Link to={localUrls.register}>create an account</Link>
