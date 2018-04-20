@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import AccountDetailPage from './connected/account/AccountDetailPage/AccountDetailPage';
 import LoginPage from './connected/account/LoginPage';
-import RegisterPage from './connected/account/RegisterPage';
+import RegisterPage from './connected/account/RegisterPage/RegisterPage';
 
 import AuthorCreatePage from './connected/authors/AuthorCreatePage';
 import AuthorDetailPage from './connected/authors/AuthorDetailPage';
