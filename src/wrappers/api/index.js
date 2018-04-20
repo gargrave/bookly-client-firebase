@@ -12,6 +12,7 @@ import updateBookOnAPI from './books/updateBook';
 
 import createProfileOnAPI from './profile/createProfile';
 import fetchProfileFromAPI from './profile/fetchProfile';
+import updateProfileOnAPI from './profile/updateProfile';
 
 export {
   createAuthorOnAPI,
@@ -28,4 +29,5 @@ export {
 
   createProfileOnAPI,
   fetchProfileFromAPI,
+  updateProfileOnAPI,
 };

@@ -22,6 +22,7 @@ import refreshBooksByAuthor from './books/refreshBooksByAuthor';
 import updateBook from './books/updateBook';
 
 import fetchProfile from './profile/fetchProfile';
+import updateProfile from './profile/updateProfile';
 
 import createSnackbar from './snackbar/createSnackbar';
 import popSnackbar from './snackbar/popSnackbar';
@@ -51,6 +52,7 @@ export {
   updateBook,
 
   fetchProfile,
+  updateProfile,
 
   createSnackbar,
   popSnackbar,
