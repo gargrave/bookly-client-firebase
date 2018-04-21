@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField';
 
-import LoginForm from './';
+import LoginForm from './LoginForm';
 
 const defaultProps = Object.freeze({
   disabled: false,

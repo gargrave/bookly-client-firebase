@@ -14,7 +14,7 @@ import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import Card from '../../../common/Card/Card';
 import CardList from '../../../common/CardList';
-import LoginForm from '../../../bookly/account/LoginForm';
+import LoginForm from '../../../bookly/account/LoginForm/LoginForm';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 import './LoginPage.css';
