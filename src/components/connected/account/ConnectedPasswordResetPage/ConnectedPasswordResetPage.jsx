@@ -5,7 +5,7 @@ import { func, string } from 'prop-types';
 
 import { createSnackbar, markPasswordResetEmailSent } from '../../../../store/actions';
 
-import PasswordResetPage from './PasswordResetPage';
+import PasswordResetPage from '../../../bookly/account/PasswordResetPage/PasswordResetPage';
 
 type Props = {
   createSnackbar: Function,

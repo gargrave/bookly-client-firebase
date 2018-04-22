@@ -16,7 +16,7 @@ import Card from '../../../common/Card/Card';
 import CardSpacer from '../../../common/Card/CardSpacer/CardSpacer';
 import CardList from '../../../common/CardList';
 import CardTextLine from '../../../common/Card/CardTextLine/CardTextLine';
-import PasswordResetForm from '../../../bookly/account/PasswordResetForm/PasswordResetForm';
+import PasswordResetForm from './PasswordResetForm/PasswordResetForm';
 
 type Props = {
   createSnackbar: Function,
