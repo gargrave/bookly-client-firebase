@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { func, object } from 'prop-types';
+import { func, object, string } from 'prop-types';
 
 import type { PasswordReset, PasswordResetErrors } from '../../../../globals/flowtypes';
 
@@ -12,7 +11,7 @@ import {
   validatePasswordReset,
 } from '../../../../globals/validations';
 import passwordResetModel from '../../../../models/PasswordReset.model';
-import { createSnackbar } from '../../../../store/actions';
+import { createSnackbar, markPasswordResetEmailSent } from '../../../../store/actions';
 import { sendPasswordResetEmail } from '../../../../wrappers/auth';
 
 import Card from '../../../common/Card/Card';
@@ -22,6 +21,8 @@ import PasswordResetForm from '../../../bookly/account/PasswordResetForm/Passwor
 type Props = {
   createSnackbar: Function,
   history: any,
+  markPasswordResetEmailSent: Function,
+  passwordResetEmailSentTo: string,
 };
 
 type State = {
@@ -36,6 +37,8 @@ class PasswordResetPage extends React.Component<Props, State> {
   static propTypes = {
     createSnackbar: func.isRequired,
     history: object.isRequired,
+    markPasswordResetEmailSent: func.isRequired,
+    passwordResetEmailSentTo: string,
   }
 
   constructor(props) {
@@ -76,7 +79,7 @@ class PasswordResetPage extends React.Component<Props, State> {
     }, async () => {
       try {
         await sendPasswordResetEmail(model.email);
-        console.log('%cemail sent!', 'color: pink;font-size: 12px;background:#454;padding:2px 4px;');
+        this.props.markPasswordResetEmailSent(model.email);
       } catch (err) {
         const topLevelError = 'This was an error sending the email.';
         this.props.createSnackbar(topLevelError);
@@ -120,11 +123,17 @@ class PasswordResetPage extends React.Component<Props, State> {
 }
 
 /* eslint-disable no-unused-vars */
-const mapStateToProps = (state: any, ownProps: any) => ({});
+const mapStateToProps = (state: any, ownProps: any) => ({
+  passwordResetEmailSentTo: state.passwordResetEmailSentTo,
+});
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
   createSnackbar(message: string) {
     return dispatch(createSnackbar(message));
+  },
+
+  markPasswordResetEmailSent(email: string) {
+    return dispatch(markPasswordResetEmailSent(email));
   },
 });
 

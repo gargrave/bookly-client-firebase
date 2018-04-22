@@ -8,6 +8,7 @@ import authRequestEnd from './authRequestEnd';
 import authRequestStart from './authRequestStart';
 import login from './login';
 import logout from './logout';
+import markPasswordResetEmailSent from './markPasswordResetEmailSent';
 import markVerificationEmailSent from './markVerificationEmailSent';
 
 const actions = {
@@ -15,6 +16,7 @@ const actions = {
   [AUTH.LOGOUT]: logout,
   [AUTH.REQUEST_END]: authRequestEnd,
   [AUTH.REQUEST_START]: authRequestStart,
+  [AUTH.PASSWORD_RESET_EMAIL_SENT]: markPasswordResetEmailSent,
   [AUTH.VERIFICATION_EMAIL_SENT]: markVerificationEmailSent,
 };
 
