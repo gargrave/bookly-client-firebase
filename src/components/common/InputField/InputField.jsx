@@ -3,6 +3,7 @@ import React from 'react';
 import { bool, func, number, oneOf, string } from 'prop-types';
 
 import { buildClasses } from '../../../globals/utils/cssHelpers';
+import { clamp } from '../../../globals/utils/mathHelpers';
 
 import './InputField.css';
 
@@ -11,6 +12,7 @@ type Props = {
   disabled?: boolean,
   error?: string,
   label?: string,
+  maxLength?: number,
   name: string,
   onInputChange: Function,
   placeholder?: string,
@@ -29,6 +31,7 @@ const InputField = ({
   disabled,
   error,
   label,
+  maxLength = 255,
   name,
   onInputChange,
   placeholder,
@@ -43,6 +46,7 @@ const InputField = ({
         disabled={disabled || false}
         id={name}
         name={name}
+        maxLength={clamp(maxLength, 1, 255)}
         onChange={onInputChange}
         placeholder={placeholder || ''}
         type={type || 'text'}
@@ -62,6 +66,7 @@ InputField.propTypes = {
   boundValue: string.isRequired,
   disabled: bool,
   error: string,
+  maxLength: number,
   label: string,
   name: string.isRequired,
   onInputChange: func.isRequired,

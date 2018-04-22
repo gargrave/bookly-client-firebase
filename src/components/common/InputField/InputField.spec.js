@@ -85,4 +85,30 @@ describe('InputField', () => {
       expect(component.find('input[type="text"]')).toHaveLength(0);
     });
   });
+
+  describe('maxLength', () => {
+    test('has a default "maxlength" when none is supplied', () => {
+      component = getComponent();
+      const input = component.find('input');
+      expect(input.prop('maxLength')).toEqual(255);
+    });
+
+    test('correctly applies the "maxLength" attirbute', () => {
+      component = getComponent({ maxLength: 50 });
+      const input = component.find('input');
+      expect(input.prop('maxLength')).toEqual(50);
+    });
+
+    test('clamps min "maxLength"', () => {
+      component = getComponent({ maxLength: 0 });
+      const input = component.find('input');
+      expect(input.prop('maxLength')).toEqual(1);
+    });
+
+    test('clamps max "maxLength"', () => {
+      component = getComponent({ maxLength: 256 });
+      const input = component.find('input');
+      expect(input.prop('maxLength')).toEqual(255);
+    });
+  });
 });

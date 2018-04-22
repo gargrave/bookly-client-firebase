@@ -37,6 +37,7 @@ ShallowWrapper {
           className="bookly-input-field__input"
           disabled={false}
           id="text"
+          maxLength={255}
           name="text"
           onChange={[Function]}
           placeholder=""
@@ -75,6 +76,7 @@ ShallowWrapper {
           "className": "bookly-input-field__input",
           "disabled": false,
           "id": "text",
+          "maxLength": 255,
           "name": "text",
           "onChange": [Function],
           "placeholder": "",
@@ -106,6 +108,7 @@ ShallowWrapper {
             className="bookly-input-field__input"
             disabled={false}
             id="text"
+            maxLength={255}
             name="text"
             onChange={[Function]}
             placeholder=""
@@ -144,6 +147,7 @@ ShallowWrapper {
             "className": "bookly-input-field__input",
             "disabled": false,
             "id": "text",
+            "maxLength": 255,
             "name": "text",
             "onChange": [Function],
             "placeholder": "",
