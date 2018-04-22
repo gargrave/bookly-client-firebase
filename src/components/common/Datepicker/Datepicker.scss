@@ -1,0 +1,6 @@
+.react-datepicker {
+  // undo Shoelace's button styles
+  button.react-datepicker__navigation {
+    height: unset;
+  }
+}
