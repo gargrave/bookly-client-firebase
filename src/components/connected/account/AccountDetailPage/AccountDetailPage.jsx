@@ -69,8 +69,7 @@ class AccountDetailPage extends Component<Props, State> {
         [key]: e.target.value,
       };
       const submitDisabled =
-        profilesMatch(this.props.profile, editableProfile)
-        || !profileHasAllFields(editableProfile);
+        profilesMatch(this.props.profile, editableProfile);
 
       this.setState({
         editableProfile,

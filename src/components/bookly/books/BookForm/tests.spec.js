@@ -6,7 +6,7 @@ import { bookModel } from '../../../../models/Book.model';
 
 import BookForm from './';
 import Form from '../../../common/Form';
-import InputField from '../../../common/InputField';
+import InputField from '../../../common/InputField/InputField';
 
 
 describe('BookForm', () => {

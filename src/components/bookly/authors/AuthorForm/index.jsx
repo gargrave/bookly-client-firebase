@@ -5,7 +5,7 @@ import { bool, func, shape, string } from 'prop-types';
 import type { Author, AuthorErrors } from '../../../../globals/flowtypes';
 
 import Form from '../../../common/Form';
-import InputField from '../../../common/InputField';
+import InputField from '../../../common/InputField/InputField';
 
 type Props = {
   author: Author,

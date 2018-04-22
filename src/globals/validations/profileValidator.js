@@ -25,6 +25,7 @@ function validateProfile(data: Profile): Object {
   const first = data.firstName;
   const last = data.lastName;
 
+  // TODO: need to validate max length
   if (!first) {
     errors.found = true;
     errors.firstName = validationErrors.required;

@@ -6,7 +6,7 @@ import type { Book } from '../../../../../globals/flowtypes';
 
 import Alert from '../../../../common/Alert/Alert';
 import BookList from '../../../../bookly/books/BookList';
-import InputField from '../../../../common/InputField';
+import InputField from '../../../../common/InputField/InputField';
 
 type Props = {
   books: Book[],

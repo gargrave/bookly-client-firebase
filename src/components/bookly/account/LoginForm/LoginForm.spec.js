@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Form from '../../../common/Form';
-import InputField from '../../../common/InputField';
+import InputField from '../../../common/InputField/InputField';
 
 import LoginForm from './LoginForm';
 

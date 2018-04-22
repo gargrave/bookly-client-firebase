@@ -3,7 +3,7 @@ import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
 import { profileMocks } from '../../../../globals/mocks';
 
 import Form from '../../../common/Form';
-import InputField from '../../../common/InputField';
+import InputField from '../../../common/InputField/InputField';
 
 import AccountForm from './AccountForm';
 

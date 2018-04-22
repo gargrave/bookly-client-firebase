@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import InputField from './';
+import InputField from './InputField';
 
 const defaultProps = Object.freeze({
   boundValue: '',

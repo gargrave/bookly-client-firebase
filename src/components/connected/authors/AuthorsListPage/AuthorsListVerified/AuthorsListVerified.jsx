@@ -6,7 +6,7 @@ import type { Author } from '../../../../../globals/flowtypes';
 
 import Alert from '../../../../common/Alert/Alert';
 import AuthorList from '../../../../bookly/authors/AuthorList';
-import InputField from '../../../../common/InputField';
+import InputField from '../../../../common/InputField/InputField';
 
 type Props = {
   authors: Author[],

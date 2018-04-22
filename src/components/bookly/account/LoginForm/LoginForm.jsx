@@ -5,7 +5,7 @@ import { bool, func, shape, string } from 'prop-types';
 import type { LoginErrors, LoginUser } from '../../../../globals/flowtypes';
 
 import Form from '../../../common/Form';
-import InputField from '../../../common/InputField';
+import InputField from '../../../common/InputField/InputField';
 
 type Props = {
   disabled?: boolean,

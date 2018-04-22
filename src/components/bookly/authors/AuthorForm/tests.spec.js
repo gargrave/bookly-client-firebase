@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { authorMocks } from '../../../../globals/mocks/';
 
 import Form from '../../../common/Form';
-import InputField from '../../../common/InputField';
+import InputField from '../../../common/InputField/InputField';
 
 import AuthorForm from './';
 

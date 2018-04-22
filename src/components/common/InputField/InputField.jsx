@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
-import { bool, func, oneOf, string } from 'prop-types';
+import { bool, func, number, oneOf, string } from 'prop-types';
 
 import { buildClasses } from '../../../globals/utils/cssHelpers';
 
-import './styles.css';
+import './InputField.css';
 
 type Props = {
   boundValue: string,
