@@ -1,18 +1,27 @@
-import React, { Fragment } from 'react';
-import { Route } from 'react-router-dom';
-
 import AuthorCreatePage from '../../connected/authors/AuthorCreatePage';
 import AuthorDetailPage from '../../connected/authors/AuthorDetailPage';
 import AuthorsListPage from '../../connected/authors/AuthorsListPage/AuthorsListPage';
 
 import { localUrls } from '../../../globals/urls';
 
-const AuthorRoutes = () => (
-  <Fragment>
-    <Route exact path={localUrls.authorsList} component={AuthorsListPage} />
-    <Route exact path={`${localUrls.authorsList}/new`} component={AuthorCreatePage} />
-    <Route exact path={`${localUrls.authorsList}/:id`} component={AuthorDetailPage} />
-  </Fragment>
-);
+const baseUrl = localUrls.authorsList;
 
-export default AuthorRoutes;
+const routes = [
+  {
+    component: AuthorCreatePage,
+    exact: true,
+    path: `${baseUrl}/new`,
+  },
+  {
+    component: AuthorDetailPage,
+    exact: true,
+    path: `${baseUrl}/:id`,
+  },
+  {
+    component: AuthorsListPage,
+    exact: true,
+    path: baseUrl,
+  },
+];
+
+export default routes;
