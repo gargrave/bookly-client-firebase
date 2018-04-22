@@ -31,3 +31,12 @@ export type User = {
   emailVerified?: boolean,
   password?: string,
 };
+
+export type PasswordReset = {
+  email: string,
+}
+
+export type PasswordResetErrors = {
+  hasErrors?: boolean,
+  email: string,
+}

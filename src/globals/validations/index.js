@@ -16,6 +16,11 @@ import {
 } from './loginValidator';
 
 import {
+  passwordResetHasAllFields,
+  validatePasswordReset,
+} from './passwordResetValidator';
+
+import {
   profilesMatch,
   profileHasAllFields,
   validateProfile,
@@ -32,12 +37,14 @@ export {
   bookHasAllFields,
   booksMatch,
   loginHasAllFields,
+  passwordResetHasAllFields,
   profilesMatch,
   profileHasAllFields,
   registerUserHasAllFields,
   validateAuthor,
   validateBook,
   validateLogin,
+  validatePasswordReset,
   validateProfile,
   validateRegisterUser,
 };

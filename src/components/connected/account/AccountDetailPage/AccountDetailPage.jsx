@@ -57,6 +57,7 @@ class AccountDetailPage extends Component<Props, State> {
       errors: profileModel.emptyErrors(),
       formDisabled: false,
       submitDisabled: true,
+      topLevelError: '',
     };
   }
 

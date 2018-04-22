@@ -1,6 +1,8 @@
 import {
   LoginErrors,
   LoginUser,
+  PasswordReset,
+  PasswordResetErrors,
   User,
 } from './authFlowtypes';
 
@@ -39,6 +41,8 @@ export {
   FbError,
   LoginErrors,
   LoginUser,
+  PasswordReset,
+  PasswordResetErrors,
   Profile,
   ProfileErrors,
   User,
