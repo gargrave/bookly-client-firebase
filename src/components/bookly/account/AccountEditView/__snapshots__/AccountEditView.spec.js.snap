@@ -5,6 +5,16 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <AccountEditView
+    disabled={false}
+    errors={
+      Object {
+        "firstName": "",
+        "lastName": "",
+      }
+    }
+    onCancelClick={[Function]}
+    onInputChange={[Function]}
+    onSubmit={[Function]}
     profile={
       Object {
         "created": 2017-07-01T01:16:43.881Z,
@@ -14,15 +24,8 @@ ShallowWrapper {
         "updated": 2017-07-01T01:16:43.881Z,
       }
     }
-    user={
-      Object {
-        "email": "mockuser1@gmail.com",
-        "lastLogin": 2017-07-01T01:11:03.942Z,
-        "registered": 2017-06-30T19:52:54.644Z,
-        "uid": "h6EfCE6MrJ5IVf2ay3QsPdX5Jd23",
-        "verified": true,
-      }
-    }
+    submitDisabled={false}
+    topLevelError=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

@@ -1,13 +1,21 @@
-import { profileMocks, userMocks } from '../../../../globals/mocks/';
+import { profileMocks } from '../../../../globals/mocks/';
 import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
+import profileModel from '../../../../models/Profile.model';
 
+import AccountForm from '../AccountForm/AccountForm';
 import Card from '../../../common/Card/Card';
 
 import AccountEditView from './AccountEditView';
 
 const defaultProps = {
+  disabled: false,
+  errors: profileModel.emptyErrors(),
+  onCancelClick: jest.fn(),
+  onInputChange: jest.fn(),
+  onSubmit: jest.fn(),
   profile: { ...profileMocks[0] },
-  user: { ...userMocks[0] },
+  submitDisabled: false,
+  topLevelError: '',
 };
 
 const builder = new ComponentBuilder(
@@ -26,6 +34,7 @@ describe('AccountEditView', () => {
   test('renders correctly', () => {
     component = builder.mountComponent();
     expect(component.find('.bookly-account-edit-view')).toHaveLength(1);
-    // expect(component.find(Card)).toHaveLength(1);
+    expect(component.find(Card)).toHaveLength(1);
+    expect(component.find(AccountForm)).toHaveLength(1);
   });
 });
