@@ -47,6 +47,7 @@ const AccountForm = ({
         disabled={disabled}
         error={errors.firstName}
         label="First name"
+        maxLength={255}
         name="firstName"
         onInputChange={onInputChange}
       />
@@ -56,6 +57,7 @@ const AccountForm = ({
         disabled={disabled}
         error={errors.lastName}
         label="Last name"
+        maxLength={255}
         name="lastName"
         onInputChange={onInputChange}
       />

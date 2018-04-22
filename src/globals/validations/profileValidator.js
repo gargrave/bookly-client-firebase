@@ -2,11 +2,13 @@
 import type { Profile } from '../../globals/flowtypes';
 import { validationErrors } from '../errors';
 
-function profileHasAllFields(profile: Profile) {
-  return !!profile.firstName && !!profile.lastName;
-}
+const MAX_LEN = 255;
 
-function profilesMatch(a: Profile, b: Profile): boolean {
+const profileHasAllFields = (profile: Profile) => {
+  return !!profile.firstName && !!profile.lastName;
+};
+
+const profilesMatch = (a: Profile, b: Profile): boolean => {
   if (a.firstName.trim() !== b.firstName.trim()) {
     return false;
   }
@@ -14,9 +16,9 @@ function profilesMatch(a: Profile, b: Profile): boolean {
     return false;
   }
   return true;
-}
+};
 
-function validateProfile(data: Profile): Object {
+const validateProfile = (data: Profile): Object => {
   const errors = {
     found: false,
     firstName: '',
@@ -25,19 +27,24 @@ function validateProfile(data: Profile): Object {
   const first = data.firstName;
   const last = data.lastName;
 
-  // TODO: need to validate max length
-  if (!first) {
+  if (typeof first !== 'string') {
     errors.found = true;
     errors.firstName = validationErrors.required;
+  } else if (first.length > MAX_LEN) {
+    errors.found = true;
+    errors.firstName = validationErrors.maxLength(MAX_LEN);
   }
 
-  if (!last) {
+  if (typeof last !== 'string') {
     errors.found = true;
     errors.lastName = validationErrors.required;
+  } else if (last.length > MAX_LEN) {
+    errors.found = true;
+    errors.lastName = validationErrors.maxLength(MAX_LEN);
   }
 
   return errors;
-}
+};
 
 export {
   profileHasAllFields,
