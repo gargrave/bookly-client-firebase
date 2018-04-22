@@ -1,6 +1,6 @@
 const defaultState = Object.freeze({
   user: null,
-  userRequestPending: false,
+  authRequestPending: false,
   verificationEmailSent: false,
 });
 

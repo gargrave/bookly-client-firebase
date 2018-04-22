@@ -7,7 +7,7 @@ const authRequestEndReducer = (state, action) => {
 
   return {
     ...state,
-    userRequestPending: false,
+    authRequestPending: false,
   };
 };
 
