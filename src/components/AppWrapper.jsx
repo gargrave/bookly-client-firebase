@@ -8,7 +8,7 @@ import { fetchBooks, fetchProfile } from '../store/actions';
 import { localUrls } from '../globals/urls';
 import { setInitialized, setLocalUserData } from '../store/actions';
 
-import Routes from './Routes';
+import Routes from './app/routes';
 import SexyHeader from './common/SexyHeader/SexyHeader';
 import Snackbar from './connected/common/Snackbar/';
 
