@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { func, object, string } from 'prop-types';
 
@@ -15,7 +15,9 @@ import { createSnackbar, markPasswordResetEmailSent } from '../../../../store/ac
 import { sendPasswordResetEmail } from '../../../../wrappers/auth';
 
 import Card from '../../../common/Card/Card';
+import CardSpacer from '../../../common/Card/CardSpacer/CardSpacer';
 import CardList from '../../../common/CardList';
+import CardTextLine from '../../../common/Card/CardTextLine/CardTextLine';
 import PasswordResetForm from '../../../bookly/account/PasswordResetForm/PasswordResetForm';
 
 type Props = {
@@ -81,6 +83,7 @@ class PasswordResetPage extends React.Component<Props, State> {
         await sendPasswordResetEmail(model.email);
         this.props.markPasswordResetEmailSent(model.email);
       } catch (err) {
+        console.log({ err });
         const topLevelError = 'This was an error sending the email.';
         this.props.createSnackbar(topLevelError);
         this.setState({ topLevelError });
@@ -90,15 +93,34 @@ class PasswordResetPage extends React.Component<Props, State> {
     });
   }
 
-  render() {
-    const {
-      errors,
-      formDisabled,
-      submitDisabled,
-      topLevelError,
-      model,
-    } = this.state;
+  renderForm() {
+    return (
+      <PasswordResetForm
+        disabled={this.state.formDisabled}
+        email={this.state.model.email}
+        errors={this.state.errors}
+        onInputChange={this.onInputChange}
+        onSubmit={this.onSubmit}
+        submitDisabled={this.state.submitDisabled}
+        topLevelError={this.state.topLevelError}
+      />
+    );
+  }
 
+  renderAlreadySentMessage() {
+    return (
+      <Fragment>
+        <CardSpacer />
+        <CardTextLine text={'Password reset email has been sent to:'} />
+        <CardTextLine bold text={this.props.passwordResetEmailSentTo || 'fakeemail@gmail.com'} />
+        <CardSpacer />
+        <CardTextLine text={'Follow the link in this email to reset your password.'} />
+      </Fragment>
+    );
+  }
+
+  render() {
+    const { passwordResetEmailSentTo } = this.props;
     return (
       <div className={buildClasses(['detail-view', 'password-reset-view'])}>
         <CardList>
@@ -106,15 +128,8 @@ class PasswordResetPage extends React.Component<Props, State> {
             header={'Request Password Reset'}
             hoverable={false}
           >
-            <PasswordResetForm
-              disabled={formDisabled}
-              email={model.email}
-              errors={errors}
-              onInputChange={this.onInputChange}
-              onSubmit={this.onSubmit}
-              submitDisabled={submitDisabled}
-              topLevelError={topLevelError}
-            />
+            {!passwordResetEmailSentTo && this.renderAlreadySentMessage()}
+            {passwordResetEmailSentTo && this.renderAlreadySentMessage()}
           </Card>
         </CardList>
       </div>
@@ -124,7 +139,7 @@ class PasswordResetPage extends React.Component<Props, State> {
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state: any, ownProps: any) => ({
-  passwordResetEmailSentTo: state.passwordResetEmailSentTo,
+  passwordResetEmailSentTo: state.auth.passwordResetEmailSentTo,
 });
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
