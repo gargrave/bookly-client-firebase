@@ -1,7 +1,6 @@
 // @flow
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import { func, object, string } from 'prop-types';
+import { func, string } from 'prop-types';
 
 import type { PasswordReset, PasswordResetErrors } from '../../../../globals/flowtypes';
 
@@ -11,7 +10,6 @@ import {
   validatePasswordReset,
 } from '../../../../globals/validations';
 import passwordResetModel from '../../../../models/PasswordReset.model';
-import { createSnackbar, markPasswordResetEmailSent } from '../../../../store/actions';
 import { sendPasswordResetEmail } from '../../../../wrappers/auth';
 
 import Card from '../../../common/Card/Card';
@@ -22,7 +20,6 @@ import PasswordResetForm from '../../../bookly/account/PasswordResetForm/Passwor
 
 type Props = {
   createSnackbar: Function,
-  history: any,
   markPasswordResetEmailSent: Function,
   passwordResetEmailSentTo: string,
 };
@@ -38,12 +35,11 @@ type State = {
 class PasswordResetPage extends React.Component<Props, State> {
   static propTypes = {
     createSnackbar: func.isRequired,
-    history: object.isRequired,
     markPasswordResetEmailSent: func.isRequired,
     passwordResetEmailSentTo: string,
   }
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -55,7 +51,7 @@ class PasswordResetPage extends React.Component<Props, State> {
     };
   }
 
-  onInputChange = (e) => {
+  onInputChange = (e: any) => {
     const key = e.target.name;
     if (key in this.state.model) {
       const model = { ...this.state.model };
@@ -65,7 +61,7 @@ class PasswordResetPage extends React.Component<Props, State> {
     }
   }
 
-  onSubmit = async (e) => {
+  onSubmit = async (e: any) => {
     e.preventDefault();
     const model = this.state.model;
     const errors = validatePasswordReset(model);
@@ -124,11 +120,8 @@ class PasswordResetPage extends React.Component<Props, State> {
     return (
       <div className={buildClasses(['detail-view', 'password-reset-view'])}>
         <CardList>
-          <Card
-            header={'Request Password Reset'}
-            hoverable={false}
-          >
-            {!passwordResetEmailSentTo && this.renderAlreadySentMessage()}
+          <Card header={'Request Password Reset'} hoverable={false}>
+            {!passwordResetEmailSentTo && this.renderForm()}
             {passwordResetEmailSentTo && this.renderAlreadySentMessage()}
           </Card>
         </CardList>
@@ -137,19 +130,4 @@ class PasswordResetPage extends React.Component<Props, State> {
   }
 }
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state: any, ownProps: any) => ({
-  passwordResetEmailSentTo: state.auth.passwordResetEmailSentTo,
-});
-
-const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
-  },
-
-  markPasswordResetEmailSent(email: string) {
-    return dispatch(markPasswordResetEmailSent(email));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PasswordResetPage);
+export default PasswordResetPage;

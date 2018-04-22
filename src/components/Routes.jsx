@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import AccountDetailPage from './connected/account/AccountDetailPage/AccountDetailPage';
+import ConnectedPasswordResetPage from './connected/account/ConnectedPasswordResetPage/ConnectedPasswordResetPage';
 import LoginPage from './connected/account/LoginPage/LoginPage';
-import PasswordResetPage from './connected/account/PasswordResetPage/PasswordResetPage';
 import RegisterPage from './connected/account/RegisterPage/RegisterPage';
 
 import AuthorCreatePage from './connected/authors/AuthorCreatePage';
@@ -25,7 +25,7 @@ const routes = () => (
 
     <Route exact path={localUrls.account} component={AccountDetailPage} />
     <Route exact path={localUrls.login} component={LoginPage} />
-    <Route exact path={localUrls.pwResetRequest} component={PasswordResetPage} />
+    <Route exact path={localUrls.pwResetRequest} component={ConnectedPasswordResetPage} />
     <Route exact path={localUrls.register} component={RegisterPage} />
 
     <Route exact path={localUrls.authorsList} component={AuthorsListPage} />
