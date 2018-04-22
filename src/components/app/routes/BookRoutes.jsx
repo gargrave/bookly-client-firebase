@@ -1,4 +1,4 @@
-import BookCreatePage from '../../connected/books/BookCreatePage';
+import ConnectedBookCreatePage from '../../connected/books/ConnectedBookCreatePage/ConnectedBookCreatePage';
 import BookDetailPage from '../../connected/books/BookDetailPage';
 import BooksListPage from '../../connected/books/BooksListPage/BooksListPage';
 
@@ -8,7 +8,7 @@ const baseUrl = localUrls.booksList;
 
 const routes = [
   {
-    component: BookCreatePage,
+    component: ConnectedBookCreatePage,
     exact: true,
     path: `${baseUrl}/new`,
   },
