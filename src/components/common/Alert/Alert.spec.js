@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Alert from './';
+import Alert from './Alert';
 
 const defaultProps = Object.freeze({
   message: 'This is the message.',

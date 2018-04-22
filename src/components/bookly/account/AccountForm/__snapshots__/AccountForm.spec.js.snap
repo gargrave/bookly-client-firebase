@@ -45,6 +45,7 @@ ShallowWrapper {
           disabled={false}
           error=""
           label="First name"
+          maxLength={255}
           name="firstName"
           onInputChange={[Function]}
         />,
@@ -53,6 +54,7 @@ ShallowWrapper {
           disabled={false}
           error=""
           label="Last name"
+          maxLength={255}
           name="lastName"
           onInputChange={[Function]}
         />,
@@ -77,6 +79,7 @@ ShallowWrapper {
           "disabled": false,
           "error": "",
           "label": "First name",
+          "maxLength": 255,
           "name": "firstName",
           "onInputChange": [Function],
         },
@@ -93,6 +96,7 @@ ShallowWrapper {
           "disabled": false,
           "error": "",
           "label": "Last name",
+          "maxLength": 255,
           "name": "lastName",
           "onInputChange": [Function],
         },
@@ -115,6 +119,7 @@ ShallowWrapper {
             disabled={false}
             error=""
             label="First name"
+            maxLength={255}
             name="firstName"
             onInputChange={[Function]}
           />,
@@ -123,6 +128,7 @@ ShallowWrapper {
             disabled={false}
             error=""
             label="Last name"
+            maxLength={255}
             name="lastName"
             onInputChange={[Function]}
           />,
@@ -147,6 +153,7 @@ ShallowWrapper {
             "disabled": false,
             "error": "",
             "label": "First name",
+            "maxLength": 255,
             "name": "firstName",
             "onInputChange": [Function],
           },
@@ -163,6 +170,7 @@ ShallowWrapper {
             "disabled": false,
             "error": "",
             "label": "Last name",
+            "maxLength": 255,
             "name": "lastName",
             "onInputChange": [Function],
           },
