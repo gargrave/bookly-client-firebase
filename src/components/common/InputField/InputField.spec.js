@@ -99,8 +99,14 @@ describe('InputField', () => {
       expect(input.prop('maxLength')).toEqual(50);
     });
 
-    test('clamps min "maxLength"', () => {
+    test('clamps min "maxLength" with zero value', () => {
       component = getComponent({ maxLength: 0 });
+      const input = component.find('input');
+      expect(input.prop('maxLength')).toEqual(1);
+    });
+
+    test('clamps min "maxLength" with negative value', () => {
+      component = getComponent({ maxLength: -10 });
       const input = component.find('input');
       expect(input.prop('maxLength')).toEqual(1);
     });
