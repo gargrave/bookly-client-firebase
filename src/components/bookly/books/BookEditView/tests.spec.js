@@ -5,7 +5,7 @@ import { authorMocks, bookMocks } from '../../../../globals/mocks/';
 import { bookModel } from '../../../../models/Book.model';
 
 import BookEditView from './';
-import BookForm from '../BookForm';
+import BookForm from '../BookForm/BookForm';
 import Card from '../../../common/Card/Card';
 
 const testBook = bookMocks[0];

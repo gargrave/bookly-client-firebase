@@ -5,6 +5,7 @@ import { array, bool, func, object, shape, string } from 'prop-types';
 import type { Author, Book, BookErrors } from '../../../../globals/flowtypes';
 
 import AuthorSelect from '../../authors/AuthorSelect';
+import Datepicker from '../../../common/Datepicker/Datepicker';
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField/InputField';
 
@@ -64,6 +65,11 @@ const BookForm = ({
         disabled={disabled || false}
         error={errors.author}
         onChange={onAuthorChange}
+      />
+
+      <Datepicker
+        startDate={new Date()}
+        onChange={() => console.log('%cdatepicker change', 'color: pink;font-size: 12px;background:#454;padding:2px 4px;')}
       />
     </Form>
   );

@@ -12,7 +12,7 @@ import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions'
 import { createBook, fetchBooks } from '../../../../store/actions';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import BookForm from '../../../bookly/books/BookForm';
+import BookForm from '../../../bookly/books/BookForm/BookForm';
 import Card from '../../../common/Card/Card';
 import CardList from '../../../common/CardList';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';

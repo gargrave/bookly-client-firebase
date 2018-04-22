@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { authorModel } from '../../../../models/Author.model';
 import { bookModel } from '../../../../models/Book.model';
 
-import BookForm from './';
+import BookForm from './BookForm/BookForm';
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField/InputField';
 
