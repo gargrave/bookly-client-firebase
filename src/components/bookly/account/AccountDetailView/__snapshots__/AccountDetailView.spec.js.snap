@@ -19,11 +19,12 @@ ShallowWrapper {
     }
     user={
       Object {
+        "displayName": null,
         "email": "mockuser1@gmail.com",
+        "emailVerified": true,
+        "id": "h6EfCE6MrJ5IVf2ay3QsPdX5Jd23",
         "lastLogin": 2017-07-01T01:11:03.942Z,
         "registered": 2017-06-30T19:52:54.644Z,
-        "uid": "h6EfCE6MrJ5IVf2ay3QsPdX5Jd23",
-        "verified": true,
       }
     }
     verificationEmailHasBeenSent={false}
@@ -61,7 +62,7 @@ ShallowWrapper {
                 },
                 Object {
                   "title": "Email",
-                  "value": "mockuser1@gmail.com (unverified)",
+                  "value": "mockuser1@gmail.com",
                 },
               ]
             }
@@ -97,10 +98,7 @@ ShallowWrapper {
             />
           </ButtonRow>
         </Card>,
-        <VerifyAccountNotice
-          emailHasBeenSent={false}
-          onSendLinkClick={[Function]}
-        />,
+        false,
       ],
       "className": "bookly-detail-view bookly-account-detail-view",
     },
@@ -122,7 +120,7 @@ ShallowWrapper {
                   },
                   Object {
                     "title": "Email",
-                    "value": "mockuser1@gmail.com (unverified)",
+                    "value": "mockuser1@gmail.com",
                   },
                 ]
               }
@@ -188,7 +186,7 @@ ShallowWrapper {
                 },
                 Object {
                   "title": "Email",
-                  "value": "mockuser1@gmail.com (unverified)",
+                  "value": "mockuser1@gmail.com",
                 },
               ],
             },
@@ -290,18 +288,7 @@ ShallowWrapper {
         ],
         "type": [Function],
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "emailHasBeenSent": false,
-          "onSendLinkClick": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
+      false,
     ],
     "type": "div",
   },
@@ -332,7 +319,7 @@ ShallowWrapper {
                   },
                   Object {
                     "title": "Email",
-                    "value": "mockuser1@gmail.com (unverified)",
+                    "value": "mockuser1@gmail.com",
                   },
                 ]
               }
@@ -368,10 +355,7 @@ ShallowWrapper {
               />
             </ButtonRow>
           </Card>,
-          <VerifyAccountNotice
-            emailHasBeenSent={false}
-            onSendLinkClick={[Function]}
-          />,
+          false,
         ],
         "className": "bookly-detail-view bookly-account-detail-view",
       },
@@ -393,7 +377,7 @@ ShallowWrapper {
                     },
                     Object {
                       "title": "Email",
-                      "value": "mockuser1@gmail.com (unverified)",
+                      "value": "mockuser1@gmail.com",
                     },
                   ]
                 }
@@ -459,7 +443,7 @@ ShallowWrapper {
                   },
                   Object {
                     "title": "Email",
-                    "value": "mockuser1@gmail.com (unverified)",
+                    "value": "mockuser1@gmail.com",
                   },
                 ],
               },
@@ -561,18 +545,7 @@ ShallowWrapper {
           ],
           "type": [Function],
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "emailHasBeenSent": false,
-            "onSendLinkClick": [Function],
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        false,
       ],
       "type": "div",
     },
