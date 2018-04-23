@@ -16,7 +16,9 @@ type Props = {
   errors: BookErrors,
   onAuthorChange: Function,
   onCancel: Function,
+  onFinishedOnDateChange: Function,
   onInputChange: Function,
+  onStartedOnDateChange: Function,
   onSubmit: Function,
   submitDisabled?: boolean,
   topLevelError?: string,
@@ -29,7 +31,9 @@ const BookEditView = ({
   errors,
   onAuthorChange,
   onCancel,
+  onFinishedOnDateChange,
   onInputChange,
+  onStartedOnDateChange,
   onSubmit,
   submitDisabled = false,
   topLevelError,
@@ -47,7 +51,9 @@ const BookEditView = ({
           errors={errors}
           onAuthorChange={onAuthorChange}
           onCancel={onCancel}
+          onFinishedOnDateChange={onFinishedOnDateChange}
           onInputChange={onInputChange}
+          onStartedOnDateChange={onStartedOnDateChange}
           onSubmit={onSubmit}
           submitDisabled={submitDisabled}
           topLevelError={topLevelError}
@@ -64,7 +70,9 @@ BookEditView.propTypes = {
   errors: object.isRequired,
   onAuthorChange: func.isRequired,
   onCancel: func.isRequired,
+  onFinishedOnDateChange: func.isRequired,
   onInputChange: func.isRequired,
+  onStartedOnDateChange: func.isRequired,
   onSubmit: func.isRequired,
   submitDisabled: bool,
   topLevelError: string,

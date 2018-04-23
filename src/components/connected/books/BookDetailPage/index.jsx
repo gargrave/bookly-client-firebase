@@ -12,7 +12,7 @@ import { deleteBook, fetchBooks, updateBook } from '../../../../store/actions';
 import { createSnackbar } from '../../../../store/actions';
 
 import Alert from '../../../common/Alert/Alert';
-import BookDetailView from '../../../bookly/books/BookDetailView';
+import BookDetailView from '../../../bookly/books/BookDetailView/BookDetailView';
 import BookEditView from '../../../bookly/books/BookEditView';
 import CardList from '../../../common/CardList';
 import Modal from '../../../common/Modal';
@@ -63,6 +63,9 @@ class BookDetailPage extends Component<Props, State> {
     _this.onInputChange = _this.onInputChange.bind(this);
     _this.onSubmit = _this.onSubmit.bind(this);
     _this.showDeleteDialog = _this.showDeleteDialog.bind(this);
+
+    (this: any).onStartedOnDateChange = this.onDateChange.bind(this, 'startedOn');
+    (this: any).onFinishedOnDateChange = this.onDateChange.bind(this, 'finishedOn');
   }
 
   componentDidMount() {
@@ -100,6 +103,10 @@ class BookDetailPage extends Component<Props, State> {
         submitDisabled,
       });
     }
+  }
+
+  onDateChange(name: string, value: any) {
+    this.onInputChange({ target: { name, value } });
   }
 
   onInputChange(event) {
@@ -224,7 +231,7 @@ class BookDetailPage extends Component<Props, State> {
       submitDisabled,
       topLevelError,
     } = this.state;
-
+    const self: any = this; // work around for nonsense Flow errors
     return (
       <CardList>
         {!book.id &&
@@ -250,7 +257,9 @@ class BookDetailPage extends Component<Props, State> {
             errors={errors}
             onAuthorChange={this.onAuthorChange}
             onCancel={this.onCancel}
+            onFinishedOnDateChange={self.onFinishedOnDateChange}
             onInputChange={this.onInputChange}
+            onStartedOnDateChange={self.onStartedOnDateChange}
             onSubmit={this.onSubmit}
             submitDisabled={submitDisabled}
             topLevelError={topLevelError}

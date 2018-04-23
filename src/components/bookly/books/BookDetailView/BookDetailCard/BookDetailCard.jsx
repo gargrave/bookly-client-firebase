@@ -1,7 +1,6 @@
 // @flow
-import React from 'react';
-import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
-import { format } from 'date-fns';
+import React, { Fragment } from 'react';
+import { func, object } from 'prop-types';
 
 import type { Book } from '../../../../../globals/flowtypes';
 
@@ -12,23 +11,17 @@ import Card from '../../../../common/Card/Card';
 import CardSpacer from '../../../../common/Card/CardSpacer/CardSpacer';
 import CardTextList from '../../../../common/Card/CardTextList/CardTextList';
 
+import {
+  bookBasicDates,
+  bookOptionalDates,
+  hasOptionalDates,
+} from './helpers';
+
 type Props = {
   book: Book,
   onBackClick: Function,
   onDeleteClick: Function,
   onEditClick: Function,
-};
-
-const bookDatesTextList = (book: Book) => {
-  const {
-    created,
-    updated,
-  } = book;
-
-  return [
-    { title: 'Added', value: format(created, 'MMM. DD, YYYY, HH:mm:ss') },
-    { title: 'Updated', value: format(updated, 'MMM. DD, YYYY, HH:mm:ss') },
-  ];
 };
 
 const BookDetailCard = ({
@@ -47,11 +40,15 @@ const BookDetailCard = ({
       header={title}
       hoverable={false}
     >
-      <AuthorLink
-        author={book.author}
-      />
+      <AuthorLink author={book.author} />
 
-      <CardTextList textList={bookDatesTextList(book)} />
+      {hasOptionalDates(book) &&
+        <Fragment>
+          <CardTextList textList={bookOptionalDates(book)} />
+          <CardSpacer />
+        </Fragment>
+      }
+      <CardTextList textList={bookBasicDates(book)} />
       <CardSpacer size='large' />
 
       <ButtonRow>
@@ -78,21 +75,7 @@ const BookDetailCard = ({
 };
 
 BookDetailCard.propTypes = {
-  book: shape({
-    created: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
-    updated: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
-    author: shape({
-      firstName: string,
-      lastName: string,
-    }),
-    title: string,
-  }).isRequired,
+  book: object.isRequired,
   onBackClick: func.isRequired,
   onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,

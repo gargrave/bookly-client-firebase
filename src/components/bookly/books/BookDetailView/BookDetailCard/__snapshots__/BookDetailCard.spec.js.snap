@@ -50,6 +50,7 @@ ShallowWrapper {
             }
           }
         />,
+        false,
         <CardTextList
           textList={
             Array [
@@ -114,6 +115,7 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      false,
       Object {
         "instance": null,
         "key": undefined,
@@ -238,6 +240,7 @@ ShallowWrapper {
               }
             }
           />,
+          false,
           <CardTextList
             textList={
               Array [
@@ -302,6 +305,7 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        false,
         Object {
           "instance": null,
           "key": undefined,

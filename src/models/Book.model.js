@@ -40,8 +40,8 @@ const bookModel = {
       created: book.created,
       id: book.id,
       title: book.title.trim(),
-      finishedOn: book.finishedOn || '',
-      startedOn: book.startedOn || '',
+      finishedOn: book.finishedOn || null,
+      startedOn: book.startedOn || null,
     };
   },
 
@@ -63,14 +63,15 @@ const bookModel = {
   },
 
   fromAPI(doc: FbDoc, authors: Author[]): Book {
+    const data = doc.data();
     const {
       title,
       authorId,
       created,
-      finishedOn = '',
-      startedOn = '',
       updated,
-    } = doc.data();
+    } = data;
+    const finishedOn = (data.finishedOn && data.finishedOn * 1000) || null;
+    const startedOn = (data.startedOn && data.startedOn * 1000) || null;
 
     return {
       id: doc.id,
