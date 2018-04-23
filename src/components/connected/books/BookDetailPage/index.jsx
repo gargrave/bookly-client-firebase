@@ -86,8 +86,8 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  onAuthorChange(event) {
-    const authorId = event.target.value;
+  onAuthorChange(e) {
+    const authorId = e.target.value;
     const author = this.props.authors.find((a) => a.id === authorId);
     const editableBook = {
       ...this.state.editableBook,
@@ -109,11 +109,11 @@ class BookDetailPage extends Component<Props, State> {
     this.onInputChange({ target: { name, value } });
   }
 
-  onInputChange(event) {
-    const key = event.target.name;
+  onInputChange(e) {
+    const key = e.target.name;
     if (key in this.state.editableBook) {
       let editableBook = { ...this.state.editableBook};
-      editableBook[key] = event.target.value;
+      editableBook[key] = e.target.value;
       const submitDisabled =
         !bookHasAllFields(editableBook) ||
         booksMatch(this.props.book, editableBook);
@@ -125,8 +125,8 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event) {
-    event.preventDefault();
+  async onSubmit(e) {
+    e.preventDefault();
     const errors = validateBook(this.state.editableBook);
     if (errors.found) {
       this.setState({
@@ -164,13 +164,9 @@ class BookDetailPage extends Component<Props, State> {
    * to the current book from the store.
    */
   onEditClick() {
-    const {
-      book,
-    } = this.props;
-
     this.setState({
+      editableBook: bookModel.editable(this.props.book),
       editing: true,
-      editableBook: bookModel.editable(book),
       submitDisabled: true,
     });
   }
@@ -178,8 +174,8 @@ class BookDetailPage extends Component<Props, State> {
   /**
    * Disables 'editing' state.
    */
-  onCancel(event) {
-    event.preventDefault();
+  onCancel(e) {
+    e.preventDefault();
     this.setState({ editing: false });
   }
 

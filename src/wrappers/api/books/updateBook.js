@@ -17,6 +17,8 @@ const updateBookOnAPI = async (book: Book, authors: Author[]): Promise<?Book> =>
     authorId: book.authorId,
     created: book.created || fbTimestamp(),
     updated: fbTimestamp(),
+    startedOn: book.startedOn,
+    finishedOn: book.finishedOn,
   };
 
   const id = book.id;
