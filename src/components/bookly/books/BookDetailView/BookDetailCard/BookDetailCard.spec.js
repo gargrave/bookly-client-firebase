@@ -1,33 +1,34 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../../globals/utils/testHelpers';
 
 import { bookMocks } from '../../../../../globals/mocks/';
 
 import BookDetailCard from './BookDetailCard';
 import Card from '../../../../common/Card/Card';
 
-const defaultProps = Object.freeze({
-  book: Object.create(bookMocks[0]),
+const defaultProps = {
+  book: { ...bookMocks[0] },
   onBackClick: jest.fn(),
   onDeleteClick: jest.fn(),
   onEditClick: jest.fn(),
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<BookDetailCard {...props} />);
-}
+const builder = new ComponentBuilder(
+  BookDetailCard,
+  defaultProps,
+);
 
 describe('BookDetailCard', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
-    expect(component).toMatchSnapshot();
-  });
+  describe('the basics', () => {
+    test('matches the snapshot', () => {
+      component = builder.shallowGetComponent();
+      expect(component).toMatchSnapshot();
+    });
 
-  test('renders correctly', () => {
-    component = getComponent();
-    expect(component.find(Card)).toHaveLength(1);
+    test('renders correctly', () => {
+      component = builder.shallowGetComponent();
+      expect(component.find(Card)).toHaveLength(1);
+    });
   });
 });
