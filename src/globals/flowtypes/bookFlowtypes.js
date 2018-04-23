@@ -8,6 +8,8 @@ export type Book = {
   title: string,
   author: Author,
   authorId?: string,
+  finishedOn?: string,
+  startedOn?: string,
 };
 
 export type BookErrors = {

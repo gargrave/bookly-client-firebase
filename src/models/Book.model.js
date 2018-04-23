@@ -14,13 +14,15 @@ function refreshBookAuthor(book: Book, authors: Author[]) {
 }
 
 const bookModel = {
-  empty(): any {
+  empty(): Book {
     return {
       author: {
         id: '',
         firstName: '',
         lastName: '',
       },
+      finishedOn: '',
+      startedOn: '',
       title: '',
     };
   },
@@ -38,6 +40,8 @@ const bookModel = {
       created: book.created,
       id: book.id,
       title: book.title.trim(),
+      finishedOn: book.finishedOn || '',
+      startedOn: book.startedOn || '',
     };
   },
 
@@ -45,6 +49,8 @@ const bookModel = {
     let payload: any = {
       title: data.title.trim(),
       authorId: data.author.id,
+      finishedOn: (data.finishedOn && data.finishedOn.unix()) || 0,
+      startedOn: (data.startedOn && data.startedOn.unix()) || 0,
     };
 
     ['id', 'created'].forEach((val) => {
@@ -61,14 +67,18 @@ const bookModel = {
       title,
       authorId,
       created,
+      finishedOn = '',
+      startedOn = '',
       updated,
     } = doc.data();
 
     return {
       id: doc.id,
-      title,
       author: hydrateAuthor(authors, authorId),
       created,
+      finishedOn,
+      startedOn,
+      title,
       updated,
     };
   },
