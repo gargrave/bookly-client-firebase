@@ -3,6 +3,7 @@ import type { Book, BookErrors } from '../../globals/flowtypes';
 
 import { validationErrors } from '../errors';
 import { bookModel } from '../../models/Book.model';
+import { toUnixTimestamp } from '../../globals/utils/dateHelpers';
 
 function bookHasAllFields(book: Book) {
   return !!book.title
@@ -16,7 +17,14 @@ function booksMatch(a: Book, b: Book): boolean {
     return false;
   }
 
-  if (a.author.id !== b.author.id) {
+  const asdf = toUnixTimestamp(a.startedOn, 0);
+  const zxcv = toUnixTimestamp(b.startedOn, 0);
+  console.log({ asdf, zxcv });
+  if (
+    a.author.id !== b.author.id ||
+    a.finished !== b.finished ||
+    a.startedOn !== b.startedOn
+  ) {
     return false;
   }
 

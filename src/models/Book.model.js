@@ -1,6 +1,8 @@
 // @flow
 import type { Author, Book, BookErrors, FbDoc } from '../globals/flowtypes';
 
+import { toUnixMs, toUnixTimestamp } from '../globals/utils/dateHelpers';
+
 function hydrateAuthor(authors, id): Author {
   const author = authors.find((a) => a.id === id);
   return author || {
@@ -40,8 +42,8 @@ const bookModel = {
       created: book.created,
       id: book.id,
       title: book.title.trim(),
-      finishedOn: book.finishedOn || null,
-      startedOn: book.startedOn || null,
+      finishedOn: book.finishedOn || 0,
+      startedOn: book.startedOn || 0,
     };
   },
 
@@ -49,8 +51,8 @@ const bookModel = {
     let payload: any = {
       title: data.title.trim(),
       authorId: data.author.id,
-      finishedOn: (data.finishedOn && data.finishedOn.unix()) || 0,
-      startedOn: (data.startedOn && data.startedOn.unix()) || 0,
+      finishedOn: toUnixTimestamp(data.finishedOn, 0),
+      startedOn: toUnixTimestamp(data.startedOn, 0),
     };
 
     ['id', 'created'].forEach((val) => {
@@ -70,8 +72,8 @@ const bookModel = {
       created,
       updated,
     } = data;
-    const finishedOn = (data.finishedOn && data.finishedOn * 1000) || null;
-    const startedOn = (data.startedOn && data.startedOn * 1000) || null;
+    const finishedOn = toUnixMs(data.finishedOn);
+    const startedOn = toUnixMs(data.startedOn);
 
     return {
       id: doc.id,
