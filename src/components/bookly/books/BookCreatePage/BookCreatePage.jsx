@@ -53,6 +53,9 @@ class BookCreatePage extends Component<Props, State> {
       submitDisabled: true,
       topLevelError: '',
     };
+
+    (this: any).onStartedOnDateChange = this.onDateChange.bind(this, 'startedOn');
+    (this: any).onFinishedOnDateChange = this.onDateChange.bind(this, 'finishedOn');
   }
 
   async componentDidMount() {
@@ -92,6 +95,10 @@ class BookCreatePage extends Component<Props, State> {
     this.updateAuthor(authorId);
   }
 
+  onDateChange(name: string, value: any) {
+    this.onInputChange({ target: { name, value } });
+  }
+
   onInputChange = (e: any) => {
     const key = e.target.name;
     if (key in this.state.book) {
@@ -118,7 +125,7 @@ class BookCreatePage extends Component<Props, State> {
       errors: bookModel.emptyErrors(),
       formDisabled: true,
       topLevelError: '',
-    }, async() => {
+    }, async () => {
       try {
         const book = bookModel.toAPI(this.state.book);
         await this.props.createBook(book);
@@ -133,19 +140,7 @@ class BookCreatePage extends Component<Props, State> {
   }
 
   render() {
-    const {
-      authors,
-      onCancel,
-      preselectedAuthor,
-    } = this.props;
-    const {
-      book,
-      errors,
-      formDisabled,
-      submitDisabled,
-      topLevelError,
-    } = this.state;
-
+    const self: any = this; // work around for nonsense Flow errors
     return (
       <div className={buildClasses(['create-view', 'book-create-view'])}>
         <CardList>
@@ -154,17 +149,19 @@ class BookCreatePage extends Component<Props, State> {
             hoverable={false}
           >
             <BookForm
-              authors={authors}
-              book={book}
-              disabled={formDisabled}
-              errors={errors}
+              authors={this.props.authors}
+              book={this.state.book}
+              disabled={this.state.formDisabled}
+              errors={this.state.errors}
               onAuthorChange={this.onAuthorChange}
-              onCancel={onCancel}
+              onCancel={this.props.onCancel}
+              onFinishedOnDateChange={self.onFinishedOnDateChange}
               onInputChange={this.onInputChange}
+              onStartedOnDateChange={self.onStartedOnDateChange}
               onSubmit={this.onSubmit}
-              preselectedAuthor={preselectedAuthor}
-              submitDisabled={submitDisabled}
-              topLevelError={topLevelError}
+              preselectedAuthor={this.props.preselectedAuthor}
+              submitDisabled={this.state.submitDisabled}
+              topLevelError={this.state.topLevelError}
             />
           </Card>
         </CardList>

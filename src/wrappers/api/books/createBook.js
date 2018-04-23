@@ -18,6 +18,7 @@ const createBookOnAPI = async (book: Book, authors: Author[]): Promise<?Book> =>
     updated: fbTimestamp(),
     ...book,
   };
+  console.log({ payload });
 
   const docRef: FbDocRef = await db
     .collection('books')

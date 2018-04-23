@@ -16,7 +16,9 @@ type Props = {
   errors: BookErrors,
   onAuthorChange: Function,
   onCancel: Function,
+  onFinishedOnDateChange: Function,
   onInputChange: Function,
+  onStartedOnDateChange: Function,
   onSubmit: Function,
   preselectedAuthor?: Author,
   submitDisabled?: boolean,
@@ -30,7 +32,9 @@ const BookForm = ({
   errors,
   onAuthorChange,
   onCancel,
+  onFinishedOnDateChange,
   onInputChange,
+  onStartedOnDateChange,
   onSubmit,
   preselectedAuthor,
   submitDisabled = false,
@@ -68,8 +72,13 @@ const BookForm = ({
       />
 
       <Datepicker
-        startDate={new Date()}
-        onChange={() => console.log('%cdatepicker change', 'color: pink;font-size: 12px;background:#454;padding:2px 4px;')}
+        date={book.startedOn}
+        onChange={onStartedOnDateChange}
+      />
+
+      <Datepicker
+        date={book.finishedOn}
+        onChange={onFinishedOnDateChange}
       />
     </Form>
   );
@@ -78,18 +87,14 @@ const BookForm = ({
 
 BookForm.propTypes = {
   authors: array.isRequired,
-  book: shape({
-    title: string.isRequired,
-    author: object.isRequired,
-  }).isRequired,
+  book: object.isRequired,
   disabled: bool,
-  errors: shape({
-    title: string.isRequired,
-    author: string.isRequired,
-  }).isRequired,
+  errors: object.isRequired,
   onAuthorChange: func.isRequired,
   onCancel: func.isRequired,
+  onFinishedOnDateChange: func.isRequired,
   onInputChange: func.isRequired,
+  onStartedOnDateChange: func.isRequired,
   onSubmit: func.isRequired,
   preselectedAuthor: object,
   submitDisabled: bool,

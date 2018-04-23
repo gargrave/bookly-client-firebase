@@ -3,4 +3,11 @@
   button.react-datepicker__navigation {
     height: unset;
   }
+
+  &-wrapper {
+    input:read-only {
+      background-color: white;
+      cursor: pointer;
+    }
+  }
 }

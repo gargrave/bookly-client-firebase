@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { func, object } from 'prop-types';
+import { any, func } from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
@@ -8,25 +8,29 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './Datepicker.css';
 
 type Props = {
+  date: any,
   onChange: Function,
-  startDate: Object,
 };
 
 const Datepicker = ({
   onChange,
-  startDate,
+  date,
 }: Props) => {
   return (
     <DatePicker
+      isClearable
+      name='startedOn'
       onChange={onChange}
-      selected={moment(startDate)}
+      placeholderText="Click to select a date"
+      readOnly
+      selected={date ? moment(date) : null}
     />
   );
 };
 
 Datepicker.propTypes = {
+  date: any,
   onChange: func.isRequired,
-  startDate: object.isRequired,
 };
 
 export default Datepicker;
