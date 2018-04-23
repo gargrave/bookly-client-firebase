@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { bookMocks } from '../../../../globals/mocks/';
 
 import BookDetailView from './';
-import BookDetailCard from './BookDetailCard';
+import BookDetailCard from './BookDetailCard/BookDetailCard';
 
 const defaultProps = Object.freeze({
   book: bookMocks[0],

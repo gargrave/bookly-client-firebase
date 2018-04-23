@@ -3,9 +3,8 @@ import { shallow } from 'enzyme';
 
 import { bookMocks } from '../../../../../globals/mocks/';
 
+import BookDetailCard from './BookDetailCard';
 import Card from '../../../../common/Card/Card';
-
-import BookDetailCard from './';
 
 const defaultProps = Object.freeze({
   book: Object.create(bookMocks[0]),

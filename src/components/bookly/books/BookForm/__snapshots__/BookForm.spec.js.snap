@@ -25,7 +25,9 @@ ShallowWrapper {
     }
     onAuthorChange={[Function]}
     onCancel={[Function]}
+    onFinishedOnDateChange={[Function]}
     onInputChange={[Function]}
+    onStartedOnDateChange={[Function]}
     onSubmit={[Function]}
     topLevelError=""
   />,
@@ -64,8 +66,12 @@ ShallowWrapper {
           onChange={[Function]}
         />,
         <Datepicker
+          date={undefined}
           onChange={[Function]}
-          startDate={2018-04-22T22:45:06.716Z}
+        />,
+        <Datepicker
+          date={undefined}
+          onChange={[Function]}
         />,
       ],
       "classes": Array [
@@ -119,8 +125,20 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "date": undefined,
           "onChange": [Function],
-          "startDate": 2018-04-22T22:45:06.716Z,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "date": undefined,
+          "onChange": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -158,8 +176,12 @@ ShallowWrapper {
             onChange={[Function]}
           />,
           <Datepicker
+            date={undefined}
             onChange={[Function]}
-            startDate={2018-04-22T22:45:06.716Z}
+          />,
+          <Datepicker
+            date={undefined}
+            onChange={[Function]}
           />,
         ],
         "classes": Array [
@@ -213,8 +235,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "date": undefined,
             "onChange": [Function],
-            "startDate": 2018-04-22T22:45:06.716Z,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "date": undefined,
+            "onChange": [Function],
           },
           "ref": null,
           "rendered": null,

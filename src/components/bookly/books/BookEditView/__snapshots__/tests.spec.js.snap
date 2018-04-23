@@ -66,7 +66,9 @@ ShallowWrapper {
     }
     onAuthorChange={[Function]}
     onCancel={[Function]}
+    onFinishedOnDateChange={[Function]}
     onInputChange={[Function]}
+    onStartedOnDateChange={[Function]}
     onSubmit={[Function]}
     submitDisabled={false}
     topLevelError=""
@@ -149,7 +151,9 @@ ShallowWrapper {
           }
           onAuthorChange={[Function]}
           onCancel={[Function]}
+          onFinishedOnDateChange={[Function]}
           onInputChange={[Function]}
+          onStartedOnDateChange={[Function]}
           onSubmit={[Function]}
           submitDisabled={false}
           topLevelError=""
@@ -225,7 +229,9 @@ ShallowWrapper {
           }
           onAuthorChange={[Function]}
           onCancel={[Function]}
+          onFinishedOnDateChange={[Function]}
           onInputChange={[Function]}
+          onStartedOnDateChange={[Function]}
           onSubmit={[Function]}
           submitDisabled={false}
           topLevelError=""
@@ -294,7 +300,9 @@ ShallowWrapper {
           },
           "onAuthorChange": [Function],
           "onCancel": [Function],
+          "onFinishedOnDateChange": [Function],
           "onInputChange": [Function],
+          "onStartedOnDateChange": [Function],
           "onSubmit": [Function],
           "submitDisabled": false,
           "topLevelError": "",
@@ -379,7 +387,9 @@ ShallowWrapper {
             }
             onAuthorChange={[Function]}
             onCancel={[Function]}
+            onFinishedOnDateChange={[Function]}
             onInputChange={[Function]}
+            onStartedOnDateChange={[Function]}
             onSubmit={[Function]}
             submitDisabled={false}
             topLevelError=""
@@ -455,7 +465,9 @@ ShallowWrapper {
             }
             onAuthorChange={[Function]}
             onCancel={[Function]}
+            onFinishedOnDateChange={[Function]}
             onInputChange={[Function]}
+            onStartedOnDateChange={[Function]}
             onSubmit={[Function]}
             submitDisabled={false}
             topLevelError=""
@@ -524,7 +536,9 @@ ShallowWrapper {
             },
             "onAuthorChange": [Function],
             "onCancel": [Function],
+            "onFinishedOnDateChange": [Function],
             "onInputChange": [Function],
+            "onStartedOnDateChange": [Function],
             "onSubmit": [Function],
             "submitDisabled": false,
             "topLevelError": "",

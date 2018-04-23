@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { authorModel } from '../../../../models/Author.model';
 import { bookModel } from '../../../../models/Book.model';
 
-import BookForm from './BookForm/BookForm';
+import BookForm from './BookForm';
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField/InputField';
 
@@ -28,7 +28,9 @@ describe('BookForm', () => {
         errors: bookModel.emptyErrors(),
         onAuthorChange: jest.fn(),
         onCancel: jest.fn(),
+        onFinishedOnDateChange: jest.fn(),
         onInputChange: jest.fn(),
+        onStartedOnDateChange: jest.fn(),
         onSubmit: jest.fn(),
         topLevelError: '',
       };
