@@ -3,14 +3,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
 
-import { firebaseAuth } from '../globals/firebase/';
-import { fetchBooks, fetchProfile } from '../store/actions';
-import { localUrls } from '../globals/urls';
-import { setInitialized, setLocalUserData } from '../store/actions';
+import { firebaseAuth } from '../../../../globals/firebase/';
+import { fetchBooks, fetchProfile } from '../../../../store/actions';
+import { localUrls } from '../../../../globals/urls';
+import { setInitialized, setLocalUserData } from '../../../../store/actions';
 
-import Routes from './app/routes';
-import SexyHeader from './common/SexyHeader/SexyHeader';
-import Snackbar from './connected/common/Snackbar/';
+import Routes from '../../../../components/app/routes';
+import SexyHeader from '../../../../components/common/SexyHeader/SexyHeader';
+import Snackbar from '../../../../components/connected/common/Snackbar';
+
+import './App.css';
 
 const HEADER_HEIGHT = 50;
 
@@ -30,7 +32,7 @@ const loggedInLinks = [
   { to: localUrls.account, text: 'Account' },
 ];
 
-class AppWrapper extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -84,7 +86,7 @@ class AppWrapper extends Component {
   }
 }
 
-AppWrapper.propTypes = {
+App.propTypes = {
   fetchBooks: func.isRequired,
   fetchProfile: func.isRequired,
   setInitialized: func.isRequired,
@@ -114,4 +116,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppWrapper);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

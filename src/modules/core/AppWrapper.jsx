@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import AppWrapper from './AppWrapper';
+import App from './components/App/App';
 
-import store from '../store/store';
+import store from '../../store/store';
 
-import './App.css';
-
-class App extends Component {
+class AppWrapper extends Component {
   render() {
     return (
       <Provider store={store}>
-        <AppWrapper />
+        <App />
       </Provider>
     );
   }
 }
 
-export default App;
+export default AppWrapper;
