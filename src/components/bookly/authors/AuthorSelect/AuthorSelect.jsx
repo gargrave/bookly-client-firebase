@@ -14,13 +14,12 @@ type Props = {
   onChange: Function,
 };
 
-const options = (authors: Author[]) => {
-  return authors.map((a: Author) => (
+const options = (authors: Author[]) =>
+  authors.map((a: Author) => (
     <option key={a.id} value={a.id}>
       {a.firstName} {a.lastName}
     </option>
   ));
-};
 
 const AuthorSelect = ({
   author,
@@ -31,9 +30,11 @@ const AuthorSelect = ({
 }: Props) => {
   return (
     <div className={buildClasses(['input-field'], ['input-field'])}>
+      <label htmlFor="">Author:</label>
       <select
         className="author-select"
         disabled={disabled || false}
+        name="authorSelect"
         onChange={onChange}
         value={author.id}
       >
