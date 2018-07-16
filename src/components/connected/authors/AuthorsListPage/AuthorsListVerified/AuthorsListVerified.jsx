@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { array, func, string } from 'prop-types';
 
-import type { Author } from '../../../../../globals/flowtypes';
+import type { Author } from '../../../../../modules/authors/flowtypes';
 
 import Alert from '../../../../common/Alert/Alert';
 import AuthorList from '../../../../bookly/authors/AuthorList';

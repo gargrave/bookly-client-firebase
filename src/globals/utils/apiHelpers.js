@@ -1,5 +1,5 @@
 // @flow
-import type { FbDocRef } from '../flowtypes';
+import type { FbDocRef } from '../../modules/core/flowtypes';
 
 async function getDocRef(
   db: any,

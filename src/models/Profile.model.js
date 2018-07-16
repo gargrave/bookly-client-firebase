@@ -1,5 +1,6 @@
 // @flow
-import type { Profile, ProfileErrors, FbDoc } from '../globals/flowtypes';
+import type { FbDoc } from '../modules/core/flowtypes';
+import type { Profile, ProfileErrors } from '../modules/profiles/flowtypes';
 
 const profileModel = {
   empty(): any {

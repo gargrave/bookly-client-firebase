@@ -2,7 +2,7 @@
 import React from 'react';
 import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
 
-import type { Book } from '../../../../globals/flowtypes';
+import type { Book } from '../../../../modules/books/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 

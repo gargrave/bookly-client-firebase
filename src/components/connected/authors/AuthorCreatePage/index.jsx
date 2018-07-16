@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { Author, AuthorErrors } from '../../../../globals/flowtypes';
+import type { Author, AuthorErrors } from '../../../../modules/authors/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, validateAuthor } from '../../../../globals/validations';

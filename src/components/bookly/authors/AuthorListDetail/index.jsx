@@ -2,7 +2,7 @@
 import React from 'react';
 import { func, number, shape, string } from 'prop-types';
 
-import type { Author } from '../../../../globals/flowtypes';
+import type { Author } from '../../../../modules/authors/flowtypes';
 
 import Card from '../../../common/Card/Card';
 import CardTextLine from '../../../common/Card/CardTextLine/CardTextLine';

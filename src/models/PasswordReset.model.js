@@ -1,5 +1,5 @@
 // @flow
-import type { PasswordReset, PasswordResetErrors } from '../globals/flowtypes';
+import type { PasswordReset, PasswordResetErrors } from '../modules/auth/flowtypes';
 
 const passwordResetModel = {
   empty(): PasswordReset {

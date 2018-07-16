@@ -4,31 +4,33 @@ import type { Book } from '../../../modules/books/flowtypes';
 import { deleteBookFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { BOOKS } from '../../actionTypes';
+import { setApiError } from '../../core/actions/setApiError';
 
-import apiError from '../app/apiError';
+import { sortByAuthorLastName } from './helpers';
+import types from './types';
 
-import bookRequestEnd from './bookRequestEnd';
-import bookRequestStart from './bookRequestStart';
+import { requestEnd } from './requestEnd';
+import { requestStart } from './requestStart';
+
 
 const _deleteBook = (book: Book) => ({
-  type: BOOKS.DELETE_SUCCESS,
+  type: types.DELETE,
   payload: { book },
 });
 
 const deleteBook = (book: Book) =>
   async (dispatch: Function) => {
-    dispatch(bookRequestStart());
+    dispatch(requestStart());
 
     try {
       await deleteBookFromAPI(book);
       dispatch(_deleteBook(book));
       return book;
     } catch (err) {
-      dispatch(apiError(err));
+      dispatch(setApiError(err));
       throw parseAPIError(err);
     } finally {
-      dispatch(bookRequestEnd());
+      dispatch(requestEnd());
     }
   };
 

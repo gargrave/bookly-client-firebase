@@ -1,7 +1,8 @@
 // @flow
 import { format } from 'date-fns';
 
-import type { Profile, User } from '../../../../globals/flowtypes';
+import type { User } from '../../../../modules/auth/flowtypes';
+import type { Profile } from '../../../../modules/profiles/flowtypes';
 
 export const userBasicDetailsTextList = (user: User, profile: Profile) => {
   const {

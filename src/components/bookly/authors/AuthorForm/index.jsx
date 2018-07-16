@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 
-import type { Author, AuthorErrors } from '../../../../globals/flowtypes';
+import type { Author, AuthorErrors } from '../../../../modules/authors/flowtypes';
 
 import Form from '../../../common/Form';
 import InputField from '../../../common/InputField/InputField';

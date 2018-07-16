@@ -1,6 +1,6 @@
 // @flow
-import type { Author } from '../../../modules/authors/flowtypes';
-import type { Book } from '../../../modules/books/flowtypes';
+import type { Author } from '../../authors/flowtypes';
+import type { Book } from '../flowtypes';
 
 import { refreshBookAuthor } from '../../../models/Book.model';
 

@@ -1,5 +1,5 @@
 // @flow
-import type { Profile } from '../../../globals/flowtypes';
+import type { Profile } from '../../../modules/profiles/flowtypes';
 
 import { updateProfileOnAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';

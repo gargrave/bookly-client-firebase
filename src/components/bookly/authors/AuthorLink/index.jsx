@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { object } from 'prop-types';
 
-import type { Author } from '../../../../globals/flowtypes/';
+import type { Author } from '../../../../modules/authors/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';

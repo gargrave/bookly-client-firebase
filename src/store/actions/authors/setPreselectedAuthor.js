@@ -1,5 +1,5 @@
 // @flow
-import type { Author } from '../../../globals/flowtypes';
+import type { Author } from '../../../modules/authors/flowtypes';
 
 import { AUTHORS } from '../../actionTypes';
 

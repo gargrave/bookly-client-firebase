@@ -1,11 +1,5 @@
 // @flow
-import {
-  LoginErrors,
-  LoginUser,
-  RegisterErrors,
-  RegisterUser,
-  User,
-} from '../globals/flowtypes';
+import type { LoginErrors, LoginUser, RegisterErrors, RegisterUser, User } from '../modules/auth/flowtypes';
 
 export const userModel = {
   empty(): User {

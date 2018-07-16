@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bool, func, object } from 'prop-types';
 
-import type { Profile, ProfileErrors, User } from '../../../../globals/flowtypes';
+import type { User } from '../../../../modules/auth/flowtypes';
+import type { Profile, ProfileErrors } from '../../../../modules/profiles/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import profileModel from '../../../../models/Profile.model';

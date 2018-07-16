@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { array, func, instanceOf, object, oneOfType, shape, string } from 'prop-types';
 
-import type { Author, AuthorErrors, Book } from '../../../../globals/flowtypes';
+import type { Author, AuthorErrors } from '../../../../modules/authors/flowtypes';
+import type { Book } from '../../../../modules/books/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../../globals/validations';

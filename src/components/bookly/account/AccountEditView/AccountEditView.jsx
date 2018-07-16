@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func, object, string } from 'prop-types';
 
-import type { Profile } from '../../../../globals/flowtypes';
+import type { Profile } from '../../../../modules/profiles/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 

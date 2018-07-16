@@ -1,5 +1,6 @@
 // @flow
-import type { Profile } from '../../globals/flowtypes';
+import type { Profile } from '../../modules/profiles/flowtypes';
+
 import { validationErrors } from '../errors';
 
 const MAX_LEN = 255;

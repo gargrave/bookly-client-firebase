@@ -3,24 +3,24 @@ import type { Author } from '../../../modules/authors/flowtypes';
 import type { Book } from '../../../modules/books/flowtypes';
 
 import { updateBookOnAPI } from '../../../wrappers/api';
-import { parseAPIError } from '../../../wrappers/errors';
+import { parsesetApiError } from '../../../wrappers/errors';
 
-import { BOOKS } from '../../actionTypes';
-
-import apiError from '../app/apiError';
+import { setApiError } from '../../core/actions/setApiError';
 
 import { bookHasValidAuthor } from './helpers';
-import bookRequestEnd from './bookRequestEnd';
-import bookRequestStart from './bookRequestStart';
+import { requestEnd } from './requestEnd';
+import { requestStart } from './requestStart';
+
+import types from './types';
 
 const _updateBook = (book: Book) => ({
-  type: BOOKS.UPDATE_SUCCESS,
+  type: types.UPDATE,
   payload: { book },
 });
 
 const updateBook = (book: Book) =>
   async (dispatch: Function, getState: Function) => {
-    dispatch(bookRequestStart());
+    dispatch(requestStart());
 
     try {
       // validate author before proceeding
@@ -33,10 +33,10 @@ const updateBook = (book: Book) =>
       dispatch(_updateBook(updatedRecord));
       return updatedRecord;
     } catch (err) {
-      dispatch(apiError(err));
-      throw parseAPIError(err);
+      dispatch(setApiError(err));
+      throw parsesetApiError(err);
     } finally {
-      dispatch(bookRequestEnd());
+      dispatch(requestEnd());
     }
   };
 

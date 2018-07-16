@@ -1,5 +1,6 @@
 // @flow
-import type { Author, FbDoc, FbDocRef } from '../../../globals/flowtypes';
+import type { Author } from '../../../modules/authors/flowtypes';
+import type { FbDoc, FbDocRef } from '../../../modules/core/flowtypes';
 
 import { db, fbTimestamp } from '../../../globals/firebase/';
 import { authorModel } from '../../../models/Author.model';

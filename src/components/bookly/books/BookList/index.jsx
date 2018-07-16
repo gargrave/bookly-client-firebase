@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { array, bool, func, string } from 'prop-types';
 
-import type { Book, BookBucket } from '../../../../globals/flowtypes';
+import type { Book, BookBucket } from '../../../../modules/books/flowtypes';
 
 import { filterAndBucket, filterBooksByTitle } from '../helpers';
 

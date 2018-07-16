@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { RegisterErrors, RegisterUser } from '../../../../globals/flowtypes';
+import type { RegisterErrors, RegisterUser } from '../../../../modules/auth/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';

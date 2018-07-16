@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 import countBy from 'lodash/countBy';
 
-import type { Author } from '../../../../globals/flowtypes';
+import type { Author } from '../../../../modules/authors/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';

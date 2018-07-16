@@ -1,26 +1,28 @@
 // @flow
 import type { Author } from '../../../modules/authors/flowtypes';
 import type { Book } from '../../../modules/books/flowtypes';
+import type { ReduxAction } from '../../common/flowtypes';
 
 import { createBookOnAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { BOOKS } from '../../actionTypes';
+import { setApiError } from '../../core/actions/setApiError';
 
-import apiError from '../app/apiError';
+import { sortByAuthorLastName } from './helpers';
+import types from './types';
 
 import { bookHasValidAuthor } from './helpers';
-import bookRequestEnd from './bookRequestEnd';
-import bookRequestStart from './bookRequestStart';
+import { requestEnd } from './requestEnd';
+import { requestStart } from './requestStart';
 
 const _createBook = (book: Book) => ({
-  type: BOOKS.CREATE_SUCCESS,
+  type: types.CREATE,
   payload: { book },
 });
 
-const createBook = (book: Book) =>
+export const createBook = (book: Book) =>
   async (dispatch: Function, getState: Function) => {
-    dispatch(bookRequestStart());
+    dispatch(requestStart());
 
     try {
       // validate author before proceeding
@@ -33,11 +35,20 @@ const createBook = (book: Book) =>
       dispatch(_createBook(newRecord));
       return newRecord;
     } catch (err) {
-      dispatch(apiError(err));
+      dispatch(setApiError(err));
       throw parseAPIError(err);
     } finally {
-      dispatch(bookRequestEnd());
+      dispatch(requestEnd());
     }
   };
+
+export const createBookReducer =
+  (state: any, action: ReduxAction) => ({
+    ...state,
+    data: sortByAuthorLastName([
+      ...state.data,
+      action.payload.book,
+    ]),
+  });
 
 export default createBook;

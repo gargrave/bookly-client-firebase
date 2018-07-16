@@ -1,5 +1,6 @@
 // @flow
-import type { Author, AuthorErrors, FbDoc } from '../globals/flowtypes';
+import type { Author, AuthorErrors } from '../modules/authors/flowtypes';
+import type { FbDoc } from '../modules/core/flowtypes';
 
 const authorModel = {
   empty(): any {

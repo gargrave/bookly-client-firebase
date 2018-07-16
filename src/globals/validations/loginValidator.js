@@ -2,7 +2,8 @@
 import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
 
-import type { LoginErrors, LoginUser } from '../../globals/flowtypes';
+import type { LoginErrors, LoginUser } from '../../modules/auth/flowtypes';
+
 import { validationErrors } from '../errors';
 
 function loginHasAllFields(login: LoginUser) {

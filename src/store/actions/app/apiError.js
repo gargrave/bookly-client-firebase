@@ -1,5 +1,5 @@
 // @flow
-import type { FbError } from '../../../globals/flowtypes';
+import type { FbError } from '../../../modules/core/flowtypes';
 
 import { APP } from '../../actionTypes';
 

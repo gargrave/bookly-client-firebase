@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 
-import type { Book } from '../../../../globals/flowtypes';
+import type { Book } from '../../../../modules/books/flowtypes';
 
 import Card from '../../../common/Card/Card';
 import CardTextLine from '../../../common/Card/CardTextLine/CardTextLine';

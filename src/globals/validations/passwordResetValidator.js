@@ -1,7 +1,8 @@
 // @flow
 import isEmail from 'validator/lib/isEmail';
 
-import type { PasswordReset, PasswordResetErrors } from '../../globals/flowtypes';
+import type { PasswordReset, PasswordResetErrors } from '../../modules/auth/flowtypes';
+
 import { validationErrors } from '../errors';
 
 export const passwordResetHasAllFields = (data: PasswordReset) =>

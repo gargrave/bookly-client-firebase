@@ -1,5 +1,7 @@
 // @flow
-import type { Author, Book, BookErrors, FbDoc } from '../globals/flowtypes';
+import type { Author } from '../modules/authors/flowtypes';
+import type { Book, BookErrors } from '../modules/books/flowtypes';
+import type { FbDoc } from '../modules/core/flowtypes';
 
 function hydrateAuthor(authors, id): Author {
   const author = authors.find((a) => a.id === id);

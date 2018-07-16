@@ -1,5 +1,6 @@
 // @flow
-import type { Book, FbDocRef } from '../../../globals/flowtypes';
+import type { Book } from '../../../modules/books/flowtypes';
+import type { FbDocRef } from '../../../modules/core/flowtypes';
 
 import { db } from '../../../globals/firebase/';
 import { getDocRef } from '../../../globals/utils/apiHelpers';

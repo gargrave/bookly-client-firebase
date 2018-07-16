@@ -1,5 +1,5 @@
 // @flow
-import type { Book, BookErrors } from '../../globals/flowtypes';
+import type { Book, BookErrors } from '../../modules/books/flowtypes';
 
 import { validationErrors } from '../errors';
 import { bookModel } from '../../models/Book.model';

@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { array, func, string } from 'prop-types';
 
-import type { Book } from '../../../../../globals/flowtypes';
+import type { Book } from '../../../../../modules/books/flowtypes';
 
 import Alert from '../../../../common/Alert/Alert';
 import BookList from '../../../../bookly/books/BookList';
