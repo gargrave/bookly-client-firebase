@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import App from './components/App/App';
+import AppContainer from './containers/AppContainer/AppContainer';
 
 import store from '../../store/store';
 
@@ -9,7 +9,7 @@ class AppWrapper extends Component {
   render() {
     return (
       <Provider store={store}>
-        <App />
+        <AppContainer />
       </Provider>
     );
   }

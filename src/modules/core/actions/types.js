@@ -1,0 +1,4 @@
+export default {
+  INITIALIZED: 'APP_INITIALIZED',
+  SET_API_ERROR: 'API_ERROR',
+};

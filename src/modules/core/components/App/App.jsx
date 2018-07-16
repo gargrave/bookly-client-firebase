@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, shape } from 'prop-types';
 
 import { firebaseAuth } from '../../../../globals/firebase/';
-import { fetchBooks, fetchProfile } from '../../../../store/actions';
 import { localUrls } from '../../../../globals/urls';
-import { setInitialized, setLocalUserData } from '../../../../store/actions';
 
 import Routes from '../../../../components/app/routes';
 import SexyHeader from '../../../../components/common/SexyHeader/SexyHeader';
@@ -33,6 +30,15 @@ const loggedInLinks = [
 ];
 
 class App extends Component {
+  static propTypes = {
+    actions: shape({
+      setInitialized: func.isRequired,
+    }).isRequired,
+    fetchBooks: func.isRequired,
+    fetchProfile: func.isRequired,
+    setLocalUserData: func.isRequired,
+  }
+
   constructor(props) {
     super(props);
 
@@ -52,7 +58,7 @@ class App extends Component {
       this.setState({
         loggedIn: !!user,
       }, () => {
-        this.props.setInitialized();
+        this.props.actions.setInitialized();
       });
     });
   }
@@ -86,34 +92,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  fetchBooks: func.isRequired,
-  fetchProfile: func.isRequired,
-  setInitialized: func.isRequired,
-  setLocalUserData: func.isRequired,
-};
-
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchBooks() {
-    return dispatch(fetchBooks());
-  },
-
-  fetchProfile() {
-    return dispatch(fetchProfile());
-  },
-
-  setInitialized() {
-    return dispatch(setInitialized());
-  },
-
-  setLocalUserData(user) {
-    return dispatch(setLocalUserData(user));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
