@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { authorModel } from '../../../../models/Author.model';
-import { bookModel } from '../../../../models/Book.model';
+import { authorModel } from '../../../../modules/authors/models';
+import { bookModel } from '../../../../modules/books/models';
 
 import BookForm from './';
 import Form from '../../../common/Form';

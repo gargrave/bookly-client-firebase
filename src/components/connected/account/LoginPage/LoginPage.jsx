@@ -9,7 +9,7 @@ import type { LoginErrors, LoginUser } from '../../../../modules/auth/flowtypes'
 import { localUrls } from '../../../../globals/urls';
 import { login } from '../../../../store/actions';
 import { loginHasAllFields, validateLogin } from '../../../../globals/validations/';
-import { loginUserModel } from '../../../../models/User.model';
+import { loginUserModel } from '../../../../modules/auth/models';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import Card from '../../../common/Card/Card';

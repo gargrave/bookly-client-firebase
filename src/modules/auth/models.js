@@ -1,5 +1,13 @@
 // @flow
-import type { LoginErrors, LoginUser, RegisterErrors, RegisterUser, User } from '../modules/auth/flowtypes';
+import type {
+  LoginErrors,
+  LoginUser,
+  PasswordReset,
+  PasswordResetErrors,
+  RegisterErrors,
+  RegisterUser,
+  User,
+} from './flowtypes';
 
 export const userModel = {
   empty(): User {
@@ -82,6 +90,20 @@ export const registerUserModel = {
       email: data.email,
       password: data.password,
       passwordConfirm: data.passwordConfirm,
+    };
+  },
+};
+
+export const passwordResetModel = {
+  empty(): PasswordReset {
+    return {
+      email: '',
+    };
+  },
+
+  emptyErrors(): PasswordResetErrors {
+    return {
+      email: '',
     };
   },
 };

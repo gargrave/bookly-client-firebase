@@ -2,7 +2,7 @@
 import type { Author } from '../../../modules/authors/flowtypes';
 import type { Book } from '../../../modules/books/flowtypes';
 
-import { refreshBookAuthor } from '../../../models/Book.model';
+import { refreshBookAuthor } from '../../../modules/books/models';
 
 import { BOOKS } from '../../actionTypes';
 

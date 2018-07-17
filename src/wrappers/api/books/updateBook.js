@@ -4,7 +4,7 @@ import type { Book } from '../../../modules/books/flowtypes';
 import type { FbDoc, FbDocRef } from '../../../modules/core/flowtypes';
 
 import { db, fbTimestamp } from '../../../globals/firebase/';
-import { bookModel } from '../../../models/Book.model';
+import { bookModel } from '../../../modules/books/models';
 
 import { getCurrentUserId } from '../../auth';
 

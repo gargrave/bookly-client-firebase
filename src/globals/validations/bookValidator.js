@@ -2,7 +2,7 @@
 import type { Book, BookErrors } from '../../modules/books/flowtypes';
 
 import { validationErrors } from '../errors';
-import { bookModel } from '../../models/Book.model';
+import { bookModel } from '../../modules/books/models';
 
 function bookHasAllFields(book: Book) {
   return !!book.title

@@ -1,7 +1,7 @@
 // @flow
-import type { Author } from '../modules/authors/flowtypes';
-import type { Book, BookErrors } from '../modules/books/flowtypes';
-import type { FbDoc } from '../modules/core/flowtypes';
+import type { Author } from '../authors/flowtypes';
+import type { Book, BookErrors } from '../books/flowtypes';
+import type { FbDoc } from '../core/flowtypes';
 
 function hydrateAuthor(authors, id): Author {
   const author = authors.find((a) => a.id === id);
@@ -11,12 +11,12 @@ function hydrateAuthor(authors, id): Author {
   };
 }
 
-function refreshBookAuthor(book: Book, authors: Author[]) {
+export function refreshBookAuthor(book: Book, authors: Author[]) {
   book.author = hydrateAuthor(authors, book.author.id || book.authorId);
 }
 
-const bookModel = {
-  empty(): any {
+export const bookModel = {
+  empty(): Book {
     return {
       author: {
         id: '',
@@ -43,7 +43,7 @@ const bookModel = {
     };
   },
 
-  toAPI(data: Book): any {
+  toAPI(data: Book): Book {
     let payload: any = {
       title: data.title.trim(),
       authorId: data.author.id,
@@ -74,9 +74,4 @@ const bookModel = {
       updated,
     };
   },
-};
-
-export {
-  bookModel,
-  refreshBookAuthor,
 };

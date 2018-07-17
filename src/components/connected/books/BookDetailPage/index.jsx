@@ -8,7 +8,7 @@ import type { Book, BookErrors } from '../../../../modules/books/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { bookHasAllFields, booksMatch, validateBook } from '../../../../globals/validations';
-import { bookModel } from '../../../../models/Book.model';
+import { bookModel } from '../../../../modules/books/models';
 import { deleteBook, fetchBooks, updateBook } from '../../../../store/actions';
 import { createSnackbar } from '../../../../store/actions';
 

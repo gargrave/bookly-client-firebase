@@ -1,4 +1,4 @@
-import { userModel } from '../../../models/User.model';
+import { userModel } from '../../../modules/auth/models';
 
 import { AUTH } from '../../actionTypes';
 

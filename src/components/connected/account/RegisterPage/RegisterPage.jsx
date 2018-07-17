@@ -9,7 +9,7 @@ import type { RegisterErrors, RegisterUser } from '../../../../modules/auth/flow
 import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../../globals/validations';
-import { registerUserModel } from '../../../../models/User.model';
+import { registerUserModel } from '../../../../modules/auth/models';
 import { register } from '../../../../store/actions';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 

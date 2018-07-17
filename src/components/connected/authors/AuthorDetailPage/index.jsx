@@ -8,7 +8,7 @@ import type { Book } from '../../../../modules/books/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../../globals/validations';
-import { authorModel } from '../../../../models/Author.model';
+import { authorModel } from '../../../../modules/authors/models';
 import { createSnackbar } from '../../../../store/actions';
 
 import {

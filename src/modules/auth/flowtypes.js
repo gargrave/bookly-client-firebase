@@ -25,11 +25,13 @@ export type RegisterUser = {
 
 export type User = {
   id?: string,
-  registered?: Date | string,
-  lastLogin?: Date | string,
+  uid?: string,
+  displayName?: string,
   email: string,
   emailVerified?: boolean,
+  lastLogin?: Date | string,
   password?: string,
+  registered?: Date | string,
 };
 
 export type PasswordReset = {

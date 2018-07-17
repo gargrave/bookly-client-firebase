@@ -1,9 +1,9 @@
 // @flow
-import type { FbDoc } from '../modules/core/flowtypes';
-import type { Profile, ProfileErrors } from '../modules/profiles/flowtypes';
+import type { FbDoc } from '../core/flowtypes';
+import type { Profile, ProfileErrors } from './flowtypes';
 
-const profileModel = {
-  empty(): any {
+export const profileModel = {
+  empty(): Profile {
     return {
       firstName: '',
       lastName: '',
@@ -26,7 +26,7 @@ const profileModel = {
     };
   },
 
-  toAPI(data: Profile): any {
+  toAPI(data: Profile): Profile {
     let payload: any = {
       firstName: data.firstName.trim() || '',
       lastName: data.lastName.trim() || '',
@@ -58,5 +58,3 @@ const profileModel = {
     };
   },
 };
-
-export default profileModel;

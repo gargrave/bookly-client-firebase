@@ -7,7 +7,7 @@ import type { Author, AuthorErrors } from '../../../../modules/authors/flowtypes
 
 import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, validateAuthor } from '../../../../globals/validations';
-import { authorModel } from '../../../../models/Author.model';
+import { authorModel } from '../../../../modules/authors/models';
 import { createAuthor, fetchAuthors } from '../../../../store/actions';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 

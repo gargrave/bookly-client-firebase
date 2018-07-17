@@ -8,7 +8,7 @@ import type { Book, BookErrors } from '../../../../modules/books/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { bookHasAllFields, validateBook } from '../../../../globals/validations';
-import { bookModel } from '../../../../models/Book.model';
+import { bookModel } from '../../../../modules/books/models';
 import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions';
 import { createBook, fetchBooks } from '../../../../store/actions';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';

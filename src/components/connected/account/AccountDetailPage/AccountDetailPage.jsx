@@ -7,7 +7,7 @@ import type { User } from '../../../../modules/auth/flowtypes';
 import type { Profile, ProfileErrors } from '../../../../modules/profiles/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import profileModel from '../../../../models/Profile.model';
+import { profileModel } from '../../../../modules/profiles/models';
 import { createSnackbar, logout, markVerificationEmailSent, updateProfile } from '../../../../store/actions';
 import { profileHasAllFields, profilesMatch, validateProfile } from '../../../../globals/validations';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';

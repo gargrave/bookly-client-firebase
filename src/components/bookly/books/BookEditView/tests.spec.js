@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { authorMocks, bookMocks } from '../../../../globals/mocks/';
-import { bookModel } from '../../../../models/Book.model';
+import { bookModel } from '../../../../modules/books/models';
 
 import BookEditView from './';
 import BookForm from '../BookForm';

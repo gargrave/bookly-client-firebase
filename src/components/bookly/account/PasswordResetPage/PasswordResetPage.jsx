@@ -9,7 +9,7 @@ import {
   passwordResetHasAllFields,
   validatePasswordReset,
 } from '../../../../globals/validations';
-import passwordResetModel from '../../../../models/PasswordReset.model';
+import { passwordResetModel } from '../../../../modules/auth/models';
 import { sendPasswordResetEmail } from '../../../../wrappers/auth';
 
 import Card from '../../../common/Card/Card';
