@@ -5,9 +5,10 @@ import { func, shape } from 'prop-types';
 import { firebaseAuth } from '../../../../globals/firebase/';
 import { localUrls } from '../../../../globals/urls';
 
-import Routes from '../../../../components/app/routes';
 import SexyHeader from '../../../../components/common/SexyHeader/SexyHeader';
 import Snackbar from '../../../../components/connected/common/Snackbar';
+
+import Routes from '../../Routes';
 
 import './App.css';
 

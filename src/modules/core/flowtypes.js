@@ -2,7 +2,7 @@
 export type ReactRoute = {
   component: Function,
   exact?: boolean,
-  path: string,
+  path?: string,
 };
 
 // TODO: move these to a wrappers file
