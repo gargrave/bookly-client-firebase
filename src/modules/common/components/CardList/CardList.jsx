@@ -2,9 +2,9 @@
 import React from 'react';
 import { any } from 'prop-types';
 
-import { buildClasses } from '../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import './styles.css';
+import './CardList.css';
 
 type Props = {
   children?: any,

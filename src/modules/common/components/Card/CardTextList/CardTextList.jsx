@@ -2,9 +2,12 @@
 import React, { Fragment } from 'react';
 import { array } from 'prop-types';
 
-import type { CardTextListItem } from '../types';
+import { buildClasses } from '../../../../../globals/utils/cssHelpers';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+type CardTextListItem = {
+  title?: string,
+  value?: string,
+}
 
 type Props = {
   textList: CardTextListItem[],

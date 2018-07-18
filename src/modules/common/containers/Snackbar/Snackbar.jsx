@@ -5,10 +5,10 @@ import { array, func } from 'prop-types';
 
 import { popSnackbar } from '../../../../store/actions';
 
-import { SlideInFromBottom } from '../../../common/hocs/Transitions';
-import SnackbarMessage from './SnackbarMessage/';
+import { SlideInFromBottom } from '../../components/hocs/Transitions';
+import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 
-import './styles.css';
+import './Snackbar.css';
 
 type Props = {
   queue: any[],
