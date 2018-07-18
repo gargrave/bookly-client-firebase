@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Alert from '../../../common/Alert/Alert';
+import Alert from '../../../../modules/common/components/Alert/Alert';
 import AuthorList from './';
 import AuthorListDetail from '../../../bookly/authors/AuthorListDetail';
 

@@ -11,7 +11,7 @@ import {
   buildClassList,
 } from './helpers';
 
-import './styles.css';
+import './Button.css';
 
 type Props = {
   canSubmit?: boolean,

@@ -2,12 +2,12 @@
 import React from 'react';
 import { func, string } from 'prop-types';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../../globals/utils/cssHelpers';
 
-import Button from '../../Button';
-import ButtonRow from '../../ButtonRow';
+import Button from '../../Button/Button';
+import ButtonRow from '../../ButtonRow/ButtonRow';
 
-import './styles.css';
+import './ModalFooter.css';
 
 type Props = {
   cancelText?: string,

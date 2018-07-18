@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import Alert from '../../../common/Alert/Alert';
+import Alert from '../../../../modules/common/components/Alert/Alert';
 
 import './UnverifiedNotice.css';
 

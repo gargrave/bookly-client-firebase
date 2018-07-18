@@ -12,11 +12,11 @@ import { bookModel } from '../../../../modules/books/models';
 import { deleteBook, fetchBooks, updateBook } from '../../../../store/actions';
 import { createSnackbar } from '../../../../store/actions';
 
-import Alert from '../../../common/Alert/Alert';
+import Alert from '../../../../modules/common/components/Alert/Alert';
 import BookDetailView from '../../../bookly/books/BookDetailView';
 import BookEditView from '../../../bookly/books/BookEditView';
 import CardList from '../../../common/CardList';
-import Modal from '../../../common/Modal';
+import Modal from '../../../../modules/common/components/Modal/Modal';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {

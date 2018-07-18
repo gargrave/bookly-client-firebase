@@ -10,7 +10,7 @@ import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 import { fetchAuthors } from '../../../../store/actions';
 
-import Button from '../../../common/Button';
+import Button from '../../../../modules/common/components/Button/Button';
 import CardList from '../../../common/CardList';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
 import UnverifiedNotice from '../../../bookly/account/UnverifiedNotice/UnverifiedNotice';

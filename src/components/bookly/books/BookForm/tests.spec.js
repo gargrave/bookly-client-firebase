@@ -5,9 +5,8 @@ import { authorModel } from '../../../../modules/authors/models';
 import { bookModel } from '../../../../modules/books/models';
 
 import BookForm from './';
-import Form from '../../../common/Form';
-import InputField from '../../../common/InputField/InputField';
-
+import Form from '../../../../modules/common/components/Form/Form';
+import InputField from '../../../../modules/common/components/InputField/InputField';
 
 describe('BookForm', () => {
   let props;

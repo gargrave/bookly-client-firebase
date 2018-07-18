@@ -2,9 +2,9 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../../globals/utils/cssHelpers';
 
-import './styles.css';
+import './ModalHeader.css';
 
 type Props = {
   title?: string,

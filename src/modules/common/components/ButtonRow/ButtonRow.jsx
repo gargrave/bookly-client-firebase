@@ -2,9 +2,9 @@
 import React from 'react';
 import { array, object, oneOfType } from 'prop-types';
 
-import { buildClasses } from '../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import './styles.css';
+import './ButtonRow.css';
 
 type Props = {
   children?: any,

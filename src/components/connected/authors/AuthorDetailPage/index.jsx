@@ -18,11 +18,11 @@ import {
   updateAuthor,
 } from '../../../../store/actions';
 
-import Alert from '../../../common/Alert/Alert';
+import Alert from '../../../../modules/common/components/Alert/Alert';
 import AuthorDetailView from '../../../bookly/authors/AuthorDetailView';
 import AuthorEditView from '../../../bookly/authors/AuthorEditView';
 import CardList from '../../../common/CardList';
-import Modal from '../../../common/Modal';
+import Modal from '../../../../modules/common/components/Modal/Modal';
 import RequiresAuth from '../../../common/hocs/RequiresAuth';
 
 type Props = {

@@ -2,7 +2,7 @@
 import React from 'react';
 import { any, oneOf, string } from 'prop-types';
 
-import { buildClasses } from '../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 type Props = {
   children?: any,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Form from '../../../common/Form';
-import InputField from '../../../common/InputField/InputField';
+import Form from '../../../../modules/common/components/Form/Form';
+import InputField from '../../../../modules/common/components/InputField/InputField';
 
 import RegisterForm from './';
 

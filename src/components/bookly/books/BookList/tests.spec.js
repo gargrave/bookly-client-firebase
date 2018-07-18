@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { bookMocks } from '../../../../globals/mocks/';
 import { filterAndBucket } from '../helpers';
 
-import Alert from '../../../common/Alert/Alert';
+import Alert from '../../../../modules/common/components/Alert/Alert';
 import BookList from './';
 import BookListBucket from '../BookListBucket/';
 import BookListDetail from '../BookListDetail/BookListDetail';

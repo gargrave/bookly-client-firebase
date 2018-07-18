@@ -4,9 +4,9 @@ import { array, func, string } from 'prop-types';
 
 import type { Book } from '../../../../../modules/books/flowtypes';
 
-import Alert from '../../../../common/Alert/Alert';
+import Alert from '../../../../../modules/common/components/Alert/Alert';
 import BookList from '../../../../bookly/books/BookList';
-import InputField from '../../../../common/InputField/InputField';
+import InputField from '../../../../../modules/common/components/InputField/InputField';
 
 type Props = {
   books: Book[],

@@ -8,7 +8,7 @@ import type { Book } from '../../../../../modules/books/flowtypes';
 import { buildClasses } from '../../../../../globals/utils/cssHelpers';
 
 import BookList from '../../../books/BookList';
-import Button from '../../../../common/Button';
+import Button from '../../../../../modules/common/components/Button/Button';
 
 import './styles.css';
 

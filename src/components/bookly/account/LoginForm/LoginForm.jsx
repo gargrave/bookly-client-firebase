@@ -4,8 +4,8 @@ import { bool, func, shape, string } from 'prop-types';
 
 import type { LoginErrors, LoginUser } from '../../../../modules/auth/flowtypes';
 
-import Form from '../../../common/Form';
-import InputField from '../../../common/InputField/InputField';
+import Form from '../../../../modules/common/components/Form/Form';
+import InputField from '../../../../modules/common/components/InputField/InputField';
 
 type Props = {
   disabled?: boolean,

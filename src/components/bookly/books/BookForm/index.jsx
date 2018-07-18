@@ -6,8 +6,8 @@ import type { Author } from '../../../../modules/authors/flowtypes';
 import type { Book, BookErrors } from '../../../../modules/books/flowtypes';
 
 import AuthorSelect from '../../authors/AuthorSelect/AuthorSelect';
-import Form from '../../../common/Form';
-import InputField from '../../../common/InputField/InputField';
+import Form from '../../../../modules/common/components/Form/Form';
+import InputField from '../../../../modules/common/components/InputField/InputField';
 
 type Props = {
   authors: Author[],

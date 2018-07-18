@@ -2,14 +2,14 @@
 import React from 'react';
 import { array, func, oneOfType, string } from 'prop-types';
 
-import { buildClasses } from '../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import ModalBackdrop from './ModalBackdrop';
-import ModalBody from './ModalBody';
-import ModalFooter from './ModalFooter';
-import ModalHeader from './ModalHeader';
+import ModalBackdrop from './ModalBackdrop/ModalBackdrop';
+import ModalBody from './ModalBody/ModalBody';
+import ModalFooter from './ModalFooter/ModalFooter';
+import ModalHeader from './ModalHeader/ModalHeader';
 
-import './styles.css';
+import './Modal.css';
 
 type Props = {
   cancelText?: string,

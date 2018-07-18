@@ -5,8 +5,8 @@ import { format } from 'date-fns';
 
 import type { Author } from '../../../../../modules/authors/flowtypes';
 
-import Button from '../../../../common/Button';
-import ButtonRow from '../../../../common/ButtonRow';
+import Button from '../../../../../modules/common/components/Button/Button';
+import ButtonRow from '../../../../../modules/common/components/ButtonRow/ButtonRow';
 import Card from '../../../../common/Card/Card';
 import CardSpacer from '../../../../common/Card/CardSpacer/CardSpacer';
 import CardTextList from '../../../../common/Card/CardTextList/CardTextList';

@@ -4,9 +4,9 @@ import { array, func, string } from 'prop-types';
 
 import type { Author } from '../../../../../modules/authors/flowtypes';
 
-import Alert from '../../../../common/Alert/Alert';
+import Alert from '../../../../../modules/common/components/Alert/Alert';
 import AuthorList from '../../../../bookly/authors/AuthorList';
-import InputField from '../../../../common/InputField/InputField';
+import InputField from '../../../../../modules/common/components/InputField/InputField';
 
 type Props = {
   authors: Author[],

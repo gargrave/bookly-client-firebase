@@ -7,7 +7,7 @@ import type { Book } from '../../../../modules/books/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import Alert from '../../../common/Alert/Alert';
+import Alert from '../../../../modules/common/components/Alert/Alert';
 import AuthorBooksList from './AuthorBooksList';
 import AuthorDetailCard from './AuthorDetailCard';
 

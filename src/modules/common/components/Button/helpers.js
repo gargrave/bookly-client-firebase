@@ -1,5 +1,5 @@
 // @flow
-import { buildClasses } from '../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import {
   POSITIONS,

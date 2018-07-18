@@ -4,7 +4,7 @@ import { array, func, string } from 'prop-types';
 
 import type { Author } from '../../../../modules/authors/flowtypes';
 
-import Alert from '../../../common/Alert/Alert';
+import Alert from '../../../../modules/common/components/Alert/Alert';
 import AuthorListDetail from '../AuthorListDetail';
 
 type Props = {
