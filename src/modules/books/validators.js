@@ -1,16 +1,16 @@
 // @flow
-import type { Book, BookErrors } from '../../modules/books/flowtypes';
+import type { Book, BookErrors } from './flowtypes';
 
-import { validationErrors } from '../errors';
-import { bookModel } from '../../modules/books/models';
+import { validationErrors } from '../../globals/errors';
+import { bookModel } from './models';
 
-function bookHasAllFields(book: Book) {
+export function bookHasAllFields(book: Book) {
   return !!book.title
     && !!book.author
     && !!book.author.id;
 }
 
-function booksMatch(a: Book, b: Book): boolean {
+export function booksMatch(a: Book, b: Book): boolean {
   if (a.title && b.title &&
       a.title.trim() !== b.title.trim()) {
     return false;
@@ -23,7 +23,7 @@ function booksMatch(a: Book, b: Book): boolean {
   return true;
 }
 
-function validateBook(data: Book): BookErrors {
+export function validateBook(data: Book): BookErrors {
   const errors = {
     found: false,
     ...bookModel.emptyErrors(),
@@ -43,9 +43,3 @@ function validateBook(data: Book): BookErrors {
 
   return errors;
 }
-
-export {
-  bookHasAllFields,
-  booksMatch,
-  validateBook,
-};

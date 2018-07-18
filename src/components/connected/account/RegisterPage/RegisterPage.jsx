@@ -8,7 +8,7 @@ import type { RegisterErrors, RegisterUser } from '../../../../modules/auth/flow
 
 import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
-import { registerUserHasAllFields, validateRegisterUser } from '../../../../globals/validations';
+import { registerUserHasAllFields, validateRegisterUser } from '../../../../modules/auth/validators';
 import { registerUserModel } from '../../../../modules/auth/models';
 import { register } from '../../../../store/actions';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';

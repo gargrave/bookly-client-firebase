@@ -2,15 +2,15 @@
 import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
 
-import type { LoginErrors, LoginUser } from '../../modules/auth/flowtypes';
+import type { LoginErrors, LoginUser } from '../flowtypes';
 
-import { validationErrors } from '../errors';
+import { validationErrors } from '../../../globals/errors';
 
-function loginHasAllFields(login: LoginUser) {
+export function loginHasAllFields(login: LoginUser) {
   return !!login.email && !!login.password;
 }
 
-function validateLogin(data: LoginUser): LoginErrors {
+export function validateLogin(data: LoginUser): LoginErrors {
   const errors = {
     found: false,
     email: '',
@@ -37,8 +37,3 @@ function validateLogin(data: LoginUser): LoginErrors {
 
   return errors;
 }
-
-export {
-  loginHasAllFields,
-  validateLogin,
-};

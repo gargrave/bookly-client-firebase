@@ -7,7 +7,7 @@ import type { Author, AuthorErrors } from '../../../../modules/authors/flowtypes
 import type { Book } from '../../../../modules/books/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../../globals/validations';
+import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../../modules/authors/validators';
 import { authorModel } from '../../../../modules/authors/models';
 import { createSnackbar } from '../../../../store/actions';
 

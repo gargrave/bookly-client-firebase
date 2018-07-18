@@ -1,15 +1,15 @@
 // @flow
-import type { Profile } from '../../modules/profiles/flowtypes';
+import type { Profile } from './flowtypes';
 
-import { validationErrors } from '../errors';
+import { validationErrors } from '../../globals/errors';
 
 const MAX_LEN = 255;
 
-const profileHasAllFields = (profile: Profile) => {
+export const profileHasAllFields = (profile: Profile) => {
   return !!profile.firstName && !!profile.lastName;
 };
 
-const profilesMatch = (a: Profile, b: Profile): boolean => {
+export const profilesMatch = (a: Profile, b: Profile): boolean => {
   if (a.firstName.trim() !== b.firstName.trim()) {
     return false;
   }
@@ -19,7 +19,7 @@ const profilesMatch = (a: Profile, b: Profile): boolean => {
   return true;
 };
 
-const validateProfile = (data: Profile): Object => {
+export const validateProfile = (data: Profile): Object => {
   const errors = {
     found: false,
     firstName: '',
@@ -45,10 +45,4 @@ const validateProfile = (data: Profile): Object => {
   }
 
   return errors;
-};
-
-export {
-  profileHasAllFields,
-  profilesMatch,
-  validateProfile,
 };

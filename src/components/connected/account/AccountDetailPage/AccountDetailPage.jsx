@@ -9,7 +9,7 @@ import type { Profile, ProfileErrors } from '../../../../modules/profiles/flowty
 import { localUrls } from '../../../../globals/urls';
 import { profileModel } from '../../../../modules/profiles/models';
 import { createSnackbar, logout, markVerificationEmailSent, updateProfile } from '../../../../store/actions';
-import { profileHasAllFields, profilesMatch, validateProfile } from '../../../../globals/validations';
+import { profilesMatch, validateProfile } from '../../../../modules/profiles/validators';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
 import AccountDetailView from '../../../bookly/account/AccountDetailView/AccountDetailView';
