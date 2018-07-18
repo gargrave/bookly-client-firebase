@@ -12,10 +12,10 @@ import { loginHasAllFields, validateLogin } from '../../../../modules/auth/valid
 import { loginUserModel } from '../../../../modules/auth/models';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import Card from '../../../common/Card/Card';
-import CardList from '../../../common/CardList';
-import LoginForm from '../../../bookly/account/LoginForm/LoginForm';
-import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import Card from '../../../common/components/Card/Card';
+import CardList from '../../../common/components/CardList/CardList';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 import './LoginPage.css';
 

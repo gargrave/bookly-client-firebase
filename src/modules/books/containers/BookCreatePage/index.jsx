@@ -16,7 +16,7 @@ import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import BookForm from '../../../bookly/books/BookForm';
 import Card from '../../../common/Card/Card';
 import CardList from '../../../common/CardList';
-import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   authors: Author[],

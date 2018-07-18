@@ -12,7 +12,7 @@ import { fetchAuthors } from '../../../../store/actions';
 
 import Button from '../../../../modules/common/components/Button/Button';
 import CardList from '../../../common/CardList';
-import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 import UnverifiedNotice from '../../../bookly/account/UnverifiedNotice/UnverifiedNotice';
 
 import AuthorsListVerified from './AuthorsListVerified/AuthorsListVerified';

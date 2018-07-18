@@ -2,12 +2,12 @@
 import React from 'react';
 import { bool, func, object, string } from 'prop-types';
 
-import type { Profile } from '../../../../modules/profiles/flowtypes';
+import type { Profile } from '../../../profiles/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
-import Card from '../../../common/Card/Card';
 import AccountForm from '../AccountForm/AccountForm';
+import Card from '../../../common/components/Card/Card';
 
 type Props = {
   disabled: boolean,

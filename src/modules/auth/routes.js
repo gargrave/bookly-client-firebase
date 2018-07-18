@@ -1,10 +1,10 @@
 // @flow
 import type { ReactRoute } from '../core/flowtypes';
 
-import AccountDetailPage from '../../components/connected/account/AccountDetailPage/AccountDetailPage';
-import ConnectedPasswordResetPage from '../../components/connected/account/ConnectedPasswordResetPage/ConnectedPasswordResetPage';
-import LoginPage from '../../components/connected/account/LoginPage/LoginPage';
-import RegisterPage from '../../components/connected/account/RegisterPage/RegisterPage';
+import AccountDetailPage from './containers/AccountDetailPage/AccountDetailPage';
+import ConnectedPasswordResetPage from './containers/ConnectedPasswordResetPage/ConnectedPasswordResetPage';
+import LoginPage from './containers/LoginPage/LoginPage';
+import RegisterPage from './containers/RegisterPage/RegisterPage';
 
 import { localUrls } from '../../globals/urls';
 

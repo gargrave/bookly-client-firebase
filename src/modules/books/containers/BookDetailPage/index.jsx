@@ -17,7 +17,7 @@ import BookDetailView from '../../../bookly/books/BookDetailView';
 import BookEditView from '../../../bookly/books/BookEditView';
 import CardList from '../../../common/CardList';
 import Modal from '../../../../modules/common/components/Modal/Modal';
-import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   authors: Author[],

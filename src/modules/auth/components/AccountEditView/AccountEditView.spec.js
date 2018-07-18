@@ -3,7 +3,7 @@ import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
 import profileModel from '../../../../modules/profiles/models';
 
 import AccountForm from '../AccountForm/AccountForm';
-import Card from '../../../common/Card/Card';
+import Card from '../../../common/components/Card/Card';
 
 import AccountEditView from './AccountEditView';
 

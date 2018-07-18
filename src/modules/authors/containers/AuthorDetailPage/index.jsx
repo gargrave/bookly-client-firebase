@@ -23,7 +23,7 @@ import AuthorDetailView from '../../../bookly/authors/AuthorDetailView';
 import AuthorEditView from '../../../bookly/authors/AuthorEditView';
 import CardList from '../../../common/CardList';
 import Modal from '../../../../modules/common/components/Modal/Modal';
-import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   author: Author,

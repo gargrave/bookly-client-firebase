@@ -2,10 +2,10 @@
 import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 
-import type { LoginErrors, LoginUser } from '../../../../modules/auth/flowtypes';
+import type { LoginErrors, LoginUser } from '../../../auth/flowtypes';
 
-import Form from '../../../../modules/common/components/Form/Form';
-import InputField from '../../../../modules/common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form';
+import InputField from '../../../common/components/InputField/InputField';
 
 type Props = {
   disabled?: boolean,

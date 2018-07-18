@@ -1,4 +1,4 @@
-import { profileMocks, userMocks } from '../../../../globals/mocks/';
+import { profileMocks, userMocks } from '../../../..//lobals/mocks/';
 import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
 
 import Card from '../../../common/Card/Card';

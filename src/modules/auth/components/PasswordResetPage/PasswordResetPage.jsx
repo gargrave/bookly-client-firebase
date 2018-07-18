@@ -2,17 +2,18 @@
 import React, { Fragment } from 'react';
 import { func, string } from 'prop-types';
 
-import type { PasswordReset, PasswordResetErrors } from '../../../../modules/auth/flowtypes';
+import type { PasswordReset, PasswordResetErrors } from '../../../auth/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
-import { passwordResetHasAllFields, validatePasswordReset } from '../../../../modules/auth/validators';
-import { passwordResetModel } from '../../../../modules/auth/models';
 import { sendPasswordResetEmail } from '../../../../wrappers/auth';
+import { passwordResetModel } from '../../../auth/models';
+import { passwordResetHasAllFields, validatePasswordReset } from '../../../auth/validators';
 
-import Card from '../../../common/Card/Card';
-import CardSpacer from '../../../common/Card/CardSpacer/CardSpacer';
-import CardList from '../../../common/CardList';
-import CardTextLine from '../../../common/Card/CardTextLine/CardTextLine';
+import Card from '../../../common/components/Card/Card';
+import CardSpacer from '../../../common/components/Card/CardSpacer/CardSpacer';
+import CardList from '../../../common/components/CardList/CardList';
+import CardTextLine from '../../../common/components/Card/CardTextLine/CardTextLine';
+
 import PasswordResetForm from './PasswordResetForm/PasswordResetForm';
 
 type Props = {

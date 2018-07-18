@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Form from '../../../../modules/common/components/Form/Form';
-import InputField from '../../../../modules/common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form';
+import InputField from '../../../common/components/InputField/InputField';
 
-import RegisterForm from './';
+import RegisterForm from './RegisterForm';
 
 const defaultProps = Object.freeze({
   disabled: false,

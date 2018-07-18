@@ -12,10 +12,10 @@ import { createSnackbar, logout, markVerificationEmailSent, updateProfile } from
 import { profilesMatch, validateProfile } from '../../../../modules/profiles/validators';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
-import AccountDetailView from '../../../bookly/account/AccountDetailView/AccountDetailView';
-import AccountEditView from '../../../bookly/account/AccountEditView/AccountEditView';
-import CardList from '../../../common/CardList';
-import RequiresAuth from '../../../common/hocs/RequiresAuth';
+import AccountDetailView from '../../components/AccountDetailView/AccountDetailView';
+import AccountEditView from '../../components/AccountEditView/AccountEditView';
+import CardList from '../../../common/components/CardList/CardList';
+import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   createSnackbar: Function,
