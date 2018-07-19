@@ -5,9 +5,8 @@ import { localUrls } from '../../../../globals/urls';
 import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions';
 import { createBook, fetchBooks } from '../../../../store/actions';
 
+import BookCreatePage from '../../views/BookCreatePage/BookCreatePage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
-
-import BookCreatePage from '../../components/BookCreatePage/BookCreatePage';
 
 const mapStateToProps = (state) => {
   return {

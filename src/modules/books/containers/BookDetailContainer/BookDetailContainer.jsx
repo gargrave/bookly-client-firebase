@@ -9,9 +9,8 @@ import { createSnackbar } from '../../../../store/actions';
 
 import { bookModel } from '../../models';
 
-import BookDetailPage from '../../components/BookDetailPage/BookDetailPage';
+import BookDetailPage from '../../views/BookDetailPage/BookDetailPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
-
 
 const mapStateToProps = (state, ownProps) => {
   const bookId = ownProps.match.params.id;
