@@ -13,8 +13,7 @@ import Card from '../../../common/components/Card/Card';
 import CardSpacer from '../../../common/components/Card/CardSpacer/CardSpacer';
 import CardList from '../../../common/components/CardList/CardList';
 import CardTextLine from '../../../common/components/Card/CardTextLine/CardTextLine';
-
-import PasswordResetForm from './PasswordResetForm/PasswordResetForm';
+import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm';
 
 type Props = {
   createSnackbar: Function,

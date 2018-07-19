@@ -1,8 +1,8 @@
 import { ComponentBuilder } from '../../../../../globals/utils/testHelpers';
 import { passwordResetModel } from '../../../../auth/models';
 
-import Form from '../../../../common/components/Form/Form';
-import InputField from '../../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form';
+import InputField from '../../../common/components/InputField/InputField';
 
 import PasswordResetForm from './PasswordResetForm';
 

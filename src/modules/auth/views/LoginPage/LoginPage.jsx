@@ -1,13 +1,11 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
 import type { LoginErrors, LoginUser } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { login } from '../../../../store/actions';
 import { loginHasAllFields, validateLogin } from '../../../auth/validators';
 import { loginUserModel } from '../../../auth/models';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
@@ -15,7 +13,6 @@ import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 import './LoginPage.css';
 
@@ -133,17 +130,4 @@ LoginPage.propTypes = {
   login: func.isRequired,
 };
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  login(user) {
-    return dispatch(login(user));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(LoginPage, localUrls.account, false)
-);
+export default LoginPage;

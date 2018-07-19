@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
 import type { RegisterErrors, RegisterUser } from '../../flowtypes';
@@ -10,13 +9,11 @@ import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../auth/validators';
 import { registerUserModel } from '../../../auth/models';
-import { register } from '../../../../store/actions';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   history: any,
@@ -32,7 +29,7 @@ type State = {
 };
 
 class RegisterPage extends React.Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -130,17 +127,4 @@ RegisterPage.propTypes = {
   register: func.isRequired,
 };
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state: any, ownProps: any) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  register(user) {
-    return dispatch(register(user));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(RegisterPage, localUrls.account, false)
-);
+export default RegisterPage;

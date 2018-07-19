@@ -1,31 +1,31 @@
 // @flow
 import type { ReactRoute } from '../core/flowtypes';
 
-import AccountDetailPage from './containers/AccountDetailPage/AccountDetailPage';
-import ConnectedPasswordResetPage from './containers/ConnectedPasswordResetPage/ConnectedPasswordResetPage';
-import LoginPage from './containers/LoginPage/LoginPage';
-import RegisterPage from './containers/RegisterPage/RegisterPage';
+import AccountDetailContainer from './containers/AccountDetailContainer/AccountDetailContainer';
+import LoginContainer from './containers/LoginContainer/LoginContainer';
+import PasswordResetContainer from './containers/PasswordResetContainer/PasswordResetContainer';
+import RegisterContainer from './containers/RegisterContainer/RegisterContainer';
 
 import { localUrls } from '../../globals/urls';
 
 const routes: ReactRoute[] = [
   {
-    component: AccountDetailPage,
+    component: AccountDetailContainer,
     exact: true,
     path: localUrls.account,
   },
   {
-    component: LoginPage,
+    component: LoginContainer,
     exact: true,
     path: localUrls.login,
   },
   {
-    component: ConnectedPasswordResetPage,
+    component: PasswordResetContainer,
     exact: true,
     path: localUrls.pwResetRequest,
   },
   {
-    component: RegisterPage,
+    component: RegisterContainer,
     exact: true,
     path: localUrls.register,
   },

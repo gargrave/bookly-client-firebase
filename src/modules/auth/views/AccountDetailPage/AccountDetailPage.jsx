@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { bool, func, object } from 'prop-types';
 
 import type { User } from '../../flowtypes';
@@ -8,14 +7,12 @@ import type { Profile, ProfileErrors } from '../../../profiles/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { profileModel } from '../../../profiles/models';
-import { createSnackbar, logout, markVerificationEmailSent, updateProfile } from '../../../../store/actions';
 import { profilesMatch, validateProfile } from '../../../profiles/validators';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
 import AccountDetailView from '../../components/AccountDetailView/AccountDetailView';
 import AccountEditView from '../../components/AccountEditView/AccountEditView';
 import CardList from '../../../common/components/CardList/CardList';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   createSnackbar: Function,
@@ -49,7 +46,7 @@ class AccountDetailPage extends Component<Props, State> {
     verificationEmailHasBeenSent: bool.isRequired,
   };
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -62,12 +59,12 @@ class AccountDetailPage extends Component<Props, State> {
     };
   }
 
-  onInputChange = (e) => {
-    const key = e.target.name;
+  onInputChange = (event: any) => {
+    const key = event.target.name;
     if (key in this.state.editableProfile) {
       const editableProfile = {
         ...this.state.editableProfile,
-        [key]: e.target.value,
+        [key]: event.target.value,
       };
       const submitDisabled =
         profilesMatch(this.props.profile, editableProfile);
@@ -97,8 +94,8 @@ class AccountDetailPage extends Component<Props, State> {
     this.props.history.push(localUrls.login);
   }
 
-  onSubmit = async (e) => {
-    e.preventDefault();
+  onSubmit = async (event: any) => {
+    event.preventDefault();
     const profile = this.state.editableProfile;
     const errors = validateProfile(profile);
     if (errors.found) {
@@ -194,31 +191,4 @@ class AccountDetailPage extends Component<Props, State> {
   }
 }
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => ({
-  profile: state.profile.data,
-  user: state.auth.user,
-  verificationEmailHasBeenSent: state.auth.verificationEmailSent,
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
-  },
-
-  logout() {
-    return dispatch(logout());
-  },
-
-  markVerificationEmailSent() {
-    return dispatch(markVerificationEmailSent());
-  },
-
-  updateProfile(profile: Profile) {
-    return dispatch(updateProfile(profile));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(AccountDetailPage, localUrls.login)
-);
+export default AccountDetailPage;
