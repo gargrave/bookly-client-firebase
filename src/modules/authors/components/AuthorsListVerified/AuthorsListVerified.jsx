@@ -2,11 +2,11 @@
 import React, { Fragment } from 'react';
 import { array, func, string } from 'prop-types';
 
-import type { Author } from '../../../flowtypes';
+import type { Author } from '../../flowtypes';
 
-import Alert from '../../../../common/components/Alert/Alert';
-import AuthorList from '../../../components/AuthorList/AuthorList';
-import InputField from '../../../../common/components/InputField/InputField';
+import Alert from '../../../common/components/Alert/Alert';
+import AuthorList from '../../components/AuthorList/AuthorList';
+import InputField from '../../../common/components/InputField/InputField';
 
 type Props = {
   authors: Author[],

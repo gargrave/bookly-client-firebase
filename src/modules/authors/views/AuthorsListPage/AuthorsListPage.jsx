@@ -7,11 +7,10 @@ import type { Author } from '../../flowtypes';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 
+import AuthorsListVerified from '../../components/AuthorsListVerified/AuthorsListVerified';
 import Button from '../../../common/components/Button/Button';
 import CardList from '../../../common/components/CardList/CardList';
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
-
-import AuthorsListVerified from './AuthorsListVerified/AuthorsListVerified';
 
 type Props = {
   authors: Author[],
