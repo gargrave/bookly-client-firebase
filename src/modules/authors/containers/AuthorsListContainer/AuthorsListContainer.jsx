@@ -7,7 +7,7 @@ import type { Author } from '../../flowtypes';
 import { localUrls } from '../../../../globals/urls';
 import { fetchAuthors } from '../../../../store/actions';
 
-import AuthorsListPage from '../../components/AuthorsListPage/AuthorsListPage';
+import AuthorsListPage from '../../views/AuthorsListPage/AuthorsListPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 /* eslint-disable no-unused-vars */

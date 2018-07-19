@@ -14,7 +14,7 @@ import {
   updateAuthor,
 } from '../../../../store/actions';
 
-import AuthorDetailPage from '../../components/AuthorDetailPage/AuthorDetailPage';
+import AuthorDetailPage from '../../views/AuthorDetailPage/AuthorDetailPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 const mapStateToProps = (state: any, ownProps: any) => {

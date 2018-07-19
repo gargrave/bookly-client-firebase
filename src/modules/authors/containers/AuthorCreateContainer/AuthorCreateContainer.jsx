@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { localUrls } from '../../../../globals/urls';
 import { createAuthor, fetchAuthors } from '../../../../store/actions';
 
-import AuthorCreatePage from '../../components/AuthorCreatePage/AuthorCreatePage';
+import AuthorCreatePage from '../../views/AuthorCreatePage/AuthorCreatePage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 const mapStateToProps = () => ({});
