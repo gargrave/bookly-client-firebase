@@ -1,28 +1,25 @@
 // @flow
-import type { Author } from '../../../modules/authors/flowtypes';
-import type { FbCollection } from '../../../modules/core/flowtypes';
+import type { Author } from '../../authors/flowtypes';
+import type { ReduxAction } from '../../common/flowtypes';
+import type { FbCollection } from '../../core/flowtypes';
 
-import {
-  deleteBooksFromAPI,
-  fetchBooksByAuthorFromAPI,
-} from '../../../wrappers/api';
+import { deleteBooksFromAPI, fetchBooksByAuthorFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { BOOKS } from '../../actionTypes';
+import { setApiError } from '../../core/actions';
+import { requestEnd } from './requestEnd';
+import { requestStart } from './requestStart';
 
-import apiError from '../app/apiError';
-
-import bookRequestEnd from './bookRequestEnd';
-import bookRequestStart from './bookRequestStart';
+import types from './types';
 
 const _deleteBooksByAuthor = (author: Author) => ({
-  type: BOOKS.DELETE_BY_AUTHOR_SUCCESS,
+  type: types.DELETE_BY_AUTHOR,
   payload: { author },
 });
 
-const deleteBooksByAuthor = (author: Author) =>
+export const deleteBooksByAuthor = (author: Author) =>
   async (dispatch: Function) => {
-    dispatch(bookRequestStart());
+    dispatch(requestStart());
 
     try {
       const booksByAuthor: FbCollection = await fetchBooksByAuthorFromAPI(author);
@@ -31,11 +28,18 @@ const deleteBooksByAuthor = (author: Author) =>
         dispatch(_deleteBooksByAuthor(author));
       }
     } catch (err) {
-      dispatch(apiError(err));
+      dispatch(setApiError(err));
       throw parseAPIError(err);
     } finally {
-      dispatch(bookRequestEnd());
+      dispatch(requestEnd());
     }
   };
+
+export const deleteBooksByAuthorReducer = (state: any, action: ReduxAction) => ({
+  ...state,
+  data: state.data.filter(
+    (book) => book.author.id !== action.payload.author.id
+  ),
+});
 
 export default deleteBooksByAuthor;

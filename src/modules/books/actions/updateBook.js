@@ -1,16 +1,16 @@
 // @flow
 import type { Author } from '../../../modules/authors/flowtypes';
 import type { Book } from '../../../modules/books/flowtypes';
+import type { ReduxAction } from '../../common/flowtypes';
 
 import { updateBookOnAPI } from '../../../wrappers/api';
-import { parsesetApiError } from '../../../wrappers/errors';
+import { parseAPIError } from '../../../wrappers/errors';
 
-import { setApiError } from '../../core/actions/setApiError';
-
-import { bookHasValidAuthor } from './helpers';
+import { setApiError } from '../../core/actions';
 import { requestEnd } from './requestEnd';
 import { requestStart } from './requestStart';
 
+import { bookHasValidAuthor, sortByAuthorLastName } from './helpers';
 import types from './types';
 
 const _updateBook = (book: Book) => ({
@@ -18,7 +18,7 @@ const _updateBook = (book: Book) => ({
   payload: { book },
 });
 
-const updateBook = (book: Book) =>
+export const updateBook = (book: Book) =>
   async (dispatch: Function, getState: Function) => {
     dispatch(requestStart());
 
@@ -34,10 +34,17 @@ const updateBook = (book: Book) =>
       return updatedRecord;
     } catch (err) {
       dispatch(setApiError(err));
-      throw parsesetApiError(err);
+      throw parseAPIError(err);
     } finally {
       dispatch(requestEnd());
     }
   };
 
-export default updateBook;
+export const updateBookReducer =
+  (state: any, action: ReduxAction) => ({
+    ...state,
+    data: sortByAuthorLastName([
+      ...state.data.filter((book) => book.id !== action.payload.book.id),
+      action.payload.book,
+    ]),
+  });

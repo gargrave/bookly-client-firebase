@@ -1,24 +1,25 @@
 // @flow
-import type { Author } from '../../../modules/authors/flowtypes';
-import type { Book } from '../../../modules/books/flowtypes';
+import type { Author } from '../../authors/flowtypes';
+import type { Book } from '../../books/flowtypes';
+import type { ReduxAction } from '../../common/flowtypes';
 
 import { fetchBooksFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { BOOKS } from '../../actionTypes';
+import { fetchAuthors } from '../../authors/actions';
+import { setApiError } from '../../core/actions';
+import { requestEnd } from './requestEnd';
+import { requestStart } from './requestStart';
 
-import apiError from '../app/apiError';
-import fetchAuthors from '../authors/fetchAuthors';
-
-import bookRequestEnd from './bookRequestEnd';
-import bookRequestStart from './bookRequestStart';
+import { sortByAuthorLastName } from './helpers.js';
+import types from './types';
 
 const _fetchBooks = (books: Book[]) => ({
-  type: BOOKS.FETCH_SUCCESS,
+  type: types.FETCH,
   payload: { books },
 });
 
-const fetchBooks = () =>
+export const fetchBooks = () =>
   async (dispatch: Function, getState: Function) => {
     // ensure that Author data has been loaded
     let authors: Author[] = getState().authors.data;
@@ -30,19 +31,23 @@ const fetchBooks = () =>
     if (books.length) {
       return books;
     } else {
-      dispatch(bookRequestStart());
+      dispatch(requestStart());
 
       try {
         const records: Book[] = await fetchBooksFromAPI(authors);
         dispatch(_fetchBooks(records));
         return records;
       } catch (err) {
-        dispatch(apiError(err));
+        dispatch(setApiError(err));
         throw parseAPIError(err);
       } finally {
-        dispatch(bookRequestEnd());
+        dispatch(requestEnd());
       }
     }
   };
 
-export default fetchBooks;
+export const fetchBooksReducer =
+  (state: any, action: ReduxAction) => ({
+    ...state,
+    data: sortByAuthorLastName(action.payload.books),
+  });

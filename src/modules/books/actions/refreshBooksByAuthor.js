@@ -1,17 +1,17 @@
 // @flow
-import type { Author } from '../../authors/flowtypes';
-import type { Book } from '../flowtypes';
+import type { Author } from '../../../modules/authors/flowtypes';
+import type { Book } from '../../../modules/books/flowtypes';
 
-import { refreshBookAuthor } from '../models';
+import { refreshBookAuthor } from '../../../modules/books/models';
 
-import { BOOKS } from './types';
+import types from './types';
 
 const fetchBooks = (books: Book[]) => ({
-  type: BOOKS.FETCH_SUCCESS,
+  type: types.FETCH,
   payload: { books },
 });
 
-const refreshBooksByAuthor = (author: Author) => {
+export const refreshBooksByAuthor = (author: Author) => {
   return (dispatch: Function, getState: Function) => {
     const books = getState().books.data;
     const booksToIgnore = books
@@ -29,5 +29,3 @@ const refreshBooksByAuthor = (author: Author) => {
     ]));
   };
 };
-
-export default refreshBooksByAuthor;

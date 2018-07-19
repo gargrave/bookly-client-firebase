@@ -8,12 +8,12 @@ import { parseAPIError } from '../../../wrappers/errors';
 
 import { setApiError } from '../../core/actions/setApiError';
 
-import { sortByAuthorLastName } from './helpers';
-import types from './types';
+import { bookHasValidAuthor, sortByAuthorLastName } from './helpers';
 
-import { bookHasValidAuthor } from './helpers';
 import { requestEnd } from './requestEnd';
 import { requestStart } from './requestStart';
+
+import types from './types';
 
 const _createBook = (book: Book) => ({
   type: types.CREATE,
