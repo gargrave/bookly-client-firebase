@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { array, func, instanceOf, object, oneOfType, shape, string } from 'prop-types';
 
 import type { Author, AuthorErrors } from '../../flowtypes';
@@ -9,21 +8,12 @@ import type { Book } from '../../../books/flowtypes';
 import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, authorsMatch, validateAuthor } from '../../../authors/validators';
 import { authorModel } from '../../../authors/models';
-import { createSnackbar } from '../../../../store/actions';
-
-import {
-  deleteAuthor,
-  fetchAuthors,
-  setPreselectedAuthor,
-  updateAuthor,
-} from '../../../../store/actions';
 
 import Alert from '../../../common/components/Alert/Alert';
 import AuthorDetailView from '../../components/AuthorDetailView/AuthorDetailView';
 import AuthorEditView from '../../components/AuthorEditView/AuthorEditView';
 import CardList from '../../../common/components/CardList/CardList';
 import Modal from '../../../common/components/Modal/Modal';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   author: Author,
@@ -137,7 +127,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }
   }
 
-  onInputChange(event) {
+  onInputChange(event: any) {
     const key = event.target.name;
     if (key in this.state.editableAuthor) {
       let editableAuthor = { ...this.state.editableAuthor};
@@ -153,7 +143,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event) {
+  async onSubmit(event: any) {
     event.preventDefault();
     const errors = validateAuthor(this.state.editableAuthor);
     if (errors.found) {
@@ -204,7 +194,7 @@ class AuthorDetailPage extends Component<Props, State> {
   /**
    * Disables 'editing' state.
    */
-  onCancel(event) {
+  onCancel(event: any) {
     event.preventDefault();
     this.setState({ editing: false });
   }
@@ -327,43 +317,5 @@ AuthorDetailPage.propTypes = {
   updateAuthor: func.isRequired,
 };
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state: any, ownProps: any) => {
-  const authorId = ownProps.match.params.id;
-  const author = state.authors.data.find(
-    (a) => a.id === authorId
-  ) || {};
 
-  const booksForAuthor = state.books.data
-    .filter((book: Book) => book.author.id === authorId);
-
-  return {
-    author,
-    authorId,
-    booksForAuthor,
-  };
-};
-
-const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
-  },
-
-  deleteAuthor(author: Author) {
-    return dispatch(deleteAuthor(author));
-  },
-
-  fetchAuthors() {
-    return dispatch(fetchAuthors());
-  },
-
-  setPreselectedAuthor(author: Author) {
-    return dispatch(setPreselectedAuthor(author));
-  },
-
-  updateAuthor(author) {
-    return dispatch(updateAuthor(author));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(RequiresAuth(AuthorDetailPage, localUrls.login));
+export default AuthorDetailPage;

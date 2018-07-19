@@ -1,14 +1,11 @@
 // @flow
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
 import type { Author } from '../../../authors/flowtypes';
 import type { Book, BookErrors } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions';
-import { createBook, fetchBooks } from '../../../../store/actions';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import { bookModel } from '../../models';
@@ -17,7 +14,6 @@ import { bookHasAllFields, validateBook } from '../../validators';
 import BookForm from '../../components/BookForm/BookForm';
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   authors: Author[],
@@ -88,12 +84,12 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  onAuthorChange(event) {
+  onAuthorChange(event: any) {
     const authorId = event.target.value;
     this.updateAuthor(authorId);
   }
 
-  onInputChange(event) {
+  onInputChange(event: any) {
     const key = event.target.name;
     if (key in this.state.book) {
       const book = { ...this.state.book };
@@ -107,7 +103,7 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event) {
+  async onSubmit(event: any) {
     event.preventDefault();
     const errors = validateBook(this.state.book);
     if (errors.found) {
@@ -134,7 +130,7 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  onCancel(event) {
+  onCancel(event: any) {
     event.preventDefault();
     this.props.history.push(localUrls.booksList);
   }
@@ -189,30 +185,4 @@ BookCreatePage.propTypes = {
   preselectedAuthor: object,
 };
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => {
-  return {
-    authors: state.authors.data,
-    preselectedAuthor: state.authors.preselectedAuthor,
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  clearPreselectedAuthor() {
-    return dispatch(clearPreselectedAuthor());
-  },
-
-  createBook(book) {
-    return dispatch(createBook(book));
-  },
-
-  fetchAuthors() {
-    return dispatch(fetchAuthors());
-  },
-
-  fetchBooks() {
-    return dispatch(fetchBooks());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(RequiresAuth(BookCreatePage, localUrls.login));
+export default BookCreatePage;

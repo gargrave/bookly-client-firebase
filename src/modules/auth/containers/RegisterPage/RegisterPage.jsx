@@ -48,7 +48,7 @@ class RegisterPage extends React.Component<Props, State> {
     _this.onInputChange = _this.onInputChange.bind(this);
   }
 
-  onInputChange(event) {
+  onInputChange(event: any) {
     const key = event.target.name;
     if (key in this.state.registerUser) {
       const registerUser = this.state.registerUser;
@@ -62,7 +62,7 @@ class RegisterPage extends React.Component<Props, State> {
     }
   }
 
-  async onSubmit(event) {
+  async onSubmit(event: any) {
     event.preventDefault();
     const errors = validateRegisterUser(this.state.registerUser);
     if (errors.found) {

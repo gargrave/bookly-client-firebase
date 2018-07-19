@@ -1,14 +1,11 @@
 // @flow
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { array, func, object, shape, string } from 'prop-types';
 
 import type { Author } from '../../../authors/flowtypes';
 import type { Book, BookErrors } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { deleteBook, fetchBooks, updateBook } from '../../../../store/actions';
-import { createSnackbar } from '../../../../store/actions';
 
 import { bookModel } from '../../models';
 import { bookHasAllFields, booksMatch, validateBook } from '../../validators';
@@ -18,7 +15,6 @@ import BookDetailView from '../../components/BookDetailView/BookDetailView';
 import BookEditView from '../../components/BookEditView/BookEditView';
 import CardList from '../../../common/components/CardList/CardList';
 import Modal from '../../../common/components/Modal/Modal';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   authors: Author[],
@@ -85,7 +81,7 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  onAuthorChange(event) {
+  onAuthorChange(event: any) {
     const authorId = event.target.value;
     const author = this.props.authors.find((a) => a.id === authorId);
     const editableBook = {
@@ -104,7 +100,7 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  onInputChange(event) {
+  onInputChange(event: any) {
     const key = event.target.name;
     if (key in this.state.editableBook) {
       let editableBook = { ...this.state.editableBook};
@@ -120,7 +116,7 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event) {
+  async onSubmit(event: any) {
     event.preventDefault();
     const errors = validateBook(this.state.editableBook);
     if (errors.found) {
@@ -173,7 +169,7 @@ class BookDetailPage extends Component<Props, State> {
   /**
    * Disables 'editing' state.
    */
-  onCancel(event) {
+  onCancel(event: any) {
     event.preventDefault();
     this.setState({ editing: false });
   }
@@ -285,36 +281,4 @@ BookDetailPage.propTypes = {
   updateBook: func.isRequired,
 };
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => {
-  const bookId = ownProps.match.params.id;
-  const book = state.books.data.find(
-    (a) => a.id === bookId
-  ) || bookModel.empty();
-
-  return {
-    authors: state.authors.data,
-    book,
-    bookId,
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
-  },
-
-  deleteBook(book: Book) {
-    return dispatch(deleteBook(book));
-  },
-
-  fetchBooks() {
-    return dispatch(fetchBooks());
-  },
-
-  updateBook(book) {
-    return dispatch(updateBook(book));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(RequiresAuth(BookDetailPage, localUrls.login));
+export default BookDetailPage;

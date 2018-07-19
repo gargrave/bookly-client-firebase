@@ -1,9 +1,9 @@
 // @flow
 import type { ReactRoute } from '../core/flowtypes';
 
-import AuthorCreatePage from './containers/AuthorCreatePage/AuthorCreatePage';
-import AuthorDetailPage from './containers/AuthorDetailPage/AuthorDetailPage';
-import AuthorsListPage from './containers/AuthorsListPage/AuthorsListPage';
+import AuthorCreateContainer from './containers/AuthorCreateContainer/AuthorCreateContainer';
+import AuthorDetailContainer from './containers/AuthorDetailContainer/AuthorDetailContainer';
+import AuthorsListContainer from './containers/AuthorsListContainer/AuthorsListContainer';
 
 import { localUrls } from '../../globals/urls';
 
@@ -11,17 +11,17 @@ const baseUrl = localUrls.authorsList;
 
 const routes: ReactRoute[] = [
   {
-    component: AuthorCreatePage,
+    component: AuthorCreateContainer,
     exact: true,
     path: `${baseUrl}/new`,
   },
   {
-    component: AuthorDetailPage,
+    component: AuthorDetailContainer,
     exact: true,
     path: `${baseUrl}/:id`,
   },
   {
-    component: AuthorsListPage,
+    component: AuthorsListContainer,
     exact: true,
     path: baseUrl,
   },

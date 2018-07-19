@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
 import type { Author, AuthorErrors } from '../../flowtypes';
@@ -8,13 +7,11 @@ import type { Author, AuthorErrors } from '../../flowtypes';
 import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, validateAuthor } from '../../../authors/validators';
 import { authorModel } from '../../../authors/models';
-import { createAuthor, fetchAuthors } from '../../../../store/actions';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import AuthorForm from '../../components/AuthorForm/AuthorForm';
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
 type Props = {
   createAuthor: Function,
@@ -31,7 +28,7 @@ type State = {
 };
 
 class AuthorCreatePage extends Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -65,7 +62,7 @@ class AuthorCreatePage extends Component<Props, State> {
     }
   }
 
-  onInputChange(event) {
+  onInputChange(event: any) {
     const key = event.target.name;
     if (key in this.state.author) {
       const author = { ...this.state.author };
@@ -79,7 +76,7 @@ class AuthorCreatePage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event) {
+  async onSubmit(event: any) {
     event.preventDefault();
     const errors = validateAuthor(this.state.author);
     if (errors.found) {
@@ -106,7 +103,7 @@ class AuthorCreatePage extends Component<Props, State> {
     }
   }
 
-  onCancel(event) {
+  onCancel(event: any) {
     event.preventDefault();
     this.props.history.push(localUrls.authorsList);
   }
@@ -150,19 +147,4 @@ AuthorCreatePage.propTypes = {
   history: object,
 };
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  createAuthor(author) {
-    return dispatch(createAuthor(author));
-  },
-
-  fetchAuthors() {
-    return dispatch(fetchAuthors());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(RequiresAuth(AuthorCreatePage, localUrls.login));
+export default AuthorCreatePage;

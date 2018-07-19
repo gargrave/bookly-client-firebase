@@ -1,9 +1,9 @@
 // @flow
 import type { ReactRoute } from '../core/flowtypes';
 
-import BookCreatePage from './containers/BookCreatePage/BookCreatePage';
-import BookDetailPage from './containers/BookDetailPage/BookDetailPage';
-import BooksListPage from './containers/BooksListPage/BooksListPage';
+import BookCreateContainer from './containers/BookCreateContainer/BookCreateContainer';
+import BookDetailContainer from './containers/BookDetailContainer/BookDetailContainer';
+import BooksListContainer from './containers/BooksListContainer/BooksListContainer';
 
 import { localUrls } from '../../globals/urls';
 
@@ -11,17 +11,17 @@ const baseUrl = localUrls.booksList;
 
 const routes: ReactRoute[] = [
   {
-    component: BookCreatePage,
+    component: BookCreateContainer,
     exact: true,
     path: `${baseUrl}/new`,
   },
   {
-    component: BookDetailPage,
+    component: BookDetailContainer,
     exact: true,
     path: `${baseUrl}/:id`,
   },
   {
-    component: BooksListPage,
+    component: BooksListContainer,
     exact: true,
     path: baseUrl,
   },

@@ -1,17 +1,14 @@
 // @flow
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
 import type { Book } from '../../flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
-import { fetchBooks } from '../../../../store/actions';
 
 import Button from '../../../common/components/Button/Button';
 import CardList from '../../../common/components/CardList/CardList';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
 
 import BooksListVerified from './BooksListVerified/BooksListVerified';
@@ -59,7 +56,7 @@ class BooksListPage extends Component<Props, State> {
     }
   }
 
-  onInputChange = (event) => {
+  onInputChange = (event: any) => {
     const key = event.target.name;
     if (key in this.state) {
       this.setState({
@@ -121,16 +118,4 @@ BooksListPage.propTypes = {
   user: object.isRequired,
 };
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => ({
-  books: state.books.data,
-  user: state.auth.user,
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchBooks() {
-    return dispatch(fetchBooks());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(RequiresAuth(BooksListPage, localUrls.login));
+export default BooksListPage;
