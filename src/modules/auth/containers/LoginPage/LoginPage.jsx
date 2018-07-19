@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { LoginErrors, LoginUser } from '../../../../modules/auth/flowtypes';
+import type { LoginErrors, LoginUser } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { login } from '../../../../store/actions';
-import { loginHasAllFields, validateLogin } from '../../../../modules/auth/validators';
-import { loginUserModel } from '../../../../modules/auth/models';
+import { loginHasAllFields, validateLogin } from '../../../auth/validators';
+import { loginUserModel } from '../../../auth/models';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import Card from '../../../common/components/Card/Card';

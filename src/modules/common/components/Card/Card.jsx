@@ -2,7 +2,7 @@
 import React from 'react';
 import { any, array, bool, func, string } from 'prop-types';
 
-import { buildClasses } from '../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
 import './Card.css';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Alert from '../../../../modules/common/components/Alert/Alert';
-import Button from '../../../../modules/common/components/Button/Button';
+import Alert from '../../../common/components/Alert/Alert';
+import Button from '../../../common/components/Button/Button';
 import Form from './';
 
 const defaultProps = Object.freeze({

@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { func, string } from 'prop-types';
 
-import type { PasswordReset, PasswordResetErrors } from '../../../auth/flowtypes';
+import type { PasswordReset, PasswordResetErrors } from '../../flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { sendPasswordResetEmail } from '../../../../wrappers/auth';

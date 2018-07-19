@@ -5,10 +5,10 @@ import { func, shape } from 'prop-types';
 import { firebaseAuth } from '../../../../globals/firebase/';
 import { localUrls } from '../../../../globals/urls';
 
-import SexyHeader from '../../../../modules/common/components/SexyHeader/SexyHeader';
-import Snackbar from '../../../../components/connected/common/Snackbar';
+import SexyHeader from '../../../common/components/SexyHeader/SexyHeader';
+import Snackbar from '../../../common/containers/Snackbar/Snackbar';
 
-import Routes from '../../Routes';
+import Router from '../../Router';
 
 import './App.css';
 
@@ -84,7 +84,7 @@ class App extends Component {
             title={'Bookly'}
           />
           <main className="main-view">
-            <Routes />
+            <Router />
           </main>
           <Snackbar />
         </div>

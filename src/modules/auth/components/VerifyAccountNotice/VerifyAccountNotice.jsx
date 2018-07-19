@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func } from 'prop-types';
 
-import Button from '../../../../modules/common/components/Button/Button';
+import Button from '../../../common/components/Button/Button';
 import Card from '../../../common/components/Card/Card';
 import CardSpacer from '../../../common/components/Card/CardSpacer/CardSpacer';
 import CardTextList from '../../../common/components/Card/CardTextList/CardTextList';

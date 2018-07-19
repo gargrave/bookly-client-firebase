@@ -2,8 +2,8 @@
 import React from 'react';
 import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 
-import type { User } from '../../../../modules/auth/flowtypes';
-import type { Profile } from '../../../../modules/profiles/flowtypes';
+import type { User } from '../../flowtypes';
+import type { Profile } from '../../../profiles/flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 
@@ -12,11 +12,11 @@ import {
   userRegDetailsTextList,
 } from './helpers';
 
-import Button from '../../../../modules/common/components/Button/Button';
-import ButtonRow from '../../../../modules/common/components/ButtonRow/ButtonRow';
-import Card from '../../../common/Card/Card';
-import CardSpacer from '../../../common/Card/CardSpacer/CardSpacer';
-import CardTextList from '../../../common/Card/CardTextList/CardTextList';
+import Button from '../../../common/components/Button/Button';
+import ButtonRow from '../../../common/components/ButtonRow/ButtonRow';
+import Card from '../../../common/components/Card/Card';
+import CardSpacer from '../../../common/components/Card/CardSpacer/CardSpacer';
+import CardTextList from '../../../common/components/Card/CardTextList/CardTextList';
 import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';
 
 type Props = {

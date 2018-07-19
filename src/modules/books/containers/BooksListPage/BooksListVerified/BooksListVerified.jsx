@@ -2,11 +2,11 @@
 import React, { Fragment } from 'react';
 import { array, func, string } from 'prop-types';
 
-import type { Book } from '../../../../../modules/books/flowtypes';
+import type { Book } from '../../../flowtypes';
 
-import Alert from '../../../../../modules/common/components/Alert/Alert';
-import BookList from '../../../../bookly/books/BookList';
-import InputField from '../../../../../modules/common/components/InputField/InputField';
+import Alert from '../../../../common/components/Alert/Alert';
+import BookList from '../../../components/BookList/BookList';
+import InputField from '../../../../common/components/InputField/InputField';
 
 type Props = {
   books: Book[],

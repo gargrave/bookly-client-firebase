@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, object } from 'prop-types';
 
-import type { RegisterErrors, RegisterUser } from '../../../../modules/auth/flowtypes';
+import type { RegisterErrors, RegisterUser } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
-import { registerUserHasAllFields, validateRegisterUser } from '../../../../modules/auth/validators';
-import { registerUserModel } from '../../../../modules/auth/models';
+import { registerUserHasAllFields, validateRegisterUser } from '../../../auth/validators';
+import { registerUserModel } from '../../../auth/models';
 import { register } from '../../../../store/actions';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 

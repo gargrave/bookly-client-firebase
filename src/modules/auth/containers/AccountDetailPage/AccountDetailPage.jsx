@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bool, func, object } from 'prop-types';
 
-import type { User } from '../../../../modules/auth/flowtypes';
-import type { Profile, ProfileErrors } from '../../../../modules/profiles/flowtypes';
+import type { User } from '../../flowtypes';
+import type { Profile, ProfileErrors } from '../../../profiles/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { profileModel } from '../../../../modules/profiles/models';
+import { profileModel } from '../../../profiles/models';
 import { createSnackbar, logout, markVerificationEmailSent, updateProfile } from '../../../../store/actions';
-import { profilesMatch, validateProfile } from '../../../../modules/profiles/validators';
+import { profilesMatch, validateProfile } from '../../../profiles/validators';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 
 import AccountDetailView from '../../components/AccountDetailView/AccountDetailView';

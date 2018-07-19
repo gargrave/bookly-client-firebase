@@ -2,9 +2,9 @@
 import type { Author } from '../../authors/flowtypes';
 import type { Book } from '../flowtypes';
 
-import { refreshBookAuthor } from '../../../modules/books/models';
+import { refreshBookAuthor } from '../models';
 
-import { BOOKS } from '../../actionTypes';
+import { BOOKS } from './types';
 
 const fetchBooks = (books: Book[]) => ({
   type: BOOKS.FETCH_SUCCESS,

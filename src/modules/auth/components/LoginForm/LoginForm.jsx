@@ -2,7 +2,7 @@
 import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 
-import type { LoginErrors, LoginUser } from '../../../auth/flowtypes';
+import type { LoginErrors, LoginUser } from '../../flowtypes';
 
 import Form from '../../../common/components/Form/Form';
 import InputField from '../../../common/components/InputField/InputField';

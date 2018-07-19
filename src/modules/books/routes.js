@@ -1,9 +1,9 @@
 // @flow
 import type { ReactRoute } from '../core/flowtypes';
 
-import BookCreatePage from '../../components/connected/books/BookCreatePage';
-import BookDetailPage from '../../components/connected/books/BookDetailPage';
-import BooksListPage from '../../components/connected/books/BooksListPage/BooksListPage';
+import BookCreatePage from './containers/BookCreatePage/BookCreatePage';
+import BookDetailPage from './containers/BookDetailPage/BookDetailPage';
+import BooksListPage from './containers/BooksListPage/BooksListPage';
 
 import { localUrls } from '../../globals/urls';
 

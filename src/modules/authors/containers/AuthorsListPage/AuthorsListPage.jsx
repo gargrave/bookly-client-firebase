@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 import countBy from 'lodash/countBy';
 
-import type { Author } from '../../../../modules/authors/flowtypes';
+import type { Author } from '../../flowtypes';
 
 import { buildClasses } from '../../../../globals/utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 import { fetchAuthors } from '../../../../store/actions';
 
-import Button from '../../../../modules/common/components/Button/Button';
-import CardList from '../../../common/CardList';
+import Button from '../../../common/components/Button/Button';
+import CardList from '../../../common/components/CardList/CardList';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
-import UnverifiedNotice from '../../../bookly/account/UnverifiedNotice/UnverifiedNotice';
+import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
 
 import AuthorsListVerified from './AuthorsListVerified/AuthorsListVerified';
 

@@ -1,9 +1,9 @@
 // @flow
 import type { ReactRoute } from '../core/flowtypes';
 
-import AuthorCreatePage from '../../components/connected/authors/AuthorCreatePage';
-import AuthorDetailPage from '../../components/connected/authors/AuthorDetailPage';
-import AuthorsListPage from '../../components/connected/authors/AuthorsListPage/AuthorsListPage';
+import AuthorCreatePage from './containers/AuthorCreatePage/AuthorCreatePage';
+import AuthorDetailPage from './containers/AuthorDetailPage/AuthorDetailPage';
+import AuthorsListPage from './containers/AuthorsListPage/AuthorsListPage';
 
 import { localUrls } from '../../globals/urls';
 

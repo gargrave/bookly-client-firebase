@@ -2,10 +2,10 @@
 import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 
-import type { Book } from '../../../../modules/books/flowtypes';
+import type { Book } from '../../flowtypes';
 
-import Card from '../../../common/Card/Card';
-import CardTextLine from '../../../common/Card/CardTextLine/CardTextLine';
+import Card from '../../../common/components/Card/Card';
+import CardTextLine from '../../../common/components/Card/CardTextLine/CardTextLine';
 
 type Props = {
   book: Book,
