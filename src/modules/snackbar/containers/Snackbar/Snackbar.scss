@@ -1,0 +1,29 @@
+@import '../../../../styles/_index';
+
+.bookly-snackbar {
+  background: #333;
+  bottom: 0;
+  color: #ddd;
+  cursor: pointer;
+  left: 50%;
+  min-width: 400px;
+  position: fixed;
+  transform: translateX(-50%);
+  width: auto;
+
+  $transitionHeight: 46px;
+  $transitionDuration: 175ms;
+  @include slideInFromViewportBottom($transitionHeight, $transitionDuration);
+
+  &__message {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: $breakpointSm) {
+  // full-screen width on smaller devices
+  .bookly-snackbar {
+    width: 100%;
+  }
+}
