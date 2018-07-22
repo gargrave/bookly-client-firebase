@@ -1,6 +1,7 @@
 import { reducerContainer } from '../../../store/helpers';
 
 import { clearAuthorsReducer } from './clearAuthors';
+import { clearPreselectedAuthor, clearPreselectedAuthorReducer } from './clearPreselectedAuthor';
 import { createAuthor, createAuthorReducer } from './createAuthor';
 import { deleteAuthor, deleteAuthorReducer } from './deleteAuthor';
 import { fetchAuthors, fetchAuthorsReducer } from './fetchAuthors';

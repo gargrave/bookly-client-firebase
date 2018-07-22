@@ -1,6 +1,6 @@
 import { reducerContainer } from '../../../store/helpers';
 
-import { setApiErrorReducer } from './setApiError';
+import { setApiError, setApiErrorReducer } from './setApiError';
 import { setInitialized, setInitializedReducer } from './setInitialized';
 
 import types from './types';
