@@ -1,12 +1,12 @@
 // @flow
 import type { Author } from '../../../modules/authors/flowtypes';
-import type { Book } from '../../../modules/books/flowtypes';
 import type { ReduxAction } from '../../common/flowtypes';
+import type { Book } from '../flowtypes';
 
 import { createBookOnAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { setApiError } from '../../core/actions/setApiError';
+import { setApiError } from '../../core/actions';
 
 import { bookHasValidAuthor, sortByAuthorLastName } from './helpers';
 

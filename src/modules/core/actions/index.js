@@ -18,5 +18,6 @@ export default reducerContainer(
 );
 
 export const actions = {
+  setApiError,
   setInitialized,
 };

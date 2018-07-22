@@ -5,7 +5,7 @@ import type { ReduxAction } from '../../common/flowtypes';
 import { deleteBookFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { setApiError } from '../../core/actions/setApiError';
+import { setApiError } from '../../core/actions';
 
 import { sortByAuthorLastName } from './helpers';
 
