@@ -1,4 +1,0 @@
-export const APP = {
-  INITIALIZED: 'APP_INITIALIZED',
-  API_ERROR: 'API_ERROR',
-};
