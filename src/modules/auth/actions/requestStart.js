@@ -7,5 +7,5 @@ export const requestStart = () => ({
 
 export const requestStartReducer = (state: any) => ({
   ...state,
-  authorsRequestPending: true,
+  authRequestPending: true,
 });

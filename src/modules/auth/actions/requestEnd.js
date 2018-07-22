@@ -7,5 +7,5 @@ export const requestEnd = () => ({
 
 export const requestEndReducer = (state: any) => ({
   ...state,
-  booksRequestPending: false,
+  authRequestPending: false,
 });
