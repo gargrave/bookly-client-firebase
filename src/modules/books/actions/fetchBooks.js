@@ -6,8 +6,9 @@ import type { ReduxAction } from '../../common/flowtypes';
 import { fetchBooksFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { fetchAuthors } from '../../authors/actions';
-import { setApiError } from '../../core/actions';
+import { fetchAuthors } from '../../authors/actions/fetchAuthors';
+import { setApiError } from '../../core/actions/setApiError';
+
 import { requestEnd } from './requestEnd';
 import { requestStart } from './requestStart';
 

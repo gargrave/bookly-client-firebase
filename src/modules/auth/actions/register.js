@@ -1,7 +1,7 @@
 import { submitRegister } from '../../../wrappers/auth';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { setApiError } from '../../core/actions';
+import { setApiError } from '../../core/actions/setApiError';
 
 import { requestEnd } from './requestEnd';
 import { requestStart } from './requestStart';

@@ -2,15 +2,17 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { actions } from '../../actions';
-import { fetchBooks, fetchProfile } from '../../../../store/actions';
-import { setLocalUserData } from '../../../../store/actions';
+import { actions as authActions } from '../../../auth/actions';
+import { actions as bookActions } from '../../../books/actions';
 
 import App from '../../components/App/App';
 
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state, ownProps) => ({});
+const { setLocalUserData } = authActions;
+const { fetchBooks, fetchProfile } = bookActions;
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actions, dispatch),
   fetchBooks() {
     return dispatch(fetchBooks());

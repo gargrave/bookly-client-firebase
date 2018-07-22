@@ -5,7 +5,7 @@ import type { Author } from '../flowtypes';
 import { createAuthorOnAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { setApiError } from '../../core/actions';
+import { setApiError } from '../../core/actions/setApiError';
 
 import { requestEnd } from './requestEnd';
 import { requestStart } from './requestStart';

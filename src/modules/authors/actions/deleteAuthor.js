@@ -5,8 +5,8 @@ import type { Author } from '../flowtypes';
 import { deleteAuthorFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { deleteBooksByAuthor } from '../../books/actions';
-import { setApiError } from '../../core/actions';
+import { deleteBooksByAuthor } from '../../books/actions/deleteBooksByAuthor';
+import { setApiError } from '../../core/actions/setApiError';
 
 import { requestEnd } from './requestEnd';
 import { requestStart } from './requestStart';

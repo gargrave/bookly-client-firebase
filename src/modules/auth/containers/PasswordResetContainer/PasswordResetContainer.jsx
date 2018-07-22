@@ -1,9 +1,13 @@
 // @flow
 import { connect } from 'react-redux';
 
-import { createSnackbar, markPasswordResetEmailSent } from '../../../../store/actions';
+import { actions } from '../../../auth/actions';
+import { actions as snackbarActions } from '../../../snackbar/actions';
 
 import PasswordResetPage from '../../views/PasswordResetPage/PasswordResetPage';
+
+const { markPasswordResetEmailSent } = actions;
+const { createSnackbar } = snackbarActions;
 
 const mapStateToProps = (state: any) => ({
   passwordResetEmailSentTo: state.auth.passwordResetEmailSentTo,

@@ -2,10 +2,13 @@
 import { connect } from 'react-redux';
 
 import { localUrls } from '../../../../globals/urls';
-import { login } from '../../../../store/actions';
+
+import { actions } from '../../../auth/actions';
 
 import LoginPage from '../../views/LoginPage/LoginPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+
+const { login } = actions;
 
 const mapStateToProps = () => ({});
 

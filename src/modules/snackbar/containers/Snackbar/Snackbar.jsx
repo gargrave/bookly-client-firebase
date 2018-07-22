@@ -3,9 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { array, func } from 'prop-types';
 
-import { popSnackbar } from '../../../../store/actions';
+import { popSnackbar } from '../../actions';
 
-import { SlideInFromBottom } from '../../components/hocs/Transitions';
+import { SlideInFromBottom } from '../../../common/components/hocs/Transitions';
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 
 import './Snackbar.css';

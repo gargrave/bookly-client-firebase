@@ -5,17 +5,15 @@ import type { Author } from '../../flowtypes';
 import type { Book } from '../../../books/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { createSnackbar } from '../../../../store/actions';
 
-import {
-  deleteAuthor,
-  fetchAuthors,
-  setPreselectedAuthor,
-  updateAuthor,
-} from '../../../../store/actions';
+import { actions } from '../../actions';
+import { actions as snackbarActions } from '../../../snackbar/actions';
 
 import AuthorDetailPage from '../../views/AuthorDetailPage/AuthorDetailPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+
+const { deleteAuthor, fetchAuthors, setPreselectedAuthor, updateAuthor } = actions;
+const { createSnackbar } = snackbarActions;
 
 const mapStateToProps = (state: any, ownProps: any) => {
   const authorId = ownProps.match.params.id;

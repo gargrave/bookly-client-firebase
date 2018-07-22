@@ -2,10 +2,13 @@
 import { connect } from 'react-redux';
 
 import { localUrls } from '../../../../globals/urls';
-import { fetchBooks } from '../../../../store/actions';
+
+import { actions } from '../../actions';
 
 import BooksListPage from '../../views/BooksListPage/BooksListPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+
+const { fetchBooks } = actions;
 
 const mapStateToProps = (state) => ({
   books: state.books.data,

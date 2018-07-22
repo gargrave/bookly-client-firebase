@@ -6,7 +6,7 @@ import type { FbCollection } from '../../core/flowtypes';
 import { deleteBooksFromAPI, fetchBooksByAuthorFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { setApiError } from '../../core/actions';
+import { setApiError } from '../../core/actions/setApiError';
 import { requestEnd } from './requestEnd';
 import { requestStart } from './requestStart';
 

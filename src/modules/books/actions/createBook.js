@@ -6,7 +6,7 @@ import type { Book } from '../flowtypes';
 import { createBookOnAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';
 
-import { setApiError } from '../../core/actions';
+import { setApiError } from '../../core/actions/setApiError';
 
 import { bookHasValidAuthor, sortByAuthorLastName } from './helpers';
 

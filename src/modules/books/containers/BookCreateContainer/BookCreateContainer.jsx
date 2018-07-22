@@ -2,11 +2,15 @@
 import { connect } from 'react-redux';
 
 import { localUrls } from '../../../../globals/urls';
-import { clearPreselectedAuthor, fetchAuthors } from '../../../../store/actions';
-import { createBook, fetchBooks } from '../../../../store/actions';
+
+import { actions } from '../../actions';
+import { actions as authorActions } from '../../../authors/actions';
 
 import BookCreatePage from '../../views/BookCreatePage/BookCreatePage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+
+const { createBook, fetchBooks } = actions;
+const { clearPreselectedAuthor, fetchAuthors } = authorActions;
 
 const mapStateToProps = (state) => {
   return {

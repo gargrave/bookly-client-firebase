@@ -2,10 +2,13 @@
 import { connect } from 'react-redux';
 
 import { localUrls } from '../../../../globals/urls';
-import { createAuthor, fetchAuthors } from '../../../../store/actions';
+
+import { actions } from '../../actions';
 
 import AuthorCreatePage from '../../views/AuthorCreatePage/AuthorCreatePage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+
+const { createAuthor, fetchAuthors } = actions;
 
 const mapStateToProps = () => ({});
 

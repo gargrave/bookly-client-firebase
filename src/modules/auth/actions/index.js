@@ -9,7 +9,7 @@ import {
 import {
   markVerificationEmailSent,
   markVerificationEmailSentReducer,
-} from './markPasswordResetEmailSent';
+} from './markVerificationEmailSent';
 import { requestEndReducer } from './requestEnd';
 import { requestStartReducer } from './requestStart';
 
