@@ -1,20 +1,16 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
-import { array, func } from 'prop-types';
+import { array, func, shape } from 'prop-types';
 
-import { actions } from '../../../snackbar/actions';
-
-import { SlideInFromBottom } from '../../components/hocs/Transitions';
-import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
+import { SlideInFromBottom } from '../../../common/components/hocs/Transitions';
+import SnackbarMessage from '../../components/SnackbarMessage/SnackbarMessage';
 
 import './Snackbar.css';
 
-const { popSnackbar } = actions;
-
 type Props = {
-  queue: any[],
+  actions: Object,
   popSnackbar: Function,
+  queue: any[],
 };
 
 type State = {
@@ -23,6 +19,13 @@ type State = {
 };
 
 class Snackbar extends React.Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      popSnackbar: func.isRequired,
+    }).isRequired,
+    queue: array.isRequired,
+  }
+
   constructor(props: any) {
     super(props);
 
@@ -30,11 +33,6 @@ class Snackbar extends React.Component<Props, State> {
       currentMessage: '',
       showing: false,
     };
-
-    const _this: any = this;
-    _this.clearMessage = _this.clearMessage.bind(_this);
-    _this.beginSnackbarHide = _this.beginSnackbarHide.bind(_this);
-    _this.onSnackbarExited = _this.onSnackbarExited.bind(_this);
   }
 
   componentWillReceiveProps(nextProps: any) {
@@ -47,38 +45,32 @@ class Snackbar extends React.Component<Props, State> {
       this.setState({
         currentMessage,
         showing: true,
-      }, () => {
-        this.props.popSnackbar();
-      });
+      }, this.props.actions.popSnackbar);
     }
   }
 
-  beginSnackbarHide() {
+  beginSnackbarHide = () => {
     this.setState({
       showing: false,
     });
   }
 
-  onSnackbarExited() {
+  onSnackbarExited = () => {
     this.clearMessage(this.checkQueue.bind(this));
   }
 
-  clearMessage(cb?: Function) {
+  clearMessage = (onClear?: Function) => {
     this.setState({
       currentMessage: '',
     }, () => {
-      if (cb) {
-        cb();
+      if (onClear) {
+        onClear();
       }
     });
   }
 
   render() {
-    const {
-      currentMessage,
-      showing,
-    } = this.state;
-
+    const { currentMessage, showing } = this.state;
     return (
       <SlideInFromBottom
         in={showing}
@@ -96,22 +88,4 @@ class Snackbar extends React.Component<Props, State> {
   }
 }
 
-Snackbar.propTypes = {
-  queue: array.isRequired,
-  popSnackbar: func.isRequired,
-};
-
-/* eslint-disable no-unused-vars */
-const mapStateToProps = (state: any, ownProps: any) => {
-  return {
-    queue: state.snackbar.queue || [],
-  };
-};
-
-const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
-  popSnackbar() {
-    return dispatch(popSnackbar());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Snackbar);
+export default Snackbar;

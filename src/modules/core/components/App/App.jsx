@@ -6,7 +6,7 @@ import { firebaseAuth } from '../../../../globals/firebase/';
 import { localUrls } from '../../../../globals/urls';
 
 import SexyHeader from '../../../common/components/SexyHeader/SexyHeader';
-import Snackbar from '../../../common/containers/Snackbar/Snackbar';
+import SnackbarContainer from '../../../snackbar/containers/SnackbarContainer/SnackbarContainer';
 
 import Router from '../../Router';
 
@@ -86,7 +86,7 @@ class App extends Component {
           <main className="main-view">
             <Router />
           </main>
-          <Snackbar />
+          <SnackbarContainer />
         </div>
       </BrowserRouter>
     );
