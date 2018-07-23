@@ -1,5 +1,5 @@
 import { profileMocks } from '../../../../globals/mocks';
-import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Form from '../../../common/components/Form/Form';
 import InputField from '../../../common/components/InputField/InputField';

@@ -4,7 +4,7 @@ import { array, func, object, shape } from 'prop-types';
 
 import type { Book } from '../../flowtypes';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 
 import BooksListVerified from '../../components/BooksListVerified/BooksListVerified';

@@ -4,7 +4,7 @@ import { array, shape, string } from 'prop-types';
 
 import type { BookBucket } from '../../../flowtypes';
 
-import { buildClasses } from '../../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../../utils/cssHelpers';
 
 type Props = {
   bucket: BookBucket,

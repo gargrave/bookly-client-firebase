@@ -8,7 +8,7 @@ import type { LoginErrors, LoginUser } from '../../flowtypes';
 import { localUrls } from '../../../../globals/urls';
 import { loginHasAllFields, validateLogin } from '../../../auth/validators';
 import { loginUserModel } from '../../../auth/models';
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';

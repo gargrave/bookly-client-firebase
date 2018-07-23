@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Alert from '../../../common/components/Alert/Alert';
 

@@ -5,7 +5,7 @@ import { array, func, object } from 'prop-types';
 import type { Book } from '../../../../books/flowtypes';
 import type { Author } from '../../../flowtypes';
 
-import { buildClasses } from '../../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../../utils/cssHelpers';
 
 import BookList from '../../../../books/components/BookList/BookList';
 import Button from '../../../../common/components/Button/Button';

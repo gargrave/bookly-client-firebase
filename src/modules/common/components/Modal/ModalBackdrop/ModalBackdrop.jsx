@@ -2,7 +2,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-import { buildClasses } from '../../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../../utils/cssHelpers';
 
 import './ModalBackdrop.css';
 

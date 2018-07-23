@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { array, bool, number, object, string } from 'prop-types';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import './SexyHeader.css';
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { func, string } from 'prop-types';
 
-import { buildClasses } from '../../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../../utils/cssHelpers';
 
 import Button from '../../Button/Button';
 import ButtonRow from '../../ButtonRow/ButtonRow';

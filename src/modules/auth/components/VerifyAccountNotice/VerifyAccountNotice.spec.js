@@ -1,4 +1,4 @@
-import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import VerifyAccountNotice from './VerifyAccountNotice';
 

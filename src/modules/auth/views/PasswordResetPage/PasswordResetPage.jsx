@@ -4,7 +4,7 @@ import { func, shape, string } from 'prop-types';
 
 import type { PasswordReset, PasswordResetErrors } from '../../flowtypes';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 import { sendPasswordResetEmail } from '../../../../wrappers/auth';
 import { passwordResetModel } from '../../../auth/models';
 import { passwordResetHasAllFields, validatePasswordReset } from '../../../auth/validators';

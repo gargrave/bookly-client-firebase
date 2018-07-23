@@ -4,7 +4,7 @@ import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
 
 import type { Book } from '../../flowtypes';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Alert from '../../../common/components/Alert/Alert';
 import BookDetailCard from './BookDetailCard/BookDetailCard';

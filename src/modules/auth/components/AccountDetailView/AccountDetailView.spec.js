@@ -1,5 +1,5 @@
 import { profileMocks, userMocks } from '../../../../globals/mocks/';
-import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Card from '../../../common/components/Card/Card';
 

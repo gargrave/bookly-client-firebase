@@ -6,7 +6,7 @@ import type { Author } from '../../../authors/flowtypes';
 import type { Book, BookErrors } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import { bookModel } from '../../models';
 import { bookHasAllFields, validateBook } from '../../validators';

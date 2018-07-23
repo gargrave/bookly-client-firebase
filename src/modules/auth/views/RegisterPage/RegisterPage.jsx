@@ -6,7 +6,7 @@ import { func, object, shape } from 'prop-types';
 import type { RegisterErrors, RegisterUser } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../auth/validators';
 import { registerUserModel } from '../../../auth/models';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';

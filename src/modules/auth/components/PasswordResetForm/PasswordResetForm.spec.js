@@ -1,4 +1,4 @@
-import { ComponentBuilder } from '../../../../../globals/utils/testHelpers';
+import { ComponentBuilder } from '../../../../../utils/testHelpers';
 import { passwordResetModel } from '../../../../auth/models';
 
 import Form from '../../../common/components/Form/Form';

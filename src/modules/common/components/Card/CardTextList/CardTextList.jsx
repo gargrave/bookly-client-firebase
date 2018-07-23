@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { array } from 'prop-types';
 
-import { buildClasses } from '../../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../../utils/cssHelpers';
 
 type CardTextListItem = {
   title?: string,

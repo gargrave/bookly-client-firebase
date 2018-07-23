@@ -2,7 +2,7 @@
 import React from 'react';
 import { any, array, func, bool, string} from 'prop-types';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Alert from '../Alert/Alert';
 import Button from '../Button/Button';

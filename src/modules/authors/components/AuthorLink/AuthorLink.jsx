@@ -6,7 +6,7 @@ import { object } from 'prop-types';
 import type { Author } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import './AuthorLink.css';
 

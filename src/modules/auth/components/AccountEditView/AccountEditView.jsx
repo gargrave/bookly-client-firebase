@@ -4,7 +4,7 @@ import { bool, func, object, string } from 'prop-types';
 
 import type { Profile } from '../../../profiles/flowtypes';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import AccountForm from '../AccountForm/AccountForm';
 import Card from '../../../common/components/Card/Card';

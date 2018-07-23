@@ -4,7 +4,7 @@ import { array, func, object, shape } from 'prop-types';
 
 import type { Author } from '../../flowtypes';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 
 import AuthorsListVerified from '../../components/AuthorsListVerified/AuthorsListVerified';

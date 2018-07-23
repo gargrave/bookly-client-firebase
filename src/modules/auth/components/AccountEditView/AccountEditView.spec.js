@@ -1,5 +1,5 @@
 import { profileMocks } from '../../../../globals/mocks/';
-import { ComponentBuilder } from '../../../../globals/utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 import profileModel from '../../../profiles/models';
 
 import AccountForm from '../AccountForm/AccountForm';

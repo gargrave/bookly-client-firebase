@@ -4,7 +4,7 @@ import { array, bool, func, shape, string } from 'prop-types';
 
 import type { Author } from '../../flowtypes';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 type Props = {
   author: Author,

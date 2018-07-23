@@ -2,7 +2,7 @@
 import React from 'react';
 import { any } from 'prop-types';
 
-import { buildClasses } from '../../../../globals/utils/cssHelpers';
+import { buildClasses } from '../../../../utils/cssHelpers';
 
 import './CardList.css';
 
