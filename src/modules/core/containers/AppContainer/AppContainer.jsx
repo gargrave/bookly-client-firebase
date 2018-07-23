@@ -1,5 +1,5 @@
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { actions } from '../../actions';
 import { actions as authActions } from '../../../auth/actions';
@@ -8,25 +8,13 @@ import { actions as profileActions } from '../../../profiles/actions';
 
 import App from '../../components/App/App';
 
-const { setLocalUserData } = authActions;
-const { fetchBooks } = bookActions;
-const { fetchProfile } = profileActions;
-
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actions, dispatch),
-  fetchBooks() {
-    return dispatch(fetchBooks());
-  },
-
-  fetchProfile() {
-    return dispatch(fetchProfile());
-  },
-
-  setLocalUserData(user) {
-    return dispatch(setLocalUserData(user));
-  },
+  authActions: bindActionCreators(authActions, dispatch),
+  bookActions: bindActionCreators(bookActions, dispatch),
+  profileActions: bindActionCreators(profileActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

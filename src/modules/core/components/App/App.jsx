@@ -35,9 +35,15 @@ class App extends Component {
     actions: shape({
       setInitialized: func.isRequired,
     }).isRequired,
-    fetchBooks: func.isRequired,
-    fetchProfile: func.isRequired,
-    setLocalUserData: func.isRequired,
+    authActions: shape({
+      setLocalUserData: func.isRequired,
+    }).isRequired,
+    bookActions: shape({
+      fetchBooks: func.isRequired,
+    }).isRequired,
+    profileActions: shape({
+      fetchProfile: func.isRequired,
+    }).isRequired,
   }
 
   constructor(props) {
@@ -51,24 +57,19 @@ class App extends Component {
   async componentWillMount() {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
-        this.props.setLocalUserData(user);
-        this.props.fetchProfile();
-        await this.props.fetchBooks();
+        this.props.authActions.setLocalUserData(user);
+        this.props.profileActions.fetchProfile();
+        await this.props.bookActions.fetchBooks();
       }
 
       this.setState({
         loggedIn: !!user,
-      }, () => {
-        this.props.actions.setInitialized();
-      });
+      }, this.props.actions.setInitialized);
     });
   }
 
   render() {
-    const {
-      loggedIn,
-    } = this.state;
-
+    const { loggedIn } = this.state;
     return (
       <BrowserRouter>
         <div
