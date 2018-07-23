@@ -1,67 +1,18 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import { array, bool, func, string } from 'prop-types';
 
-import type { Book, BookBucket } from '../../flowtypes';
+import type { Book } from '../../flowtypes';
 
-import { filterAndBucket, filterBooksByTitle } from '../helpers';
+import { bucketedBookList, flatBookList } from './helpers';
 
 import Alert from '../../../common/components/Alert/Alert';
-import BookListBucket from '../BookListBucket/BookListBucket';
-import BookListDetail from '../BookListDetail/BookListDetail';
 
 type Props = {
   books: Book[],
   filterBy?: string,
   onBookClick: Function,
   groupBooksByAuthor?: boolean,
-};
-
-const bucketedBookList = (
-  books: Book[],
-  onBookClick: Function,
-  filterBy?: string,
-) => {
-  return (
-    <Fragment>
-      {
-        filterAndBucket(books, filterBy)
-          .map((bucket: BookBucket) => {
-            return (
-              <BookListBucket
-                bucket={bucket}
-                key={bucket.author}
-                onBookClick={onBookClick}
-              />
-            );
-          })
-      }
-    </Fragment>
-  );
-};
-
-const flatBookList = (
-  books: Book[],
-  onBookClick: Function,
-  filterBy?: string,
-) => {
-  return (
-    <Fragment>
-      {
-        filterBooksByTitle(books, filterBy)
-          .map((book: Book) => {
-            return (
-              <BookListDetail
-                book={book}
-                key={book.id}
-                onClick={onBookClick.bind(null, book.id)}
-                showAuthor={true}
-              />
-            );
-          })
-      }
-    </Fragment>
-  );
 };
 
 const renderBookList = (
@@ -89,13 +40,11 @@ const BookList = ({
   filterBy,
   onBookClick,
   groupBooksByAuthor,
-}: Props) => {
-  return (
-    books.length
-      ? renderBookList(books, onBookClick, filterBy, groupBooksByAuthor)
-      : noBooksMessage()
-  );
-};
+}: Props) => (
+  books.length
+    ? renderBookList(books, onBookClick, filterBy, groupBooksByAuthor)
+    : noBooksMessage()
+);
 
 BookList.propTypes = {
   books: array.isRequired,
