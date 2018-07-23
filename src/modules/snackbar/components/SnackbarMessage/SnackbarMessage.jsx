@@ -16,12 +16,12 @@ type Props = {
 let timeout;
 
 class SnackbarMessage extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-
-    const _this: any = this;
-    _this.onSnackbarClick = this.onSnackbarClick.bind(this);
-  }
+  static propTypes = {
+    duration: number,
+    message: string.isRequired,
+    onClick: func,
+    onSnackbarDuration: func.isRequired,
+  };
 
   componentDidMount() {
     timeout = setTimeout(
@@ -30,7 +30,7 @@ class SnackbarMessage extends React.Component<Props> {
     );
   }
 
-  onSnackbarClick() {
+  onSnackbarClick = () => {
     if (this.props.onClick) {
       if (timeout) {
         clearTimeout(timeout);
@@ -40,9 +40,7 @@ class SnackbarMessage extends React.Component<Props> {
   }
 
   render() {
-    const {
-      message,
-    } = this.props;
+    const { message } = this.props;
 
     return (
       <div
@@ -56,12 +54,5 @@ class SnackbarMessage extends React.Component<Props> {
     );
   }
 }
-
-SnackbarMessage.propTypes = {
-  duration: number,
-  message: string.isRequired,
-  onClick: func,
-  onSnackbarDuration: func.isRequired,
-};
 
 export default SnackbarMessage;

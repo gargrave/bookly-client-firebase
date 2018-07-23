@@ -66,17 +66,6 @@ class BookDetailPage extends Component<Props, State> {
       submitDisabled: false,
       topLevelError: '',
     };
-
-    const _this: any = this;
-    _this.hideDeleteDialog = _this.hideDeleteDialog.bind(this);
-    _this.onAuthorChange = _this.onAuthorChange.bind(this);
-    _this.onBackClick = _this.onBackClick.bind(this);
-    _this.onCancel = _this.onCancel.bind(this);
-    _this.onDeleteDialogConfirm = _this.onDeleteDialogConfirm.bind(this);
-    _this.onEditClick = _this.onEditClick.bind(this);
-    _this.onInputChange = _this.onInputChange.bind(this);
-    _this.onSubmit = _this.onSubmit.bind(this);
-    _this.showDeleteDialog = _this.showDeleteDialog.bind(this);
   }
 
   componentDidMount() {
@@ -97,7 +86,7 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  onAuthorChange(event: any) {
+  onAuthorChange = (event: any) => {
     const authorId = event.target.value;
     const author = this.props.authors.find((a) => a.id === authorId);
     const editableBook = {
@@ -116,7 +105,7 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  onInputChange(event: any) {
+  onInputChange = (event: any) => {
     const key = event.target.name;
     if (key in this.state.editableBook) {
       let editableBook = { ...this.state.editableBook};
@@ -132,7 +121,7 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event: any) {
+  onSubmit = async (event: any) => {
     event.preventDefault();
     const errors = validateBook(this.state.editableBook);
     if (errors.found) {
@@ -166,10 +155,8 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  onEditClick() {
-    const {
-      book,
-    } = this.props;
+  onEditClick = () => {
+    const { book } = this.props;
 
     this.setState({
       editing: true,
@@ -178,28 +165,28 @@ class BookDetailPage extends Component<Props, State> {
     });
   }
 
-  onCancel(event: any) {
+  onCancel = (event: any) => {
     event.preventDefault();
     this.setState({ editing: false });
   }
 
-  onBackClick() {
+  onBackClick = () => {
     this.props.history.push(localUrls.booksList);
   }
 
-  showDeleteDialog() {
+  showDeleteDialog = () => {
     this.setState({
       deleteDialogShowing: true,
     });
   }
 
-  hideDeleteDialog() {
+  hideDeleteDialog = () => {
     this.setState({
       deleteDialogShowing: false,
     });
   }
 
-  async onDeleteDialogConfirm() {
+  onDeleteDialogConfirm = async () => {
     this.setState({
       topLevelError: '',
     }, async () => {

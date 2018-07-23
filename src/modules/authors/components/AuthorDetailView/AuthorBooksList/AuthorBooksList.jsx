@@ -34,7 +34,7 @@ const AuthorBooksList = ({
       <h5 className={buildClasses(prefixClass('__header'))}>
         Books by {authorName}
         <Button
-          onClick={onBookAddClick.bind(this, author)}
+          onClick={onBookAddClick.bind(null, author)}
           text="Add"
           type="success"
         />

@@ -16,14 +16,10 @@ import CardList from '../../../common/components/CardList/CardList';
 
 type Props = {
   actions: Object,
-  createSnackbar: Function,
   history: any,
-  logout: Function,
-  markVerificationEmailSent: Function,
   profile: Profile,
   profileActions: Object,
   snackbarActions: Object,
-  updateProfile: Function,
   user: User,
   verificationEmailHasBeenSent: boolean,
 };

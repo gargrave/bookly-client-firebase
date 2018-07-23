@@ -39,7 +39,7 @@ class Snackbar extends React.Component<Props, State> {
     this.checkQueue(nextProps.queue);
   }
 
-  checkQueue(queue: any[] = this.props.queue) {
+  checkQueue = (queue: any[] = this.props.queue) => {
     if (!this.state.currentMessage && queue.length) {
       const currentMessage = queue[0].message;
       this.setState({
@@ -56,7 +56,7 @@ class Snackbar extends React.Component<Props, State> {
   }
 
   onSnackbarExited = () => {
-    this.clearMessage(this.checkQueue.bind(this));
+    this.clearMessage(this.checkQueue);
   }
 
   clearMessage = (onClear?: Function) => {

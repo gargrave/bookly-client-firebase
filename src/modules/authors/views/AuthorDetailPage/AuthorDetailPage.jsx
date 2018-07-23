@@ -111,15 +111,6 @@ class AuthorDetailPage extends Component<Props, State> {
       submitDisabled: false,
       topLevelError: '',
     };
-
-    const _this: any = this;
-    _this.hideDeleteDialog = _this.hideDeleteDialog.bind(this);
-    _this.onBackClick = _this.onBackClick.bind(this);
-    _this.onBookClick = _this.onBookClick.bind(this);
-    _this.onBookAddClick = _this.onBookAddClick.bind(this);
-    _this.onDeleteDialogConfirm = _this.onDeleteDialogConfirm.bind(this);
-    _this.onEditClick = _this.onEditClick.bind(this);
-    _this.showDeleteDialog = _this.showDeleteDialog.bind(this);
   }
 
   componentDidMount() {
@@ -140,7 +131,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }
   }
 
-  onInputChange(event: any) {
+  onInputChange = (event: any) => {
     const key = event.target.name;
     if (key in this.state.editableAuthor) {
       let editableAuthor = { ...this.state.editableAuthor};
@@ -156,7 +147,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event: any) {
+  onSubmit = async (event: any) => {
     event.preventDefault();
     const errors = validateAuthor(this.state.editableAuthor);
     if (errors.found) {
@@ -190,11 +181,7 @@ class AuthorDetailPage extends Component<Props, State> {
     }
   }
 
-  /**
-   * Enables 'editing' state and sets the editable author's value
-   * to the current author from the store.
-   */
-  onEditClick() {
+  onEditClick = () => {
     this.setState({
       editableAuthor: authorModel.editable(this.props.author),
       editing: true,
@@ -204,20 +191,20 @@ class AuthorDetailPage extends Component<Props, State> {
     });
   }
 
-  onCancel(event: any) {
-    event.preventDefault();
+  onCancel = (e: any) => {
+    e.preventDefault();
     this.setState({ editing: false });
   }
 
-  onBackClick() {
+  onBackClick = () => {
     this.props.history.push(localUrls.authorsList);
   }
 
-  onBookClick(id: number) {
+  onBookClick = (id: number) => {
     this.props.history.push(`${localUrls.booksList}/${id}`);
   }
 
-  onBookAddClick(author: any) {
+  onBookAddClick = (author: any) => {
     if (author && author.id) {
       this.props.actions.setPreselectedAuthor(author);
     }
@@ -225,19 +212,19 @@ class AuthorDetailPage extends Component<Props, State> {
   }
 
 
-  showDeleteDialog() {
+  showDeleteDialog = () => {
     this.setState({
       deleteDialogShowing: true,
     });
   }
 
-  hideDeleteDialog() {
+  hideDeleteDialog = () => {
     this.setState({
       deleteDialogShowing: false,
     });
   }
 
-  async onDeleteDialogConfirm() {
+  onDeleteDialogConfirm = async () => {
     this.setState({
       topLevelError: '',
     }, async () => {
@@ -280,12 +267,16 @@ class AuthorDetailPage extends Component<Props, State> {
           />
         }
         {author.id && !editing &&
-          detailView(author, booksForAuthor, this.onBackClick, this.onBookAddClick,
-            this.onBookClick, this.showDeleteDialog, this.onEditClick, topLevelError)
+          detailView(
+            author, booksForAuthor, this.onBackClick, this.onBookAddClick,
+            this.onBookClick, this.showDeleteDialog, this.onEditClick, topLevelError
+          )
         }
         {author.id && editing &&
-          editView(editableAuthor, errors, formDisabled, submitDisabled, topLevelError,
-            this.onCancel.bind(this), this.onInputChange.bind(this), this.onSubmit.bind(this))
+          editView(
+            editableAuthor, errors, formDisabled, submitDisabled, topLevelError,
+            this.onCancel, this.onInputChange, this.onSubmit
+          )
         }
         {deleteDialogShowing &&
           <Modal

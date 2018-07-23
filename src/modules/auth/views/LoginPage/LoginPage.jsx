@@ -47,13 +47,9 @@ class LoginPage extends Component<Props, State> {
       topLevelError: '',
       loginUser: loginUserModel.empty(),
     };
-
-    const _this: any = this;
-    _this.onSubmit = _this.onSubmit.bind(this);
-    _this.onInputChange = _this.onInputChange.bind(this);
   }
 
-  onInputChange(event: any) {
+  onInputChange = (event: any) => {
     const key = event.target.name;
     if (key in this.state.loginUser) {
       const loginUser = this.state.loginUser;
@@ -67,7 +63,7 @@ class LoginPage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event: any) {
+  onSubmit = async (event: any) => {
     event.preventDefault();
     const errors = validateLogin(this.state.loginUser);
     if (errors.found) {

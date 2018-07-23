@@ -56,12 +56,6 @@ class BookCreatePage extends Component<Props, State> {
       submitDisabled: true,
       topLevelError: '',
     };
-
-    const _this: any = this;
-    _this.onAuthorChange = _this.onAuthorChange.bind(this);
-    _this.onInputChange = _this.onInputChange.bind(this);
-    _this.onSubmit = _this.onSubmit.bind(this);
-    _this.onCancel = _this.onCancel.bind(this);
   }
 
   async componentDidMount() {
@@ -96,12 +90,12 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  onAuthorChange(event: any) {
+  onAuthorChange = (event: any) => {
     const authorId = event.target.value;
     this.updateAuthor(authorId);
   }
 
-  onInputChange(event: any) {
+  onInputChange = (event: any) => {
     const key = event.target.name;
     if (key in this.state.book) {
       const book = { ...this.state.book };
@@ -115,7 +109,7 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event: any) {
+  onSubmit = async (event: any) => {
     event.preventDefault();
     const errors = validateBook(this.state.book);
     if (errors.found) {
@@ -142,7 +136,7 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  onCancel(event: any) {
+  onCancel = (event: any) => {
     event.preventDefault();
     this.props.history.push(localUrls.booksList);
   }

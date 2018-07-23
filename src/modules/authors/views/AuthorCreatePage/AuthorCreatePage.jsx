@@ -45,11 +45,6 @@ class AuthorCreatePage extends Component<Props, State> {
       submitDisabled: true,
       topLevelError: '',
     };
-
-    const _this: any = this;
-    _this.onCancel = _this.onCancel.bind(this);
-    _this.onInputChange = _this.onInputChange.bind(this);
-    _this.onSubmit = _this.onSubmit.bind(this);
   }
 
   componentDidMount() {
