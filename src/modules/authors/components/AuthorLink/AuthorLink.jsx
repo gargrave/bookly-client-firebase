@@ -18,10 +18,11 @@ type Props = {
 const AuthorLink = ({
   author,
 }: Props) => {
+  const authorId = author.id || '';
   return (
     <p className={buildClasses(['author-link'])}>
       by&nbsp;
-      <Link to={`${localUrls.authorsList}/${author.id}`}>
+      <Link to={`${localUrls.authorsList}/${authorId}`}>
         {author.firstName} {author.lastName}
       </Link>
     </p>

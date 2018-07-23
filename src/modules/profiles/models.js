@@ -1,5 +1,5 @@
 // @flow
-import type { FbDoc } from '../core/flowtypes';
+import type { FbDoc } from '../../wrappers/firebase/flowtypes';
 import type { Profile, ProfileErrors } from './flowtypes';
 
 export const profileModel = {

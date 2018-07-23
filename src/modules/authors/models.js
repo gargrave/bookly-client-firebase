@@ -1,6 +1,6 @@
 // @flow
+import type { FbDoc } from '../../wrappers/firebase/flowtypes';
 import type { Author, AuthorErrors } from './flowtypes';
-import type { FbDoc } from '../core/flowtypes';
 
 export const authorModel = {
   empty(): Author {

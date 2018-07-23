@@ -1,7 +1,7 @@
 // @flow
+import type { FbCollection } from '../../../wrappers/firebase/flowtypes';
 import type { Author } from '../../authors/flowtypes';
 import type { ReduxAction } from '../../common/flowtypes';
-import type { FbCollection } from '../../core/flowtypes';
 
 import { deleteBooksFromAPI, fetchBooksByAuthorFromAPI } from '../../../wrappers/api';
 import { parseAPIError } from '../../../wrappers/errors';

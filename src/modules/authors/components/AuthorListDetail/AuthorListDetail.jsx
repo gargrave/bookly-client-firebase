@@ -12,7 +12,7 @@ type Props = {
   onClick: Function,
 };
 
-const bookCountString = (count: number): string => {
+const bookCountString = (count?: number = 0): string => {
   const pluralizer = count === 1 ? '' : 's';
   return `${count} book${pluralizer}`;
 };

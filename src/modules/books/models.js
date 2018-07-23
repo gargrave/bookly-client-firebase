@@ -1,6 +1,6 @@
 // @flow
+import type { FbDoc } from '../../wrappers/firebase/flowtypes';
 import type { Author } from '../authors/flowtypes';
-import type { FbDoc } from '../core/flowtypes';
 import type { Book, BookErrors } from './flowtypes';
 
 function hydrateAuthor(authors, id): Author {

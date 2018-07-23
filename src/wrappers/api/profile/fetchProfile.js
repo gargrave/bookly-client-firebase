@@ -12,7 +12,7 @@ import createProfileOnAPI from './createProfile';
 const fetchProfileFromAPI = async (): Promise<?Profile> => {
   const userId = getCurrentUserId();
   if (!userId) {
-    return {};
+    return Promise.resolve(profileModel.empty());
   }
 
   const docRef: FbDocRef = db

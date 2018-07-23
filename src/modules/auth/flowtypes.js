@@ -34,6 +34,17 @@ export type User = {
   registered?: Date | string,
 };
 
+type UserMetadata = {
+  creationTime: string,
+  lastSignInTime: string,
+};
+
+type Metadata = {
+  metadata: UserMetadata,
+}
+
+export type UserWithMetadata = User & Metadata;
+
 export type PasswordReset = {
   email: string,
 }

@@ -7,6 +7,7 @@ import type {
   RegisterErrors,
   RegisterUser,
   User,
+  UserWithMetadata,
 } from './flowtypes';
 
 export const userModel = {
@@ -21,7 +22,7 @@ export const userModel = {
     };
   },
 
-  fromAPI(user: User): User {
+  fromAPI(user: UserWithMetadata): User {
     const {
       displayName,
       email,
