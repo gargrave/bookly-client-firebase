@@ -34,54 +34,6 @@ type State = {
   topLevelError: string,
 };
 
-const detailView = (
-  author: Author,
-  booksForAuthor: Book[],
-  onBackClick: Function,
-  onBookAddClick: Function,
-  onBookClick: Function,
-  onDeleteClick: Function,
-  onEditClick: Function,
-  topLevelError: string,
-) => {
-  return (
-    <AuthorDetailView
-      author={author}
-      booksForAuthor={booksForAuthor}
-      onBackClick={onBackClick}
-      onBookAddClick={onBookAddClick}
-      onBookClick={onBookClick}
-      onDeleteClick={onDeleteClick}
-      onEditClick={onEditClick}
-      topLevelError={topLevelError}
-    />
-  );
-};
-
-const editView = (
-  author: Author,
-  errors: AuthorErrors,
-  formDisabled: boolean,
-  submitDisabled: boolean,
-  topLevelError: string,
-  onCancel: Function,
-  onInputChange: Function,
-  onSubmit: Function,
-) => {
-  return (
-    <AuthorEditView
-      author={author}
-      disabled={formDisabled}
-      errors={errors}
-      onCancel={onCancel}
-      onInputChange={onInputChange}
-      onSubmit={onSubmit}
-      submitDisabled={submitDisabled}
-      topLevelError={topLevelError}
-    />
-  );
-};
-
 class AuthorDetailPage extends Component<Props, State> {
   static propTypes = {
     actions: shape({
@@ -211,7 +163,6 @@ class AuthorDetailPage extends Component<Props, State> {
     this.props.history.push(localUrls.bookCreate);
   }
 
-
   showDeleteDialog = () => {
     this.setState({
       deleteDialogShowing: true,
@@ -267,16 +218,28 @@ class AuthorDetailPage extends Component<Props, State> {
           />
         }
         {author.id && !editing &&
-          detailView(
-            author, booksForAuthor, this.onBackClick, this.onBookAddClick,
-            this.onBookClick, this.showDeleteDialog, this.onEditClick, topLevelError
-          )
+          <AuthorDetailView
+            author={editableAuthor}
+            booksForAuthor={booksForAuthor}
+            onBackClick={this.onBackClick}
+            onBookAddClick={this.onBookAddClick}
+            onBookClick={this.onBookClick}
+            onDeleteClick={this.showDeleteDialog}
+            onEditClick={this.onEditClick}
+            topLevelError={topLevelError}
+          />
         }
         {author.id && editing &&
-          editView(
-            editableAuthor, errors, formDisabled, submitDisabled, topLevelError,
-            this.onCancel, this.onInputChange, this.onSubmit
-          )
+          <AuthorEditView
+            author={author}
+            disabled={formDisabled}
+            errors={errors}
+            onCancel={this.onCancel}
+            onInputChange={this.onInputChange}
+            onSubmit={this.onSubmit}
+            submitDisabled={submitDisabled}
+            topLevelError={topLevelError}
+          />
         }
         {deleteDialogShowing &&
           <Modal
