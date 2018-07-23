@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { bool, func, object } from 'prop-types';
+import { bool, func, object, shape } from 'prop-types';
 
 import type { User } from '../../flowtypes';
 import type { Profile, ProfileErrors } from '../../../profiles/flowtypes';
@@ -15,11 +15,14 @@ import AccountEditView from '../../components/AccountEditView/AccountEditView';
 import CardList from '../../../common/components/CardList/CardList';
 
 type Props = {
+  actions: Object,
   createSnackbar: Function,
   history: any,
   logout: Function,
   markVerificationEmailSent: Function,
   profile: Profile,
+  profileActions: Object,
+  snackbarActions: Object,
   updateProfile: Function,
   user: User,
   verificationEmailHasBeenSent: boolean,
@@ -36,12 +39,18 @@ type State = {
 
 class AccountDetailPage extends Component<Props, State> {
   static propTypes = {
-    createSnackbar: func.isRequired,
+    actions: shape({
+      logout: func.isRequired,
+      markVerificationEmailSent: func.isRequired,
+    }),
     history: object.isRequired,
-    logout: func.isRequired,
-    markVerificationEmailSent: func.isRequired,
     profile: object.isRequired,
-    updateProfile: func.isRequired,
+    profileActions: shape({
+      updateProfile: func.isRequired,
+    }),
+    snackbarActions: shape({
+      createSnackbar: func.isRequired,
+    }),
     user: object.isRequired,
     verificationEmailHasBeenSent: bool.isRequired,
   };
@@ -90,7 +99,7 @@ class AccountDetailPage extends Component<Props, State> {
   }
 
   onLogoutClick = async () => {
-    await this.props.logout();
+    await this.props.actions.logout();
     this.props.history.push(localUrls.login);
   }
 
@@ -112,7 +121,7 @@ class AccountDetailPage extends Component<Props, State> {
             ...this.state.editableProfile,
           });
 
-          await this.props.updateProfile(profile);
+          await this.props.actions.updateProfile(profile);
           this.setState({
             editing: false,
             formDisabled: false,
@@ -130,9 +139,11 @@ class AccountDetailPage extends Component<Props, State> {
   onVerifyAccountClick = async () => {
     try {
       await sendAccountVerificationEmail();
-      this.props.markVerificationEmailSent();
+      this.props.actions.markVerificationEmailSent();
     } catch (err) {
-      this.props.createSnackbar('There was an error sending the email.');
+      this.props.snackbarActions.createSnackbar(
+        'There was an error sending the email.'
+      );
     }
   }
 

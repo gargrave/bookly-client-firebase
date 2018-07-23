@@ -10,6 +10,7 @@ import {
   markVerificationEmailSent,
   markVerificationEmailSentReducer,
 } from './markVerificationEmailSent';
+import { register } from './register';
 import { requestEndReducer } from './requestEnd';
 import { requestStartReducer } from './requestStart';
 import { setLocalUserData } from './setLocalUserData';
@@ -39,5 +40,6 @@ export const actions = {
   logout,
   markPasswordResetEmailSent,
   markVerificationEmailSent,
+  register,
   setLocalUserData,
 };

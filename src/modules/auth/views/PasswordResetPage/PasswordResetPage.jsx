@@ -1,6 +1,6 @@
 // @flow
 import React, { Fragment } from 'react';
-import { func, string } from 'prop-types';
+import { func, shape, string } from 'prop-types';
 
 import type { PasswordReset, PasswordResetErrors } from '../../flowtypes';
 
@@ -16,9 +16,9 @@ import CardTextLine from '../../../common/components/Card/CardTextLine/CardTextL
 import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm';
 
 type Props = {
-  createSnackbar: Function,
-  markPasswordResetEmailSent: Function,
+  actions: Object,
   passwordResetEmailSentTo: string,
+  snackbarActions: Object,
 };
 
 type State = {
@@ -31,10 +31,14 @@ type State = {
 
 class PasswordResetPage extends React.Component<Props, State> {
   static propTypes = {
-    createSnackbar: func.isRequired,
-    markPasswordResetEmailSent: func.isRequired,
+    actions: shape({
+      markPasswordResetEmailSent: func.isRequired,
+    }),
     passwordResetEmailSentTo: string,
-  }
+    snackbarActions: shape({
+      createSnackbar: func.isRequired,
+    }),
+  };
 
   constructor(props: any) {
     super(props);
@@ -74,11 +78,10 @@ class PasswordResetPage extends React.Component<Props, State> {
     }, async () => {
       try {
         await sendPasswordResetEmail(model.email);
-        this.props.markPasswordResetEmailSent(model.email);
+        this.props.actions.markPasswordResetEmailSent(model.email);
       } catch (err) {
-        console.log({ err });
         const topLevelError = 'This was an error sending the email.';
-        this.props.createSnackbar(topLevelError);
+        this.props.snackbarActions.createSnackbar(topLevelError);
         this.setState({ topLevelError });
       } finally {
         this.setState({ formDisabled: false });

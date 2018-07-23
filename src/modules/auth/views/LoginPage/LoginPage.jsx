@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { func, object } from 'prop-types';
+import { func, object, shape } from 'prop-types';
 
 import type { LoginErrors, LoginUser } from '../../flowtypes';
 
@@ -17,8 +17,8 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import './LoginPage.css';
 
 type Props = {
+  actions: Object,
   history: any,
-  login: Function,
 };
 
 type State = {
@@ -30,6 +30,13 @@ type State = {
 };
 
 class LoginPage extends Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      login: func.isRequired,
+    }),
+    history: object.isRequired,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -75,7 +82,7 @@ class LoginPage extends Component<Props, State> {
       }, async() => {
         try {
           const loginUser = loginUserModel.toAPI(this.state.loginUser);
-          await this.props.login(loginUser);
+          await this.props.actions.login(loginUser);
           this.props.history.push(localUrls.account);
         } catch (err) {
           this.setState({
@@ -124,10 +131,5 @@ class LoginPage extends Component<Props, State> {
     );
   }
 }
-
-LoginPage.propTypes = {
-  history: object.isRequired,
-  login: func.isRequired,
-};
 
 export default LoginPage;

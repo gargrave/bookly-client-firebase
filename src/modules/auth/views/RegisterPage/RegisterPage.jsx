@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { func, object } from 'prop-types';
+import { func, object, shape } from 'prop-types';
 
 import type { RegisterErrors, RegisterUser } from '../../flowtypes';
 
@@ -16,8 +16,8 @@ import CardList from '../../../common/components/CardList/CardList';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 type Props = {
+  actions: Object,
   history: any,
-  register: Function,
 };
 
 type State = {
@@ -29,6 +29,13 @@ type State = {
 };
 
 class RegisterPage extends React.Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      register: func.isRequired,
+    }),
+    history: object.isRequired,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -39,13 +46,9 @@ class RegisterPage extends React.Component<Props, State> {
       topLevelError: '',
       registerUser: registerUserModel.empty(),
     };
-
-    const _this: any = this;
-    _this.onSubmit = _this.onSubmit.bind(this);
-    _this.onInputChange = _this.onInputChange.bind(this);
   }
 
-  onInputChange(event: any) {
+  onInputChange = (event: any) => {
     const key = event.target.name;
     if (key in this.state.registerUser) {
       const registerUser = this.state.registerUser;
@@ -59,7 +62,7 @@ class RegisterPage extends React.Component<Props, State> {
     }
   }
 
-  async onSubmit(event: any) {
+  onSubmit = async (event: any) => {
     event.preventDefault();
     const errors = validateRegisterUser(this.state.registerUser);
     if (errors.found) {
@@ -74,7 +77,7 @@ class RegisterPage extends React.Component<Props, State> {
       }, async() => {
         try {
           const registerUser = registerUserModel.toAPI(this.state.registerUser);
-          await this.props.register(registerUser);
+          await this.props.actions.register(registerUser);
           sendAccountVerificationEmail();
           this.props.history.push(localUrls.account);
         } catch (err) {
@@ -121,10 +124,5 @@ class RegisterPage extends React.Component<Props, State> {
     );
   }
 }
-
-RegisterPage.propTypes = {
-  history: object.isRequired,
-  register: func.isRequired,
-};
 
 export default RegisterPage;

@@ -1,7 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
-
-import type { Profile } from '../../../profiles/flowtypes';
+import { bindActionCreators } from 'redux';
 
 import { localUrls } from '../../../../globals/urls';
 
@@ -12,32 +11,16 @@ import { actions as snackbarActions } from '../../../snackbar/actions';
 import AccountDetailPage from '../../views/AccountDetailPage/AccountDetailPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
-const { logout, markVerificationEmailSent } = actions;
-const { updateProfile } = profileActions;
-const { createSnackbar } = snackbarActions;
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
   profile: state.profile.data,
   user: state.auth.user,
   verificationEmailHasBeenSent: state.auth.verificationEmailSent,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
-  },
-
-  logout() {
-    return dispatch(logout());
-  },
-
-  markVerificationEmailSent() {
-    return dispatch(markVerificationEmailSent());
-  },
-
-  updateProfile(profile: Profile) {
-    return dispatch(updateProfile(profile));
-  },
+const mapDispatchToProps = (dispatch: any) => ({
+  actions: bindActionCreators(actions, dispatch),
+  profileActions: bindActionCreators(profileActions, dispatch),
+  snackbarActions: bindActionCreators(snackbarActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
