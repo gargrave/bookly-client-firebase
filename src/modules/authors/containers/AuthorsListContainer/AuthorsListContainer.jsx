@@ -1,5 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import countBy from 'lodash/countBy';
 
 import type { Author } from '../../flowtypes';
@@ -10,8 +11,6 @@ import { actions } from '../../actions';
 
 import AuthorsListPage from '../../views/AuthorsListPage/AuthorsListPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
-
-const { fetchAuthors } = actions;
 
 const mapStateToProps = (state) => {
   const authorCounts = countBy(state.books.data, 'author.id');
@@ -29,9 +28,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAuthors() {
-    return dispatch(fetchAuthors());
-  },
+  actions: bindActionCreators(actions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(

@@ -1,7 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
-
-import type { Book } from '../../flowtypes';
+import { bindActionCreators } from 'redux';
 
 import { localUrls } from '../../../../globals/urls';
 import { bookModel } from '../../models';
@@ -11,9 +10,6 @@ import { actions as snackbarActions } from '../../../snackbar/actions';
 
 import BookDetailPage from '../../views/BookDetailPage/BookDetailPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
-
-const { deleteBook, fetchBooks, updateBook } = actions;
-const { createSnackbar } = snackbarActions;
 
 const mapStateToProps = (state, ownProps) => {
   const bookId = ownProps.match.params.id;
@@ -29,21 +25,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
-  },
-
-  deleteBook(book: Book) {
-    return dispatch(deleteBook(book));
-  },
-
-  fetchBooks() {
-    return dispatch(fetchBooks());
-  },
-
-  updateBook(book) {
-    return dispatch(updateBook(book));
-  },
+  actions: bindActionCreators(actions, dispatch),
+  snackbarActions: bindActionCreators(snackbarActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(

@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { func, object } from 'prop-types';
+import { func, object, shape } from 'prop-types';
 
 import type { Author, AuthorErrors } from '../../flowtypes';
 
@@ -14,8 +14,7 @@ import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
 
 type Props = {
-  createAuthor: Function,
-  fetchAuthors: Function,
+  actions: Object,
   history: Object,
 };
 
@@ -28,6 +27,14 @@ type State = {
 };
 
 class AuthorCreatePage extends Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      createAuthor: func.isRequired,
+      fetchAuthors: func.isRequired,
+    }).isRequired,
+    history: object,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -51,7 +58,7 @@ class AuthorCreatePage extends Component<Props, State> {
 
   async refreshAuthors() {
     try {
-      await this.props.fetchAuthors();
+      await this.props.actions.fetchAuthors();
       this.setState({
         formDisabled: false,
       });
@@ -62,7 +69,7 @@ class AuthorCreatePage extends Component<Props, State> {
     }
   }
 
-  onInputChange(event: any) {
+  onInputChange = (event: any) => {
     const key = event.target.name;
     if (key in this.state.author) {
       const author = { ...this.state.author };
@@ -76,7 +83,7 @@ class AuthorCreatePage extends Component<Props, State> {
     }
   }
 
-  async onSubmit(event: any) {
+  onSubmit = async (event: any) => {
     event.preventDefault();
     const errors = validateAuthor(this.state.author);
     if (errors.found) {
@@ -91,7 +98,7 @@ class AuthorCreatePage extends Component<Props, State> {
       }, async () => {
         try {
           const author = authorModel.toAPI(this.state.author);
-          await this.props.createAuthor(author);
+          await this.props.actions.createAuthor(author);
           this.props.history.push(localUrls.authorsList);
         } catch (err) {
           this.setState({
@@ -103,7 +110,7 @@ class AuthorCreatePage extends Component<Props, State> {
     }
   }
 
-  onCancel(event: any) {
+  onCancel = (event: any) => {
     event.preventDefault();
     this.props.history.push(localUrls.authorsList);
   }
@@ -140,11 +147,5 @@ class AuthorCreatePage extends Component<Props, State> {
     );
   }
 }
-
-AuthorCreatePage.propTypes = {
-  createAuthor: func.isRequired,
-  fetchAuthors: func.isRequired,
-  history: object,
-};
 
 export default AuthorCreatePage;

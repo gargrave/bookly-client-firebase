@@ -17,14 +17,12 @@ import CardList from '../../../common/components/CardList/CardList';
 import Modal from '../../../common/components/Modal/Modal';
 
 type Props = {
+  actions: Object,
   authors: Author[],
   book: Book,
   bookId: string,
-  createSnackbar: Function,
-  deleteBook: Function,
-  fetchBooks: Function,
   history: Object,
-  updateBook: Function,
+  snackbarActions: Object,
 };
 
 type State = {
@@ -38,6 +36,24 @@ type State = {
 };
 
 class BookDetailPage extends Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      deleteBook: func.isRequired,
+      fetchBooks: func.isRequired,
+      updateBook: func.isRequired,
+    }).isRequired,
+    authors: array.isRequired,
+    book: shape({
+      author: object,
+      title: string,
+    }).isRequired,
+    bookId: string,
+    history: object,
+    snackbarActions: shape({
+      createSnackbar: func.isRequired,
+    }),
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -69,7 +85,7 @@ class BookDetailPage extends Component<Props, State> {
 
   async refreshBooks() {
     try {
-      await this.props.fetchBooks();
+      await this.props.actions.fetchBooks();
       this.setState({
         formDisabled: false,
       });
@@ -135,7 +151,7 @@ class BookDetailPage extends Component<Props, State> {
               ...this.state.editableBook,
           });
 
-          await this.props.updateBook(book);
+          await this.props.actions.updateBook(book);
           this.setState({
             editing: false,
             formDisabled: false,
@@ -150,10 +166,6 @@ class BookDetailPage extends Component<Props, State> {
     }
   }
 
-  /**
-   * Enables 'editing' state and sets the editable book's value
-   * to the current book from the store.
-   */
   onEditClick() {
     const {
       book,
@@ -166,9 +178,6 @@ class BookDetailPage extends Component<Props, State> {
     });
   }
 
-  /**
-   * Disables 'editing' state.
-   */
   onCancel(event: any) {
     event.preventDefault();
     this.setState({ editing: false });
@@ -195,8 +204,10 @@ class BookDetailPage extends Component<Props, State> {
       topLevelError: '',
     }, async () => {
       try {
-        await this.props.deleteBook(this.props.book);
-        this.props.createSnackbar('Book successfully deleted.');
+        await this.props.actions.deleteBook(this.props.book);
+        this.props.snackbarActions.createSnackbar(
+          'Book successfully deleted.'
+        );
         this.props.history.push(localUrls.booksList);
       } catch (err) {
         this.setState({
@@ -266,19 +277,5 @@ class BookDetailPage extends Component<Props, State> {
     );
   }
 }
-
-BookDetailPage.propTypes = {
-  authors: array.isRequired,
-  book: shape({
-    author: object,
-    title: string,
-  }).isRequired,
-  bookId: string,
-  createSnackbar: func.isRequired,
-  deleteBook: func.isRequired,
-  fetchBooks: func.isRequired,
-  history: object,
-  updateBook: func.isRequired,
-};
 
 export default BookDetailPage;

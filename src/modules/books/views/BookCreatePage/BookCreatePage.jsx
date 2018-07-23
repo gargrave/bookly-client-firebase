@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { array, func, object } from 'prop-types';
+import { array, func, object, shape } from 'prop-types';
 
 import type { Author } from '../../../authors/flowtypes';
 import type { Book, BookErrors } from '../../flowtypes';
@@ -16,11 +16,9 @@ import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
 
 type Props = {
+  actions: Object,
+  authorActions: Object,
   authors: Author[],
-  clearPreselectedAuthor: Function,
-  createBook: Function,
-  fetchAuthors: Function,
-  fetchBooks: Function,
   history: Object,
   preselectedAuthor: Author,
 };
@@ -34,6 +32,20 @@ type State = {
 };
 
 class BookCreatePage extends Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      createBook: func.isRequired,
+      fetchBooks: func.isRequired,
+    }).isRequired,
+    authorActions: shape({
+      clearPreselectedAuthor: func.isRequired,
+      fetchAuthors: func.isRequired,
+    }).isRequired,
+    authors: array.isRequired,
+    history: object,
+    preselectedAuthor: object,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -54,12 +66,12 @@ class BookCreatePage extends Component<Props, State> {
 
   async componentDidMount() {
     try {
-      await this.props.fetchAuthors();
-      await this.props.fetchBooks();
+      await this.props.authorActions.fetchAuthors();
+      await this.props.actions.fetchBooks();
 
       if (this.props.preselectedAuthor) {
         this.updateAuthor(this.props.preselectedAuthor.id);
-        this.props.clearPreselectedAuthor();
+        this.props.authorActions.clearPreselectedAuthor();
       }
 
       this.setState({
@@ -71,7 +83,7 @@ class BookCreatePage extends Component<Props, State> {
     }
   }
 
-  updateAuthor(authorId: string) {
+  updateAuthor(authorId?: string) {
     const author = this.props.authors.find((a) => a.id === authorId);
     const book = { ...this.state.book, author };
     const submitDisabled = !bookHasAllFields(book);
@@ -118,7 +130,7 @@ class BookCreatePage extends Component<Props, State> {
       }, async() => {
         try {
           const book = bookModel.toAPI(this.state.book);
-          await this.props.createBook(book);
+          await this.props.actions.createBook(book);
           this.props.history.push(localUrls.booksList);
         } catch (err) {
           this.setState({
@@ -174,15 +186,5 @@ class BookCreatePage extends Component<Props, State> {
     );
   }
 }
-
-BookCreatePage.propTypes = {
-  authors: array.isRequired,
-  clearPreselectedAuthor: func.isRequired,
-  createBook: func.isRequired,
-  fetchAuthors: func.isRequired,
-  fetchBooks: func.isRequired,
-  history: object,
-  preselectedAuthor: object,
-};
 
 export default BookCreatePage;

@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { array, func, object } from 'prop-types';
+import { array, func, object, shape } from 'prop-types';
 
 import type { Book } from '../../flowtypes';
 
@@ -13,8 +13,8 @@ import CardList from '../../../common/components/CardList/CardList';
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
 
 type Props = {
+  actions: Object,
   books: Book[],
-  fetchBooks: Function,
   history: Object,
   user: Object,
 };
@@ -24,6 +24,15 @@ type State = {
 }
 
 class BooksListPage extends Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      fetchBooks: func.isRequired,
+    }).isRequired,
+    books: array.isRequired,
+    history: object,
+    user: object.isRequired,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -38,7 +47,7 @@ class BooksListPage extends Component<Props, State> {
 
   async refreshBooks() {
     try {
-      await this.props.fetchBooks();
+      await this.props.actions.fetchBooks();
     } catch (err) {
       console.log('TODO: deal with this error!');
       console.log(err);
@@ -109,12 +118,5 @@ class BooksListPage extends Component<Props, State> {
     );
   }
 }
-
-BooksListPage.propTypes = {
-  books: array.isRequired,
-  fetchBooks: func.isRequired,
-  history: object,
-  user: object.isRequired,
-};
 
 export default BooksListPage;

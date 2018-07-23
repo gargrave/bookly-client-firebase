@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { array, func, object } from 'prop-types';
+import { array, func, object, shape } from 'prop-types';
 
 import type { Author } from '../../flowtypes';
 
@@ -13,8 +13,8 @@ import CardList from '../../../common/components/CardList/CardList';
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
 
 type Props = {
+  actions: Object,
   authors: Author[],
-  fetchAuthors: Function,
   history: Object,
   user: Object,
 };
@@ -24,6 +24,15 @@ type State = {
 }
 
 class AuthorsListPage extends Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      fetchAuthors: func.isRequired,
+    }).isRequired,
+    authors: array.isRequired,
+    history: object.isRequired,
+    user: object.isRequired,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -38,7 +47,7 @@ class AuthorsListPage extends Component<Props, State> {
 
   async refreshAuthors() {
     try {
-      await this.props.fetchAuthors();
+      await this.props.actions.fetchAuthors();
     } catch (err) {
       // TODO: deal with this error
     }
@@ -108,12 +117,5 @@ class AuthorsListPage extends Component<Props, State> {
     );
   }
 }
-
-AuthorsListPage.propTypes = {
-  authors: array.isRequired,
-  fetchAuthors: func.isRequired,
-  history: object.isRequired,
-  user: object.isRequired,
-};
 
 export default AuthorsListPage;

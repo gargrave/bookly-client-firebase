@@ -1,7 +1,7 @@
 // @flow
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import type { Author } from '../../flowtypes';
 import type { Book } from '../../../books/flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
@@ -11,9 +11,6 @@ import { actions as snackbarActions } from '../../../snackbar/actions';
 
 import AuthorDetailPage from '../../views/AuthorDetailPage/AuthorDetailPage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
-
-const { deleteAuthor, fetchAuthors, setPreselectedAuthor, updateAuthor } = actions;
-const { createSnackbar } = snackbarActions;
 
 const mapStateToProps = (state: any, ownProps: any) => {
   const authorId = ownProps.match.params.id;
@@ -32,25 +29,8 @@ const mapStateToProps = (state: any, ownProps: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  createSnackbar(message: string) {
-    return dispatch(createSnackbar(message));
-  },
-
-  deleteAuthor(author: Author) {
-    return dispatch(deleteAuthor(author));
-  },
-
-  fetchAuthors() {
-    return dispatch(fetchAuthors());
-  },
-
-  setPreselectedAuthor(author: Author) {
-    return dispatch(setPreselectedAuthor(author));
-  },
-
-  updateAuthor(author) {
-    return dispatch(updateAuthor(author));
-  },
+  actions: bindActionCreators(actions, dispatch),
+  snackbarActions: bindActionCreators(snackbarActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(

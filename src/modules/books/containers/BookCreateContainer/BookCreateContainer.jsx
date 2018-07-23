@@ -1,5 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { localUrls } from '../../../../globals/urls';
 
@@ -9,32 +10,14 @@ import { actions as authorActions } from '../../../authors/actions';
 import BookCreatePage from '../../views/BookCreatePage/BookCreatePage';
 import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
 
-const { createBook, fetchBooks } = actions;
-const { clearPreselectedAuthor, fetchAuthors } = authorActions;
-
-const mapStateToProps = (state) => {
-  return {
-    authors: state.authors.data,
-    preselectedAuthor: state.authors.preselectedAuthor,
-  };
-};
+const mapStateToProps = (state) => ({
+  authors: state.authors.data,
+  preselectedAuthor: state.authors.preselectedAuthor,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  clearPreselectedAuthor() {
-    return dispatch(clearPreselectedAuthor());
-  },
-
-  createBook(book) {
-    return dispatch(createBook(book));
-  },
-
-  fetchAuthors() {
-    return dispatch(fetchAuthors());
-  },
-
-  fetchBooks() {
-    return dispatch(fetchBooks());
-  },
+  actions: bindActionCreators(actions, dispatch),
+  authorActions: bindActionCreators(authorActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(

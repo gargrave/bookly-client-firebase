@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { array, func, instanceOf, object, oneOfType, shape, string } from 'prop-types';
+import { array, func, object, shape, string } from 'prop-types';
 
 import type { Author, AuthorErrors } from '../../flowtypes';
 import type { Book } from '../../../books/flowtypes';
@@ -16,15 +16,12 @@ import CardList from '../../../common/components/CardList/CardList';
 import Modal from '../../../common/components/Modal/Modal';
 
 type Props = {
+  actions: Object,
   author: Author,
   authorId: string,
   booksForAuthor: Book[],
-  deleteAuthor: Function,
-  fetchAuthors: Function,
   history: Object,
-  setPreselectedAuthor: Function,
-  createSnackbar: Function,
-  updateAuthor: Function,
+  snackbarActions: Object,
 };
 
 type State = {
@@ -86,6 +83,22 @@ const editView = (
 };
 
 class AuthorDetailPage extends Component<Props, State> {
+  static propTypes = {
+    actions: shape({
+      deleteAuthor: func.isRequired,
+      fetchAuthors: func.isRequired,
+      setPreselectedAuthor: func.isRequired,
+      updateAuthor: func.isRequired,
+    }).isRequired,
+    author: object.isRequired,
+    authorId: string,
+    booksForAuthor: array,
+    history: object,
+    snackbarActions: shape({
+      createSnackbar: func.isRequired,
+    }).isRequired,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -115,7 +128,7 @@ class AuthorDetailPage extends Component<Props, State> {
 
   async refreshAuthors() {
     try {
-      await this.props.fetchAuthors();
+      await this.props.actions.fetchAuthors();
       this.setState({
         formDisabled: false,
       });
@@ -162,7 +175,7 @@ class AuthorDetailPage extends Component<Props, State> {
             ...this.state.editableAuthor,
           });
 
-          await this.props.updateAuthor(author);
+          await this.props.actions.updateAuthor(author);
           this.setState({
             editing: false,
             formDisabled: false,
@@ -191,9 +204,6 @@ class AuthorDetailPage extends Component<Props, State> {
     });
   }
 
-  /**
-   * Disables 'editing' state.
-   */
   onCancel(event: any) {
     event.preventDefault();
     this.setState({ editing: false });
@@ -209,7 +219,7 @@ class AuthorDetailPage extends Component<Props, State> {
 
   onBookAddClick(author: any) {
     if (author && author.id) {
-      this.props.setPreselectedAuthor(author);
+      this.props.actions.setPreselectedAuthor(author);
     }
     this.props.history.push(localUrls.bookCreate);
   }
@@ -232,8 +242,8 @@ class AuthorDetailPage extends Component<Props, State> {
       topLevelError: '',
     }, async () => {
       try {
-        await this.props.deleteAuthor(this.props.author);
-        this.props.createSnackbar('Author successfully deleted.');
+        await this.props.actions.deleteAuthor(this.props.author);
+        this.props.snackbarActions.createSnackbar('Author successfully deleted.');
         this.props.history.push(localUrls.authorsList);
       } catch (err) {
         console.warn('TODO: show "topLevelError" in AuthorDetailView');
@@ -292,30 +302,5 @@ class AuthorDetailPage extends Component<Props, State> {
     );
   }
 }
-
-AuthorDetailPage.propTypes = {
-  author: shape({
-    id: string,
-    created: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
-    updated: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
-    firstName: string,
-    lastName: string,
-  }).isRequired,
-  authorId: string,
-  booksForAuthor: array,
-  createSnackbar: func.isRequired,
-  deleteAuthor: func.isRequired,
-  fetchAuthors: func.isRequired,
-  history: object,
-  setPreselectedAuthor: func.isRequired,
-  updateAuthor: func.isRequired,
-};
-
 
 export default AuthorDetailPage;
