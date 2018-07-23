@@ -1,12 +1,23 @@
 // @flow
-function isUseableClass(classname: string): boolean {
-  return !!classname.trim();
+const CLASS_NAME = 'bookly';
+
+const isUseableClass = (classname: string): boolean => !!classname.trim();
+
+function prependClass(className: string): string {
+  if (!className) {
+    return '';
+  }
+
+  if (!className.match(/^bookly-/)) {
+    return `${CLASS_NAME}-${className}`;
+  }
+  return className;
 }
 
-function buildClasses(
+export function buildClasses(
   prepends: string | string[],
   statics: string | string[] = []
-) {
+): string {
   if (!Array.isArray(prepends)) {
     prepends = [prepends];
   }
@@ -25,18 +36,3 @@ function buildClasses(
 
   return `${first}${second}`;
 }
-
-function prependClass(className: string) {
-  if (!className) {
-    return '';
-  }
-
-  if (!className.match(/^bookly-/)) {
-    return `bookly-${className}`;
-  }
-  return className;
-}
-
-export {
-  buildClasses,
-};

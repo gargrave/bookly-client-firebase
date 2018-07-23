@@ -1,4 +1,4 @@
-export const clamp = (val, min, max) => {
+export function clamp(val, min, max) {
   if (val < min) {
     return min;
   }
@@ -6,4 +6,4 @@ export const clamp = (val, min, max) => {
     return max;
   }
   return val;
-};
+}
