@@ -3,7 +3,7 @@ import type { Author } from '../../../modules/authors/flowtypes';
 import type { Book } from '../../../modules/books/flowtypes';
 import type { FbCollection, FbDoc } from '../../../modules/core/flowtypes';
 
-import { db } from '../../../globals/firebase/';
+import { db } from '../../firebase';
 import { bookModel } from '../../../modules/books/models';
 
 import { getCurrentUserId } from '../../auth';

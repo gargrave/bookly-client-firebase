@@ -1,7 +1,7 @@
 // @flow
 import type { FbCollection, FbDoc } from '../../../modules/core/flowtypes';
 
-import { db } from '../../../globals/firebase/';
+import { db } from '../../firebase';
 
 import { getCurrentUserId } from '../../auth';
 

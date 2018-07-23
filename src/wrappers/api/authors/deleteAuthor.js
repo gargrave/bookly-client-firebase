@@ -2,7 +2,7 @@
 import type { Author } from '../../../modules/authors/flowtypes';
 import type { FbDocRef } from '../../../modules/core/flowtypes';
 
-import { db } from '../../../globals/firebase/';
+import { db } from '../../firebase';
 import { getDocRef } from '../../../globals/utils/apiHelpers';
 
 import { getCurrentUserId } from '../../auth';

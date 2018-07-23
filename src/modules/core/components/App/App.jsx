@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { func, shape } from 'prop-types';
 
-import { firebaseAuth } from '../../../../globals/firebase/';
 import { localUrls } from '../../../../globals/urls';
+import { firebaseAuth } from '../../../../wrappers/firebase';
 
 import SexyHeader from '../../../common/components/SexyHeader/SexyHeader';
 import SnackbarContainer from '../../../snackbar/containers/SnackbarContainer/SnackbarContainer';

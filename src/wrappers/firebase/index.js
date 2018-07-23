@@ -1,25 +1,23 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
 
-import firebaseConfig from '../../secrets/firebaseConfig.js';
+import { devConfig } from './firebaseConfig';
 
 let initialized = false;
 let firebaseAuth;
 let db;
 
 if (!initialized) {
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(devConfig);
   firebaseAuth = firebase.auth();
   db = firebase.firestore();
   initialized = true;
 }
 
-function fbTimestamp() {
-  return firebase.firestore.FieldValue.serverTimestamp();
-}
+export const fbTimestamp = () =>
+  firebase.firestore.FieldValue.serverTimestamp();
 
 export {
-  firebaseAuth,
   db,
-  fbTimestamp,
+  firebaseAuth,
 };

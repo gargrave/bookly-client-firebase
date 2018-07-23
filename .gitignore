@@ -20,12 +20,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# VS Code Settings
-/.vscode
-
+.vscode
 # compiled CSS files
 src/**/*.css
-
-# secret/config files
-src/secrets
-.idea
+**/firebaseConfig.js

@@ -2,7 +2,7 @@
 import type { FbDoc, FbDocRef } from '../../../modules/core/flowtypes';
 import type { Profile } from '../../../modules/profiles/flowtypes';
 
-import { db } from '../../../globals/firebase/';
+import { db } from '../../firebase';
 import { profileModel } from '../../../modules/profiles/models';
 
 import { getCurrentUserId } from '../../auth';
