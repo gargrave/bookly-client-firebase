@@ -8,7 +8,7 @@ import { actions } from '../../actions';
 import { actions as authorActions } from '../../../authors/actions';
 
 import BookCreatePage from '../../views/BookCreatePage/BookCreatePage';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute';
 
 const mapStateToProps = (state) => ({
   authors: state.authors.data,
@@ -21,5 +21,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(BookCreatePage, localUrls.login)
+  AuthenticatedRoute(BookCreatePage, localUrls.login)
 );

@@ -10,7 +10,7 @@ import { localUrls } from '../../../../globals/urls';
 import { actions } from '../../actions';
 
 import AuthorsListPage from '../../views/AuthorsListPage/AuthorsListPage';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute';
 
 const mapStateToProps = (state) => {
   const authorCounts = countBy(state.books.data, 'author.id');
@@ -32,5 +32,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(AuthorsListPage, localUrls.login)
+  AuthenticatedRoute(AuthorsListPage, localUrls.login)
 );

@@ -9,7 +9,7 @@ import { actions } from '../../actions';
 import { actions as snackbarActions } from '../../../snackbar/actions';
 
 import BookDetailPage from '../../views/BookDetailPage/BookDetailPage';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute';
 
 const mapStateToProps = (state, ownProps) => {
   const bookId = ownProps.match.params.id;
@@ -30,5 +30,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(BookDetailPage, localUrls.login)
+  AuthenticatedRoute(BookDetailPage, localUrls.login)
 );

@@ -9,7 +9,7 @@ import { actions as profileActions } from '../../../profiles/actions';
 import { actions as snackbarActions } from '../../../snackbar/actions';
 
 import AccountDetailPage from '../../views/AccountDetailPage/AccountDetailPage';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute';
 
 const mapStateToProps = (state: any) => ({
   profile: state.profile.data,
@@ -24,5 +24,5 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(AccountDetailPage, localUrls.login)
+  AuthenticatedRoute(AccountDetailPage, localUrls.login)
 );

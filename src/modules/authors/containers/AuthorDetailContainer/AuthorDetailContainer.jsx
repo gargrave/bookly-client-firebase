@@ -10,7 +10,7 @@ import { actions } from '../../actions';
 import { actions as snackbarActions } from '../../../snackbar/actions';
 
 import AuthorDetailPage from '../../views/AuthorDetailPage/AuthorDetailPage';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute';
 
 const mapStateToProps = (state: any, ownProps: any) => {
   const authorId = ownProps.match.params.id;
@@ -34,5 +34,5 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(AuthorDetailPage, localUrls.login)
+  AuthenticatedRoute(AuthorDetailPage, localUrls.login)
 );

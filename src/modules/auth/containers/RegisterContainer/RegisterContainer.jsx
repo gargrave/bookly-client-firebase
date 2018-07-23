@@ -7,7 +7,7 @@ import { localUrls } from '../../../../globals/urls';
 import { actions } from '../../../auth/actions';
 
 import RegisterPage from '../../views/RegisterPage/RegisterPage';
-import RequiresAuth from '../../../common/components/hocs/RequiresAuth/RequiresAuth';
+import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute';
 
 const mapStateToProps = () => ({});
 
@@ -16,5 +16,5 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  RequiresAuth(RegisterPage, localUrls.account, false)
+  AuthenticatedRoute(RegisterPage, localUrls.account, false)
 );
