@@ -3,8 +3,9 @@ import { shallow } from 'enzyme';
 
 import { bookMocks } from '../../../../globals/mocks/';
 
+import Card from '../../../common/components/Card/Card';
+
 import BookListDetail from './BookListDetail';
-import Card from '../../../common/Card/Card';
 
 const testBook = bookMocks[0];
 

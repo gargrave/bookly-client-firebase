@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import { authorMocks } from '../../../../globals/mocks/';
 
-import Card from '../../../common/Card/Card';
+import Card from '../../../common/components/Card/Card';
 
 import AuthorListDetail from './AuthorListDetail';
 

@@ -3,7 +3,8 @@ import { shallow } from 'enzyme';
 
 import Alert from '../../../common/components/Alert/Alert';
 import Button from '../../../common/components/Button/Button';
-import Form from './';
+
+import Form from './Form';
 
 const defaultProps = Object.freeze({
   cancelBtnText: 'Cancel',

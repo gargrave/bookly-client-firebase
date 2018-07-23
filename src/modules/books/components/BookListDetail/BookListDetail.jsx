@@ -18,10 +18,7 @@ const BookListDetail = ({
   onClick,
   showAuthor,
 }: Props) => {
-  const {
-    author,
-    title,
-  } = book;
+  const { author, title } = book;
   const authorName = `${author.firstName} ${author.lastName}`;
 
   return (

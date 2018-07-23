@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import { authorMocks, bookMocks } from '../../../../../globals/mocks/';
 
-import BookList from '../../../../books/components/BookList/BooksList';
+import BookList from '../../../../books/components/BookList/BookList';
 
 import AuthorBooksList from './AuthorBooksList';
 

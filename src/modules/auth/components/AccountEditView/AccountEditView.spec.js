@@ -1,6 +1,6 @@
 import { profileMocks } from '../../../../globals/mocks/';
 import { ComponentBuilder } from '../../../../utils/testHelpers';
-import profileModel from '../../../profiles/models';
+import { profileModel } from '../../../profiles/models';
 
 import AccountForm from '../AccountForm/AccountForm';
 import Card from '../../../common/components/Card/Card';

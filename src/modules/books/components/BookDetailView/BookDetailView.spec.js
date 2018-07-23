@@ -3,7 +3,8 @@ import { shallow } from 'enzyme';
 
 import { bookMocks } from '../../../../globals/mocks';
 
-import BookDetailCard from './BookDetailCard';
+import BookDetailCard from './BookDetailCard/BookDetailCard';
+
 import BookDetailView from './BookDetailView';
 
 const defaultProps = Object.freeze({

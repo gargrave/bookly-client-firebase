@@ -2,8 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Alert from '../../../common/components/Alert/Alert';
+import AuthorListDetail from '../AuthorListDetail/AuthorListDetail';
+
 import AuthorList from './AuthorList';
-import AuthorListDetail from '../AuthorListDetail';
 
 const defaultProps = Object.freeze({
   authors: [
