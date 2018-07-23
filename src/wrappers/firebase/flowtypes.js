@@ -6,6 +6,7 @@ export type FbDoc = {
 
 export type FbDocRef = {
   get: Function,
+  delete: Function,
   update: Function,
 };
 

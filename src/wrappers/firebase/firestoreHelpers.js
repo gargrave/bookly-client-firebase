@@ -1,5 +1,13 @@
 // @flow
-import type { FbCollection, FbDoc } from './flowtypes';
+import type { FbCollection, FbDoc, FbDocRef } from './flowtypes';
+
+export async function getDocRef(
+  db: any,
+  table: string,
+  id?: string,
+): Promise<FbDocRef> {
+  return db.collection(table).doc(id);
+}
 
 function convertTimestamp(timestamp: any) {
   if (timestamp.toDate && typeof timestamp.toDate === 'function') {

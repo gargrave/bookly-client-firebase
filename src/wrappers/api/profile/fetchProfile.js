@@ -1,5 +1,5 @@
 // @flow
-import type { FbDoc, FbDocRef } from '../../../modules/core/flowtypes';
+import type { FbDoc, FbDocRef } from '../../../wrappers/firebase/flowtypes';
 import type { Profile } from '../../../modules/profiles/flowtypes';
 
 import { db } from '../../firebase';

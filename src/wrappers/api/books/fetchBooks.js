@@ -1,7 +1,7 @@
 // @flow
 import type { Author } from '../../../modules/authors/flowtypes';
 import type { Book } from '../../../modules/books/flowtypes';
-import type { FbCollection, FbDoc } from '../../../modules/core/flowtypes';
+import type { FbCollection, FbDoc } from '../../../wrappers/firebase/flowtypes';
 
 import { db } from '../../firebase';
 import { bookModel } from '../../../modules/books/models';

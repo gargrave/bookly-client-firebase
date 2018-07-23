@@ -1,9 +1,9 @@
 // @flow
 import type { Book } from '../../../modules/books/flowtypes';
-import type { FbDocRef } from '../../../modules/core/flowtypes';
+import type { FbDocRef } from '../../../wrappers/firebase/flowtypes';
 
 import { db } from '../../firebase';
-import { getDocRef } from '../../../globals/utils/apiHelpers';
+import { getDocRef } from '../../../wrappers/firebase/firestoreHelpers';
 
 import { getCurrentUserId } from '../../auth';
 
