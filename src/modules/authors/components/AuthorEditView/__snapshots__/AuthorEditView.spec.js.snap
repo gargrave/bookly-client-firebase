@@ -5,7 +5,16 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <AuthorEditView
-    author={Object {}}
+    author={
+      Object {
+        "bookCount": 1,
+        "created": 2017-07-01T01:16:43.881Z,
+        "firstName": "Aldous",
+        "id": "oiw223h3qndlksadffl3ksdf",
+        "lastName": "Huxley",
+        "updated": 2017-07-01T01:16:43.881Z,
+      }
+    }
     errors={
       Object {
         "firstName": "",
@@ -35,7 +44,16 @@ ShallowWrapper {
         hoverable={false}
       >
         <AuthorForm
-          author={Object {}}
+          author={
+            Object {
+              "bookCount": 1,
+              "created": 2017-07-01T01:16:43.881Z,
+              "firstName": "Aldous",
+              "id": "oiw223h3qndlksadffl3ksdf",
+              "lastName": "Huxley",
+              "updated": 2017-07-01T01:16:43.881Z,
+            }
+          }
           disabled={undefined}
           errors={
             Object {
@@ -59,7 +77,16 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": <AuthorForm
-          author={Object {}}
+          author={
+            Object {
+              "bookCount": 1,
+              "created": 2017-07-01T01:16:43.881Z,
+              "firstName": "Aldous",
+              "id": "oiw223h3qndlksadffl3ksdf",
+              "lastName": "Huxley",
+              "updated": 2017-07-01T01:16:43.881Z,
+            }
+          }
           disabled={undefined}
           errors={
             Object {
@@ -82,7 +109,14 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "author": Object {},
+          "author": Object {
+            "bookCount": 1,
+            "created": 2017-07-01T01:16:43.881Z,
+            "firstName": "Aldous",
+            "id": "oiw223h3qndlksadffl3ksdf",
+            "lastName": "Huxley",
+            "updated": 2017-07-01T01:16:43.881Z,
+          },
           "disabled": undefined,
           "errors": Object {
             "firstName": "",
@@ -113,7 +147,16 @@ ShallowWrapper {
           hoverable={false}
         >
           <AuthorForm
-            author={Object {}}
+            author={
+              Object {
+                "bookCount": 1,
+                "created": 2017-07-01T01:16:43.881Z,
+                "firstName": "Aldous",
+                "id": "oiw223h3qndlksadffl3ksdf",
+                "lastName": "Huxley",
+                "updated": 2017-07-01T01:16:43.881Z,
+              }
+            }
             disabled={undefined}
             errors={
               Object {
@@ -137,7 +180,16 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "children": <AuthorForm
-            author={Object {}}
+            author={
+              Object {
+                "bookCount": 1,
+                "created": 2017-07-01T01:16:43.881Z,
+                "firstName": "Aldous",
+                "id": "oiw223h3qndlksadffl3ksdf",
+                "lastName": "Huxley",
+                "updated": 2017-07-01T01:16:43.881Z,
+              }
+            }
             disabled={undefined}
             errors={
               Object {
@@ -160,7 +212,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "author": Object {},
+            "author": Object {
+              "bookCount": 1,
+              "created": 2017-07-01T01:16:43.881Z,
+              "firstName": "Aldous",
+              "id": "oiw223h3qndlksadffl3ksdf",
+              "lastName": "Huxley",
+              "updated": 2017-07-01T01:16:43.881Z,
+            },
             "disabled": undefined,
             "errors": Object {
               "firstName": "",

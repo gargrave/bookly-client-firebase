@@ -1,32 +1,29 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import { authorMocks } from '../../../../globals/mocks/';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Card from '../../../common/components/Card/Card';
 
 import AuthorListDetail from './AuthorListDetail';
 
-const defaultProps = Object.freeze({
-  author: Object.create(authorMocks[0]),
+const defaultProps = {
+  author: { ...authorMocks[0] },
   onClick: jest.fn(),
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<AuthorListDetail {...props} />);
-}
+const builder = new ComponentBuilder(
+  AuthorListDetail, defaultProps,
+);
 
 describe('AuthorListDetail', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
-    component = getComponent();
+  it('renders correctly', () => {
+    component = builder.shallowGetComponent();
     const element = component.find(Card);
     expect(element).toHaveLength(1);
   });

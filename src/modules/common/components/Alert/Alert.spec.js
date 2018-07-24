@@ -1,35 +1,33 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Alert from './Alert';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   message: 'This is the message.',
   type: 'primary',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<Alert {...props} />);
-}
+const builder = new ComponentBuilder(
+  Alert, defaultProps,
+);
 
 describe('InfoAlert', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly as an "info" alert', () => {
-    component = getComponent({ type: 'info' });
+  it('renders correctly as an "info" alert', () => {
+    component = builder.shallowGetComponent({ type: 'info' });
     expect(component.hasClass('bookly-alert')).toBeTruthy();
     expect(component.hasClass('alert-info')).toBeTruthy();
     expect(component.text()).toEqual(defaultProps.message);
   });
 
-  test('renders correctly as an "danger" alert', () => {
-    component = getComponent({ type: 'danger' });
+  it('renders correctly as an "danger" alert', () => {
+    component = builder.shallowGetComponent({ type: 'danger' });
     expect(component.hasClass('bookly-alert')).toBeTruthy();
     expect(component.hasClass('alert-danger')).toBeTruthy();
     expect(component.text()).toEqual(defaultProps.message);

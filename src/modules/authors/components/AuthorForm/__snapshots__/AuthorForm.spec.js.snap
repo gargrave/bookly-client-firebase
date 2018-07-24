@@ -5,7 +5,16 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <AuthorForm
-    author={Object {}}
+    author={
+      Object {
+        "bookCount": 1,
+        "created": 2017-07-01T01:16:43.881Z,
+        "firstName": "Aldous",
+        "id": "oiw223h3qndlksadffl3ksdf",
+        "lastName": "Huxley",
+        "updated": 2017-07-01T01:16:43.881Z,
+      }
+    }
     disabled={false}
     errors={
       Object {

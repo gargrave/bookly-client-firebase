@@ -5,7 +5,22 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BookDetailCard
-    book={Object {}}
+    book={
+      Object {
+        "author": Object {
+          "bookCount": 1,
+          "created": 2017-07-01T01:16:43.881Z,
+          "firstName": "Aldous",
+          "id": "oiw223h3qndlksadffl3ksdf",
+          "lastName": "Huxley",
+          "updated": 2017-07-01T01:16:43.881Z,
+        },
+        "created": 2018-01-14T01:36:26.220Z,
+        "id": "sv3hmbefpc95MRXQsTHr",
+        "title": "Brave New World",
+        "updated": 2018-01-14T01:36:26.220Z,
+      }
+    }
     onBackClick={[Function]}
     onDeleteClick={[Function]}
     onEditClick={[Function]}

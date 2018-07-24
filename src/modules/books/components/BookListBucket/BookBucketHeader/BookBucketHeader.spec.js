@@ -1,29 +1,26 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import { bookBucketMocks } from '../../../../../globals/mocks/';
+import { ComponentBuilder } from '../../../../../utils/testHelpers';
 
 import BookBucketHeader from './BookBucketHeader';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   bucket: bookBucketMocks[0],
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<BookBucketHeader {...props} />);
-}
+const builder = new ComponentBuilder(
+  BookBucketHeader, defaultProps,
+);
 
 describe('BookBucketHeader', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
-    component = getComponent();
+  it('renders correctly', () => {
+    component = builder.shallowGetComponent();
     const parentClass = '.bookly-book-bucket__header';
     expect(component.find(parentClass)).toHaveLength(1);
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import { authorMocks, bookMocks } from '../../../../globals/mocks/';
 
@@ -7,8 +6,8 @@ import AuthorDetailCard from './AuthorDetailCard/AuthorDetailCard';
 
 import AuthorDetailView from './AuthorDetailView';
 
-const defaultProps = Object.freeze({
-  author: Object.create(authorMocks[0]),
+const defaultProps = {
+  author: { ...authorMocks[0] },
   booksForAuthor: bookMocks,
   onBackClick: jest.fn(),
   onBookClick: jest.fn(),
@@ -16,23 +15,22 @@ const defaultProps = Object.freeze({
   onDeleteClick: jest.fn(),
   onEditClick: jest.fn(),
   topLevelError: '',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<AuthorDetailView {...props} />);
-}
+const builder = new ComponentBuilder(
+  AuthorDetailView, defaultProps,
+);
 
 describe('AuthorDetailView', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
-    component = getComponent();
+  it('renders correctly', () => {
+    component = builder.shallowGetComponent();
     expect(component.find('.bookly-author-detail-view')).toHaveLength(1);
     expect(component.find(AuthorDetailCard)).toHaveLength(1);
   });

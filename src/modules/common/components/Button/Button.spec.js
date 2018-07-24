@@ -1,77 +1,75 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Button from './Button';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   onClick: jest.fn(),
   text: 'ButtonText',
   type: 'success',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<Button {...props} />);
-}
+const builder = new ComponentBuilder(
+  Button, defaultProps,
+);
 
 describe('Button', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders as a "success" button', () => {
-    component = getComponent();
+  it('renders as a "success" button', () => {
+    component = builder.shallowGetComponent();
     expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-success')).toBeTruthy();
   });
 
-  test('renders as a "secondary" button', () => {
-    component = getComponent({ type: 'secondary' });
+  it('renders as a "secondary" button', () => {
+    component = builder.shallowGetComponent({ type: 'secondary' });
     expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-secondary')).toBeTruthy();
   });
 
-  test('renders as a "info" button', () => {
-    component = getComponent({ type: 'info' });
+  it('renders as a "info" button', () => {
+    component = builder.shallowGetComponent({ type: 'info' });
     expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-info')).toBeTruthy();
   });
 
-  test('renders as a "warning" button', () => {
-    component = getComponent({ type: 'warning' });
+  it('renders as a "warning" button', () => {
+    component = builder.shallowGetComponent({ type: 'warning' });
     expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-warning')).toBeTruthy();
   });
 
-  test('renders as a "danger" button', () => {
-    component = getComponent({ type: 'danger' });
+  it('renders as a "danger" button', () => {
+    component = builder.shallowGetComponent({ type: 'danger' });
     expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-danger')).toBeTruthy();
   });
 
-  test('renders as a "light" button', () => {
-    component = getComponent({ type: 'light' });
+  it('renders as a "light" button', () => {
+    component = builder.shallowGetComponent({ type: 'light' });
     expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-light')).toBeTruthy();
   });
 
-  test('renders as a "dark" button', () => {
-    component = getComponent({ type: 'dark' });
+  it('renders as a "dark" button', () => {
+    component = builder.shallowGetComponent({ type: 'dark' });
     expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-dark')).toBeTruthy();
   });
 
-  test('renders the correct text', () => {
-    component = getComponent();
+  it('renders the correct text', () => {
+    component = builder.shallowGetComponent();
     expect(component.text()).toEqual('ButtonText');
   });
 
-  test('calls the callback as expected', () => {
+  it('calls the callback as expected', () => {
     const onClick = jest.fn();
-    component = getComponent({ onClick });
+    component = builder.shallowGetComponent({ onClick });
     expect(onClick.mock.calls.length).toBe(0);
     component.simulate('click');
     expect(onClick.mock.calls.length).toBe(1);

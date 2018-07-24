@@ -1,7 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import { bookMocks } from '../../../../globals/mocks/';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Card from '../../../common/components/Card/Card';
 
@@ -9,26 +7,26 @@ import BookListDetail from './BookListDetail';
 
 const testBook = bookMocks[0];
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   book: testBook,
   onClick: jest.fn(),
   showAuthor: true,
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<BookListDetail {...props} />);
-}
+const builder = new ComponentBuilder(
+  BookListDetail, defaultProps,
+);
 
 describe('BookListDetail', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
   it ('renders one Card', () => {
+    component = builder.shallowGetComponent();
     expect(component.find(Card)).toHaveLength(1);
   });
 });

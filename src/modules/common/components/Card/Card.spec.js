@@ -1,9 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Card from './Card';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   children: null,
   classes: [],
   header: 'Great Header',
@@ -11,23 +10,22 @@ const defaultProps = Object.freeze({
   onClick: jest.fn(),
   text: 'this is the text',
   title: 'Awesome Title',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<Card {...props} />);
-}
+const builder = new ComponentBuilder(
+  Card, defaultProps,
+);
 
 describe('Card', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
-    component = getComponent();
+  it('renders correctly', () => {
+    component = builder.shallowGetComponent();
     expect(component.find('.bookly-card')).toHaveLength(1);
     expect(component.find('.bookly-card__header')).toHaveLength(1);
     expect(component.find('.bookly-card__title')).toHaveLength(1);
@@ -35,33 +33,33 @@ describe('Card', () => {
     expect(component.find('.bookly-card--hoverable')).toHaveLength(1);
   });
 
-  test('does not render header when prop is blank', () => {
-    component = getComponent({ header: '' });
+  it('does not render header when prop is blank', () => {
+    component = builder.shallowGetComponent({ header: '' });
     expect(component.find('.bookly-card__header')).toHaveLength(0);
   });
 
-  test('does not render title when prop is blank', () => {
-    component = getComponent({ title: '' });
+  it('does not render title when prop is blank', () => {
+    component = builder.shallowGetComponent({ title: '' });
     expect(component.find('.bookly-card__title')).toHaveLength(0);
   });
 
-  test('does not render text when prop is blank', () => {
-    component = getComponent({ text: '' });
+  it('does not render text when prop is blank', () => {
+    component = builder.shallowGetComponent({ text: '' });
     expect(component.find('.bookly-card__text')).toHaveLength(0);
   });
 
-  test('adds extra classes correctly', () => {
-    component = getComponent({ classes: ['oneclass', 'anotherclass'] });
+  it('adds extra classes correctly', () => {
+    component = builder.shallowGetComponent({ classes: ['oneclass', 'anotherclass'] });
     expect(component.find('.bookly-oneclass.bookly-anotherclass')).toHaveLength(1);
   });
 
-  test('does not add a hover state with "hoverable=false"', () => {
-    component = getComponent({ hoverable: false });
+  it('does not add a hover state with "hoverable=false"', () => {
+    component = builder.shallowGetComponent({ hoverable: false });
     expect(component.find('.bookly--hoverable')).toHaveLength(0);
   });
 
-  test('calls the "onClick" callback when clicked', () => {
-    component = getComponent();
+  it('calls the "onClick" callback when clicked', () => {
+    component = builder.shallowGetComponent();
     expect(defaultProps.onClick.mock.calls.length).toBe(0);
     component.simulate('click');
     expect(defaultProps.onClick.mock.calls.length).toBe(1);

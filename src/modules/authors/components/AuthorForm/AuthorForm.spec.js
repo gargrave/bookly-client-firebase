@@ -1,5 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import { authorMocks } from '../../../../globals/mocks/';
 
@@ -8,8 +7,8 @@ import InputField from '../../../common/components/InputField/InputField';
 
 import AuthorForm from './AuthorForm';
 
-const defaultProps = Object.freeze({
-  author: Object.create(authorMocks[0]),
+const defaultProps = {
+  author: { ...authorMocks[0] },
   disabled: false,
   errors: {
     firstName: '',
@@ -20,24 +19,23 @@ const defaultProps = Object.freeze({
   onSubmit: jest.fn(),
   submitDisabled: false,
   topLevelError: '',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<AuthorForm {...props} />);
-}
+const builder = new ComponentBuilder(
+  AuthorForm, defaultProps,
+);
 
 describe('AuthorForm', () => {
   let component;
 
   describe('with "author" populated', () => {
-    test('matches the snapshot', () => {
-      component = getComponent();
+    it('matches the snapshot', () => {
+      component = builder.shallowGetComponent();
       expect(component).toMatchSnapshot();
     });
 
-    test('renders correctly', () => {
-      component = getComponent();
+    it('renders correctly', () => {
+      component = builder.shallowGetComponent();
       expect(component.find(Form)).toHaveLength(1);
       expect(component.find(InputField)).toHaveLength(2);
     });

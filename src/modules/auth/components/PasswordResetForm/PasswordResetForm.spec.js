@@ -18,20 +18,19 @@ const defaultProps = {
 };
 
 const builder = new ComponentBuilder(
-  PasswordResetForm,
-  defaultProps,
+  PasswordResetForm, defaultProps,
 );
 
 describe('PasswordResetForm', () => {
   let component;
 
   describe('the basics', () => {
-    test('matches the snapshot', () => {
+    it('matches the snapshot', () => {
       component = builder.shallowGetComponent();
       expect(component).toMatchSnapshot();
     });
 
-    test('renders correctly', () => {
+    it('renders correctly', () => {
       component = builder.mountComponent();
       expect(component.find('.bookly-password-reset-form')).toHaveLength(1);
       expect(component.find(Form)).toHaveLength(1);

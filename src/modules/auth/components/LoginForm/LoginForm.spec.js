@@ -1,12 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Form from '../../../common/components/Form/Form';
 import InputField from '../../../common/components/InputField/InputField';
 
 import LoginForm from './LoginForm';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   disabled: false,
   errors: {
     email: '',
@@ -20,24 +19,23 @@ const defaultProps = Object.freeze({
   onSubmit: jest.fn(),
   submitDisabled: false,
   topLevelError: '',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<LoginForm {...props} />);
-}
+const builder = new ComponentBuilder(
+  LoginForm, defaultProps,
+);
 
 describe('LoginForm', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
   describe('basic rendering', () => {
-    test('renders correctly', () => {
-      component = getComponent();
+    it('renders correctly', () => {
+      component = builder.shallowGetComponent();
       expect(component.find(Form)).toHaveLength(1);
       expect(component.find(InputField)).toHaveLength(2);
     });

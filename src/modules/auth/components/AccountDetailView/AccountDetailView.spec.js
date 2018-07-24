@@ -15,19 +15,18 @@ const defaultProps = {
 };
 
 const builder = new ComponentBuilder(
-  AccountDetailView,
-  defaultProps,
+  AccountDetailView, defaultProps,
 );
 
 describe('AccountDetailView', () => {
   let component;
 
-  test('matches the snapshot', () => {
+  it('matches the snapshot', () => {
     component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     component = builder.shallowGetComponent();
     expect(component.find('.bookly-account-detail-view')).toHaveLength(1);
     expect(component.find(Card)).toHaveLength(1);

@@ -8,8 +8,7 @@ const defaultProps = {
 };
 
 const builder = new ComponentBuilder(
-  VerifyAccountNotice,
-  defaultProps,
+  VerifyAccountNotice, defaultProps,
 );
 
 describe('VerifyAccountNotice', () => {

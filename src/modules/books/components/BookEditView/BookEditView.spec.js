@@ -1,7 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import { authorMocks, bookMocks } from '../../../../globals/mocks/';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 import { bookModel } from '../../models';
 
 import BookForm from '../BookForm/BookForm';
@@ -11,7 +9,7 @@ import BookEditView from './BookEditView';
 
 const testBook = bookMocks[0];
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   authors: authorMocks,
   book: testBook,
   disabled: false,
@@ -22,34 +20,33 @@ const defaultProps = Object.freeze({
   onSubmit: jest.fn(),
   submitDisabled: false,
   topLevelError: '',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<BookEditView {...props} />);
-}
+const builder = new ComponentBuilder(
+  BookEditView, defaultProps,
+);
 
 describe('BookEditView', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
-    component = getComponent();
+  it('renders correctly', () => {
+    component = builder.shallowGetComponent();
     const parentClass = '.bookly-book-edit-view';
     expect(component.find(parentClass)).toHaveLength(1);
   });
 
-  test('renders one BookForm component', () => {
-    component = getComponent();
+  it('renders one BookForm component', () => {
+    component = builder.shallowGetComponent();
     expect(component.find(BookForm)).toHaveLength(1);
   });
 
-  test('renders one Card component', () => {
-    component = getComponent();
+  it('renders one Card component', () => {
+    component = builder.shallowGetComponent();
     expect(component.find(Card)).toHaveLength(1);
   });
 });

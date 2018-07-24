@@ -36,7 +36,7 @@ describe('BookForm', () => {
       component = shallow(<BookForm {...props} />);
     });
 
-    test('renders correctly', () => {
+    it('renders correctly', () => {
       expect(component).toMatchSnapshot();
       expect(component.find(Form)).toHaveLength(1);
       expect(component.find(InputField)).toHaveLength(1);

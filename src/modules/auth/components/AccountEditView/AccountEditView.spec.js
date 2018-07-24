@@ -19,19 +19,18 @@ const defaultProps = {
 };
 
 const builder = new ComponentBuilder(
-  AccountEditView,
-  defaultProps,
+  AccountEditView, defaultProps,
 );
 
 describe('AccountEditView', () => {
   let component;
 
-  test('matches the snapshot', () => {
+  it('matches the snapshot', () => {
     component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     component = builder.mountComponent();
     expect(component.find('.bookly-account-edit-view')).toHaveLength(1);
     expect(component.find(Card)).toHaveLength(1);

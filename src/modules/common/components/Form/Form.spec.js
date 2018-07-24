@@ -1,12 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import Alert from '../../../common/components/Alert/Alert';
 import Button from '../../../common/components/Button/Button';
 
 import Form from './Form';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   cancelBtnText: 'Cancel',
   children: [],
   classes: [],
@@ -16,35 +15,38 @@ const defaultProps = Object.freeze({
   submitBtnText: 'Submit',
   submitDisabled: false,
   topLevelError: '',
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<Form {...props} />);
-}
+const builder = new ComponentBuilder(
+  Form, defaultProps,
+);
 
 describe('Form', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
   describe('basic rendering', () => {
-    test('renders  correctly', () => {
-      component = getComponent();
+    it('renders correctly', () => {
+      component = builder.shallowGetComponent();
       expect(component.find(Alert)).toHaveLength(0);
       expect(component.find(Button)).toHaveLength(2);
     });
 
-    test('does not render "cancel" button if prop is empty', () => {
-      component = getComponent({ onCancel: null });
+    it('does not render "cancel" button if prop is empty', () => {
+      component = builder.shallowGetComponent({
+        onCancel: null,
+      });
       expect(component.find(Button)).toHaveLength(1);
     });
 
-    test('renders an Alert if the prop is present', () => {
-      component = getComponent({ topLevelError: 'OMFG' });
+    it('renders an Alert if the prop is present', () => {
+      component = builder.shallowGetComponent({
+        topLevelError: 'OMFG',
+      });
       expect(component.find(Alert)).toHaveLength(1);
     });
   });

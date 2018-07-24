@@ -1,29 +1,27 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { ComponentBuilder } from '../../../../utils/testHelpers';
 
 import { authorMocks } from '../../../../globals/mocks';
 
 import AuthorLink from './AuthorLink';
 
-const defaultProps = Object.freeze({
+const defaultProps = {
   author: authorMocks[0],
-});
+};
 
-function getComponent(extraProps = {}) {
-  const props = Object.assign({}, defaultProps, extraProps);
-  return shallow(<AuthorLink {...props} />);
-}
+const builder = new ComponentBuilder(
+  AuthorLink, defaultProps,
+);
 
 describe('AuthorLink', () => {
   let component;
 
-  test('matches the snapshot', () => {
-    component = getComponent();
+  it('matches the snapshot', () => {
+    component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
 
-  test('renders correctly', () => {
-    component = getComponent();
+  it('renders correctly', () => {
+    component = builder.shallowGetComponent();
     expect(component.find('.bookly-author-link')).toHaveLength(1);
   });
 });
