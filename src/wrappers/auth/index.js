@@ -2,7 +2,7 @@
 import { firebaseAuth } from '../firebase';
 
 export const submitLogin = async (email: string, password: string) =>
-  firebaseAuth.signInAndRetrieveDataWithEmailAndPassword(email, password);
+  firebaseAuth.signInWithEmailAndPassword(email, password);
 
 export const submitLogout = async () => firebaseAuth.signOut();
 
