@@ -10,13 +10,13 @@ import SnackbarContainer from '../../../snackbar/containers/SnackbarContainer/Sn
 
 import Router from '../../Router';
 
-import './App.css';
+import styles from './App.css';
 
 const HEADER_HEIGHT = 50;
 
-const styles = () => ({
+const extraStyles = {
   marginTop: Math.floor(HEADER_HEIGHT * 1.5),
-});
+};
 
 const notLoggedInLinks = [
   { to: localUrls.login, text: 'Login' },
@@ -73,18 +73,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div
-          id="bookly-app"
-          className="App"
-          style={styles()}
-        >
+          className={styles.App}
+          style={extraStyles}>
           <SexyHeader
             height={HEADER_HEIGHT}
             loggedIn={loggedIn}
             loggedInLinks={loggedInLinks}
             notLoggedInLinks={notLoggedInLinks}
-            title={'Bookly'}
-          />
-          <main className="main-view">
+            title="Bookly" />
+          <main>
             <Router />
           </main>
           <SnackbarContainer />

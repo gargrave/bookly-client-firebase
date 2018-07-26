@@ -5,8 +5,6 @@ import { array, func, shape } from 'prop-types';
 import { SlideInFromBottom } from '../../../common/components/hocs/Transitions';
 import SnackbarMessage from '../../components/SnackbarMessage/SnackbarMessage';
 
-import './Snackbar.css';
-
 type Props = {
   actions: Object,
   popSnackbar: Function,

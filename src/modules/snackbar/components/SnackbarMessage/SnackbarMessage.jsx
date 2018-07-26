@@ -2,9 +2,9 @@
 import React from 'react';
 import { func, number, string } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import { calculateDuration } from './helpers';
+
+import styles from './SnackbarMessage.css';
 
 type Props = {
   duration?: number,
@@ -44,10 +44,9 @@ class SnackbarMessage extends React.Component<Props> {
 
     return (
       <div
-        className={buildClasses(['snackbar'])}
-        onClick={this.onSnackbarClick}
-      >
-        <div className={buildClasses(['snackbar__message'])}>
+        className={styles.snackbar}
+        onClick={this.onSnackbarClick}>
+        <div className={styles.message}>
           {message}
         </div>
       </div>

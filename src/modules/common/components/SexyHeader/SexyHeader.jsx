@@ -4,9 +4,9 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { array, bool, number, object, string } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClass } from '../../../../utils/cssHelpers';
 
-import './SexyHeader.css';
+import styles from './SexyHeader.css';
 
 type Props = {
   height?: number,
@@ -17,7 +17,7 @@ type Props = {
   title: string,
 };
 
-const styles = (height?: number) => ({
+const extraStyles = (height?: number) => ({
   height: height || 50,
 });
 
@@ -30,13 +30,12 @@ class SexyHeader extends React.Component<Props> {
     return (
       links.map((link: any) =>
         <Link
-          className={buildClasses([
-            'header__link',
-            this.isActiveLink(link.to) ? 'header__link--active' : '',
-          ])}
+          className={buildClass(
+            styles.link,
+            { [styles.activeLink]: this.isActiveLink(link.to) }
+          )}
           key={link.to}
-          to={link.to}
-        >
+          to={link.to}>
           {link.text}
         </Link>
       )
@@ -54,16 +53,14 @@ class SexyHeader extends React.Component<Props> {
 
     return (
       <header
-        className={buildClasses(['header'])}
-        style={styles(height)}
-      >
+        className={styles.header}
+        style={extraStyles(height)}>
         <h3
-          className={buildClasses(['header__title'])}
-          style={{ lineHeight: `${+height * .9}px` }}
-        >
+          className={styles.title}
+          style={{ lineHeight: `${+height * .9}px` }}>
           {title}
         </h3>
-        <div className={buildClasses(['header__links'])}>
+        <div className={styles.links}>
           {loggedIn && this.renderLinks(loggedInLinks)}
           {!loggedIn && this.renderLinks(notLoggedInLinks)}
         </div>
