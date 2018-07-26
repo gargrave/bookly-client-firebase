@@ -219,7 +219,7 @@ class AuthorDetailPage extends Component<Props, State> {
         }
         {author.id && !editing &&
           <AuthorDetailView
-            author={editableAuthor}
+            author={author}
             booksForAuthor={booksForAuthor}
             onBackClick={this.onBackClick}
             onBookAddClick={this.onBookAddClick}
@@ -231,7 +231,7 @@ class AuthorDetailPage extends Component<Props, State> {
         }
         {author.id && editing &&
           <AuthorEditView
-            author={author}
+            author={editableAuthor}
             disabled={formDisabled}
             errors={errors}
             onCancel={this.onCancel}

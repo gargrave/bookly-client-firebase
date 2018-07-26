@@ -1,5 +1,4 @@
 // @flow
-import type { FbDoc } from '../../wrappers/firebase/flowtypes';
 import type { Author, AuthorErrors } from './flowtypes';
 
 export const authorModel = {
@@ -41,19 +40,20 @@ export const authorModel = {
     return payload;
   },
 
-  fromAPI(doc: FbDoc): Author {
+  fromAPI(author: Author): Author {
     const {
-      firstName,
-      lastName,
       created,
+      firstName,
+      id,
+      lastName,
       updated,
-    } = doc.data();
+    } = author;
 
     return {
-      id: doc.id,
-      firstName,
-      lastName,
       created,
+      firstName,
+      id,
+      lastName,
       updated,
     };
   },
