@@ -9,8 +9,6 @@ import AuthorLink from '../../../../authors/components/AuthorLink/AuthorLink';
 import Button from '../../../../common/components/Button/Button';
 import ButtonRow from '../../../../common/components/ButtonRow/ButtonRow';
 import Card from '../../../../common/components/Card/Card';
-import CardSpacer from '../../../../common/components/Card/CardSpacer/CardSpacer';
-import CardTextList from '../../../../common/components/Card/CardTextList/CardTextList';
 
 type Props = {
   book: Book,
@@ -51,8 +49,8 @@ const BookDetailCard = ({
         author={book.author}
       />
 
-      <CardTextList textList={bookDatesTextList(book)} />
-      <CardSpacer size='large' />
+      <Card.TextList textList={bookDatesTextList(book)} />
+      <Card.Spacer size='large' />
 
       <ButtonRow>
         <Button

@@ -4,8 +4,6 @@ import { bool, func } from 'prop-types';
 
 import Button from '../../../common/components/Button/Button';
 import Card from '../../../common/components/Card/Card';
-import CardSpacer from '../../../common/components/Card/CardSpacer/CardSpacer';
-import CardTextList from '../../../common/components/Card/CardTextList/CardTextList';
 
 type Props = {
   emailHasBeenSent: boolean,
@@ -38,9 +36,9 @@ const VerifyAccountNotice = ({
       hoverable={false}
       title={'Your email address has not been verified!'}
     >
-      <CardSpacer />
-      <CardTextList textList={textList} />
-      <CardSpacer />
+      <Card.Spacer />
+      <Card.TextList textList={textList} />
+      <Card.Spacer />
 
       <Button
         disabled={emailHasBeenSent}

@@ -15,8 +15,6 @@ import {
 import Button from '../../../common/components/Button/Button';
 import ButtonRow from '../../../common/components/ButtonRow/ButtonRow';
 import Card from '../../../common/components/Card/Card';
-import CardSpacer from '../../../common/components/Card/CardSpacer/CardSpacer';
-import CardTextList from '../../../common/components/Card/CardTextList/CardTextList';
 import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';
 
 type Props = {
@@ -44,11 +42,11 @@ const AccountDetailView = ({
         hoverable={false}
       >
 
-        <CardSpacer />
-        <CardTextList textList={userBasicDetailsTextList(user, profile)} />
-        <CardSpacer />
-        <CardTextList textList={userRegDetailsTextList(user)} />
-        <CardSpacer />
+        <Card.Spacer />
+        <Card.TextList textList={userBasicDetailsTextList(user, profile)} />
+        <Card.Spacer />
+        <Card.TextList textList={userRegDetailsTextList(user)} />
+        <Card.Spacer />
 
         <ButtonRow>
           <Button

@@ -8,8 +8,6 @@ import type { Author } from '../../../flowtypes';
 import Button from '../../../../common/components/Button/Button';
 import ButtonRow from '../../../../common/components/ButtonRow/ButtonRow';
 import Card from '../../../../common/components/Card/Card';
-import CardSpacer from '../../../../common/components/Card/CardSpacer/CardSpacer';
-import CardTextList from '../../../../common/components/Card/CardTextList/CardTextList';
 
 type Props = {
   author: Author,
@@ -42,9 +40,9 @@ const AuthorDetailCard = ({
       header={`${author.firstName} ${author.lastName}`}
       hoverable={false}
     >
-      <CardSpacer />
-      <CardTextList textList={authorDatesTextList(author)} />
-      <CardSpacer size='large' />
+      <Card.Spacer />
+      <Card.TextList textList={authorDatesTextList(author)} />
+      <Card.Spacer size='large' />
 
       <ButtonRow>
         <Button

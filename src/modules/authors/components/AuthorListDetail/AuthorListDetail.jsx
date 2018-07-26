@@ -5,7 +5,6 @@ import { func, number, shape, string } from 'prop-types';
 import type { Author } from '../../flowtypes';
 
 import Card from '../../../common/components/Card/Card';
-import CardTextLine from '../../../common/components/Card/CardTextLine/CardTextLine';
 
 type Props = {
   author: Author,
@@ -31,8 +30,8 @@ const AuthorListDetail = ({
       ]}
       onClick={onClick}
     >
-      <CardTextLine bold text={authorName} />
-      <CardTextLine condensed text={bookCountString(author.bookCount)} />
+      <Card.TextLine bold text={authorName} />
+      <Card.TextLine condensed text={bookCountString(author.bookCount)} />
     </Card>
   );
 };

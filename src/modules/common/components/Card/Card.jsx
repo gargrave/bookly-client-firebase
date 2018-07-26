@@ -4,6 +4,10 @@ import { any, array, bool, func, string } from 'prop-types';
 
 import { buildClasses } from '../../../../utils/cssHelpers';
 
+import CardSpacer from './CardSpacer/CardSpacer';
+import CardTextLine from './CardTextLine/CardTextLine';
+import CardTextList from './CardTextList/CardTextList';
+
 import './Card.css';
 
 type Props = {
@@ -62,6 +66,10 @@ const Card = ({
     </div>
   );
 };
+
+Card.Spacer = CardSpacer;
+Card.TextLine = CardTextLine;
+Card.TextList = CardTextList;
 
 Card.propTypes = {
   children: any,

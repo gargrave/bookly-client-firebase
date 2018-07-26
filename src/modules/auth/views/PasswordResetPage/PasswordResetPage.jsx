@@ -10,9 +10,7 @@ import { passwordResetModel } from '../../../auth/models';
 import { passwordResetHasAllFields, validatePasswordReset } from '../../../auth/validators';
 
 import Card from '../../../common/components/Card/Card';
-import CardSpacer from '../../../common/components/Card/CardSpacer/CardSpacer';
 import CardList from '../../../common/components/CardList/CardList';
-import CardTextLine from '../../../common/components/Card/CardTextLine/CardTextLine';
 import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm';
 
 type Props = {
@@ -106,11 +104,11 @@ class PasswordResetPage extends React.Component<Props, State> {
   renderAlreadySentMessage() {
     return (
       <Fragment>
-        <CardSpacer />
-        <CardTextLine text={'Password reset email has been sent to:'} />
-        <CardTextLine bold text={this.props.passwordResetEmailSentTo || 'fakeemail@gmail.com'} />
-        <CardSpacer />
-        <CardTextLine text={'Follow the link in this email to reset your password.'} />
+        <Card.Spacer />
+        <Card.TextLine text={'Password reset email has been sent to:'} />
+        <Card.TextLine bold text={this.props.passwordResetEmailSentTo || 'fakeemail@gmail.com'} />
+        <Card.Spacer />
+        <Card.TextLine text={'Follow the link in this email to reset your password.'} />
       </Fragment>
     );
   }
