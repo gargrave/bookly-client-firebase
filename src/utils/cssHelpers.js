@@ -1,8 +1,8 @@
 // @flow
-const CLASS_NAME = 'bookly';
+const CLASS_NAME = 'bookly';// TODO: delete this nephew......
 
 const isUseableClass = (classname: string): boolean => !!classname.trim();
-
+// TODO: delete this nephew......
 function prependClass(className: string): string {
   if (!className) {
     return '';
@@ -13,7 +13,7 @@ function prependClass(className: string): string {
   }
   return className;
 }
-
+// TODO: delete this nephew......
 export function buildClasses(
   prepends: string | string[],
   statics: string | string[] = []
@@ -35,4 +35,25 @@ export function buildClasses(
     : '';
 
   return `${first}${second}`;
+}
+
+export function buildClass(...classArgs: any): string {
+  const classList = [];
+  classArgs.forEach((c) => {
+    // for strings, we can add the immediately
+    if (typeof c === 'string') {
+      classList.push(c);
+    }
+
+    // for objects, assume there are multiple values to test,
+    // and add each one to the list if its condition passes
+    if (typeof c === 'object') {
+      Object.keys(c).forEach((key) => {
+        if (c[key]) {
+          classList.push(key);
+        }
+      });
+    }
+  });
+  return classList.join(' ');
 }
