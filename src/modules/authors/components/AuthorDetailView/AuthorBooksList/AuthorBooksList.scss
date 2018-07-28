@@ -1,11 +1,11 @@
 @import '../../../../../styles/_index';
 
-.bookly-author-books-list {
+.authorBooksList {
   margin-top: 40px;
+}
 
-  &__header {
-    @include centerAlignedHeader();
-    color: $textColorLight;
-    margin-bottom: 20px;
-  }
+.header {
+  @include centerAlignedHeader();
+  color: $textColorLight;
+  margin-bottom: 20px;
 }

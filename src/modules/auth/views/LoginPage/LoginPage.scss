@@ -1,12 +1,15 @@
 @import '../../../../styles/_index';
 
-.bookly-login-view {
-  .bookly-password-reset-link {
-    margin-bottom: .5rem;
-    text-align: left;
-  }
-
-  .input-field:last-of-type {
-    margin-bottom: 1rem;
-  }
+.loginView .input-field:last-of-type {
+  margin-bottom: 1rem;
 }
+
+.passwordResetLink {
+  margin-bottom: .5rem;
+  text-align: left;
+}
+
+// .otherClassName {
+//   composes: className from "./style.css";
+// }
+

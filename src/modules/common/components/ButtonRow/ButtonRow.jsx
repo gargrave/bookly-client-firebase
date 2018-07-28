@@ -2,9 +2,7 @@
 import React from 'react';
 import { array, object, oneOfType } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
-import './ButtonRow.css';
+import styles from './ButtonRow.css';
 
 type Props = {
   children?: any,
@@ -14,7 +12,7 @@ const ButtonRow = ({
   children,
 }: Props) => {
   return (
-    <div className={buildClasses('button-row')}>
+    <div className={styles.buttonRow}>
       {children}
     </div>
   );

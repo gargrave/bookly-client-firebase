@@ -5,12 +5,10 @@ import { array, func, object } from 'prop-types';
 import type { Book } from '../../../../books/flowtypes';
 import type { Author } from '../../../flowtypes';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
 import BookList from '../../../../books/components/BookList/BookList';
 import Button from '../../../../common/components/Button/Button';
 
-import './AuthorBooksList.css';
+import styles from './AuthorBooksList.css';
 
 type Props = {
   author: Author,
@@ -18,8 +16,6 @@ type Props = {
   onBookAddClick: Function,
   onBookClick: Function,
 };
-
-const prefixClass = (cls = '') => `author-books-list${cls}`;
 
 const AuthorBooksList = ({
   author,
@@ -30,8 +26,8 @@ const AuthorBooksList = ({
   const authorName = `${author.firstName} ${author.lastName}`;
 
   return (
-    <div className={buildClasses(prefixClass())}>
-      <h5 className={buildClasses(prefixClass('__header'))}>
+    <div className={styles.authorBooksList}>
+      <h5 className={styles.header}>
         Books by {authorName}
         <Button
           onClick={onBookAddClick.bind(null, author)}

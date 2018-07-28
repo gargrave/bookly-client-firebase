@@ -39,8 +39,7 @@ const Button = ({
       )}
       disabled={disabled || false}
       onClick={onClick}
-      type={canSubmit ? 'submit' : 'button'}
-    >
+      type={canSubmit ? 'submit' : 'button'}>
       {text}
     </button>
   );

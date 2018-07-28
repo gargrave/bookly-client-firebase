@@ -3,23 +3,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import Alert from '../../../common/components/Alert/Alert';
 
-import './UnverifiedNotice.css';
+import styles from './UnverifiedNotice.css';
 
 type Props = {
 };
 
 const UnverifiedNotice = ({}: Props) => {
   return (
-    <div className={buildClasses(['unverified-notice'])}>
+    <div className={styles.unverifiedNotice}>
       <Alert
-        className='fart'
         message={'You must verify your email address before proceeding.'}
-        type="warning"
-      >
+        type="warning">
         <p>
           You can request a new verification link from
           your <Link to={localUrls.account}>Account Page</Link>.

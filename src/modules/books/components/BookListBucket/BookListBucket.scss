@@ -1,33 +1,9 @@
-.bookly-book-bucket {
-  & + & {
-    margin-top: 25px;
-  }
-
-  &__header {
-    p {
-      color: #777;
-      font-size: 1.4rem;
-      margin-bottom: 2px;
-      text-align: left;
-    }
-
-    hr {
-      margin: 0;
-    }
-  }
+.bookBucket + .bookBucket {
+  margin-top: 25px;
 }
 
-
 @media only screen and (max-width: 639px) {
-  .bookly-book-bucket {
-    & + & {
-      margin-top: 35px;
-    }
-
-    &__header {
-      p {
-        font-size: 1.2rem;
-      }
-    }
+  .bookBucket + .bookBucket {
+    margin-top: 35px;
   }
 }

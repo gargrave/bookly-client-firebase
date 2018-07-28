@@ -2,13 +2,11 @@
 import React from 'react';
 import { any, array, bool, func, string } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import CardSpacer from './CardSpacer/CardSpacer';
 import CardTextLine from './CardTextLine/CardTextLine';
 import CardTextList from './CardTextList/CardTextList';
 
-import './Card.css';
+import styles from './Card.css';
 
 type Props = {
   children?: any,
@@ -28,40 +26,39 @@ const renderText = (
     return null;
   }
   return (
-    <p className={buildClasses(classname)}>
+    <p className={classname}>
       {text}
     </p>
   );
 };
 
-const rawClassList = (
+const classList = (
   classes: string[] = [],
   hoverable: boolean = true
 ) => {
   const extras = [];
   if (hoverable) {
-    extras.push('card--hoverable');
+    extras.push(styles.hoverableCard);
   }
-  return ['card', ...classes, ...extras];
+  return [styles.card, ...classes, ...extras].join(' ');
 };
 
 const Card = ({
   children,
   classes,
   header,
-  hoverable,
+  hoverable = false,
   onClick,
   text,
   title,
 }: Props) => {
   return (
     <div
-      className={buildClasses(rawClassList(classes, hoverable))}
-      onClick={onClick}
-    >
-      {renderText(header, 'card__header')}
-      {renderText(title, 'card__title')}
-      {renderText(text, 'card__text')}
+      className={classList(classes, hoverable)}
+      onClick={onClick}>
+      {renderText(header, styles.header)}
+      {renderText(title, styles.title)}
+      {renderText(text, styles.text)}
       {children}
     </div>
   );

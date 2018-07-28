@@ -1,14 +1,14 @@
-.bookly-button {
+.button {
   height: 2.15rem;
   line-height: 2rem;
   margin-left: 10px;
   padding: 0 8px;
+}
 
-  &--left {
-    margin-left: 0;
-  }
+.left {
+  margin-left: 0;
+}
 
-  &--right {
-    margin-left: auto;
-  }
+.right {
+  margin-left: auto;
 }

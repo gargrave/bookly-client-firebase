@@ -4,12 +4,10 @@ import { array, func, shape, string } from 'prop-types';
 
 import type { BookBucket } from '../../flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import BookBucketBookList from './BookBucketBookList/BookBucketBookList';
 import BookBucketHeader from './BookBucketHeader/BookBucketHeader';
 
-import './BookListBucket.css';
+import styles from './BookListBucket.css';
 
 type Props = {
   bucket: BookBucket,
@@ -21,14 +19,12 @@ const BookListBucket = ({
   onBookClick,
 }: Props) => {
   return (
-    <div className={buildClasses(['book-bucket'])}>
+    <div className={styles.bookBucket}>
       <BookBucketHeader
-        bucket={bucket}
-      />
+        bucket={bucket} />
       <BookBucketBookList
         bucket={bucket}
-        onBookClick={onBookClick}
-      />
+        onBookClick={onBookClick} />
     </div>
   );
 };

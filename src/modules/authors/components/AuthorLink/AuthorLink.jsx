@@ -6,9 +6,8 @@ import { object } from 'prop-types';
 import type { Author } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../utils/cssHelpers';
 
-import './AuthorLink.css';
+import styles from './AuthorLink.css';
 
 type Props = {
   author: Author,
@@ -20,7 +19,7 @@ const AuthorLink = ({
 }: Props) => {
   const authorId = author.id || '';
   return (
-    <p className={buildClasses(['author-link'])}>
+    <p className={styles.authorLink}>
       by&nbsp;
       <Link to={`${localUrls.authorsList}/${authorId}`}>
         {author.firstName} {author.lastName}

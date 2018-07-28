@@ -2,27 +2,25 @@
 import React from 'react';
 import { bool, string } from 'prop-types';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
+import { buildClass } from '../../../../../utils/cssHelpers';
+
+import styles from './CardTextLine.css';
 
 type Props = {
   bold?: boolean,
-  condensed?: boolean,
   text: string,
 };
 
 const CardTextLine = ({
   bold = false,
-  condensed = false,
   text,
 }: Props) => {
   return (
     <p
-      className={buildClasses([
-        'card__text',
-        bold ? 'card__text--bold' : '',
-        condensed ? 'condensed' : '',
-      ])}
-    >
+      className={buildClass(
+        styles.cardText,
+        { [styles.bold]: bold }
+      )}>
       {text}
     </p>
   );
@@ -30,7 +28,6 @@ const CardTextLine = ({
 
 CardTextLine.propTypes = {
   bold: bool,
-  condensed: bool,
   text: string.isRequired,
 };
 

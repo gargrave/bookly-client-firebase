@@ -2,9 +2,7 @@
 import React from 'react';
 import { any } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
-import './CardList.css';
+import styles from './CardList.css';
 
 type Props = {
   children?: any,
@@ -14,7 +12,7 @@ const CardList = ({
   children,
 }: Props) => {
   return (
-    <div className={buildClasses(['card-list'])}>
+    <div className={styles.cardList}>
       {children}
     </div>
   );

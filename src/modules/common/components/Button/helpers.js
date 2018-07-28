@@ -6,6 +6,7 @@ import {
   TYPES,
 } from './constants';
 
+// Shoelace button styles--do not rename for Modules
 const buttonClass = (type: string) => {
   if (TYPES.includes(type)) {
     return `button-${type}`;

@@ -1,74 +1,56 @@
 @import '../../../../styles/_index';
 
-.bookly {
-  &-card {
-    $textColor: #6e6969;
-    $titleColor: #5d5656;
+$textColor: #6e6969;
+$titleColor: #5d5656;
 
-    @include boxShadowMed;
-    background-color: #f9f9f9;
-    border: solid 1px #bbb;
-    border-radius: 5px;
-    margin: 8px auto;
-    max-width: 550px;
-    padding: 10px 20px;
+.card {
+  @include boxShadowMed;
+  background-color: #f9f9f9;
+  border: solid 1px #bbb;
+  border-radius: 5px;
+  margin: 8px auto;
+  max-width: 550px;
+  padding: 10px 20px;
+}
 
-    &--top-margin-med {
-      margin-top: 50px;
-    }
+.hoverableCard:hover {
+  background: #e4effc;
+  cursor: pointer;
+}
 
-    hr {
-      margin: 12px 0;
-    }
+.header,
+.title,
+.text {
+  margin: 0;
+}
 
-    &--hoverable:hover {
-      background: #e4effc;
-      cursor: pointer;
-    }
+.header,
+.title {
+  color: $titleColor;
+  font-weight: bold;
+}
 
-    &__header,
-    &__title,
-    &__text {
-      margin: 0;
-    }
+.header {
+  font-size: 1.4rem;
+}
 
-    &__header,
-    &__title {
-      color: $titleColor;
-      font-weight: bold;
-    }
+.detailCard {
+  padding: 15px;
 
-    &__header {
-      font-size: 1.4rem;
-    }
-
-    &__text {
-      color: $textColor;
-
-      &--bold {
-        font-weight: bold;
-      }
-    }
+  .title {
+    font-size: 1.3rem;
+    line-height: 2.5rem;
   }
 
-  &-detail-card {
-    padding: 15px;
-
-    .bookly-card__title {
-      font-size: 1.3rem;
-      line-height: 2.5rem;
-    }
-
-    .bookly-card__title + .bookly-card__text {
-      font-size: 1.1rem;
-    }
-
-    .bookly-card__text + .bookly-card__text {
-      margin-top: 8px;
-    }
+  .title + .cardText {
+    font-size: 1.1rem;
   }
 
-  &-list-detail-card {
-    padding: 10px
+  .cardText + .cardText {
+    margin-top: 8px;
   }
+}
+
+.listDetailCard {
+  padding: 10px
 }

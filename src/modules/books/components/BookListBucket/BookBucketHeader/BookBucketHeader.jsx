@@ -4,7 +4,7 @@ import { array, shape, string } from 'prop-types';
 
 import type { BookBucket } from '../../../flowtypes';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
+import styles from './BookBucketHeader.css';
 
 type Props = {
   bucket: BookBucket,
@@ -14,7 +14,7 @@ const BookBucketHeader = ({
   bucket,
 }: Props) => {
   return (
-    <div className={buildClasses(['book-bucket__header'])}>
+    <div className={styles.bookBucketHeader}>
       <p>{bucket.author}</p>
     </div>
   );

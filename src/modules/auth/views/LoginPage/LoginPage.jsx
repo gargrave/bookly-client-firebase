@@ -8,13 +8,12 @@ import type { LoginErrors, LoginUser } from '../../flowtypes';
 import { localUrls } from '../../../../globals/urls';
 import { loginHasAllFields, validateLogin } from '../../../auth/validators';
 import { loginUserModel } from '../../../auth/models';
-import { buildClasses } from '../../../../utils/cssHelpers';
 
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
 import LoginForm from '../../components/LoginForm/LoginForm';
 
-import './LoginPage.css';
+import styles from './LoginPage.css';
 
 type Props = {
   actions: Object,
@@ -99,12 +98,10 @@ class LoginPage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <div className={buildClasses(['login-view'])}>
+      <div className={styles.loginView}>
         <CardList>
           <Card
-            header={'Login'}
-            hoverable={false}
-          >
+            header="Login">
             <LoginForm
               disabled={formDisabled}
               errors={errors}
@@ -113,13 +110,14 @@ class LoginPage extends Component<Props, State> {
               onSubmit={this.onSubmit}
               submitBtnText="Login"
               submitDisabled={submitDisabled}
-              topLevelError={this.state.topLevelError}
-            />
-            <div className={buildClasses(['password-reset-link'])}>
+              topLevelError={this.state.topLevelError} />
+
+            <div className={styles.passwordResetLink}>
               <Link to={localUrls.pwResetRequest}>Forgot your password?</Link>
             </div>
           </Card>
-          <p className={buildClasses(['big-link'])}>
+
+          <p className={'big-link'}>
             or <Link to={localUrls.register}>create an account</Link>
           </p>
         </CardList>

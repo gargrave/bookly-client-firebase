@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { array } from 'prop-types';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
+import { buildClass } from '../../../../../utils/cssHelpers';
 
 type CardTextListItem = {
   title?: string,
@@ -21,7 +21,7 @@ const CardTextList = ({
       {
         textList.map((item, i) => {
           return (
-            <p key={i} className={buildClasses('card__text')}>
+            <p key={i} className={buildClass('card__text')}>
               {item.title && <strong>{item.title}: </strong>}
               {item.value}
             </p>

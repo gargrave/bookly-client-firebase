@@ -2,9 +2,9 @@
 import React from 'react';
 import { oneOf } from 'prop-types';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
+import { buildClass } from '../../../../../utils/cssHelpers';
 
-import './CardSpacer.css';
+import styles from './CardSpacer.css';
 
 type Props = {
   size?: string,
@@ -14,7 +14,7 @@ const CardSpacer = ({
   size = 'medium',
 }: Props) => {
   return (
-    <div className={buildClasses(`card__spacer--${size}`)} />
+    <div className={buildClass(styles.cardSpacer, styles[size])} />
   );
 };
 

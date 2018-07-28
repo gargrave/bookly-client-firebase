@@ -31,7 +31,7 @@ const AuthorListDetail = ({
       onClick={onClick}
     >
       <Card.TextLine bold text={authorName} />
-      <Card.TextLine condensed text={bookCountString(author.bookCount)} />
+      <Card.TextLine text={bookCountString(author.bookCount)} />
     </Card>
   );
 };

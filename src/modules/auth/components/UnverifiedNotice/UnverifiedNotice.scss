@@ -1,13 +1,11 @@
 @import '../../../../styles/_index';
 
-.bookly {
-  &-unverified-notice {
-    a {
-      text-decoration: underline;
-    }
+.unverifiedNotice {
+  a {
+    text-decoration: underline;
+  }
 
-    p {
-      margin-top: $spacingSm;
-    }
+  p {
+    margin-top: $spacingSm;
   }
 }
