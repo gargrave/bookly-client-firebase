@@ -1,4 +1,4 @@
-@import '../../../../styles/_index';
+@import '../../../../styles/typography';
 
 .loginView .input-field:last-of-type {
   margin-bottom: 1rem;
@@ -9,7 +9,6 @@
   text-align: left;
 }
 
-// .otherClassName {
-//   composes: className from "./style.css";
-// }
-
+.createAccountLink {
+  @include bigLink;
+}

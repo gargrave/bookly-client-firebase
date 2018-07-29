@@ -5,7 +5,7 @@ import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 import type { User } from '../../flowtypes';
 import type { Profile } from '../../../profiles/flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import styles from './AccountDetailView.css';
 
 import {
   userBasicDetailsTextList,
@@ -35,7 +35,7 @@ const AccountDetailView = ({
   verificationEmailHasBeenSent,
 }: Props) => {
   return (
-    <div className={buildClasses(['detail-view', 'account-detail-view'])}>
+    <div className={styles.accountDetailView}>
       <Card
         classes={['detail-card', 'account-detail-card']}
         header="My Account"

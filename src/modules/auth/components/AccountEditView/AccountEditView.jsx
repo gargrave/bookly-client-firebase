@@ -9,6 +9,8 @@ import { buildClasses } from '../../../../utils/cssHelpers';
 import AccountForm from '../AccountForm/AccountForm';
 import Card from '../../../common/components/Card/Card';
 
+import styles from './AccountEditView.css';
+
 type Props = {
   disabled: boolean,
   errors: Object,
@@ -31,7 +33,7 @@ const AccountEditView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={buildClasses(['detail-view', 'account-edit-view'])}>
+    <div className={styles.accountEditView}>
       <Card
         classes={['detail-card', 'account-edit-card']}
         header="Update My Account"

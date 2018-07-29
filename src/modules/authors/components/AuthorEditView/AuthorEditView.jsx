@@ -9,6 +9,8 @@ import { buildClasses } from '../../../../utils/cssHelpers';
 import Card from '../../../common/components/Card/Card';
 import AuthorForm from '../AuthorForm/AuthorForm';
 
+import styles from './AuthorEditView.css';
+
 type Props = {
   author: Author,
   disabled: boolean,
@@ -31,11 +33,10 @@ const AuthorEditView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={buildClasses(['edit-view', 'author-edit-view'])}>
+    <div className={styles.authorEditView}>
       <Card
         header={'Update Author'}
-        hoverable={false}
-      >
+        hoverable={false}>
         <AuthorForm
           author={author}
           disabled={disabled}
@@ -44,8 +45,7 @@ const AuthorEditView = ({
           onInputChange={onInputChange}
           onSubmit={onSubmit}
           submitDisabled={submitDisabled}
-          topLevelError={topLevelError}
-        />
+          topLevelError={topLevelError} />
       </Card>
     </div>
   );

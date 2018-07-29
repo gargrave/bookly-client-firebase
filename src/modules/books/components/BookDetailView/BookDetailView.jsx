@@ -4,10 +4,10 @@ import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
 
 import type { Book } from '../../flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import Alert from '../../../common/components/Alert/Alert';
 import BookDetailCard from './BookDetailCard/BookDetailCard';
+
+import styles from './BookDetailView.css';
 
 type Props = {
   book: Book,
@@ -25,7 +25,7 @@ const BookDetailView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={buildClasses(['detail-view', 'book-detail-view'])}>
+    <div className={styles.bookDetailView}>
       {topLevelError &&
         <Alert
           message={topLevelError}

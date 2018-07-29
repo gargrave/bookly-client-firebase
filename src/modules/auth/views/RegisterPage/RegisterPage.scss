@@ -1,0 +1,10 @@
+@import '../../../../styles/_typography';
+@import '../../../../styles/_views';
+
+.registerView {
+  @include viewWrapper;
+}
+
+.loginLink {
+  @include bigLink;
+}

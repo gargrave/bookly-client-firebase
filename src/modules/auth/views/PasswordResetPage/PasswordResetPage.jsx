@@ -13,6 +13,8 @@ import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
 import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm';
 
+import styles from './PasswordResetPage.css';
+
 type Props = {
   actions: Object,
   passwordResetEmailSentTo: string,
@@ -116,7 +118,7 @@ class PasswordResetPage extends React.Component<Props, State> {
   render() {
     const { passwordResetEmailSentTo } = this.props;
     return (
-      <div className={buildClasses(['detail-view', 'password-reset-view'])}>
+      <div className={styles.passwordResetView}>
         <CardList>
           <Card header={'Request Password Reset'} hoverable={false}>
             {!passwordResetEmailSentTo && this.renderForm()}

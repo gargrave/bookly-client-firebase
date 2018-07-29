@@ -10,6 +10,8 @@ import { buildClasses } from '../../../../utils/cssHelpers';
 import BookForm from '../BookForm/BookForm';
 import Card from '../../../common/components/Card/Card';
 
+import styles from './BookEditView.css';
+
 type Props = {
   authors: Author[],
   book: Book,
@@ -36,11 +38,10 @@ const BookEditView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={buildClasses(['edit-view', 'book-edit-view'])}>
+    <div className={styles.bookEditView}>
       <Card
         header={'Update Book'}
-        hoverable={false}
-      >
+        hoverable={false}>
         <BookForm
           authors={authors}
           book={book}
@@ -51,8 +52,7 @@ const BookEditView = ({
           onInputChange={onInputChange}
           onSubmit={onSubmit}
           submitDisabled={submitDisabled}
-          topLevelError={topLevelError}
-        />
+          topLevelError={topLevelError} />
       </Card>
     </div>
   );

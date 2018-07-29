@@ -1,42 +1,8 @@
-@import '../../../../styles/_index';
+@import '../../../../styles/_colors';
 
-.App {
-  color: $textColorDefault;
+.app {
+  color: $textColorLight;
   margin: auto;
   max-width: 800px;
   text-align: center;
-}
-
-.bookly-big-link {
-  font-size: 1.1rem;
-  margin: 10px 0;
-}
-
-.bookly-create-view,
-.bookly-detail-view,
-.bookly-edit-view,
-.bookly-login-view,
-.bookly-register-view {
-  padding-top: 0;
-
-  @media only screen and (min-width: $breakpointSm) {
-    padding-top: $spacingXL;
-  }
-}
-
-.bookly-list-view {
-  padding-top: 0;
-
-  @media only screen and (min-width: $breakpointSm) {
-    padding-top: $spacingMed;
-  }
-
-  &__header {
-    @include centerAlignedHeader();
-    margin-bottom: $spacingMed;
-  }
-
-  .bookly-input-field {
-    margin-bottom: $spacingXL;
-  }
 }

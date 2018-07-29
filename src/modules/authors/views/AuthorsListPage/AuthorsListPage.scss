@@ -1,0 +1,9 @@
+@import '../../../../styles/_views';
+
+.authorsListView {
+  @include listView;
+}
+
+.header {
+  @include listViewHeader;
+}

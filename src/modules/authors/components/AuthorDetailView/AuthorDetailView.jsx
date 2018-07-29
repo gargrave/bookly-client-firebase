@@ -11,6 +11,8 @@ import Alert from '../../../common/components/Alert/Alert';
 import AuthorBooksList from './AuthorBooksList/AuthorBooksList';
 import AuthorDetailCard from './AuthorDetailCard/AuthorDetailCard';
 
+import styles from './AuthorDetailView.css';
+
 type Props = {
   author: Author,
   booksForAuthor: Book[],
@@ -33,26 +35,24 @@ const AuthorDetailView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={buildClasses(['detail-view', 'author-detail-view'])}>
+    <div className={styles.authorDetailView}>
       {topLevelError &&
         <Alert
           message={topLevelError}
-          type="danger"
-        />
+          type="danger" />
       }
+
       <AuthorDetailCard
         author={author}
         onBackClick={onBackClick}
         onDeleteClick={onDeleteClick}
-        onEditClick={onEditClick}
-      />
+        onEditClick={onEditClick} />
 
       <AuthorBooksList
         author={author}
         books={booksForAuthor}
         onBookAddClick={onBookAddClick}
-        onBookClick={onBookClick}
-      />
+        onBookClick={onBookClick} />
     </div>
   );
 };

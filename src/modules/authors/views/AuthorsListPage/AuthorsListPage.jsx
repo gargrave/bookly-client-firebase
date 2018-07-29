@@ -4,13 +4,14 @@ import { array, func, object, shape } from 'prop-types';
 
 import type { Author } from '../../flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 
 import AuthorsListVerified from '../../components/AuthorsListVerified/AuthorsListVerified';
 import Button from '../../../common/components/Button/Button';
 import CardList from '../../../common/components/CardList/CardList';
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
+
+import styles from './AuthorsListPage.css';
 
 type Props = {
   actions: Object,
@@ -105,8 +106,8 @@ class AuthorsListPage extends Component<Props, State> {
 
   render() {
     return (
-      <div className={buildClasses(['list-view'])}>
-        <h3 className={buildClasses(['list-view__header'])}>
+      <div className={styles.authorsListView}>
+        <h3 className={styles.header}>
           My Authors
           {this.renderAddAuthorButton()}
         </h3>

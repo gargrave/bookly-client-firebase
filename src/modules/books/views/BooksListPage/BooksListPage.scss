@@ -1,0 +1,9 @@
+@import '../../../../styles/_views';
+
+.booksListView {
+  @include listView;
+}
+
+.header {
+  @include listViewHeader;
+}

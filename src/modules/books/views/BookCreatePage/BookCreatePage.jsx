@@ -6,7 +6,6 @@ import type { Author } from '../../../authors/flowtypes';
 import type { Book, BookErrors } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../utils/cssHelpers';
 
 import { bookModel } from '../../models';
 import { bookHasAllFields, validateBook } from '../../validators';
@@ -14,6 +13,8 @@ import { bookHasAllFields, validateBook } from '../../validators';
 import BookForm from '../../components/BookForm/BookForm';
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
+
+import styles from './BookCreatePage.css';
 
 type Props = {
   actions: Object,
@@ -155,7 +156,7 @@ class BookCreatePage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <div className={buildClasses(['create-view', 'book-create-view'])}>
+      <div className={styles.bookCreateView}>
         <CardList>
           <Card
             header={'New Book'}

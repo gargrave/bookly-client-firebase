@@ -7,11 +7,12 @@ import type { Author, AuthorErrors } from '../../flowtypes';
 import { localUrls } from '../../../../globals/urls';
 import { authorHasAllFields, validateAuthor } from '../../../authors/validators';
 import { authorModel } from '../../../authors/models';
-import { buildClasses } from '../../../../utils/cssHelpers';
 
 import AuthorForm from '../../components/AuthorForm/AuthorForm';
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
+
+import styles from './AuthorCreatePage.css';
 
 type Props = {
   actions: Object,
@@ -120,7 +121,7 @@ class AuthorCreatePage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <div className={buildClasses(['create-view', 'author-create-view'])}>
+      <div className={styles.authorCreateView}>
         <CardList>
           <Card
             header={'New Author'}

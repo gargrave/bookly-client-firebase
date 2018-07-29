@@ -6,7 +6,6 @@ import { func, object, shape } from 'prop-types';
 import type { RegisterErrors, RegisterUser } from '../../flowtypes';
 
 import { localUrls } from '../../../../globals/urls';
-import { buildClasses } from '../../../../utils/cssHelpers';
 import { registerUserHasAllFields, validateRegisterUser } from '../../../auth/validators';
 import { registerUserModel } from '../../../auth/models';
 import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
@@ -14,6 +13,8 @@ import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
 import Card from '../../../common/components/Card/Card';
 import CardList from '../../../common/components/CardList/CardList';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
+
+import styles from './RegisterPage.css';
 
 type Props = {
   actions: Object,
@@ -97,14 +98,14 @@ class RegisterPage extends React.Component<Props, State> {
       registerUser,
       submitDisabled,
     } = this.state;
+    console.log('%caslkdjfldkj', 'color:green;font-size:12px;background:lightyellow;padding:2px 4px;');
 
     return (
-      <div className={buildClasses(['register-view'])}>
+      <div className={styles.registerView}>
         <CardList>
           <Card
-            header={'Create an Account'}
-            hoverable={false}
-          >
+            header="Create an Account"
+            hoverable={false}>
             <RegisterForm
               disabled={formDisabled}
               errors={errors}
@@ -113,10 +114,9 @@ class RegisterPage extends React.Component<Props, State> {
               onSubmit={this.onSubmit}
               submitBtnText="Register"
               submitDisabled={submitDisabled}
-              topLevelError={this.state.topLevelError}
-            />
+              topLevelError={this.state.topLevelError} />
           </Card>
-          <p className={buildClasses(['big-link'])}>
+          <p className={styles.loginLink}>
             or <Link to={localUrls.login}>sign in to your account</Link>
           </p>
         </CardList>

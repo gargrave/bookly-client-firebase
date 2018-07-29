@@ -4,13 +4,14 @@ import { array, func, object, shape } from 'prop-types';
 
 import type { Book } from '../../flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
 import { localUrls } from '../../../../globals/urls';
 
 import BooksListVerified from '../../components/BooksListVerified/BooksListVerified';
 import Button from '../../../common/components/Button/Button';
 import CardList from '../../../common/components/CardList/CardList';
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
+
+import styles from './BooksListPage.css';
 
 type Props = {
   actions: Object,
@@ -106,8 +107,8 @@ class BooksListPage extends Component<Props, State> {
 
   render() {
     return (
-      <div className={buildClasses(['list-view'])}>
-        <h3 className={buildClasses(['list-view__header'])}>
+      <div className={styles.booksListView}>
+        <h3 className={styles.header}>
           My Books
           {this.renderAddBookButton()}
         </h3>

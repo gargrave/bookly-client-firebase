@@ -117,7 +117,7 @@ class LoginPage extends Component<Props, State> {
             </div>
           </Card>
 
-          <p className={'big-link'}>
+          <p className={styles.createAccountLink}>
             or <Link to={localUrls.register}>create an account</Link>
           </p>
         </CardList>
