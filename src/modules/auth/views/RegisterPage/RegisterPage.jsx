@@ -98,14 +98,12 @@ class RegisterPage extends React.Component<Props, State> {
       registerUser,
       submitDisabled,
     } = this.state;
-    console.log('%caslkdjfldkj', 'color:green;font-size:12px;background:lightyellow;padding:2px 4px;');
 
     return (
       <div className={styles.registerView}>
         <CardList>
           <Card
-            header="Create an Account"
-            hoverable={false}>
+            header="Create an Account">
             <RegisterForm
               disabled={formDisabled}
               errors={errors}

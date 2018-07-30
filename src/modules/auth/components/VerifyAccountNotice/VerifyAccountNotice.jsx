@@ -32,10 +32,8 @@ const VerifyAccountNotice = ({
 }: Props) => {
   return (
     <Card
-      classes={['detail-card', 'verify-account-card']}
-      hoverable={false}
-      title={'Your email address has not been verified!'}
-    >
+      title={'Your email address has not been verified!'}>
+
       <Card.Spacer />
       <Card.TextList textList={textList} />
       <Card.Spacer />
@@ -44,8 +42,7 @@ const VerifyAccountNotice = ({
         disabled={emailHasBeenSent}
         onClick={onSendLinkClick}
         text={buttonText(emailHasBeenSent)}
-        type={buttonClass(emailHasBeenSent)}
-      />
+        type={buttonClass(emailHasBeenSent)} />
     </Card>
   );
 };

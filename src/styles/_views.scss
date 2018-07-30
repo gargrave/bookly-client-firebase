@@ -13,10 +13,6 @@
 @mixin listView {
   padding-top: 0;
 
-  .bookly-input-field {
-    margin-bottom: $spacingXL;
-  }
-
   @media only screen and (min-width: $breakpointSm) {
     padding-top: $spacingMed;
   }

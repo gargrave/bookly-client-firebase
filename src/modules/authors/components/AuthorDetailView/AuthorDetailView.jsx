@@ -5,8 +5,6 @@ import { array, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 import type { Author } from '../../flowtypes';
 import type { Book } from '../../../books/flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import Alert from '../../../common/components/Alert/Alert';
 import AuthorBooksList from './AuthorBooksList/AuthorBooksList';
 import AuthorDetailCard from './AuthorDetailCard/AuthorDetailCard';

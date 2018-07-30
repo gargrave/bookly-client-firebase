@@ -159,9 +159,7 @@ class BookCreatePage extends Component<Props, State> {
       <div className={styles.bookCreateView}>
         <CardList>
           <Card
-            header={'New Book'}
-            hoverable={false}
-          >
+            header="New Book">
             <BookForm
               authors={authors}
               book={book}

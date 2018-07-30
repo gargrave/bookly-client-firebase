@@ -36,10 +36,8 @@ const AuthorDetailCard = ({
 }: Props) => {
   return (
     <Card
-      classes={['detail-card', 'author-detail-card']}
-      header={`${author.firstName} ${author.lastName}`}
-      hoverable={false}
-    >
+      header={`${author.firstName} ${author.lastName}`}>
+
       <Card.Spacer />
       <Card.TextList textList={authorDatesTextList(author)} />
       <Card.Spacer size='large' />
@@ -49,19 +47,16 @@ const AuthorDetailCard = ({
           onClick={onEditClick}
           position="left"
           text="Edit"
-          type="info"
-        />
+          type="info" />
         <Button
           onClick={onDeleteClick}
           text="Delete"
-          type="danger"
-        />
+          type="danger" />
         <Button
           onClick={onBackClick}
           position="right"
           text="Back"
-          type="light"
-        />
+          type="light" />
       </ButtonRow>
     </Card>
   );

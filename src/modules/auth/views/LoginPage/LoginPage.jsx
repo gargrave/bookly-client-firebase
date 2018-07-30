@@ -98,30 +98,28 @@ class LoginPage extends Component<Props, State> {
     } = this.state;
 
     return (
-      <div className={styles.loginView}>
-        <CardList>
-          <Card
-            header="Login">
-            <LoginForm
-              disabled={formDisabled}
-              errors={errors}
-              loginUser={loginUser}
-              onInputChange={this.onInputChange}
-              onSubmit={this.onSubmit}
-              submitBtnText="Login"
-              submitDisabled={submitDisabled}
-              topLevelError={this.state.topLevelError} />
+      <CardList>
+        <Card
+          header="Login">
+          <LoginForm
+            disabled={formDisabled}
+            errors={errors}
+            loginUser={loginUser}
+            onInputChange={this.onInputChange}
+            onSubmit={this.onSubmit}
+            submitBtnText="Login"
+            submitDisabled={submitDisabled}
+            topLevelError={this.state.topLevelError} />
 
-            <div className={styles.passwordResetLink}>
-              <Link to={localUrls.pwResetRequest}>Forgot your password?</Link>
-            </div>
-          </Card>
+          <div className={styles.passwordResetLink}>
+            <Link to={localUrls.pwResetRequest}>Forgot your password?</Link>
+          </div>
+        </Card>
 
-          <p className={styles.createAccountLink}>
-            or <Link to={localUrls.register}>create an account</Link>
-          </p>
-        </CardList>
-      </div>
+        <p className={styles.createAccountLink}>
+          or <Link to={localUrls.register}>create an account</Link>
+        </p>
+      </CardList>
     );
   }
 }

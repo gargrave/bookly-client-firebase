@@ -5,8 +5,6 @@ import { array, bool, func, object, string } from 'prop-types';
 import type { Author } from '../../../authors/flowtypes';
 import type { Book, BookErrors } from '../../flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import BookForm from '../BookForm/BookForm';
 import Card from '../../../common/components/Card/Card';
 
@@ -40,8 +38,7 @@ const BookEditView = ({
   return (
     <div className={styles.bookEditView}>
       <Card
-        header={'Update Book'}
-        hoverable={false}>
+        header="Update Book">
         <BookForm
           authors={authors}
           book={book}

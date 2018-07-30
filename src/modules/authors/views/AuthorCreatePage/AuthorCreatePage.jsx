@@ -124,9 +124,7 @@ class AuthorCreatePage extends Component<Props, State> {
       <div className={styles.authorCreateView}>
         <CardList>
           <Card
-            header={'New Author'}
-            hoverable={false}
-          >
+            header="New Author">
             <AuthorForm
               author={author}
               disabled={formDisabled}
@@ -135,8 +133,7 @@ class AuthorCreatePage extends Component<Props, State> {
               onInputChange={this.onInputChange}
               onSubmit={this.onSubmit}
               submitDisabled={submitDisabled}
-              topLevelError={topLevelError}
-            />
+              topLevelError={topLevelError} />
           </Card>
         </CardList>
       </div>

@@ -41,13 +41,9 @@ const BookDetailCard = ({
 
   return (
     <Card
-      classes={['detail-card', 'book-detail-card']}
-      header={title}
-      hoverable={false}
-    >
+      header={title}>
       <AuthorLink
-        author={book.author}
-      />
+        author={book.author} />
 
       <Card.TextList textList={bookDatesTextList(book)} />
       <Card.Spacer size='large' />
@@ -57,19 +53,16 @@ const BookDetailCard = ({
           onClick={onEditClick}
           position="left"
           text="Edit"
-          type="info"
-        />
+          type="info" />
         <Button
           onClick={onDeleteClick}
           text="Delete"
-          type="danger"
-        />
+          type="danger" />
         <Button
           onClick={onBackClick}
           position="right"
           text="Back"
-          type="light"
-        />
+          type="light" />
       </ButtonRow>
     </Card>
   );

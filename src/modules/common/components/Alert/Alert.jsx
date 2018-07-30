@@ -2,8 +2,6 @@
 import React from 'react';
 import { any, oneOf, string } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 type Props = {
   children?: any,
   message: string,
@@ -15,7 +13,7 @@ const Alert = ({
   message,
   type,
 }: Props) => (
-  <div className={buildClasses('alert', ['alert', `alert-${type}`])}>
+  <div className={`alert alert-${type}`}>
     {message}
     {children}
   </div>

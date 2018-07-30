@@ -2,10 +2,10 @@
 import React from 'react';
 import { bool, func, number, oneOf, string } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClass } from '../../../../utils/cssHelpers';
 import { clamp } from '../../../../utils/mathHelpers';
 
-import './InputField.css';
+import styles from './InputField.css';
 
 type Props = {
   boundValue: string,
@@ -38,23 +38,22 @@ const InputField = ({
   type,
 }: Props) => {
   return (
-    <div className={buildClasses(['input-field'], ['input-field'])}>
+    <div className="input-field">
       {label && <label htmlFor={name}>{label}:</label>}
 
       <input
-        className={buildClasses(['input-field__input', !!error ? 'input-field__input--invalid' : ''])}
+        className={buildClass({ [styles.invalid]: !!error })}
         disabled={disabled || false}
         id={name}
-        name={name}
         maxLength={clamp(maxLength, 1, 255)}
+        name={name}
         onChange={onInputChange}
         placeholder={placeholder || ''}
         type={type || 'text'}
-        value={boundValue}
-      />
+        value={boundValue} />
 
       {error &&
-        <p className={buildClasses(['input-field__error'])}>
+        <p className={styles.error}>
           {error}
         </p>
       }

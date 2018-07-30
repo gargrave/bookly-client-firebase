@@ -22,13 +22,10 @@ const BookListDetail = ({
 
   return (
     <Card
-      classes={[
-        'list-detail-card',
-        'book-list-detail-card',
-      ]}
-      onClick={onClick}
-    >
-      <Card.TextLine bold text={title} />
+      onClick={onClick}>
+      <Card.TextLine
+        bold={true}
+        text={title} />
       {showAuthor && <Card.TextLine text={authorName} />}
     </Card>
   );

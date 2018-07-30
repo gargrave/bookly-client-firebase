@@ -2,12 +2,12 @@
 import React from 'react';
 import { any, array, func, bool, string} from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import { buildClass } from '../../../../utils/cssHelpers';
 
 import Alert from '../Alert/Alert';
 import Button from '../Button/Button';
 
-import './Form.css';
+import styles from './Form.css';
 
 type Props = {
   cancelBtnText?: string,
@@ -24,7 +24,7 @@ type Props = {
 const Form = ({
   cancelBtnText,
   children,
-  classes,
+  classes = [],
   disabled,
   onCancel,
   onSubmit,
@@ -37,11 +37,10 @@ const Form = ({
       {topLevelError &&
         <Alert
           message={topLevelError}
-          type="danger"
-        />
+          type="danger" />
       }
       <form
-        className={buildClasses(['form', ...(classes || [])])}
+        className={buildClass(styles.form, ...classes || [])}
         onSubmit={onSubmit}
         noValidate>
 
@@ -54,16 +53,14 @@ const Form = ({
             onClick={onSubmit}
             position="left"
             text={submitBtnText || 'Submit'}
-            type="success"
-          />
+            type="success" />
 
           {onCancel &&
             <Button
               classes="float-right"
               onClick={onCancel}
               text={cancelBtnText || 'Cancel'}
-              type="light"
-            />
+              type="light" />
           }
         </div>
       </form>

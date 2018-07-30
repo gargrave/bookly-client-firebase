@@ -5,8 +5,6 @@ import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
 import type { User } from '../../flowtypes';
 import type { Profile } from '../../../profiles/flowtypes';
 
-import styles from './AccountDetailView.css';
-
 import {
   userBasicDetailsTextList,
   userRegDetailsTextList,
@@ -16,6 +14,8 @@ import Button from '../../../common/components/Button/Button';
 import ButtonRow from '../../../common/components/ButtonRow/ButtonRow';
 import Card from '../../../common/components/Card/Card';
 import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';
+
+import styles from './AccountDetailView.css';
 
 type Props = {
   onEditClick: Function,
@@ -37,10 +37,7 @@ const AccountDetailView = ({
   return (
     <div className={styles.accountDetailView}>
       <Card
-        classes={['detail-card', 'account-detail-card']}
-        header="My Account"
-        hoverable={false}
-      >
+        header="My Account">
 
         <Card.Spacer />
         <Card.TextList textList={userBasicDetailsTextList(user, profile)} />
@@ -53,21 +50,19 @@ const AccountDetailView = ({
             onClick={onLogoutClick}
             position="left"
             text="Logout"
-            type="info"
-          />
+            type="info" />
           <Button
             onClick={onEditClick}
             position="right"
             text="Edit"
-            type="secondary"
-          />
+            type="secondary" />
         </ButtonRow>
       </Card>
+
       {!user.emailVerified &&
         <VerifyAccountNotice
           emailHasBeenSent={verificationEmailHasBeenSent}
-          onSendLinkClick={onVerifyAccountClick}
-        />
+          onSendLinkClick={onVerifyAccountClick} />
       }
     </div>
   );

@@ -4,8 +4,6 @@ import { bool, func, object, string } from 'prop-types';
 
 import type { Profile } from '../../../profiles/flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import AccountForm from '../AccountForm/AccountForm';
 import Card from '../../../common/components/Card/Card';
 
@@ -35,10 +33,7 @@ const AccountEditView = ({
   return (
     <div className={styles.accountEditView}>
       <Card
-        classes={['detail-card', 'account-edit-card']}
-        header="Update My Account"
-        hoverable={false}
-      >
+        header="Update My Account">
         <AccountForm
           disabled={disabled}
           errors={errors}
@@ -47,8 +42,7 @@ const AccountEditView = ({
           onSubmit={onSubmit}
           profile={profile}
           submitDisabled={submitDisabled}
-          topLevelError={topLevelError}
-        />
+          topLevelError={topLevelError} />
       </Card>
     </div>
   );

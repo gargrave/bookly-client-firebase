@@ -21,17 +21,14 @@ const AuthorListDetail = ({
   onClick,
 }: Props) => {
   const authorName = `${author.firstName} ${author.lastName}`;
-
   return (
     <Card
-      classes={[
-        'list-detail-card',
-        'author-list-detail-card',
-      ]}
-      onClick={onClick}
-    >
-      <Card.TextLine bold text={authorName} />
-      <Card.TextLine text={bookCountString(author.bookCount)} />
+      onClick={onClick}>
+      <Card.TextLine
+        bold={true}
+        text={authorName} />
+      <Card.TextLine
+        text={bookCountString(author.bookCount)} />
     </Card>
   );
 };

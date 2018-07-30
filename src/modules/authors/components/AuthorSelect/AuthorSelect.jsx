@@ -4,7 +4,7 @@ import { array, bool, func, shape, string } from 'prop-types';
 
 import type { Author } from '../../flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
+import styles from './AuthorSelect.css';
 
 type Props = {
   author: Author,
@@ -29,21 +29,19 @@ const AuthorSelect = ({
   onChange,
 }: Props) => {
   return (
-    <div className={buildClasses(['input-field'], ['input-field'])}>
+    <div>
       <label htmlFor="">Author:</label>
       <select
-        className="author-select"
         disabled={disabled || false}
         name="authorSelect"
         onChange={onChange}
-        value={author.id}
-      >
+        value={author.id}>
         <option value="-1">Select Author...</option>
         {options(authors)}
       </select>
 
       {error &&
-        <p className={buildClasses(['input-field__error'])}>
+        <p className={styles.error}>
           {error}
         </p>
       }

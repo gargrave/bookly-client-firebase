@@ -4,8 +4,6 @@ import { bool, func, object, string } from 'prop-types';
 
 import type { Author, AuthorErrors } from '../../flowtypes';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import Card from '../../../common/components/Card/Card';
 import AuthorForm from '../AuthorForm/AuthorForm';
 
@@ -35,8 +33,7 @@ const AuthorEditView = ({
   return (
     <div className={styles.authorEditView}>
       <Card
-        header={'Update Author'}
-        hoverable={false}>
+        header="Update Author">
         <AuthorForm
           author={author}
           disabled={disabled}
