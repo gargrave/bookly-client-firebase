@@ -22,11 +22,12 @@ const BookListDetail = ({
 
   return (
     <Card
+      hoverable={true}
       onClick={onClick}>
       <Card.TextLine
         bold={true}
         text={title} />
-      {showAuthor && <Card.TextLine text={authorName} />}
+      { showAuthor && <Card.TextLine text={authorName} /> }
     </Card>
   );
 };

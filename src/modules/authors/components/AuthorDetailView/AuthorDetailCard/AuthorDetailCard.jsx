@@ -40,7 +40,7 @@ const AuthorDetailCard = ({
 
       <Card.Spacer />
       <Card.TextList textList={authorDatesTextList(author)} />
-      <Card.Spacer size='large' />
+      <Card.Spacer size="medium" />
 
       <ButtonRow>
         <Button

@@ -4,8 +4,6 @@ import { array, func, shape, string } from 'prop-types';
 
 import type { Book, BookBucket } from '../../../flowtypes';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
 import BookListDetail from '../../BookListDetail/BookListDetail';
 
 type Props = {
@@ -16,29 +14,24 @@ type Props = {
 const booksFromBucket = (
   bucket: BookBucket,
   onBookClick: Function,
-) => {
-  return bucket.books.map((book: Book) => {
-    return (
-      <BookListDetail
-        book={book}
-        key={book.id}
-        onClick={onBookClick.bind(null, book.id)}
-        showAuthor={false}
-      />
-    );
-  });
-};
+) => (
+  bucket.books.map((book: Book) => (
+    <BookListDetail
+      book={book}
+      key={book.id}
+      onClick={() => onBookClick(book.id)}
+      showAuthor={false} />
+  ))
+);
 
 const BookBucketBookList = ({
   bucket,
   onBookClick,
-}: Props) => {
-  return (
-    <div className={buildClasses(['book-bucket__book-list'])}>
-      {booksFromBucket(bucket, onBookClick)}
-    </div>
-  );
-};
+}: Props) => (
+  <div>
+    { booksFromBucket(bucket, onBookClick) }
+  </div>
+);
 
 BookBucketBookList.propTypes = {
   bucket: shape({

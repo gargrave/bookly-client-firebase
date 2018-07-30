@@ -23,6 +23,7 @@ const AuthorListDetail = ({
   const authorName = `${author.firstName} ${author.lastName}`;
   return (
     <Card
+      hoverable={true}
       onClick={onClick}>
       <Card.TextLine
         bold={true}

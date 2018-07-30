@@ -2,20 +2,27 @@
 import React from 'react';
 import { bool, func, oneOf, string } from 'prop-types';
 
-import {
-  POSITIONS,
-  TYPES,
-} from './constants';
+import { buildClass } from '../../../../utils/cssHelpers';
 
-import {
-  buildClassList,
-} from './helpers';
+import styles from './Button.css';
 
-import './Button.css';
+export const POSITIONS = [
+  'left',
+  'right',
+];
+
+export const TYPES = [
+  'success',
+  'secondary',
+  'info',
+  'warning',
+  'danger',
+  'light',
+  'dark',
+];
 
 type Props = {
   canSubmit?: boolean,
-  classes?: string,
   disabled?: boolean,
   onClick: Function,
   position?: string,
@@ -25,29 +32,28 @@ type Props = {
 
 const Button = ({
   canSubmit,
-  classes = '',
   disabled,
   onClick,
   position = '',
   text,
-  type,
-}: Props) => {
-  return (
-    <button
-      className={buildClassList(
-        type || '', position, classes
-      )}
-      disabled={disabled || false}
-      onClick={onClick}
-      type={canSubmit ? 'submit' : 'button'}>
-      {text}
-    </button>
-  );
-};
+  type = '',
+}: Props) => (
+  <button
+    className={buildClass(
+      styles.button,
+      { [styles[position]]: !!position },
+      'button',
+      { [`button-${type}`]: !!type }
+    )}
+    disabled={disabled || false}
+    onClick={onClick}
+    type={canSubmit ? 'submit' : 'button'}>
+    {text}
+  </button>
+);
 
 Button.propTypes = {
   canSubmit: bool,
-  classes: string,
   disabled: bool,
   onClick: func.isRequired,
   position: oneOf(POSITIONS),

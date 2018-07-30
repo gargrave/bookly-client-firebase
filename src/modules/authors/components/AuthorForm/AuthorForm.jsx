@@ -35,16 +35,14 @@ const AuthorForm = ({
       onCancel={onCancel}
       onSubmit={onSubmit}
       submitDisabled={submitDisabled}
-      topLevelError={topLevelError}
-    >
+      topLevelError={topLevelError}>
       <InputField
         boundValue={author.firstName}
         disabled={disabled}
         error={errors.firstName}
         label="First name"
         name="firstName"
-        onInputChange={onInputChange}
-      />
+        onInputChange={onInputChange} />
 
       <InputField
         boundValue={author.lastName}
@@ -52,8 +50,7 @@ const AuthorForm = ({
         error={errors.lastName}
         label="Last name"
         name="lastName"
-        onInputChange={onInputChange}
-      />
+        onInputChange={onInputChange} />
     </Form>
   );
 };

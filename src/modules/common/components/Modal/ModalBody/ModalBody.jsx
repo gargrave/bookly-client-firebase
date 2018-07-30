@@ -12,7 +12,9 @@ const renderText = (message: string | string[]) => {
   if (!Array.isArray(message)) {
     message = [message];
   }
-  return message.map((msg) => <p key={msg}>{msg}</p>);
+  return message.map(
+    (msg) => <p key={msg} className={styles.modalBodyText}>{msg}</p>
+  );
 };
 
 const ModalBody = ({
@@ -20,7 +22,7 @@ const ModalBody = ({
 }: Props) => {
   return (
     <div className={styles.modalBody}>
-      {renderText(message)}
+      { renderText(message) }
     </div>
   );
 };

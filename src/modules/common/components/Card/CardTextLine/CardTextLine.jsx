@@ -18,8 +18,8 @@ const CardTextLine = ({
   return (
     <p
       className={buildClass(
-        styles.cardText,
-        { [styles.bold]: bold }
+        styles.cardTextLine,
+        { [styles.bold]: bold },
       )}>
       {text}
     </p>

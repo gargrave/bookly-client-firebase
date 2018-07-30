@@ -57,8 +57,8 @@ const Form = ({
 
           {onCancel &&
             <Button
-              classes="float-right"
               onClick={onCancel}
+              position="right"
               text={cancelBtnText || 'Cancel'}
               type="light" />
           }

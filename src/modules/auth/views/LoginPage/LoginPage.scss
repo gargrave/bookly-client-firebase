@@ -1,4 +1,9 @@
 @import '../../../../styles/typography';
+@import '../../../../styles/_views';
+
+.loginView {
+  @include viewWrapper;
+}
 
 .passwordResetLink {
   margin-bottom: .5rem;

@@ -1,7 +1,8 @@
-$textColor: #6e6969;
+$textColor: #6e6969; // TODO: move to _colors
 
-.cardText {
+.cardTextLine {
   color: $textColor;
+  margin-bottom: 0; // Shoelace override
 }
 
 .bold {
