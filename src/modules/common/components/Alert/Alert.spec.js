@@ -21,14 +21,12 @@ describe('InfoAlert', () => {
 
   it('renders correctly as an "info" alert', () => {
     component = builder.shallowGetComponent({ type: 'info' });
-    expect(component.hasClass('bookly-alert')).toBeTruthy();
     expect(component.hasClass('alert-info')).toBeTruthy();
     expect(component.text()).toEqual(defaultProps.message);
   });
 
   it('renders correctly as an "danger" alert', () => {
     component = builder.shallowGetComponent({ type: 'danger' });
-    expect(component.hasClass('bookly-alert')).toBeTruthy();
     expect(component.hasClass('alert-danger')).toBeTruthy();
     expect(component.text()).toEqual(defaultProps.message);
   });

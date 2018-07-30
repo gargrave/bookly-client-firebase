@@ -35,7 +35,7 @@ const Form = ({
 }: Props) => {
   return (
     <div>
-      {topLevelError &&
+      { topLevelError &&
         <Alert
           message={topLevelError}
           type="danger" />
@@ -45,7 +45,7 @@ const Form = ({
         onSubmit={onSubmit}
         noValidate>
 
-        {children}
+        { children }
 
         <ButtonRow>
           <Button
@@ -56,7 +56,7 @@ const Form = ({
             text={submitBtnText || 'Submit'}
             type="success" />
 
-          {onCancel &&
+          { onCancel &&
             <Button
               onClick={onCancel}
               position="right"

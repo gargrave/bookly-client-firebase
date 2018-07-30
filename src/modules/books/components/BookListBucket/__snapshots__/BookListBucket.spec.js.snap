@@ -173,7 +173,7 @@ ShallowWrapper {
           onBookClick={[Function]}
         />,
       ],
-      "className": "bookly-book-bucket",
+      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -406,7 +406,7 @@ ShallowWrapper {
             onBookClick={[Function]}
           />,
         ],
-        "className": "bookly-book-bucket",
+        "className": undefined,
       },
       "ref": null,
       "rendered": Array [

@@ -27,13 +27,11 @@ const PasswordResetForm = ({
   topLevelError,
 }: Props) => (
   <Form
-    classes={['password-reset-form']}
     disabled={disabled}
     onSubmit={onSubmit}
     submitBtnText={submitBtnText}
     submitDisabled={submitDisabled}
-    topLevelError={topLevelError}
-  >
+    topLevelError={topLevelError}>
     <InputField
       boundValue={email}
       disabled={disabled}
@@ -41,8 +39,7 @@ const PasswordResetForm = ({
       label="Email"
       name="email"
       onInputChange={onInputChange}
-      type="email"
-    />
+      type="email" />
   </Form>
 );
 

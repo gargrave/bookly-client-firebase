@@ -85,7 +85,6 @@ ShallowWrapper {
     "props": Object {
       "children": <Card
         header="Update Book"
-        hoverable={false}
       >
         <BookForm
           authors={
@@ -155,7 +154,7 @@ ShallowWrapper {
           topLevelError=""
         />
       </Card>,
-      "className": "bookly-edit-view bookly-book-edit-view",
+      "className": undefined,
     },
     "ref": null,
     "rendered": Object {
@@ -231,7 +230,6 @@ ShallowWrapper {
           topLevelError=""
         />,
         "header": "Update Book",
-        "hoverable": false,
       },
       "ref": null,
       "rendered": Object {
@@ -315,7 +313,6 @@ ShallowWrapper {
       "props": Object {
         "children": <Card
           header="Update Book"
-          hoverable={false}
         >
           <BookForm
             authors={
@@ -385,7 +382,7 @@ ShallowWrapper {
             topLevelError=""
           />
         </Card>,
-        "className": "bookly-edit-view bookly-book-edit-view",
+        "className": undefined,
       },
       "ref": null,
       "rendered": Object {
@@ -461,7 +458,6 @@ ShallowWrapper {
             topLevelError=""
           />,
           "header": "Update Book",
-          "hoverable": false,
         },
         "ref": null,
         "rendered": Object {

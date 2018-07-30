@@ -32,7 +32,6 @@ describe('AccountEditView', () => {
 
   it('renders correctly', () => {
     component = builder.mountComponent();
-    expect(component.find('.bookly-account-edit-view')).toHaveLength(1);
     expect(component.find(Card)).toHaveLength(1);
     expect(component.find(AccountForm)).toHaveLength(1);
   });

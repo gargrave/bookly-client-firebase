@@ -45,10 +45,7 @@ ShallowWrapper {
           text="Aldous Huxley"
         />,
       ],
-      "classes": Array [
-        "list-detail-card",
-        "book-list-detail-card",
-      ],
+      "hoverable": true,
       "onClick": [Function],
     },
     "ref": null,
@@ -94,10 +91,7 @@ ShallowWrapper {
             text="Aldous Huxley"
           />,
         ],
-        "classes": Array [
-          "list-detail-card",
-          "book-list-detail-card",
-        ],
+        "hoverable": true,
         "onClick": [Function],
       },
       "ref": null,

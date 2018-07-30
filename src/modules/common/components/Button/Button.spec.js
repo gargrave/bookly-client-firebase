@@ -22,43 +22,36 @@ describe('Button', () => {
 
   it('renders as a "success" button', () => {
     component = builder.shallowGetComponent();
-    expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-success')).toBeTruthy();
   });
 
   it('renders as a "secondary" button', () => {
     component = builder.shallowGetComponent({ type: 'secondary' });
-    expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-secondary')).toBeTruthy();
   });
 
   it('renders as a "info" button', () => {
     component = builder.shallowGetComponent({ type: 'info' });
-    expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-info')).toBeTruthy();
   });
 
   it('renders as a "warning" button', () => {
     component = builder.shallowGetComponent({ type: 'warning' });
-    expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-warning')).toBeTruthy();
   });
 
   it('renders as a "danger" button', () => {
     component = builder.shallowGetComponent({ type: 'danger' });
-    expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-danger')).toBeTruthy();
   });
 
   it('renders as a "light" button', () => {
     component = builder.shallowGetComponent({ type: 'light' });
-    expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-light')).toBeTruthy();
   });
 
   it('renders as a "dark" button', () => {
     component = builder.shallowGetComponent({ type: 'dark' });
-    expect(component.hasClass('bookly-button')).toBeTruthy();
     expect(component.hasClass('button-dark')).toBeTruthy();
   });
 

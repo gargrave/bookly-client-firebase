@@ -31,7 +31,6 @@ describe('AuthorDetailView', () => {
 
   it('renders correctly', () => {
     component = builder.shallowGetComponent();
-    expect(component.find('.bookly-author-detail-view')).toHaveLength(1);
     expect(component.find(AuthorDetailCard)).toHaveLength(1);
   });
 });

@@ -34,12 +34,6 @@ describe('BookEditView', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
-    component = builder.shallowGetComponent();
-    const parentClass = '.bookly-book-edit-view';
-    expect(component.find(parentClass)).toHaveLength(1);
-  });
-
   it('renders one BookForm component', () => {
     component = builder.shallowGetComponent();
     expect(component.find(BookForm)).toHaveLength(1);

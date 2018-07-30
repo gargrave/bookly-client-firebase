@@ -31,12 +31,6 @@ describe('AuthorEditView', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
-    component = builder.shallowGetComponent();
-    const element = component.find('.bookly-author-edit-view');
-    expect(element).toHaveLength(1);
-  });
-
   it('renders the AuthorForm component', () => {
     component = builder.shallowGetComponent();
     expect(component.find(AuthorForm)).toHaveLength(1);

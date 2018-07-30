@@ -34,7 +34,7 @@ ShallowWrapper {
           :
         </label>,
         <input
-          className="bookly-input-field__input"
+          className=""
           disabled={false}
           id="text"
           maxLength={255}
@@ -44,9 +44,11 @@ ShallowWrapper {
           type="text"
           value=""
         />,
-        "",
+        <Unknown
+          error=""
+        />,
       ],
-      "className": "bookly-input-field input-field",
+      "className": "input-field",
     },
     "ref": null,
     "rendered": Array [
@@ -73,7 +75,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "className": "bookly-input-field__input",
+          "className": "",
           "disabled": false,
           "id": "text",
           "maxLength": 255,
@@ -87,7 +89,17 @@ ShallowWrapper {
         "rendered": null,
         "type": "input",
       },
-      "",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "error": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -105,7 +117,7 @@ ShallowWrapper {
             :
           </label>,
           <input
-            className="bookly-input-field__input"
+            className=""
             disabled={false}
             id="text"
             maxLength={255}
@@ -115,9 +127,11 @@ ShallowWrapper {
             type="text"
             value=""
           />,
-          "",
+          <Unknown
+            error=""
+          />,
         ],
-        "className": "bookly-input-field input-field",
+        "className": "input-field",
       },
       "ref": null,
       "rendered": Array [
@@ -144,7 +158,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "className": "bookly-input-field__input",
+            "className": "",
             "disabled": false,
             "id": "text",
             "maxLength": 255,
@@ -158,7 +172,17 @@ ShallowWrapper {
           "rendered": null,
           "type": "input",
         },
-        "",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "error": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": "div",
     },

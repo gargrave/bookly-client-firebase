@@ -59,9 +59,6 @@ ShallowWrapper {
           onInputChange={[Function]}
         />,
       ],
-      "classes": Array [
-        "account-form",
-      ],
       "disabled": false,
       "onCancel": [Function],
       "onSubmit": [Function],
@@ -132,9 +129,6 @@ ShallowWrapper {
             name="lastName"
             onInputChange={[Function]}
           />,
-        ],
-        "classes": Array [
-          "account-form",
         ],
         "disabled": false,
         "onCancel": [Function],

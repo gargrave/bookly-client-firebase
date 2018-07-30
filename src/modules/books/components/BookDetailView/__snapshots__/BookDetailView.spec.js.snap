@@ -61,7 +61,7 @@ ShallowWrapper {
           onEditClick={[Function]}
         />,
       ],
-      "className": "bookly-detail-view bookly-book-detail-view",
+      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -126,7 +126,7 @@ ShallowWrapper {
             onEditClick={[Function]}
           />,
         ],
-        "className": "bookly-detail-view bookly-book-detail-view",
+        "className": undefined,
       },
       "ref": null,
       "rendered": Array [

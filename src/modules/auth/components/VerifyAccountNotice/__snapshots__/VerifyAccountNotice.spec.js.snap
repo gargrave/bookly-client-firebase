@@ -48,11 +48,6 @@ ShallowWrapper {
           type="warning"
         />,
       ],
-      "classes": Array [
-        "detail-card",
-        "verify-account-card",
-      ],
-      "hoverable": false,
       "title": "Your email address has not been verified!",
     },
     "ref": null,
@@ -150,11 +145,6 @@ ShallowWrapper {
             type="warning"
           />,
         ],
-        "classes": Array [
-          "detail-card",
-          "verify-account-card",
-        ],
-        "hoverable": false,
         "title": "Your email address has not been verified!",
       },
       "ref": null,

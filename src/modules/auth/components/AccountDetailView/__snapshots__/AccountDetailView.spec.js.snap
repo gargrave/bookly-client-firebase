@@ -43,14 +43,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Card
-          classes={
-            Array [
-              "detail-card",
-              "account-detail-card",
-            ]
-          }
           header="My Account"
-          hoverable={false}
         >
           <CardSpacer />
           <CardTextList
@@ -100,7 +93,7 @@ ShallowWrapper {
         </Card>,
         false,
       ],
-      "className": "bookly-detail-view bookly-account-detail-view",
+      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -156,12 +149,7 @@ ShallowWrapper {
               />
             </ButtonRow>,
           ],
-          "classes": Array [
-            "detail-card",
-            "account-detail-card",
-          ],
           "header": "My Account",
-          "hoverable": false,
         },
         "ref": null,
         "rendered": Array [
@@ -300,14 +288,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Card
-            classes={
-              Array [
-                "detail-card",
-                "account-detail-card",
-              ]
-            }
             header="My Account"
-            hoverable={false}
           >
             <CardSpacer />
             <CardTextList
@@ -357,7 +338,7 @@ ShallowWrapper {
           </Card>,
           false,
         ],
-        "className": "bookly-detail-view bookly-account-detail-view",
+        "className": undefined,
       },
       "ref": null,
       "rendered": Array [
@@ -413,12 +394,7 @@ ShallowWrapper {
                 />
               </ButtonRow>,
             ],
-            "classes": Array [
-              "detail-card",
-              "account-detail-card",
-            ],
             "header": "My Account",
-            "hoverable": false,
           },
           "ref": null,
           "rendered": Array [

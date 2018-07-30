@@ -35,7 +35,6 @@ const AccountForm = ({
 }: Props) => {
   return (
     <Form
-      classes={['account-form']}
       disabled={disabled}
       onCancel={onCancel}
       onSubmit={onSubmit}

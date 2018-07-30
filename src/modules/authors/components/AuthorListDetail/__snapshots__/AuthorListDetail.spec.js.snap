@@ -35,14 +35,10 @@ ShallowWrapper {
           text="Aldous Huxley"
         />,
         <CardTextLine
-          condensed={true}
           text="1 book"
         />,
       ],
-      "classes": Array [
-        "list-detail-card",
-        "author-list-detail-card",
-      ],
+      "hoverable": true,
       "onClick": [Function],
     },
     "ref": null,
@@ -64,7 +60,6 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "condensed": true,
           "text": "1 book",
         },
         "ref": null,
@@ -86,14 +81,10 @@ ShallowWrapper {
             text="Aldous Huxley"
           />,
           <CardTextLine
-            condensed={true}
             text="1 book"
           />,
         ],
-        "classes": Array [
-          "list-detail-card",
-          "author-list-detail-card",
-        ],
+        "hoverable": true,
         "onClick": [Function],
       },
       "ref": null,
@@ -115,7 +106,6 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "condensed": true,
             "text": "1 book",
           },
           "ref": null,

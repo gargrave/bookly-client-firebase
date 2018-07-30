@@ -32,7 +32,6 @@ describe('PasswordResetForm', () => {
 
     it('renders correctly', () => {
       component = builder.mountComponent();
-      expect(component.find('.bookly-password-reset-form')).toHaveLength(1);
       expect(component.find(Form)).toHaveLength(1);
       expect(component.find(InputField)).toHaveLength(1);
     });

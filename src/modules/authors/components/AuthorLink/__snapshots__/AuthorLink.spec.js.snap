@@ -39,7 +39,7 @@ ShallowWrapper {
           Huxley
         </Link>,
       ],
-      "className": "bookly-author-link",
+      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -85,7 +85,7 @@ ShallowWrapper {
             Huxley
           </Link>,
         ],
-        "className": "bookly-author-link",
+        "className": undefined,
       },
       "ref": null,
       "rendered": Array [

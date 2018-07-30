@@ -29,13 +29,11 @@ ShallowWrapper {
       "children": Array [
         "",
         <form
-          className="bookly-form"
+          className=""
           noValidate={true}
           onSubmit={[Function]}
         >
-          <div
-            className="input-field"
-          >
+          <ButtonRow>
             <Button
               canSubmit={true}
               disabled={false}
@@ -45,12 +43,12 @@ ShallowWrapper {
               type="success"
             />
             <Button
-              classes="float-right"
               onClick={[Function]}
+              position="right"
               text="Cancel"
               type="light"
             />
-          </div>
+          </ButtonRow>
         </form>,
       ],
     },
@@ -64,9 +62,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             Array [],
-            <div
-              className="input-field"
-            >
+            <ButtonRow>
               <Button
                 canSubmit={true}
                 disabled={false}
@@ -76,14 +72,14 @@ ShallowWrapper {
                 type="success"
               />
               <Button
-                classes="float-right"
                 onClick={[Function]}
+                position="right"
                 text="Cancel"
                 type="light"
               />
-            </div>,
+            </ButtonRow>,
           ],
-          "className": "bookly-form",
+          "className": "",
           "noValidate": true,
           "onSubmit": [Function],
         },
@@ -92,7 +88,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
               "children": Array [
                 <Button
@@ -104,13 +100,12 @@ ShallowWrapper {
                   type="success"
                 />,
                 <Button
-                  classes="float-right"
                   onClick={[Function]}
+                  position="right"
                   text="Cancel"
                   type="light"
                 />,
               ],
-              "className": "input-field",
             },
             "ref": null,
             "rendered": Array [
@@ -135,8 +130,8 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "function",
                 "props": Object {
-                  "classes": "float-right",
                   "onClick": [Function],
+                  "position": "right",
                   "text": "Cancel",
                   "type": "light",
                 },
@@ -145,7 +140,7 @@ ShallowWrapper {
                 "type": [Function],
               },
             ],
-            "type": "div",
+            "type": [Function],
           },
         ],
         "type": "form",
@@ -162,13 +157,11 @@ ShallowWrapper {
         "children": Array [
           "",
           <form
-            className="bookly-form"
+            className=""
             noValidate={true}
             onSubmit={[Function]}
           >
-            <div
-              className="input-field"
-            >
+            <ButtonRow>
               <Button
                 canSubmit={true}
                 disabled={false}
@@ -178,12 +171,12 @@ ShallowWrapper {
                 type="success"
               />
               <Button
-                classes="float-right"
                 onClick={[Function]}
+                position="right"
                 text="Cancel"
                 type="light"
               />
-            </div>
+            </ButtonRow>
           </form>,
         ],
       },
@@ -197,9 +190,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               Array [],
-              <div
-                className="input-field"
-              >
+              <ButtonRow>
                 <Button
                   canSubmit={true}
                   disabled={false}
@@ -209,14 +200,14 @@ ShallowWrapper {
                   type="success"
                 />
                 <Button
-                  classes="float-right"
                   onClick={[Function]}
+                  position="right"
                   text="Cancel"
                   type="light"
                 />
-              </div>,
+              </ButtonRow>,
             ],
-            "className": "bookly-form",
+            "className": "",
             "noValidate": true,
             "onSubmit": [Function],
           },
@@ -225,7 +216,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
                 "children": Array [
                   <Button
@@ -237,13 +228,12 @@ ShallowWrapper {
                     type="success"
                   />,
                   <Button
-                    classes="float-right"
                     onClick={[Function]}
+                    position="right"
                     text="Cancel"
                     type="light"
                   />,
                 ],
-                "className": "input-field",
               },
               "ref": null,
               "rendered": Array [
@@ -268,8 +258,8 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "function",
                   "props": Object {
-                    "classes": "float-right",
                     "onClick": [Function],
+                    "position": "right",
                     "text": "Cancel",
                     "type": "light",
                   },
@@ -278,7 +268,7 @@ ShallowWrapper {
                   "type": [Function],
                 },
               ],
-              "type": "div",
+              "type": [Function],
             },
           ],
           "type": "form",

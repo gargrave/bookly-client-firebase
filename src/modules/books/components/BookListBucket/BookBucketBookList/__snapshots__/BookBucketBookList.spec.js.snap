@@ -130,7 +130,6 @@ ShallowWrapper {
           showAuthor={false}
         />,
       ],
-      "className": "bookly-book-bucket__book-list",
     },
     "ref": null,
     "rendered": Array [
@@ -283,7 +282,6 @@ ShallowWrapper {
             showAuthor={false}
           />,
         ],
-        "className": "bookly-book-bucket__book-list",
       },
       "ref": null,
       "rendered": Array [

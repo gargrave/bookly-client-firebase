@@ -35,7 +35,6 @@ describe('AccountForm', () => {
 
     it('renders correctly', () => {
       component = builder.mountComponent();
-      expect(component.find('.bookly-account-form')).toHaveLength(1);
       expect(component.find(Form)).toHaveLength(1);
       expect(component.find(InputField)).toHaveLength(2);
     });

@@ -67,23 +67,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <p>
-        Aldous Huxley
-      </p>,
-      "className": "bookly-book-bucket__header",
+      "children": "Aldous Huxley",
+      "className": undefined,
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": "Aldous Huxley",
-      },
-      "ref": null,
-      "rendered": "Aldous Huxley",
-      "type": "p",
-    },
+    "rendered": "Aldous Huxley",
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -92,23 +80,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <p>
-          Aldous Huxley
-        </p>,
-        "className": "bookly-book-bucket__header",
+        "children": "Aldous Huxley",
+        "className": undefined,
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Aldous Huxley",
-        },
-        "ref": null,
-        "rendered": "Aldous Huxley",
-        "type": "p",
-      },
+      "rendered": "Aldous Huxley",
       "type": "div",
     },
   ],

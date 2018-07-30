@@ -40,14 +40,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <Card
-        classes={
-          Array [
-            "detail-card",
-            "account-edit-card",
-          ]
-        }
         header="Update My Account"
-        hoverable={false}
       >
         <AccountForm
           disabled={false}
@@ -73,7 +66,7 @@ ShallowWrapper {
           topLevelError=""
         />
       </Card>,
-      "className": "bookly-detail-view bookly-account-edit-view",
+      "className": undefined,
     },
     "ref": null,
     "rendered": Object {
@@ -104,12 +97,7 @@ ShallowWrapper {
           submitDisabled={false}
           topLevelError=""
         />,
-        "classes": Array [
-          "detail-card",
-          "account-edit-card",
-        ],
         "header": "Update My Account",
-        "hoverable": false,
       },
       "ref": null,
       "rendered": Object {
@@ -150,14 +138,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <Card
-          classes={
-            Array [
-              "detail-card",
-              "account-edit-card",
-            ]
-          }
           header="Update My Account"
-          hoverable={false}
         >
           <AccountForm
             disabled={false}
@@ -183,7 +164,7 @@ ShallowWrapper {
             topLevelError=""
           />
         </Card>,
-        "className": "bookly-detail-view bookly-account-edit-view",
+        "className": undefined,
       },
       "ref": null,
       "rendered": Object {
@@ -214,12 +195,7 @@ ShallowWrapper {
             submitDisabled={false}
             topLevelError=""
           />,
-          "classes": Array [
-            "detail-card",
-            "account-edit-card",
-          ],
           "header": "Update My Account",
-          "hoverable": false,
         },
         "ref": null,
         "rendered": Object {

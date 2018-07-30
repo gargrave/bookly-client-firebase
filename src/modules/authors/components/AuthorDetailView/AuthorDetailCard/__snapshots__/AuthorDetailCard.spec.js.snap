@@ -48,7 +48,7 @@ ShallowWrapper {
           }
         />,
         <CardSpacer
-          size="large"
+          size="medium"
         />,
         <ButtonRow>
           <Button
@@ -70,12 +70,7 @@ ShallowWrapper {
           />
         </ButtonRow>,
       ],
-      "classes": Array [
-        "detail-card",
-        "author-detail-card",
-      ],
       "header": "Aldous Huxley",
-      "hoverable": false,
     },
     "ref": null,
     "rendered": Array [
@@ -113,7 +108,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "size": "large",
+          "size": "medium",
         },
         "ref": null,
         "rendered": null,
@@ -216,7 +211,7 @@ ShallowWrapper {
             }
           />,
           <CardSpacer
-            size="large"
+            size="medium"
           />,
           <ButtonRow>
             <Button
@@ -238,12 +233,7 @@ ShallowWrapper {
             />
           </ButtonRow>,
         ],
-        "classes": Array [
-          "detail-card",
-          "author-detail-card",
-        ],
         "header": "Aldous Huxley",
-        "hoverable": false,
       },
       "ref": null,
       "rendered": Array [
@@ -281,7 +271,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "size": "large",
+            "size": "medium",
           },
           "ref": null,
           "rendered": null,

@@ -15,7 +15,7 @@ const BookBucketHeader = ({
 }: Props) => {
   return (
     <div className={styles.bookBucketHeader}>
-      {bucket.author}
+      { bucket.author }
     </div>
   );
 };

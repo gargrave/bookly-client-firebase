@@ -64,7 +64,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h5
-          className="bookly-author-books-list__header"
+          className={undefined}
         >
           Books by 
           Aldous Huxley
@@ -110,7 +110,7 @@ ShallowWrapper {
           onBookClick={[Function]}
         />,
       ],
-      "className": "bookly-author-books-list",
+      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -128,7 +128,7 @@ ShallowWrapper {
               type="success"
             />,
           ],
-          "className": "bookly-author-books-list__header",
+          "className": undefined,
         },
         "ref": null,
         "rendered": Array [
@@ -202,7 +202,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h5
-            className="bookly-author-books-list__header"
+            className={undefined}
           >
             Books by 
             Aldous Huxley
@@ -248,7 +248,7 @@ ShallowWrapper {
             onBookClick={[Function]}
           />,
         ],
-        "className": "bookly-author-books-list",
+        "className": undefined,
       },
       "ref": null,
       "rendered": Array [
@@ -266,7 +266,7 @@ ShallowWrapper {
                 type="success"
               />,
             ],
-            "className": "bookly-author-books-list__header",
+            "className": undefined,
           },
           "ref": null,
           "rendered": Array [

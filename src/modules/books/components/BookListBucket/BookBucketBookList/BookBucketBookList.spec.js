@@ -22,12 +22,6 @@ describe('BookBucketBooks', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
-    component = builder.shallowGetComponent();
-    const parentClass = '.bookly-book-bucket__book-list';
-    expect(component.find(parentClass)).toHaveLength(1);
-  });
-
   it ('renders the correct number of BookListDetail children', () => {
     const bookCount = bookBucketMocks[0].books.length;
     expect(component.find(BookListDetail)).toHaveLength(bookCount);

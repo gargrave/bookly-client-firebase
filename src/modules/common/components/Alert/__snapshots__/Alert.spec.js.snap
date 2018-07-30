@@ -24,7 +24,7 @@ ShallowWrapper {
         "This is the message.",
         undefined,
       ],
-      "className": "bookly-alert alert alert-primary",
+      "className": "alert alert-primary",
     },
     "ref": null,
     "rendered": Array [
@@ -43,7 +43,7 @@ ShallowWrapper {
           "This is the message.",
           undefined,
         ],
-        "className": "bookly-alert alert alert-primary",
+        "className": "alert alert-primary",
       },
       "ref": null,
       "rendered": Array [

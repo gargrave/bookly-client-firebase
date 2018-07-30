@@ -28,7 +28,6 @@ describe('AccountDetailView', () => {
 
   it('renders correctly', () => {
     component = builder.shallowGetComponent();
-    expect(component.find('.bookly-account-detail-view')).toHaveLength(1);
     expect(component.find(Card)).toHaveLength(1);
   });
 });

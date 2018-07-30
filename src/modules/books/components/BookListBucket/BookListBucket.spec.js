@@ -23,12 +23,6 @@ describe('BookListBucket', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
-    component = builder.shallowGetComponent();
-    const parentClass = '.bookly-book-bucket';
-    expect(component.find(parentClass)).toHaveLength(1);
-  });
-
   it ('renders one BookBucketHeader', () => {
     expect(component.find(BookBucketHeader)).toHaveLength(1);
   });

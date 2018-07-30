@@ -31,20 +31,20 @@ describe('Form', () => {
 
   describe('basic rendering', () => {
     it('renders correctly', () => {
-      component = builder.shallowGetComponent();
+      component = builder.mountComponent();
       expect(component.find(Alert)).toHaveLength(0);
       expect(component.find(Button)).toHaveLength(2);
     });
 
     it('does not render "cancel" button if prop is empty', () => {
-      component = builder.shallowGetComponent({
+      component = builder.mountComponent({
         onCancel: null,
       });
       expect(component.find(Button)).toHaveLength(1);
     });
 
     it('renders an Alert if the prop is present', () => {
-      component = builder.shallowGetComponent({
+      component = builder.mountComponent({
         topLevelError: 'OMFG',
       });
       expect(component.find(Alert)).toHaveLength(1);

@@ -19,9 +19,4 @@ describe('AuthorLink', () => {
     component = builder.shallowGetComponent();
     expect(component).toMatchSnapshot();
   });
-
-  it('renders correctly', () => {
-    component = builder.shallowGetComponent();
-    expect(component.find('.bookly-author-link')).toHaveLength(1);
-  });
 });

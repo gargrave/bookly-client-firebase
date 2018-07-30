@@ -27,7 +27,6 @@ describe('BookDetailView', () => {
 
   it('renders correctly', () => {
     component = builder.shallowGetComponent();
-    expect(component.find('.bookly-book-detail-view')).toHaveLength(1);
     expect(component.find(BookDetailCard)).toHaveLength(1);
   });
 });

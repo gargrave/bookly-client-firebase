@@ -21,11 +21,8 @@ describe('BookBucketHeader', () => {
 
   it('renders correctly', () => {
     component = builder.shallowGetComponent();
-    const parentClass = '.bookly-book-bucket__header';
-    expect(component.find(parentClass)).toHaveLength(1);
-
     const authorString = `${bookBucketMocks[0].author}`;
-    const matched = component.find('p').text().match(new RegExp(authorString));
+    const matched = component.find('div').text().match(new RegExp(authorString));
     expect(matched.length).toBe(1);
   });
 });
