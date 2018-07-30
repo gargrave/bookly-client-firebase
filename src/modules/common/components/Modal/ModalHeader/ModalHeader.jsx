@@ -2,9 +2,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
-import './ModalHeader.css';
+import styles from './ModalHeader.css';
 
 type Props = {
   title?: string,
@@ -14,8 +12,8 @@ const ModalFooter = ({
   title,
 }: Props) => {
   return (
-    <div className={buildClasses(['modal__header'])}>
-      <div className={buildClasses(['modal__title'])}>
+    <div className={styles.modalHeader}>
+      <div className={styles.modalTitle}>
         {title || 'Confirm'}
       </div>
     </div>

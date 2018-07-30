@@ -2,14 +2,12 @@
 import React from 'react';
 import { array, func, oneOfType, string } from 'prop-types';
 
-import { buildClasses } from '../../../../utils/cssHelpers';
-
 import ModalBackdrop from './ModalBackdrop/ModalBackdrop';
 import ModalBody from './ModalBody/ModalBody';
 import ModalFooter from './ModalFooter/ModalFooter';
 import ModalHeader from './ModalHeader/ModalHeader';
 
-import './Modal.css';
+import styles from './Modal.css';
 
 type Props = {
   cancelText?: string,
@@ -29,20 +27,17 @@ const Modal = ({
   title,
 }: Props) => {
   return (
-    <div className={buildClasses(['modal'])}>
-      <div className={buildClasses(['modal__wrapper'])}>
+    <div className={styles.modal}>
+      <div className={styles.modalWrapper}>
         <ModalHeader
-          title={title}
-        />
+          title={title} />
         <ModalBody
-          message={message}
-        />
+          message={message} />
         <ModalFooter
           cancelText={cancelText}
           confirmText={confirmText}
           onCancel={onCancel}
-          onConfirm={onConfirm}
-        />
+          onConfirm={onConfirm} />
       </div>
       <ModalBackdrop onClick={onCancel} />
     </div>

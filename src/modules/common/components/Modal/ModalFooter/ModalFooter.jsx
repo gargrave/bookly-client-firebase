@@ -2,12 +2,10 @@
 import React from 'react';
 import { func, string } from 'prop-types';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
 import Button from '../../Button/Button';
 import ButtonRow from '../../ButtonRow/ButtonRow';
 
-import './ModalFooter.css';
+import styles from './ModalFooter.css';
 
 type Props = {
   cancelText?: string,
@@ -23,23 +21,21 @@ const ModalFooter = ({
   onConfirm,
 }: Props) => {
   return (
-    <div className={buildClasses(['modal__footer'])}>
-      <div className={buildClasses(['modal__button-row'])}>
-        <ButtonRow>
-          <Button
-            onClick={onCancel}
-            position="left"
-            text={cancelText || 'Cancel'}
-            type="secondary"
-          />
+    <div className={styles.modalFooter}>
+      <ButtonRow>
+        <Button
+          onClick={onCancel}
+          position="left"
+          text={cancelText || 'Cancel'}
+          type="secondary"
+        />
 
-          <Button
-            onClick={onConfirm}
-            position="right"
-            text={confirmText || 'Confirm'}
-          />
-        </ButtonRow>
-      </div>
+        <Button
+          onClick={onConfirm}
+          position="right"
+          text={confirmText || 'Confirm'}
+        />
+      </ButtonRow>
     </div>
   );
 };

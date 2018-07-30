@@ -2,9 +2,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
-import './ModalBackdrop.css';
+import styles from './ModalBackdrop.css';
 
 type Props = {
   onClick: Function,
@@ -15,9 +13,8 @@ const ModalFooter = ({
 }: Props) => {
   return (
     <div
-      className={buildClasses(['modal__backdrop'])}
-      onClick={onClick}
-    >
+      className={styles.modalBackdrop}
+      onClick={onClick} >
     </div>
   );
 };

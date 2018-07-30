@@ -2,9 +2,7 @@
 import React from 'react';
 import { array, oneOfType, string } from 'prop-types';
 
-import { buildClasses } from '../../../../../utils/cssHelpers';
-
-import './ModalBody.css';
+import styles from './ModalBody.css';
 
 type Props = {
   message: string | string[],
@@ -21,10 +19,8 @@ const ModalBody = ({
   message,
 }: Props) => {
   return (
-    <div className={buildClasses(['modal__body'])}>
-      <div className={buildClasses(['modal__message'])}>
-        {renderText(message)}
-      </div>
+    <div className={styles.modalBody}>
+      {renderText(message)}
     </div>
   );
 };
