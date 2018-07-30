@@ -29,7 +29,7 @@ const AuthorSelect = ({
   onChange,
 }: Props) => {
   return (
-    <div>
+    <div className="input-field">
       <label htmlFor="">Author:</label>
       <select
         disabled={disabled || false}

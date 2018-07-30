@@ -6,6 +6,7 @@ import { buildClass } from '../../../../utils/cssHelpers';
 
 import Alert from '../Alert/Alert';
 import Button from '../Button/Button';
+import ButtonRow from '../ButtonRow/ButtonRow';
 
 import styles from './Form.css';
 
@@ -46,7 +47,7 @@ const Form = ({
 
         {children}
 
-        <div className="input-field">
+        <ButtonRow>
           <Button
             canSubmit={true}
             disabled={submitDisabled || disabled || false}
@@ -62,7 +63,7 @@ const Form = ({
               text={cancelBtnText || 'Cancel'}
               type="light" />
           }
-        </div>
+        </ButtonRow>
       </form>
     </div>
   );

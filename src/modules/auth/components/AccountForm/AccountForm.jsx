@@ -40,8 +40,8 @@ const AccountForm = ({
       onCancel={onCancel}
       onSubmit={onSubmit}
       submitDisabled={submitDisabled}
-      topLevelError={topLevelError}
-    >
+      topLevelError={topLevelError}>
+
       <InputField
         boundValue={profile.firstName}
         disabled={disabled}
@@ -49,8 +49,7 @@ const AccountForm = ({
         label="First name"
         maxLength={255}
         name="firstName"
-        onInputChange={onInputChange}
-      />
+        onInputChange={onInputChange} />
 
       <InputField
         boundValue={profile.lastName}
@@ -59,8 +58,7 @@ const AccountForm = ({
         label="Last name"
         maxLength={255}
         name="lastName"
-        onInputChange={onInputChange}
-      />
+        onInputChange={onInputChange} />
     </Form>
   );
 };
