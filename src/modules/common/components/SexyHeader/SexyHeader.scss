@@ -1,14 +1,13 @@
 @import '../../../../styles/_breakpoints';
+@import '../../../../styles/_colors';
 @import '../../../../styles/_shadows';
 
-$bgColorDefault: #d1609c;
-$bgColorLight: #e485b7;
 
 .header {
   @include boxShadowMed;
 
   align-items: center;
-  background: $bgColorDefault;
+  background: $headerColorMain;
   color: white;
   display: flex;
   left: 0;
@@ -46,7 +45,7 @@ $bgColorLight: #e485b7;
 }
 
 .activeLink {
-  background-color: $bgColorLight;
+  background-color: $headerColorLight;
 }
 
 .link + .link {

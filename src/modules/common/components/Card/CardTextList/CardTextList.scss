@@ -1,8 +1,7 @@
+@import '../../../../../styles/_colors';
 @import '../../../../../styles/_spacing';
 
-$textColor: #6e6969; // TODO: move to _colors
-
 .cardTextItem {
-  color: $textColor;
+  color: $textColorLight;
   margin-bottom: $spacingSm; // Shoelace override
 }

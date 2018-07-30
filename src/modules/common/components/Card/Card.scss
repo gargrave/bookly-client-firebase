@@ -1,7 +1,5 @@
+@import '../../../../styles/_colors';
 @import '../../../../styles/_shadows';
-
-$textColor: #6e6969;
-$titleColor: #5d5656;
 
 .card {
   @include boxShadowMed;
@@ -26,7 +24,7 @@ $titleColor: #5d5656;
 
 .header,
 .title {
-  color: $titleColor;
+  color: $textColorMed;
   font-weight: bold;
 }
 
