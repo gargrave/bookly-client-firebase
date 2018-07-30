@@ -1,6 +1,6 @@
 import { ComponentBuilder } from '../../../../utils/testHelpers';
 
-import InputField from './InputField';
+import InputField, { InputFieldError } from './InputField';
 
 const defaultProps = {
   boundValue: '',
@@ -41,19 +41,17 @@ describe('InputField', () => {
   });
 
   describe('error display', () => {
-    const errClass = '.bookly-input-field__error';
-
-    it('renders the error correctly when one is present', () => {
+    it.only('renders the error correctly when one is present', () => {
       const errMsg = 'error_message';
-      component = builder.shallowGetComponent({ error: errMsg });
-      const err = component.find(errClass);
+      component = builder.mountComponent({ error: errMsg });
+      const err = component.find(InputFieldError);
       expect(err).toHaveLength(1);
       expect(err.text()).toMatch(new RegExp(errMsg));
     });
 
-    it('does not render an error if prop is empty', () => {
-      component = builder.shallowGetComponent();
-      expect(component.find(errClass)).toHaveLength(0);
+    it.only('does not render an error if prop is empty', () => {
+      component = builder.mountComponent({ error: '' });
+      expect(component.find(InputFieldError)).toHaveLength(0);
     });
   });
 

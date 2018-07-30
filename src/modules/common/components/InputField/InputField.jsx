@@ -19,12 +19,24 @@ type Props = {
   type?: string,
 };
 
+type InputFieldErrorProps = {
+  error?: string,
+};
+
 const acceptableTypes = [
   'email',
   'password',
   'search',
   'text',
 ];
+
+export const InputFieldError = ({
+  error,
+}: InputFieldErrorProps) => (
+  <p className={styles.error}>
+    {error}
+  </p>
+);
 
 const InputField = ({
   boundValue,
@@ -52,11 +64,7 @@ const InputField = ({
         type={type || 'text'}
         value={boundValue} />
 
-      {error &&
-        <p className={styles.error}>
-          {error}
-        </p>
-      }
+      { error && <InputFieldError error={error} /> }
     </div>
   );
 };
