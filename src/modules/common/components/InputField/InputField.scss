@@ -3,3 +3,7 @@
 .error {
   color: $errorColor;
 }
+
+input.invalid {
+  border-color: $errorColor;
+}
