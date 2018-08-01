@@ -25,7 +25,7 @@ const createBookOnAPI = async (book: Book, authors: Author[]): Promise<?Book> =>
     .collection('books')
     .add(payload);
   const doc: FbDoc = await docRef.get();
-  return bookModel.fromAPI(doc, authors);
+  return bookModel.fromAPI(authors, doc.data());
 };
 
 export default createBookOnAPI;

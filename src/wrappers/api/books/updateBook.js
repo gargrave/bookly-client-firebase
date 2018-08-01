@@ -27,7 +27,7 @@ const updateBookOnAPI = async (book: Book, authors: Author[]): Promise<?Book> =>
     .doc(id);
   await docRef.update(payload);
   const doc: FbDoc = await docRef.get();
-  return bookModel.fromAPI(doc, authors);
+  return bookModel.fromAPI(authors, doc.data());
 };
 
 export default updateBookOnAPI;
