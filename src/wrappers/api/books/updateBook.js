@@ -5,6 +5,7 @@ import type { FbDoc, FbDocRef } from '../../../wrappers/firebase/flowtypes';
 
 import { db, fbTimestamp } from '../../firebase';
 import { bookModel } from '../../../modules/books/models';
+import { parseFbDoc } from '../../firebase/firestoreHelpers';
 
 import { getCurrentUserId } from '../../auth';
 
@@ -27,7 +28,7 @@ const updateBookOnAPI = async (book: Book, authors: Author[]): Promise<?Book> =>
     .doc(id);
   await docRef.update(payload);
   const doc: FbDoc = await docRef.get();
-  return bookModel.fromAPI(authors, doc.data());
+  return bookModel.fromAPI(authors, parseFbDoc(doc));
 };
 
 export default updateBookOnAPI;

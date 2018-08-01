@@ -16,6 +16,23 @@ function convertTimestamp(timestamp: any) {
   return timestamp;
 }
 
+export function parseFbDoc(
+  doc: FbDoc,
+  parseFn?: Function,
+) {
+  let data: any = { id: doc.id, ...doc.data() };
+  if (data.created) {
+    data.created = convertTimestamp(data.created);
+  }
+  if (data.updated) {
+    data.updated = convertTimestamp(data.updated);
+  }
+  if (parseFn) {
+    data = parseFn(data);
+  }
+  return data;
+}
+
 export function parseCollection(
   coll: FbCollection,
   parseFn?: Function,
@@ -23,19 +40,7 @@ export function parseCollection(
   if (!coll.docs) {
     return [];
   }
-
-  return coll.docs.map((doc: FbDoc) => {
-    let data: any = { id: doc.id, ...doc.data() };
-    if (data.created) {
-      data.created = convertTimestamp(data.created);
-    }
-    if (data.updated) {
-      data.updated = convertTimestamp(data.updated);
-    }
-
-    if (parseFn) {
-      data = parseFn(data);
-    }
-    return data;
-  });
+  return coll.docs.map((doc: FbDoc) =>
+    parseFbDoc(doc, parseFn)
+  );
 };
