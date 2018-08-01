@@ -31,29 +31,27 @@ const AuthorDetailView = ({
   onDeleteClick,
   onEditClick,
   topLevelError,
-}: Props) => {
-  return (
-    <div className={styles.authorDetailView}>
-      {topLevelError &&
-        <Alert
-          message={topLevelError}
-          type="danger" />
-      }
+}: Props) => (
+  <div className={styles.authorDetailView}>
+    { topLevelError &&
+      <Alert
+        message={topLevelError}
+        type="danger" />
+    }
 
-      <AuthorDetailCard
-        author={author}
-        onBackClick={onBackClick}
-        onDeleteClick={onDeleteClick}
-        onEditClick={onEditClick} />
+    <AuthorDetailCard
+      author={author}
+      onBackClick={onBackClick}
+      onDeleteClick={onDeleteClick}
+      onEditClick={onEditClick} />
 
-      <AuthorBooksList
-        author={author}
-        books={booksForAuthor}
-        onBookAddClick={onBookAddClick}
-        onBookClick={onBookClick} />
-    </div>
-  );
-};
+    <AuthorBooksList
+      author={author}
+      books={booksForAuthor}
+      onBookAddClick={onBookAddClick}
+      onBookClick={onBookClick} />
+  </div>
+);
 
 AuthorDetailView.propTypes = {
   author: shape({

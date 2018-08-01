@@ -223,22 +223,22 @@ class BookDetailPage extends Component<Props, State> {
 
     return (
       <CardList>
-        {!book.id &&
+        { !book.id &&
           <Alert
             message={`No book found with id: ${bookId}`}
-            type={'info'}
-          />
+            type={'info'} />
         }
-        {book.id && !editing && (
+
+        { book.id && !editing && (
           <BookDetailView
             book={book}
             onBackClick={this.onBackClick}
             onDeleteClick={this.showDeleteDialog}
             onEditClick={this.onEditClick}
-            topLevelError={topLevelError}
-          />
+            topLevelError={topLevelError} />
         )}
-        {book.id && editing && (
+
+        { book.id && editing && (
           <BookEditView
             authors={authors}
             book={editableBook}
@@ -249,16 +249,15 @@ class BookDetailPage extends Component<Props, State> {
             onInputChange={this.onInputChange}
             onSubmit={this.onSubmit}
             submitDisabled={submitDisabled}
-            topLevelError={topLevelError}
-          />
+            topLevelError={topLevelError} />
         )}
-        {deleteDialogShowing &&
+
+        { deleteDialogShowing &&
           <Modal
             message={'Are you sure you want to delete this book?'}
             onCancel={this.hideDeleteDialog}
             onConfirm={this.onDeleteDialogConfirm}
-            title="Confirm Deletion"
-          />
+            title="Confirm Deletion" />
         }
       </CardList>
     );

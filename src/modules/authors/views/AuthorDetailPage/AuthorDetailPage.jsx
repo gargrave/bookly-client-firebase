@@ -211,13 +211,13 @@ class AuthorDetailPage extends Component<Props, State> {
 
     return (
       <CardList>
-        {!author.id &&
+        { !author.id &&
           <Alert
             message={`No author found with id: ${authorId}`}
-            type={'info'}
-          />
+            type={'info'} />
         }
-        {author.id && !editing &&
+
+        { author.id && !editing &&
           <AuthorDetailView
             author={author}
             booksForAuthor={booksForAuthor}
@@ -226,10 +226,10 @@ class AuthorDetailPage extends Component<Props, State> {
             onBookClick={this.onBookClick}
             onDeleteClick={this.showDeleteDialog}
             onEditClick={this.onEditClick}
-            topLevelError={topLevelError}
-          />
+            topLevelError={topLevelError} />
         }
-        {author.id && editing &&
+
+        { author.id && editing &&
           <AuthorEditView
             author={editableAuthor}
             disabled={formDisabled}
@@ -238,10 +238,10 @@ class AuthorDetailPage extends Component<Props, State> {
             onInputChange={this.onInputChange}
             onSubmit={this.onSubmit}
             submitDisabled={submitDisabled}
-            topLevelError={topLevelError}
-          />
+            topLevelError={topLevelError} />
         }
-        {deleteDialogShowing &&
+
+        { deleteDialogShowing &&
           <Modal
             message={[
               'Are you sure you want to delete this author?',
@@ -249,8 +249,7 @@ class AuthorDetailPage extends Component<Props, State> {
             ]}
             onCancel={this.hideDeleteDialog}
             onConfirm={this.onDeleteDialogConfirm}
-            title="Confirm Deletion"
-          />
+            title="Confirm Deletion" />
         }
       </CardList>
     );
