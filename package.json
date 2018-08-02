@@ -11,7 +11,9 @@
     "build-js": "node scripts/build.js",
     "build": "npm-run-all flow build-css build-js",
     "test": "node scripts/test.js --env=jsdom",
-    "flow": "flow"
+    "flow": "flow",
+    "deploy": "yarn build && firebase use default && firebase deploy",
+    "deploy:prod": "yarn build && firebase use prod && firebase deploy"
   },
   "dependencies": {
     "autoprefixer": "7.1.1",

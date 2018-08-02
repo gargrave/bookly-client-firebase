@@ -23,4 +23,9 @@ yarn-error.log*
 .vscode
 # compiled CSS files
 src/**/*.css
+
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules
 **/firebaseConfig.js
