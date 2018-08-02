@@ -3,20 +3,20 @@
   $topStart: 100%;
   $transition: top $duration;
 
-  &.slide-in-up-enter {
+  .slideInUp-enter {
     top: $topStart;
   }
 
-  &.slide-in-up-enter.slide-in-up-enter-active {
+  .slideInUp-enter-active {
     top: $topEnd;
     transition: $transition;
   }
 
-  &.slide-in-up-exit {
+  .slideInUp-exit {
     top: $topEnd;
   }
 
-  &.slide-in-up-exit.slide-in-up-exit-active {
+  .slideInUp-exit-active {
     top: $topStart;
     transition: $transition;
   }

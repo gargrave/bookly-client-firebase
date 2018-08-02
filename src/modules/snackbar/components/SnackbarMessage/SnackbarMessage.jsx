@@ -47,7 +47,7 @@ class SnackbarMessage extends React.Component<Props> {
         className={styles.snackbar}
         onClick={this.onSnackbarClick}>
         <div className={styles.message}>
-          {message}
+          { message }
         </div>
       </div>
     );

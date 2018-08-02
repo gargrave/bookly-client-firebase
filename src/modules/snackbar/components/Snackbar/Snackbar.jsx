@@ -5,6 +5,8 @@ import { array, func, shape } from 'prop-types';
 import { SlideInFromBottom } from '../../../common/components/hocs/Transitions';
 import SnackbarMessage from '../../components/SnackbarMessage/SnackbarMessage';
 
+import styles from '../SnackbarMessage/SnackbarMessage.css';
+
 type Props = {
   actions: Object,
   popSnackbar: Function,
@@ -14,6 +16,13 @@ type Props = {
 type State = {
   currentMessage: string,
   showing: boolean,
+};
+
+const styleNames={
+  enter: styles['slideInUp-enter'],
+  enterActive: styles['slideInUp-enter-active'],
+  exit: styles['slideInUp-exit'],
+  exitActive: styles['slideInUp-exit-active'],
 };
 
 class Snackbar extends React.Component<Props, State> {
@@ -73,13 +82,12 @@ class Snackbar extends React.Component<Props, State> {
       <SlideInFromBottom
         in={showing}
         onExited={this.onSnackbarExited}
-      >
-        {currentMessage &&
+        styleNames={styleNames}>
+        { currentMessage &&
           <SnackbarMessage
             message={currentMessage}
             onClick={this.beginSnackbarHide}
-            onSnackbarDuration={this.beginSnackbarHide}
-          />
+            onSnackbarDuration={this.beginSnackbarHide} />
         }
       </SlideInFromBottom>
     );

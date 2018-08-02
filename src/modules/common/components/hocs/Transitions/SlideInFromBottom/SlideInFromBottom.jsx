@@ -1,33 +1,35 @@
 // @flow
 import React, { Fragment } from 'react';
-import { any } from 'prop-types';
+import { any, object } from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
 type Props = {
   children?: any,
   props?: any,
+  styleNames: Object,
 };
 
 const SlideInFromBottom = ({
   children,
+  styleNames,
   ...props
 }: Props) => {
   return (
     <CSSTransition
       {...props}
-      timeout={175}
-      classNames="slide-in-up"
-    >
+      classNames={styleNames}
+      timeout={175}>
       <Fragment>
-        {children}
+        { children }
       </Fragment>
     </CSSTransition>
   );
 };
 
 SlideInFromBottom.propTypes = {
-  children: any,
+  children: any.isRequired,
   props: any,
+  styleNames: object.isRequired,
 };
 
 export default SlideInFromBottom;

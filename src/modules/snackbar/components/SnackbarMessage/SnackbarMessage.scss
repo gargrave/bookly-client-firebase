@@ -11,10 +11,6 @@
   position: fixed;
   transform: translateX(-50%);
   width: auto;
-
-  $transitionHeight: 46px;
-  $transitionDuration: 175ms;
-  @include slideInFromViewportBottom($transitionHeight, $transitionDuration);
 }
 
 .message {
@@ -28,3 +24,7 @@
     width: 100%;
   }
 }
+
+$transitionHeight: 46px;
+$transitionDuration: 175ms;
+@include slideInFromViewportBottom($transitionHeight, $transitionDuration);
