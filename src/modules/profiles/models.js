@@ -1,5 +1,4 @@
 // @flow
-import type { FbDoc } from '../../wrappers/firebase/flowtypes';
 import type { Profile, ProfileErrors } from './flowtypes';
 
 export const profileModel = {
@@ -41,18 +40,19 @@ export const profileModel = {
     return payload;
   },
 
-  fromAPI(doc: FbDoc): Profile {
+  fromAPI(profile: Profile): Profile {
     const {
       created,
       firstName,
+      id,
       lastName,
       updated,
-    } = doc.data();
+    } = profile;
 
     return {
       created,
       firstName,
-      id: doc.id,
+      id,
       lastName,
       updated,
     };

@@ -2,8 +2,9 @@
 import type { FbDoc, FbDocRef } from '../../../wrappers/firebase/flowtypes';
 import type { Profile } from '../../../modules/profiles/flowtypes';
 
-import { db, fbTimestamp } from '../../firebase';
 import { profileModel } from '../../../modules/profiles/models';
+import { db, fbTimestamp } from '../../firebase';
+import { parseFbDoc } from '../../firebase/firestoreHelpers';
 
 import { getCurrentUserId } from '../../auth';
 
@@ -27,7 +28,7 @@ const createProfileOnAPI = async (): Promise<?Profile> => {
   await docRef.set(payload);
 
   const doc: FbDoc = await docRef.get();
-  return profileModel.fromAPI(doc);
+  return profileModel.fromAPI(parseFbDoc(doc));
 };
 
 export default createProfileOnAPI;

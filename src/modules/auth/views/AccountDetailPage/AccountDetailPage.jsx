@@ -101,12 +101,12 @@ class AccountDetailPage extends Component<Props, State> {
 
   onSubmit = async (event: any) => {
     event.preventDefault();
-    const profile = this.state.editableProfile;
-    const errors = validateProfile(profile);
+    const errors = validateProfile(this.state.editableProfile);
+
     if (errors.found) {
       this.setState({ errors });
     } else {
-        this.setState({
+      this.setState({
         errors: profileModel.emptyErrors(),
         formDisabled: true,
         topLevelError: '',
@@ -117,7 +117,7 @@ class AccountDetailPage extends Component<Props, State> {
             ...this.state.editableProfile,
           });
 
-          await this.props.actions.updateProfile(profile);
+          await this.props.profileActions.updateProfile(profile);
           this.setState({
             editing: false,
             formDisabled: false,
@@ -158,8 +158,7 @@ class AccountDetailPage extends Component<Props, State> {
         onVerifyAccountClick={this.onVerifyAccountClick}
         profile={profile}
         user={user}
-        verificationEmailHasBeenSent={verificationEmailHasBeenSent}
-      />
+        verificationEmailHasBeenSent={verificationEmailHasBeenSent} />
     );
   }
 
@@ -181,8 +180,7 @@ class AccountDetailPage extends Component<Props, State> {
         onSubmit={this.onSubmit}
         profile={editableProfile}
         submitDisabled={submitDisabled}
-        topLevelError={topLevelError}
-      />
+        topLevelError={topLevelError} />
     );
   }
 
