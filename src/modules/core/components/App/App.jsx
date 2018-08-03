@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { func, shape } from 'prop-types';
 
+import { isDevEnv } from '../../../../globals/env';
 import { localUrls } from '../../../../globals/urls';
 import { firebaseAuth } from '../../../../wrappers/firebase';
 
@@ -13,6 +14,7 @@ import Router from '../../Router';
 import styles from './App.css';
 
 const HEADER_HEIGHT = 50;
+const TITLE = `Bookly${isDevEnv() ? ' (dev)' : ''}`;
 
 const extraStyles = {
   marginTop: Math.floor(HEADER_HEIGHT * 1.5),
@@ -80,7 +82,7 @@ class App extends Component {
             loggedIn={loggedIn}
             loggedInLinks={loggedInLinks}
             notLoggedInLinks={notLoggedInLinks}
-            title="Bookly" />
+            title={TITLE} />
           <main>
             <Router />
           </main>

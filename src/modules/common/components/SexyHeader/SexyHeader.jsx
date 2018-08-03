@@ -22,6 +22,15 @@ const extraStyles = (height?: number) => ({
 });
 
 class SexyHeader extends React.Component<Props> {
+  static propTypes = {
+    height: number,
+    history: object,
+    loggedIn: bool,
+    loggedInLinks: array,
+    notLoggedInLinks: array,
+    title: string,
+  };
+
   isActiveLink(linkTo: string) {
     return this.props.history.location.pathname === linkTo;
   }
@@ -68,14 +77,5 @@ class SexyHeader extends React.Component<Props> {
     );
   }
 }
-
-SexyHeader.propTypes = {
-  height: number,
-  history: object,
-  loggedIn: bool,
-  loggedInLinks: array,
-  notLoggedInLinks: array,
-  title: string,
-};
 
 export default withRouter(SexyHeader);
