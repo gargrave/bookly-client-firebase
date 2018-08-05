@@ -71,7 +71,10 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn } = this.state;
+    const links = this.state.loggedIn
+      ? loggedInLinks
+      : notLoggedInLinks;
+
     return (
       <BrowserRouter>
         <div
@@ -79,9 +82,7 @@ class App extends Component {
           style={extraStyles}>
           <SexyHeader
             height={HEADER_HEIGHT}
-            loggedIn={loggedIn}
-            loggedInLinks={loggedInLinks}
-            notLoggedInLinks={notLoggedInLinks}
+            links={links}
             title={TITLE} />
           <main>
             <Router />
