@@ -10,13 +10,13 @@ export type FbDocRef = {
   delete: Function,
   set: Function,
   update: Function,
-};
+}
 
 export type FbCollection = {
   docs: FbDoc[],
-};
+}
 
 export type FbError = {
   code: string,
   message: string,
-};
+}

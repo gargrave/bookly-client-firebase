@@ -1,6 +1,4 @@
 // @flow
-import { validationErrors } from './validationErrors';
+import { validationErrors } from './validationErrors'
 
-export {
-  validationErrors,
-};
+export { validationErrors }

@@ -21,4 +21,4 @@ export let localUrls = {
   booksList: '/books',
   bookCreate: '/books/new',
   bookDetail: '/books/:id',
-};
+}

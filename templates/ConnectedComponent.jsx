@@ -1,12 +1,10 @@
 // @flow
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 
-type Props = {
-};
+type Props = {}
 
-type State = {
-};
+type State = {}
 
 class COMPONENT_NAME extends React.Component<Props, State> {
   render() {
@@ -14,18 +12,20 @@ class COMPONENT_NAME extends React.Component<Props, State> {
       <div>
         <h2>COMPONENT_NAME</h2>
       </div>
-    );
+    )
   }
 }
 
-COMPONENT_NAME.propTypes = {
-};
+COMPONENT_NAME.propTypes = {}
 
 /* eslint-disable no-unused-vars */
 const mapStateToProps = (state: any, ownProps: any) => {
-  return {};
-};
+  return {}
+}
 
-const mapDispatchToProps = (dispatch: any, ownProps: any) => ({});
+const mapDispatchToProps = (dispatch: any, ownProps: any) => ({})
 
-export default connect(mapStateToProps, mapDispatchToProps)(COMPONENT_NAME);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(COMPONENT_NAME)

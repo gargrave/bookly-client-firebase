@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import './wrappers/firebase'; // initialize Firebase
+import './wrappers/firebase' // initialize Firebase
 
-import AppWrapper from './modules/core/AppWrapper';
-import registerServiceWorker from './registerServiceWorker';
+import AppWrapper from './modules/core/AppWrapper'
+import registerServiceWorker from './registerServiceWorker'
 
-import './index.css';
+import './index.css'
 
-ReactDOM.render(<AppWrapper />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(<AppWrapper />, document.getElementById('root'))
+registerServiceWorker()

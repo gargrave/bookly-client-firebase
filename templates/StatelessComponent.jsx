@@ -1,18 +1,16 @@
 // @flow
-import React from 'react';
+import React from 'react'
 
-type Props = {
-};
+type Props = {}
 
-const COMPONENT_NAME = ({}: Props) => {
+const COMPONENT_NAME = ({  }: Props) => {
   return (
     <div>
       <h2>COMPONENT_NAME</h2>
     </div>
-  );
-};
+  )
+}
 
-COMPONENT_NAME.propTypes = {
-};
+COMPONENT_NAME.propTypes = {}
 
-export default COMPONENT_NAME;
+export default COMPONENT_NAME

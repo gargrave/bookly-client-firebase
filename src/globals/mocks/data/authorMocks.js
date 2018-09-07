@@ -31,8 +31,6 @@ const authorMocks = [
     lastName: 'Robbins',
     bookCount: 1,
   },
-];
+]
 
-export {
-  authorMocks,
-};
+export { authorMocks }

@@ -1,19 +1,19 @@
 // @flow
-import React from 'react';
-import { array, bool, func, string } from 'prop-types';
+import React from 'react'
+import { array, bool, func, string } from 'prop-types'
 
-import type { Book } from '../../flowtypes';
+import type { Book } from '../../flowtypes'
 
-import { bucketedBookList, flatBookList } from './helpers';
+import { bucketedBookList, flatBookList } from './helpers'
 
-import Alert from '../../../common/components/Alert/Alert';
+import Alert from '../../../common/components/Alert/Alert'
 
 type Props = {
   books: Book[],
   filterBy?: string,
   onBookClick: Function,
   groupBooksByAuthor?: boolean,
-};
+}
 
 const renderBookList = (
   books: Book[],
@@ -23,34 +23,28 @@ const renderBookList = (
 ) => {
   return groupBooksByAuthor
     ? bucketedBookList(books, onBookClick, filterBy)
-    : flatBookList(books, onBookClick, filterBy);
-};
+    : flatBookList(books, onBookClick, filterBy)
+}
 
 const noBooksMessage = () => {
-  return (
-    <Alert
-      message={'No Books created yet!'}
-      type={'info'}
-    />
-  );
-};
+  return <Alert message={'No Books created yet!'} type={'info'} />
+}
 
 const BookList = ({
   books,
   filterBy,
   onBookClick,
   groupBooksByAuthor,
-}: Props) => (
+}: Props) =>
   books.length
     ? renderBookList(books, onBookClick, filterBy, groupBooksByAuthor)
     : noBooksMessage()
-);
 
 BookList.propTypes = {
   books: array.isRequired,
   filterBy: string,
   onBookClick: func.isRequired,
   groupBooksByAuthor: bool,
-};
+}
 
-export default BookList;
+export default BookList

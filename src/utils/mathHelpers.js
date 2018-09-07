@@ -1,9 +1,9 @@
 export function clamp(val, min, max) {
   if (val < min) {
-    return min;
+    return min
   }
   if (val > max) {
-    return max;
+    return max
   }
-  return val;
+  return val
 }
