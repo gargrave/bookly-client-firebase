@@ -113,6 +113,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "flow-bin": "^0.61.0"
+    "flow-bin": "^0.61.0",
+    "prettier": "^1.14.2"
   }
 }
