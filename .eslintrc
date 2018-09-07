@@ -15,7 +15,6 @@
     "jest": true
   },
   "rules": {
-    "arrow-parens": "warn",
     "comma-dangle": ["warn", "always-multiline"],
     "no-debugger": "warn",
     "no-unused-vars": "warn",
