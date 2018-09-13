@@ -13,7 +13,8 @@
     "test": "node scripts/test.js --env=jsdom",
     "flow": "flow",
     "deploy": "yarn build && firebase use default && firebase deploy",
-    "deploy:prod": "yarn build && firebase use prod && firebase deploy"
+    "deploy:prod": "yarn build && firebase use prod && firebase deploy",
+    "prettier": "prettier --config ./.prettierrc --write './src/**/*.{js,jsx}'"
   },
   "dependencies": {
     "autoprefixer": "7.1.1",
