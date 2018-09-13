@@ -1,14 +1,14 @@
 // @flow
-import React from 'react';
-import { any, array, func, bool, string} from 'prop-types';
+import React from 'react'
+import { any, array, func, bool, string } from 'prop-types'
 
-import { buildClass } from '../../../../utils/cssHelpers';
+import { buildClass } from '../../../../utils/cssHelpers'
 
-import Alert from '../Alert/Alert';
-import Button from '../Button/Button';
-import ButtonRow from '../ButtonRow/ButtonRow';
+import Alert from '../Alert/Alert'
+import Button from '../Button/Button'
+import ButtonRow from '../ButtonRow/ButtonRow'
 
-import styles from './Form.css';
+import styles from './Form.css'
 
 type Props = {
   cancelBtnText?: string,
@@ -20,7 +20,7 @@ type Props = {
   submitBtnText?: string,
   submitDisabled?: boolean,
   topLevelError?: string,
-};
+}
 
 const Form = ({
   cancelBtnText,
@@ -35,17 +35,13 @@ const Form = ({
 }: Props) => {
   return (
     <div>
-      { topLevelError &&
-        <Alert
-          message={topLevelError}
-          type="danger" />
-      }
+      {topLevelError && <Alert message={topLevelError} type="danger" />}
       <form
-        className={buildClass(styles.form, ...classes || [])}
+        className={buildClass(styles.form, ...(classes || []))}
         onSubmit={onSubmit}
-        noValidate>
-
-        { children }
+        noValidate
+      >
+        {children}
 
         <ButtonRow>
           <Button
@@ -54,20 +50,22 @@ const Form = ({
             onClick={onSubmit}
             position="left"
             text={submitBtnText || 'Submit'}
-            type="success" />
+            type="success"
+          />
 
-          { onCancel &&
+          {onCancel && (
             <Button
               onClick={onCancel}
               position="right"
               text={cancelBtnText || 'Cancel'}
-              type="light" />
-          }
+              type="light"
+            />
+          )}
         </ButtonRow>
       </form>
     </div>
-  );
-};
+  )
+}
 
 Form.propTypes = {
   cancelBtnText: string,
@@ -79,6 +77,6 @@ Form.propTypes = {
   submitBtnText: string,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default Form;
+export default Form

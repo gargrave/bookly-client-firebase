@@ -1,15 +1,12 @@
 // @flow
-import React from 'react';
-import { bool, func, oneOf, string } from 'prop-types';
+import React from 'react'
+import { bool, func, oneOf, string } from 'prop-types'
 
-import { buildClass } from '../../../../utils/cssHelpers';
+import { buildClass } from '../../../../utils/cssHelpers'
 
-import styles from './Button.css';
+import styles from './Button.css'
 
-export const POSITIONS = [
-  'left',
-  'right',
-];
+export const POSITIONS = ['left', 'right']
 
 export const TYPES = [
   'success',
@@ -19,7 +16,7 @@ export const TYPES = [
   'danger',
   'light',
   'dark',
-];
+]
 
 type Props = {
   canSubmit?: boolean,
@@ -28,7 +25,7 @@ type Props = {
   position?: string,
   text: string,
   type?: string,
-};
+}
 
 const Button = ({
   canSubmit,
@@ -43,14 +40,15 @@ const Button = ({
       styles.button,
       { [styles[position]]: !!position },
       'button',
-      { [`button-${type}`]: !!type }
+      { [`button-${type}`]: !!type },
     )}
     disabled={disabled || false}
     onClick={onClick}
-    type={canSubmit ? 'submit' : 'button'}>
+    type={canSubmit ? 'submit' : 'button'}
+  >
     {text}
   </button>
-);
+)
 
 Button.propTypes = {
   canSubmit: bool,
@@ -59,6 +57,6 @@ Button.propTypes = {
   position: oneOf(POSITIONS),
   text: string.isRequired,
   type: oneOf(TYPES),
-};
+}
 
-export default Button;
+export default Button

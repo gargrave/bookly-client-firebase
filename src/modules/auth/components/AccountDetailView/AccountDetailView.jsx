@@ -1,21 +1,18 @@
 // @flow
-import React from 'react';
-import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types';
+import React from 'react'
+import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types'
 
-import type { User } from '../../flowtypes';
-import type { Profile } from '../../../profiles/flowtypes';
+import type { User } from '../../flowtypes'
+import type { Profile } from '../../../profiles/flowtypes'
 
-import {
-  userBasicDetailsTextList,
-  userRegDetailsTextList,
-} from './helpers';
+import { userBasicDetailsTextList, userRegDetailsTextList } from './helpers'
 
-import Button from '../../../common/components/Button/Button';
-import ButtonRow from '../../../common/components/ButtonRow/ButtonRow';
-import Card from '../../../common/components/Card/Card';
-import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice';
+import Button from '../../../common/components/Button/Button'
+import ButtonRow from '../../../common/components/ButtonRow/ButtonRow'
+import Card from '../../../common/components/Card/Card'
+import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice'
 
-import styles from './AccountDetailView.css';
+import styles from './AccountDetailView.css'
 
 type Props = {
   onEditClick: Function,
@@ -24,7 +21,7 @@ type Props = {
   profile: Profile,
   user: User,
   verificationEmailHasBeenSent: boolean,
-};
+}
 
 const AccountDetailView = ({
   onEditClick,
@@ -36,9 +33,7 @@ const AccountDetailView = ({
 }: Props) => {
   return (
     <div className={styles.accountDetailView}>
-      <Card
-        header="My Account">
-
+      <Card header="My Account">
         <Card.Spacer />
         <Card.TextList textList={userBasicDetailsTextList(user, profile)} />
         <Card.Spacer />
@@ -50,23 +45,26 @@ const AccountDetailView = ({
             onClick={onLogoutClick}
             position="left"
             text="Logout"
-            type="info" />
+            type="info"
+          />
           <Button
             onClick={onEditClick}
             position="right"
             text="Edit"
-            type="secondary" />
+            type="secondary"
+          />
         </ButtonRow>
       </Card>
 
-      {!user.emailVerified &&
+      {!user.emailVerified && (
         <VerifyAccountNotice
           emailHasBeenSent={verificationEmailHasBeenSent}
-          onSendLinkClick={onVerifyAccountClick} />
-      }
+          onSendLinkClick={onVerifyAccountClick}
+        />
+      )}
     </div>
-  );
-};
+  )
+}
 
 AccountDetailView.propTypes = {
   onEditClick: func.isRequired,
@@ -75,16 +73,10 @@ AccountDetailView.propTypes = {
   user: shape({
     email: string,
     emailVerified: bool,
-    lastLogin: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
-    registered: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
+    lastLogin: oneOfType([instanceOf(Date), string]),
+    registered: oneOfType([instanceOf(Date), string]),
   }).isRequired,
   verificationEmailHasBeenSent: bool.isRequired,
-};
+}
 
-export default AccountDetailView;
+export default AccountDetailView

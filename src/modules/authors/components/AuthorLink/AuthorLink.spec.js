@@ -1,22 +1,20 @@
-import { ComponentBuilder } from '../../../../utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers'
 
-import { authorMocks } from '../../../../globals/mocks';
+import { authorMocks } from '../../../../globals/mocks'
 
-import AuthorLink from './AuthorLink';
+import AuthorLink from './AuthorLink'
 
 const defaultProps = {
   author: authorMocks[0],
-};
+}
 
-const builder = new ComponentBuilder(
-  AuthorLink, defaultProps,
-);
+const builder = new ComponentBuilder(AuthorLink, defaultProps)
 
 describe('AuthorLink', () => {
-  let component;
+  let component
 
   it('matches the snapshot', () => {
-    component = builder.shallowGetComponent();
-    expect(component).toMatchSnapshot();
-  });
-});
+    component = builder.shallowGetComponent()
+    expect(component).toMatchSnapshot()
+  })
+})

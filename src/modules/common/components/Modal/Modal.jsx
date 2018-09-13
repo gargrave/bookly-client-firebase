@@ -1,13 +1,13 @@
 // @flow
-import React from 'react';
-import { array, func, oneOfType, string } from 'prop-types';
+import React from 'react'
+import { array, func, oneOfType, string } from 'prop-types'
 
-import ModalBackdrop from './ModalBackdrop/ModalBackdrop';
-import ModalBody from './ModalBody/ModalBody';
-import ModalFooter from './ModalFooter/ModalFooter';
-import ModalHeader from './ModalHeader/ModalHeader';
+import ModalBackdrop from './ModalBackdrop/ModalBackdrop'
+import ModalBody from './ModalBody/ModalBody'
+import ModalFooter from './ModalFooter/ModalFooter'
+import ModalHeader from './ModalHeader/ModalHeader'
 
-import styles from './Modal.css';
+import styles from './Modal.css'
 
 type Props = {
   cancelText?: string,
@@ -16,7 +16,7 @@ type Props = {
   onCancel: Function,
   onConfirm: Function,
   title?: string,
-};
+}
 
 const Modal = ({
   cancelText,
@@ -29,20 +29,19 @@ const Modal = ({
   return (
     <div className={styles.modal}>
       <div className={styles.modalWrapper}>
-        <ModalHeader
-          title={title} />
-        <ModalBody
-          message={message} />
+        <ModalHeader title={title} />
+        <ModalBody message={message} />
         <ModalFooter
           cancelText={cancelText}
           confirmText={confirmText}
           onCancel={onCancel}
-          onConfirm={onConfirm} />
+          onConfirm={onConfirm}
+        />
       </div>
       <ModalBackdrop onClick={onCancel} />
     </div>
-  );
-};
+  )
+}
 
 Modal.propTypes = {
   cancelText: string,
@@ -51,6 +50,6 @@ Modal.propTypes = {
   onCancel: func.isRequired,
   onConfirm: func.isRequired,
   title: string,
-};
+}
 
-export default Modal;
+export default Modal

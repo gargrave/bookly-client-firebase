@@ -1,19 +1,19 @@
 // @flow
-import React, { Fragment } from 'react';
-import { array, func, string } from 'prop-types';
+import React, { Fragment } from 'react'
+import { array, func, string } from 'prop-types'
 
-import type { Book } from '../../flowtypes';
+import type { Book } from '../../flowtypes'
 
-import Alert from '../../../common/components/Alert/Alert';
-import BookList from '../../components/BookList/BookList';
-import InputField from '../../../common/components/InputField/InputField';
+import Alert from '../../../common/components/Alert/Alert'
+import BookList from '../../components/BookList/BookList'
+import InputField from '../../../common/components/InputField/InputField'
 
 type Props = {
   books: Book[],
   onBookClick: Function,
   onInputChange: Function,
   searchValue: string,
-};
+}
 
 const BooksListVerified = ({
   books,
@@ -30,12 +30,12 @@ const BooksListVerified = ({
         placeholder={'Filter by title...'}
         type="search"
       />
-      {searchValue &&
+      {searchValue && (
         <Alert
           message={`Showing results matching "${searchValue}"`}
           type="info"
         />
-      }
+      )}
       <BookList
         books={books}
         filterBy={searchValue}
@@ -43,14 +43,14 @@ const BooksListVerified = ({
         groupBooksByAuthor={true}
       />
     </Fragment>
-  );
-};
+  )
+}
 
 BooksListVerified.propTypes = {
   books: array,
   onBookClick: func.isRequired,
   onInputChange: func.isRequired,
   searchValue: string,
-};
+}
 
-export default BooksListVerified;
+export default BooksListVerified

@@ -1,24 +1,27 @@
 // @flow
-import React, { Fragment } from 'react';
-import { func, shape, string } from 'prop-types';
+import React, { Fragment } from 'react'
+import { func, shape, string } from 'prop-types'
 
-import type { PasswordReset, PasswordResetErrors } from '../../flowtypes';
+import type { PasswordReset, PasswordResetErrors } from '../../flowtypes'
 
-import { sendPasswordResetEmail } from '../../../../wrappers/auth';
-import { passwordResetModel } from '../../../auth/models';
-import { passwordResetHasAllFields, validatePasswordReset } from '../../../auth/validators';
+import { sendPasswordResetEmail } from '../../../../wrappers/auth'
+import { passwordResetModel } from '../../../auth/models'
+import {
+  passwordResetHasAllFields,
+  validatePasswordReset,
+} from '../../../auth/validators'
 
-import Card from '../../../common/components/Card/Card';
-import CardList from '../../../common/components/CardList/CardList';
-import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm';
+import Card from '../../../common/components/Card/Card'
+import CardList from '../../../common/components/CardList/CardList'
+import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm'
 
-import styles from './PasswordResetPage.css';
+import styles from './PasswordResetPage.css'
 
 type Props = {
   actions: Object,
   passwordResetEmailSentTo: string,
   snackbarActions: Object,
-};
+}
 
 type State = {
   errors: PasswordResetErrors,
@@ -26,7 +29,7 @@ type State = {
   model: PasswordReset,
   submitDisabled: boolean,
   topLevelError: string,
-};
+}
 
 class PasswordResetPage extends React.Component<Props, State> {
   static propTypes = {
@@ -37,10 +40,10 @@ class PasswordResetPage extends React.Component<Props, State> {
     snackbarActions: shape({
       createSnackbar: func.isRequired,
     }),
-  };
+  }
 
   constructor(props: any) {
-    super(props);
+    super(props)
 
     this.state = {
       errors: passwordResetModel.emptyErrors(),
@@ -48,44 +51,47 @@ class PasswordResetPage extends React.Component<Props, State> {
       submitDisabled: true,
       topLevelError: '',
       model: passwordResetModel.empty(),
-    };
+    }
   }
 
   onInputChange = (e: any) => {
-    const key = e.target.name;
+    const key = e.target.name
     if (key in this.state.model) {
-      const model = { ...this.state.model };
-      model[key] = e.target.value;
-      const submitDisabled = !passwordResetHasAllFields(model);
-      this.setState({ model, submitDisabled });
+      const model = { ...this.state.model }
+      model[key] = e.target.value
+      const submitDisabled = !passwordResetHasAllFields(model)
+      this.setState({ model, submitDisabled })
     }
   }
 
   onSubmit = async (e: any) => {
-    e.preventDefault();
-    const model = this.state.model;
-    const errors = validatePasswordReset(model);
+    e.preventDefault()
+    const model = this.state.model
+    const errors = validatePasswordReset(model)
     if (errors.hasErrors) {
-      this.setState({ errors });
-      return;
+      this.setState({ errors })
+      return
     }
 
-    this.setState({
-      errors: passwordResetModel.emptyErrors(),
-      formDisabled: true,
-      topLevelError: '',
-    }, async () => {
-      try {
-        await sendPasswordResetEmail(model.email);
-        this.props.actions.markPasswordResetEmailSent(model.email);
-      } catch (err) {
-        const topLevelError = 'This was an error sending the email.';
-        this.props.snackbarActions.createSnackbar(topLevelError);
-        this.setState({ topLevelError });
-      } finally {
-        this.setState({ formDisabled: false });
-      }
-    });
+    this.setState(
+      {
+        errors: passwordResetModel.emptyErrors(),
+        formDisabled: true,
+        topLevelError: '',
+      },
+      async () => {
+        try {
+          await sendPasswordResetEmail(model.email)
+          this.props.actions.markPasswordResetEmailSent(model.email)
+        } catch (err) {
+          const topLevelError = 'This was an error sending the email.'
+          this.props.snackbarActions.createSnackbar(topLevelError)
+          this.setState({ topLevelError })
+        } finally {
+          this.setState({ formDisabled: false })
+        }
+      },
+    )
   }
 
   renderForm() {
@@ -99,7 +105,7 @@ class PasswordResetPage extends React.Component<Props, State> {
         submitDisabled={this.state.submitDisabled}
         topLevelError={this.state.topLevelError}
       />
-    );
+    )
   }
 
   renderAlreadySentMessage() {
@@ -107,15 +113,20 @@ class PasswordResetPage extends React.Component<Props, State> {
       <Fragment>
         <Card.Spacer />
         <Card.TextLine text={'Password reset email has been sent to:'} />
-        <Card.TextLine bold text={this.props.passwordResetEmailSentTo || 'fakeemail@gmail.com'} />
+        <Card.TextLine
+          bold
+          text={this.props.passwordResetEmailSentTo || 'fakeemail@gmail.com'}
+        />
         <Card.Spacer />
-        <Card.TextLine text={'Follow the link in this email to reset your password.'} />
+        <Card.TextLine
+          text={'Follow the link in this email to reset your password.'}
+        />
       </Fragment>
-    );
+    )
   }
 
   render() {
-    const { passwordResetEmailSentTo } = this.props;
+    const { passwordResetEmailSentTo } = this.props
     return (
       <div className={styles.passwordResetView}>
         <CardList>
@@ -125,8 +136,8 @@ class PasswordResetPage extends React.Component<Props, State> {
           </Card>
         </CardList>
       </div>
-    );
+    )
   }
 }
 
-export default PasswordResetPage;
+export default PasswordResetPage

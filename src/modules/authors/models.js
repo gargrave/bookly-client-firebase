@@ -1,19 +1,19 @@
 // @flow
-import type { Author, AuthorErrors } from './flowtypes';
+import type { Author, AuthorErrors } from './flowtypes'
 
 export const authorModel = {
   empty(): Author {
     return {
       firstName: '',
       lastName: '',
-    };
+    }
   },
 
   emptyErrors(): AuthorErrors {
     return {
       firstName: '',
       lastName: '',
-    };
+    }
   },
 
   editable(author: Author): Author {
@@ -22,32 +22,26 @@ export const authorModel = {
       firstName: author.firstName,
       id: author.id,
       lastName: author.lastName,
-    };
+    }
   },
 
   toAPI(data: Author): Author {
     let payload: any = {
       firstName: data.firstName.trim() || '',
       lastName: data.lastName.trim() || '',
-    };
+    }
 
-    ['id', 'created'].forEach((val) => {
+    ;['id', 'created'].forEach(val => {
       if (data[val]) {
-        payload[val] = data[val];
+        payload[val] = data[val]
       }
-    });
+    })
 
-    return payload;
+    return payload
   },
 
   fromAPI(author: Author): Author {
-    const {
-      created,
-      firstName,
-      id,
-      lastName,
-      updated,
-    } = author;
+    const { created, firstName, id, lastName, updated } = author
 
     return {
       created,
@@ -55,6 +49,6 @@ export const authorModel = {
       id,
       lastName,
       updated,
-    };
+    }
   },
-};
+}

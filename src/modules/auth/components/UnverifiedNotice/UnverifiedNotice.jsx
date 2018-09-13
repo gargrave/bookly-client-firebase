@@ -1,31 +1,30 @@
 // @flow
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import { localUrls } from '../../../../globals/urls';
-import Alert from '../../../common/components/Alert/Alert';
+import { localUrls } from '../../../../globals/urls'
+import Alert from '../../../common/components/Alert/Alert'
 
-import styles from './UnverifiedNotice.css';
+import styles from './UnverifiedNotice.css'
 
-type Props = {
-};
+type Props = {}
 
-const UnverifiedNotice = ({}: Props) => {
+const UnverifiedNotice = ({  }: Props) => {
   return (
     <div className={styles.unverifiedNotice}>
       <Alert
         message={'You must verify your email address before proceeding.'}
-        type="warning">
+        type="warning"
+      >
         <p>
-          You can request a new verification link from
-          your <Link to={localUrls.account}>Account Page</Link>.
+          You can request a new verification link from your{' '}
+          <Link to={localUrls.account}>Account Page</Link>.
         </p>
       </Alert>
     </div>
-  );
-};
+  )
+}
 
-UnverifiedNotice.propTypes = {
-};
+UnverifiedNotice.propTypes = {}
 
-export default UnverifiedNotice;
+export default UnverifiedNotice

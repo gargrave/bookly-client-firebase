@@ -6,9 +6,9 @@ export type Author = {
   firstName: string,
   lastName: string,
   updated?: Date | string,
-};
+}
 
 export type AuthorErrors = {
   firstName: string,
   lastName: string,
-};
+}

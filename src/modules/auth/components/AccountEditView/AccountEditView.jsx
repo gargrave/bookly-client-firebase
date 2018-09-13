@@ -1,13 +1,13 @@
 // @flow
-import React from 'react';
-import { bool, func, object, string } from 'prop-types';
+import React from 'react'
+import { bool, func, object, string } from 'prop-types'
 
-import type { Profile } from '../../../profiles/flowtypes';
+import type { Profile } from '../../../profiles/flowtypes'
 
-import AccountForm from '../AccountForm/AccountForm';
-import Card from '../../../common/components/Card/Card';
+import AccountForm from '../AccountForm/AccountForm'
+import Card from '../../../common/components/Card/Card'
 
-import styles from './AccountEditView.css';
+import styles from './AccountEditView.css'
 
 type Props = {
   disabled: boolean,
@@ -18,7 +18,7 @@ type Props = {
   profile: Profile,
   submitDisabled: boolean,
   topLevelError: string,
-};
+}
 
 const AccountEditView = ({
   disabled,
@@ -32,8 +32,7 @@ const AccountEditView = ({
 }: Props) => {
   return (
     <div className={styles.accountEditView}>
-      <Card
-        header="Update My Account">
+      <Card header="Update My Account">
         <AccountForm
           disabled={disabled}
           errors={errors}
@@ -42,11 +41,12 @@ const AccountEditView = ({
           onSubmit={onSubmit}
           profile={profile}
           submitDisabled={submitDisabled}
-          topLevelError={topLevelError} />
+          topLevelError={topLevelError}
+        />
       </Card>
     </div>
-  );
-};
+  )
+}
 
 AccountEditView.propTypes = {
   disabled: bool.isRequired,
@@ -57,6 +57,6 @@ AccountEditView.propTypes = {
   profile: object.isRequired,
   submitDisabled: bool.isRequired,
   topLevelError: string,
-};
+}
 
-export default AccountEditView;
+export default AccountEditView

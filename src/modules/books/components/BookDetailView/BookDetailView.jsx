@@ -1,13 +1,13 @@
 // @flow
-import React from 'react';
-import { func, instanceOf, oneOfType, shape, string } from 'prop-types';
+import React from 'react'
+import { func, instanceOf, oneOfType, shape, string } from 'prop-types'
 
-import type { Book } from '../../flowtypes';
+import type { Book } from '../../flowtypes'
 
-import Alert from '../../../common/components/Alert/Alert';
-import BookDetailCard from './BookDetailCard/BookDetailCard';
+import Alert from '../../../common/components/Alert/Alert'
+import BookDetailCard from './BookDetailCard/BookDetailCard'
 
-import styles from './BookDetailView.css';
+import styles from './BookDetailView.css'
 
 type Props = {
   book: Book,
@@ -15,7 +15,7 @@ type Props = {
   onDeleteClick: Function,
   onEditClick: Function,
   topLevelError?: string,
-};
+}
 
 const BookDetailView = ({
   book,
@@ -26,12 +26,7 @@ const BookDetailView = ({
 }: Props) => {
   return (
     <div className={styles.bookDetailView}>
-      {topLevelError &&
-        <Alert
-          message={topLevelError}
-          type="danger"
-        />
-      }
+      {topLevelError && <Alert message={topLevelError} type="danger" />}
       <BookDetailCard
         book={book}
         onBackClick={onBackClick}
@@ -39,19 +34,13 @@ const BookDetailView = ({
         onEditClick={onEditClick}
       />
     </div>
-  );
-};
+  )
+}
 
 BookDetailView.propTypes = {
   book: shape({
-    created: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
-    updated: oneOfType([
-      instanceOf(Date),
-      string,
-    ]),
+    created: oneOfType([instanceOf(Date), string]),
+    updated: oneOfType([instanceOf(Date), string]),
     author: shape({
       firstName: string,
       lastName: string,
@@ -62,6 +51,6 @@ BookDetailView.propTypes = {
   onDeleteClick: func.isRequired,
   onEditClick: func.isRequired,
   topLevelError: string,
-};
+}
 
-export default BookDetailView;
+export default BookDetailView

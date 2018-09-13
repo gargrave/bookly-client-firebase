@@ -13,4 +13,4 @@ export const profileMocks = [
     firstName: 'Bobby',
     lastName: 'Johnson',
   },
-];
+]

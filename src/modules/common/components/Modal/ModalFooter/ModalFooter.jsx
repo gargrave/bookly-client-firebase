@@ -1,18 +1,18 @@
 // @flow
-import React from 'react';
-import { func, string } from 'prop-types';
+import React from 'react'
+import { func, string } from 'prop-types'
 
-import Button from '../../Button/Button';
-import ButtonRow from '../../ButtonRow/ButtonRow';
+import Button from '../../Button/Button'
+import ButtonRow from '../../ButtonRow/ButtonRow'
 
-import styles from './ModalFooter.css';
+import styles from './ModalFooter.css'
 
 type Props = {
   cancelText?: string,
   confirmText?: string,
   onCancel: Function,
   onConfirm: Function,
-};
+}
 
 const ModalFooter = ({
   cancelText,
@@ -37,14 +37,14 @@ const ModalFooter = ({
         />
       </ButtonRow>
     </div>
-  );
-};
+  )
+}
 
 ModalFooter.propTypes = {
   cancelText: string,
   confirmText: string,
   onCancel: func.isRequired,
   onConfirm: func.isRequired,
-};
+}
 
-export default ModalFooter;
+export default ModalFooter

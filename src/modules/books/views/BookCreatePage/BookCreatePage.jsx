@@ -1,20 +1,20 @@
 // @flow
-import React, { Component } from 'react';
-import { array, func, object, shape } from 'prop-types';
+import React, { Component } from 'react'
+import { array, func, object, shape } from 'prop-types'
 
-import type { Author } from '../../../authors/flowtypes';
-import type { Book, BookErrors } from '../../flowtypes';
+import type { Author } from '../../../authors/flowtypes'
+import type { Book, BookErrors } from '../../flowtypes'
 
-import { localUrls } from '../../../../globals/urls';
+import { localUrls } from '../../../../globals/urls'
 
-import { bookModel } from '../../models';
-import { bookHasAllFields, validateBook } from '../../validators';
+import { bookModel } from '../../models'
+import { bookHasAllFields, validateBook } from '../../validators'
 
-import BookForm from '../../components/BookForm/BookForm';
-import Card from '../../../common/components/Card/Card';
-import CardList from '../../../common/components/CardList/CardList';
+import BookForm from '../../components/BookForm/BookForm'
+import Card from '../../../common/components/Card/Card'
+import CardList from '../../../common/components/CardList/CardList'
 
-import styles from './BookCreatePage.css';
+import styles from './BookCreatePage.css'
 
 type Props = {
   actions: Object,
@@ -22,7 +22,7 @@ type Props = {
   authors: Author[],
   history: Object,
   preselectedAuthor: Author,
-};
+}
 
 type State = {
   book: Book,
@@ -30,7 +30,7 @@ type State = {
   formDisabled: boolean,
   submitDisabled: boolean,
   topLevelError: string,
-};
+}
 
 class BookCreatePage extends Component<Props, State> {
   static propTypes = {
@@ -45,10 +45,10 @@ class BookCreatePage extends Component<Props, State> {
     authors: array.isRequired,
     history: object,
     preselectedAuthor: object,
-  };
+  }
 
   constructor(props: Props) {
-    super(props);
+    super(props)
 
     this.state = {
       book: bookModel.empty(),
@@ -56,110 +56,109 @@ class BookCreatePage extends Component<Props, State> {
       formDisabled: true,
       submitDisabled: true,
       topLevelError: '',
-    };
+    }
   }
 
   async componentDidMount() {
     try {
-      await this.props.authorActions.fetchAuthors();
-      await this.props.actions.fetchBooks();
+      await this.props.authorActions.fetchAuthors()
+      await this.props.actions.fetchBooks()
 
       if (this.props.preselectedAuthor) {
-        this.updateAuthor(this.props.preselectedAuthor.id);
-        this.props.authorActions.clearPreselectedAuthor();
+        this.updateAuthor(this.props.preselectedAuthor.id)
+        this.props.authorActions.clearPreselectedAuthor()
       }
 
       this.setState({
         formDisabled: false,
-      });
+      })
     } catch (err) {
-      console.log('TODO: deal with this error!');
-      console.log(err);
+      console.log('TODO: deal with this error!')
+      console.log(err)
     }
   }
 
   updateAuthor(authorId?: string) {
-    const author = this.props.authors.find((a) => a.id === authorId);
-    const book = { ...this.state.book, author };
-    const submitDisabled = !bookHasAllFields(book);
+    const author = this.props.authors.find(a => a.id === authorId)
+    const book = { ...this.state.book, author }
+    const submitDisabled = !bookHasAllFields(book)
 
     if (author) {
       this.setState({
         book,
         submitDisabled,
-      });
+      })
     }
   }
 
   onAuthorChange = (event: any) => {
-    const authorId = event.target.value;
-    this.updateAuthor(authorId);
+    const authorId = event.target.value
+    this.updateAuthor(authorId)
   }
 
   onInputChange = (event: any) => {
-    const key = event.target.name;
+    const key = event.target.name
     if (key in this.state.book) {
-      const book = { ...this.state.book };
-      book[key] = event.target.value;
-      const submitDisabled = !bookHasAllFields(book);
+      const book = { ...this.state.book }
+      book[key] = event.target.value
+      const submitDisabled = !bookHasAllFields(book)
 
       this.setState({
         book,
         submitDisabled,
-      });
+      })
     }
   }
 
   onSubmit = async (event: any) => {
-    event.preventDefault();
-    const errors = validateBook(this.state.book);
+    event.preventDefault()
+    const errors = validateBook(this.state.book)
     if (errors.found) {
       this.setState({
         errors,
-      });
+      })
     } else {
-      this.setState({
-        errors: bookModel.emptyErrors(),
-        formDisabled: true,
-        topLevelError: '',
-      }, async() => {
-        try {
-          const book = bookModel.toAPI(this.state.book);
-          await this.props.actions.createBook(book);
-          this.props.history.push(localUrls.booksList);
-        } catch (err) {
-          this.setState({
-            formDisabled: false,
-            topLevelError: err,
-          });
-        }
-      });
+      this.setState(
+        {
+          errors: bookModel.emptyErrors(),
+          formDisabled: true,
+          topLevelError: '',
+        },
+        async () => {
+          try {
+            const book = bookModel.toAPI(this.state.book)
+            await this.props.actions.createBook(book)
+            this.props.history.push(localUrls.booksList)
+          } catch (err) {
+            this.setState({
+              formDisabled: false,
+              topLevelError: err,
+            })
+          }
+        },
+      )
     }
   }
 
   onCancel = (event: any) => {
-    event.preventDefault();
-    this.props.history.push(localUrls.booksList);
+    event.preventDefault()
+    this.props.history.push(localUrls.booksList)
   }
 
   render() {
-    const {
-      authors,
-      preselectedAuthor,
-    } = this.props;
+    const { authors, preselectedAuthor } = this.props
     const {
       book,
       errors,
       formDisabled,
       submitDisabled,
       topLevelError,
-    } = this.state;
+    } = this.state
 
     return (
       <div className={styles.bookCreateView}>
         <CardList>
-          <Card
-            header="New Book">
+          <Card header="New Book">
             <BookForm
               authors={authors}
               book={book}
@@ -176,8 +175,8 @@ class BookCreatePage extends Component<Props, State> {
           </Card>
         </CardList>
       </div>
-    );
+    )
   }
 }
 
-export default BookCreatePage;
+export default BookCreatePage

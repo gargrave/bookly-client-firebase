@@ -1,12 +1,12 @@
 // @flow
-import React from 'react';
-import { any, array, bool, func, string } from 'prop-types';
+import React from 'react'
+import { any, array, bool, func, string } from 'prop-types'
 
-import CardSpacer from './CardSpacer/CardSpacer';
-import CardTextLine from './CardTextLine/CardTextLine';
-import CardTextList from './CardTextList/CardTextList';
+import CardSpacer from './CardSpacer/CardSpacer'
+import CardTextLine from './CardTextLine/CardTextLine'
+import CardTextList from './CardTextList/CardTextList'
 
-import styles from './Card.css';
+import styles from './Card.css'
 
 type Props = {
   children?: any,
@@ -16,32 +16,22 @@ type Props = {
   onClick?: Function,
   text?: string,
   title?: string,
-};
+}
 
-const renderText = (
-  text?: string,
-  classname: string,
-) => {
+const renderText = (text?: string, classname: string) => {
   if (!text) {
-    return null;
+    return null
   }
-  return (
-    <p className={classname}>
-      {text}
-    </p>
-  );
-};
+  return <p className={classname}>{text}</p>
+}
 
-const classList = (
-  classes: string[] = [],
-  hoverable: boolean = true
-) => {
-  const extras = [];
+const classList = (classes: string[] = [], hoverable: boolean = true) => {
+  const extras = []
   if (hoverable) {
-    extras.push(styles.hoverableCard);
+    extras.push(styles.hoverableCard)
   }
-  return [styles.card, ...classes, ...extras].join(' ');
-};
+  return [styles.card, ...classes, ...extras].join(' ')
+}
 
 const Card = ({
   children,
@@ -53,20 +43,18 @@ const Card = ({
   title,
 }: Props) => {
   return (
-    <div
-      className={classList(classes, hoverable)}
-      onClick={onClick}>
+    <div className={classList(classes, hoverable)} onClick={onClick}>
       {renderText(header, styles.header)}
       {renderText(title, styles.title)}
       {renderText(text, styles.text)}
       {children}
     </div>
-  );
-};
+  )
+}
 
-Card.Spacer = CardSpacer;
-Card.TextLine = CardTextLine;
-Card.TextList = CardTextList;
+Card.Spacer = CardSpacer
+Card.TextLine = CardTextLine
+Card.TextList = CardTextList
 
 Card.propTypes = {
   children: any,
@@ -76,6 +64,6 @@ Card.propTypes = {
   onClick: func,
   text: string,
   title: string,
-};
+}
 
-export default Card;
+export default Card

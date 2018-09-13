@@ -1,23 +1,19 @@
 // @flow
-import React from 'react';
-import { any, oneOf, string } from 'prop-types';
+import React from 'react'
+import { any, oneOf, string } from 'prop-types'
 
 type Props = {
   children?: any,
   message: string,
   type: string,
-};
+}
 
-const Alert = ({
-  children,
-  message,
-  type,
-}: Props) => (
+const Alert = ({ children, message, type }: Props) => (
   <div className={`alert alert-${type}`}>
     {message}
     {children}
   </div>
-);
+)
 
 Alert.propTypes = {
   children: any,
@@ -32,6 +28,6 @@ Alert.propTypes = {
     'light',
     'dark',
   ]).isRequired,
-};
+}
 
-export default Alert;
+export default Alert

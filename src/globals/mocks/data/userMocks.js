@@ -7,8 +7,6 @@ const userMocks = [
     lastLogin: new Date('2017-07-01T01:11:03.942Z'),
     registered: new Date('2017-06-30T19:52:54.644Z'),
   },
-];
+]
 
-export {
-  userMocks,
-};
+export { userMocks }

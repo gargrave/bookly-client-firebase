@@ -1,24 +1,24 @@
 // @flow
-import React, { Component } from 'react';
-import { array, func, object, shape } from 'prop-types';
+import React, { Component } from 'react'
+import { array, func, object, shape } from 'prop-types'
 
-import type { Book } from '../../flowtypes';
+import type { Book } from '../../flowtypes'
 
-import { localUrls } from '../../../../globals/urls';
+import { localUrls } from '../../../../globals/urls'
 
-import BooksListVerified from '../../components/BooksListVerified/BooksListVerified';
-import Button from '../../../common/components/Button/Button';
-import CardList from '../../../common/components/CardList/CardList';
-import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice';
+import BooksListVerified from '../../components/BooksListVerified/BooksListVerified'
+import Button from '../../../common/components/Button/Button'
+import CardList from '../../../common/components/CardList/CardList'
+import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice'
 
-import styles from './BooksListPage.css';
+import styles from './BooksListPage.css'
 
 type Props = {
   actions: Object,
   books: Book[],
   history: Object,
   user: Object,
-};
+}
 
 type State = {
   searchValue: string,
@@ -32,67 +32,61 @@ class BooksListPage extends Component<Props, State> {
     books: array.isRequired,
     history: object,
     user: object.isRequired,
-  };
+  }
 
   constructor(props: Props) {
-    super(props);
+    super(props)
 
     this.state = {
       searchValue: '',
-    };
+    }
   }
 
   componentDidMount() {
-    this.refreshBooks();
+    this.refreshBooks()
   }
 
   async refreshBooks() {
     try {
-      await this.props.actions.fetchBooks();
+      await this.props.actions.fetchBooks()
     } catch (err) {
-      console.log('TODO: deal with this error!');
-      console.log(err);
+      console.log('TODO: deal with this error!')
+      console.log(err)
     }
   }
 
   onAddClick = () => {
-    this.props.history.push(localUrls.bookCreate);
+    this.props.history.push(localUrls.bookCreate)
   }
 
   onBookClick = (bookId?: string | number) => {
     if (bookId) {
-      this.props.history.push(`/books/${bookId}`);
+      this.props.history.push(`/books/${bookId}`)
     }
   }
 
   onInputChange = (event: any) => {
-    const key = event.target.name;
+    const key = event.target.name
     if (key in this.state) {
       this.setState({
         searchValue: event.target.value,
-      });
+      })
     }
   }
 
   renderAddBookButton() {
-    const { user } = this.props;
+    const { user } = this.props
     if (!user || !user.emailVerified) {
-      return null;
+      return null
     }
 
-    return (
-      <Button
-        onClick={this.onAddClick}
-        text="Add"
-        type="success"
-      />
-    );
+    return <Button onClick={this.onAddClick} text="Add" type="success" />
   }
 
   renderContent() {
-    const { user } = this.props;
+    const { user } = this.props
     if (!user || !user.emailVerified) {
-      return <UnverifiedNotice />;
+      return <UnverifiedNotice />
     }
 
     return (
@@ -102,7 +96,7 @@ class BooksListPage extends Component<Props, State> {
         onInputChange={this.onInputChange}
         searchValue={this.state.searchValue}
       />
-    );
+    )
   }
 
   render() {
@@ -112,12 +106,10 @@ class BooksListPage extends Component<Props, State> {
           My Books
           {this.renderAddBookButton()}
         </h3>
-        <CardList>
-          {this.renderContent()}
-        </CardList>
+        <CardList>{this.renderContent()}</CardList>
       </div>
-    );
+    )
   }
 }
 
-export default BooksListPage;
+export default BooksListPage

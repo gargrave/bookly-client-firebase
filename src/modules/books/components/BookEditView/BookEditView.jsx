@@ -1,14 +1,14 @@
 // @flow
-import React from 'react';
-import { array, bool, func, object, string } from 'prop-types';
+import React from 'react'
+import { array, bool, func, object, string } from 'prop-types'
 
-import type { Author } from '../../../authors/flowtypes';
-import type { Book, BookErrors } from '../../flowtypes';
+import type { Author } from '../../../authors/flowtypes'
+import type { Book, BookErrors } from '../../flowtypes'
 
-import BookForm from '../BookForm/BookForm';
-import Card from '../../../common/components/Card/Card';
+import BookForm from '../BookForm/BookForm'
+import Card from '../../../common/components/Card/Card'
 
-import styles from './BookEditView.css';
+import styles from './BookEditView.css'
 
 type Props = {
   authors: Author[],
@@ -21,7 +21,7 @@ type Props = {
   onSubmit: Function,
   submitDisabled?: boolean,
   topLevelError?: string,
-};
+}
 
 const BookEditView = ({
   authors,
@@ -37,8 +37,7 @@ const BookEditView = ({
 }: Props) => {
   return (
     <div className={styles.bookEditView}>
-      <Card
-        header="Update Book">
+      <Card header="Update Book">
         <BookForm
           authors={authors}
           book={book}
@@ -49,11 +48,12 @@ const BookEditView = ({
           onInputChange={onInputChange}
           onSubmit={onSubmit}
           submitDisabled={submitDisabled}
-          topLevelError={topLevelError} />
+          topLevelError={topLevelError}
+        />
       </Card>
     </div>
-  );
-};
+  )
+}
 
 BookEditView.propTypes = {
   authors: array.isRequired,
@@ -66,6 +66,6 @@ BookEditView.propTypes = {
   onSubmit: func.isRequired,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default BookEditView;
+export default BookEditView

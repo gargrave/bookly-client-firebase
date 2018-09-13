@@ -1,13 +1,13 @@
 // @flow
-import React from 'react';
-import { bool, func, object, string } from 'prop-types';
+import React from 'react'
+import { bool, func, object, string } from 'prop-types'
 
-import type { Author, AuthorErrors } from '../../flowtypes';
+import type { Author, AuthorErrors } from '../../flowtypes'
 
-import Card from '../../../common/components/Card/Card';
-import AuthorForm from '../AuthorForm/AuthorForm';
+import Card from '../../../common/components/Card/Card'
+import AuthorForm from '../AuthorForm/AuthorForm'
 
-import styles from './AuthorEditView.css';
+import styles from './AuthorEditView.css'
 
 type Props = {
   author: Author,
@@ -18,7 +18,7 @@ type Props = {
   onSubmit: Function,
   submitDisabled?: boolean,
   topLevelError?: string,
-};
+}
 
 const AuthorEditView = ({
   author,
@@ -32,8 +32,7 @@ const AuthorEditView = ({
 }: Props) => {
   return (
     <div className={styles.authorEditView}>
-      <Card
-        header="Update Author">
+      <Card header="Update Author">
         <AuthorForm
           author={author}
           disabled={disabled}
@@ -42,11 +41,12 @@ const AuthorEditView = ({
           onInputChange={onInputChange}
           onSubmit={onSubmit}
           submitDisabled={submitDisabled}
-          topLevelError={topLevelError} />
+          topLevelError={topLevelError}
+        />
       </Card>
     </div>
-  );
-};
+  )
+}
 
 AuthorEditView.propTypes = {
   author: object.isRequired,
@@ -57,6 +57,6 @@ AuthorEditView.propTypes = {
   onSubmit: func.isRequired,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default AuthorEditView;
+export default AuthorEditView

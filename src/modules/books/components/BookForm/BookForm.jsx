@@ -1,13 +1,13 @@
 // @flow
-import React from 'react';
-import { array, bool, func, object, shape, string } from 'prop-types';
+import React from 'react'
+import { array, bool, func, object, shape, string } from 'prop-types'
 
-import type { Author } from '../../../authors/flowtypes';
-import type { Book, BookErrors } from '../../flowtypes';
+import type { Author } from '../../../authors/flowtypes'
+import type { Book, BookErrors } from '../../flowtypes'
 
-import AuthorSelect from '../../../authors/components/AuthorSelect/AuthorSelect';
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import AuthorSelect from '../../../authors/components/AuthorSelect/AuthorSelect'
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
 type Props = {
   authors: Author[],
@@ -21,7 +21,7 @@ type Props = {
   preselectedAuthor?: Author,
   submitDisabled?: boolean,
   topLevelError?: string,
-};
+}
 
 const BookForm = ({
   authors,
@@ -36,10 +36,7 @@ const BookForm = ({
   submitDisabled = false,
   topLevelError,
 }: Props) => {
-  const {
-    author,
-    title,
-  } = book;
+  const { author, title } = book
 
   return (
     <Form
@@ -67,9 +64,8 @@ const BookForm = ({
         onChange={onAuthorChange}
       />
     </Form>
-  );
-};
-
+  )
+}
 
 BookForm.propTypes = {
   authors: array.isRequired,
@@ -89,6 +85,6 @@ BookForm.propTypes = {
   preselectedAuthor: object,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default BookForm;
+export default BookForm

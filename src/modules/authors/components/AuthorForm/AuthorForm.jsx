@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import React from 'react'
+import { bool, func, shape, string } from 'prop-types'
 
-import type { Author, AuthorErrors } from '../../flowtypes';
+import type { Author, AuthorErrors } from '../../flowtypes'
 
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
 type Props = {
   author: Author,
@@ -16,7 +16,7 @@ type Props = {
   onSubmit: Function,
   topLevelError?: string,
   submitDisabled?: boolean,
-};
+}
 
 const AuthorForm = ({
   author,
@@ -35,14 +35,16 @@ const AuthorForm = ({
       onCancel={onCancel}
       onSubmit={onSubmit}
       submitDisabled={submitDisabled}
-      topLevelError={topLevelError}>
+      topLevelError={topLevelError}
+    >
       <InputField
         boundValue={author.firstName}
         disabled={disabled}
         error={errors.firstName}
         label="First name"
         name="firstName"
-        onInputChange={onInputChange} />
+        onInputChange={onInputChange}
+      />
 
       <InputField
         boundValue={author.lastName}
@@ -50,10 +52,11 @@ const AuthorForm = ({
         error={errors.lastName}
         label="Last name"
         name="lastName"
-        onInputChange={onInputChange} />
+        onInputChange={onInputChange}
+      />
     </Form>
-  );
-};
+  )
+}
 
 AuthorForm.propTypes = {
   author: shape({
@@ -70,6 +73,6 @@ AuthorForm.propTypes = {
   onSubmit: func.isRequired,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default AuthorForm;
+export default AuthorForm

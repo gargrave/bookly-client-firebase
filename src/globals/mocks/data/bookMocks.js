@@ -1,7 +1,7 @@
-import { authorMocks } from './authorMocks';
+import { authorMocks } from './authorMocks'
 
-const aldousHuxley = authorMocks[0];
-const kurtVonnegut = authorMocks[1];
+const aldousHuxley = authorMocks[0]
+const kurtVonnegut = authorMocks[1]
 
 const bookMocks = [
   {
@@ -39,13 +39,9 @@ const bookMocks = [
     title: 'Breakfast of Champions',
     author: kurtVonnegut,
   },
-];
+]
 
-const huxleyBooks = bookMocks.slice(0, 3);
-const vonnegutBooks = bookMocks.slice(3, 5);
+const huxleyBooks = bookMocks.slice(0, 3)
+const vonnegutBooks = bookMocks.slice(3, 5)
 
-export {
-  bookMocks,
-  huxleyBooks,
-  vonnegutBooks,
-};
+export { bookMocks, huxleyBooks, vonnegutBooks }

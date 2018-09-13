@@ -1,21 +1,21 @@
 // @flow
-import React from 'react';
-import { array, func, object } from 'prop-types';
+import React from 'react'
+import { array, func, object } from 'prop-types'
 
-import type { Book } from '../../../../books/flowtypes';
-import type { Author } from '../../../flowtypes';
+import type { Book } from '../../../../books/flowtypes'
+import type { Author } from '../../../flowtypes'
 
-import BookList from '../../../../books/components/BookList/BookList';
-import Button from '../../../../common/components/Button/Button';
+import BookList from '../../../../books/components/BookList/BookList'
+import Button from '../../../../common/components/Button/Button'
 
-import styles from './AuthorBooksList.css';
+import styles from './AuthorBooksList.css'
 
 type Props = {
   author: Author,
   books: Book[],
   onBookAddClick: Function,
   onBookClick: Function,
-};
+}
 
 const AuthorBooksList = ({
   author,
@@ -23,7 +23,7 @@ const AuthorBooksList = ({
   onBookAddClick,
   onBookClick,
 }: Props) => {
-  const authorName = `${author.firstName} ${author.lastName}`;
+  const authorName = `${author.firstName} ${author.lastName}`
 
   return (
     <div className={styles.authorBooksList}>
@@ -35,19 +35,16 @@ const AuthorBooksList = ({
           type="success"
         />
       </h5>
-      <BookList
-        books={books}
-        onBookClick={onBookClick}
-      />
+      <BookList books={books} onBookClick={onBookClick} />
     </div>
-  );
-};
+  )
+}
 
 AuthorBooksList.propTypes = {
   author: object.isRequired,
   books: array.isRequired,
   onBookAddClick: func.isRequired,
   onBookClick: func.isRequired,
-};
+}
 
-export default AuthorBooksList;
+export default AuthorBooksList

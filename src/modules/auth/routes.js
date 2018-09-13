@@ -1,12 +1,12 @@
 // @flow
-import type { ReactRoute } from '../core/flowtypes';
+import type { ReactRoute } from '../core/flowtypes'
 
-import AccountDetailContainer from './containers/AccountDetailContainer/AccountDetailContainer';
-import LoginContainer from './containers/LoginContainer/LoginContainer';
-import PasswordResetContainer from './containers/PasswordResetContainer/PasswordResetContainer';
-import RegisterContainer from './containers/RegisterContainer/RegisterContainer';
+import AccountDetailContainer from './containers/AccountDetailContainer/AccountDetailContainer'
+import LoginContainer from './containers/LoginContainer/LoginContainer'
+import PasswordResetContainer from './containers/PasswordResetContainer/PasswordResetContainer'
+import RegisterContainer from './containers/RegisterContainer/RegisterContainer'
 
-import { localUrls } from '../../globals/urls';
+import { localUrls } from '../../globals/urls'
 
 const routes: ReactRoute[] = [
   {
@@ -29,6 +29,6 @@ const routes: ReactRoute[] = [
     exact: true,
     path: localUrls.register,
   },
-];
+]
 
-export default routes;
+export default routes

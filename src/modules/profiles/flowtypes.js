@@ -5,9 +5,9 @@ export type Profile = {
   firstName: string,
   lastName: string,
   updated?: Date | string,
-};
+}
 
 export type ProfileErrors = {
   firstName: string,
   lastName: string,
-};
+}

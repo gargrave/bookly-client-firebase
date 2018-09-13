@@ -1,17 +1,17 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import { authorModel } from '../../../authors/models';
-import { bookModel } from '../../models';
+import { authorModel } from '../../../authors/models'
+import { bookModel } from '../../models'
 
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
-import BookForm from './BookForm';
+import BookForm from './BookForm'
 
 describe('BookForm', () => {
-  let props;
-  let component;
+  let props
+  let component
 
   describe('with "book" populated', () => {
     beforeEach(() => {
@@ -31,15 +31,15 @@ describe('BookForm', () => {
         onInputChange: jest.fn(),
         onSubmit: jest.fn(),
         topLevelError: '',
-      };
+      }
 
-      component = shallow(<BookForm {...props} />);
-    });
+      component = shallow(<BookForm {...props} />)
+    })
 
     it('renders correctly', () => {
-      expect(component).toMatchSnapshot();
-      expect(component.find(Form)).toHaveLength(1);
-      expect(component.find(InputField)).toHaveLength(1);
-    });
-  });
-});
+      expect(component).toMatchSnapshot()
+      expect(component.find(Form)).toHaveLength(1)
+      expect(component.find(InputField)).toHaveLength(1)
+    })
+  })
+})

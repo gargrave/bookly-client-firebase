@@ -1,8 +1,8 @@
 // @flow
-import type { ReactRoute } from './flowtypes';
+import type { ReactRoute } from './flowtypes'
 
-import HomePage from './components/HomePage/HomePage';
-import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import HomePage from './components/HomePage/HomePage'
+import NotFoundPage from './components/NotFoundPage/NotFoundPage'
 
 const routes: ReactRoute[] = [
   {
@@ -13,6 +13,6 @@ const routes: ReactRoute[] = [
   {
     component: NotFoundPage,
   },
-];
+]
 
-export default routes;
+export default routes

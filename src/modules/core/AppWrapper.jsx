@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
 
-import AppContainer from './containers/AppContainer/AppContainer';
+import AppContainer from './containers/AppContainer/AppContainer'
 
-import store from '../../store/store';
+import store from '../../store/store'
 
 class AppWrapper extends Component {
   render() {
@@ -11,8 +11,8 @@ class AppWrapper extends Component {
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    );
+    )
   }
 }
 
-export default AppWrapper;
+export default AppWrapper

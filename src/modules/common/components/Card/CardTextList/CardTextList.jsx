@@ -1,8 +1,8 @@
 // @flow
-import React, { Fragment } from 'react';
-import { array } from 'prop-types';
+import React, { Fragment } from 'react'
+import { array } from 'prop-types'
 
-import styles from './CardTextList.css';
+import styles from './CardTextList.css'
 
 type CardTextListItem = {
   title?: string,
@@ -11,25 +11,21 @@ type CardTextListItem = {
 
 type Props = {
   textList: CardTextListItem[],
-};
+}
 
-const CardTextList = ({
-  textList,
-}: Props) => (
+const CardTextList = ({ textList }: Props) => (
   <Fragment>
-    {
-      textList.map((item, i) => (
-        <p key={i} className={styles.cardTextItem}>
-          { item.title && <strong>{item.title}: </strong> }
-          { item.value }
-        </p>
-      ))
-    }
+    {textList.map((item, i) => (
+      <p key={i} className={styles.cardTextItem}>
+        {item.title && <strong>{item.title}: </strong>}
+        {item.value}
+      </p>
+    ))}
   </Fragment>
-);
+)
 
 CardTextList.propTypes = {
   textList: array.isRequired,
-};
+}
 
-export default CardTextList;
+export default CardTextList

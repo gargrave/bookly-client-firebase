@@ -1,11 +1,11 @@
-import { ComponentBuilder } from '../../../../utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers'
 
-import { authorMocks } from '../../../../globals/mocks/';
+import { authorMocks } from '../../../../globals/mocks/'
 
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
-import AuthorForm from './AuthorForm';
+import AuthorForm from './AuthorForm'
 
 const defaultProps = {
   author: { ...authorMocks[0] },
@@ -19,25 +19,23 @@ const defaultProps = {
   onSubmit: jest.fn(),
   submitDisabled: false,
   topLevelError: '',
-};
+}
 
-const builder = new ComponentBuilder(
-  AuthorForm, defaultProps,
-);
+const builder = new ComponentBuilder(AuthorForm, defaultProps)
 
 describe('AuthorForm', () => {
-  let component;
+  let component
 
   describe('with "author" populated', () => {
     it('matches the snapshot', () => {
-      component = builder.shallowGetComponent();
-      expect(component).toMatchSnapshot();
-    });
+      component = builder.shallowGetComponent()
+      expect(component).toMatchSnapshot()
+    })
 
     it('renders correctly', () => {
-      component = builder.shallowGetComponent();
-      expect(component.find(Form)).toHaveLength(1);
-      expect(component.find(InputField)).toHaveLength(2);
-    });
-  });
-});
+      component = builder.shallowGetComponent()
+      expect(component.find(Form)).toHaveLength(1)
+      expect(component.find(InputField)).toHaveLength(2)
+    })
+  })
+})

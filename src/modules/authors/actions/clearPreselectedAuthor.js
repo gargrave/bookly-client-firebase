@@ -1,12 +1,11 @@
 // @flow
-import types from './types';
+import types from './types'
 
 export const clearPreselectedAuthor = () => ({
   type: types.CLEAR_PRESELECTED,
-});
+})
 
-export const clearPreselectedAuthorReducer =
-  (state: any) => ({
-    ...state,
-    preselectedAuthor: null,
-  });
+export const clearPreselectedAuthorReducer = (state: any) => ({
+  ...state,
+  preselectedAuthor: null,
+})

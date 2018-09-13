@@ -1,20 +1,21 @@
 // @flow
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import { localUrls } from '../../../../globals/urls';
+import { localUrls } from '../../../../globals/urls'
 
-import { actions } from '../../../auth/actions';
+import { actions } from '../../../auth/actions'
 
-import LoginPage from '../../views/LoginPage/LoginPage';
-import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute';
+import LoginPage from '../../views/LoginPage/LoginPage'
+import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute'
 
-const mapStateToProps = () => ({});
+const mapStateToProps = () => ({})
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch),
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  AuthenticatedRoute(LoginPage, localUrls.account, false)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AuthenticatedRoute(LoginPage, localUrls.account, false))

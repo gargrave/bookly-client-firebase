@@ -1,6 +1,12 @@
-import { loginHasAllFields, validateLogin } from './loginValidator';
-import { passwordResetHasAllFields, validatePasswordReset } from './passwordResetValidator';
-import { registerUserHasAllFields, validateRegisterUser } from './registerValidator';
+import { loginHasAllFields, validateLogin } from './loginValidator'
+import {
+  passwordResetHasAllFields,
+  validatePasswordReset,
+} from './passwordResetValidator'
+import {
+  registerUserHasAllFields,
+  validateRegisterUser,
+} from './registerValidator'
 
 export {
   loginHasAllFields,
@@ -9,4 +15,4 @@ export {
   validateLogin,
   validatePasswordReset,
   validateRegisterUser,
-};
+}

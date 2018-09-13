@@ -1,12 +1,12 @@
 // @flow
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import type { Book, BookBucket } from '../../flowtypes';
+import type { Book, BookBucket } from '../../flowtypes'
 
-import { filterAndBucket, filterBooksByTitle } from '../helpers';
+import { filterAndBucket, filterBooksByTitle } from '../helpers'
 
-import BookListBucket from '../BookListBucket/BookListBucket';
-import BookListDetail from '../BookListDetail/BookListDetail';
+import BookListBucket from '../BookListBucket/BookListBucket'
+import BookListDetail from '../BookListDetail/BookListDetail'
 
 export const bucketedBookList = (
   books: Book[],
@@ -15,21 +15,18 @@ export const bucketedBookList = (
 ) => {
   return (
     <Fragment>
-      {
-        filterAndBucket(books, filterBy)
-          .map((bucket: BookBucket) => {
-            return (
-              <BookListBucket
-                bucket={bucket}
-                key={bucket.author}
-                onBookClick={onBookClick}
-              />
-            );
-          })
-      }
+      {filterAndBucket(books, filterBy).map((bucket: BookBucket) => {
+        return (
+          <BookListBucket
+            bucket={bucket}
+            key={bucket.author}
+            onBookClick={onBookClick}
+          />
+        )
+      })}
     </Fragment>
-  );
-};
+  )
+}
 
 export const flatBookList = (
   books: Book[],
@@ -38,19 +35,16 @@ export const flatBookList = (
 ) => {
   return (
     <Fragment>
-      {
-        filterBooksByTitle(books, filterBy)
-          .map((book: Book) => {
-            return (
-              <BookListDetail
-                book={book}
-                key={book.id}
-                onClick={onBookClick.bind(null, book.id)}
-                showAuthor={true}
-              />
-            );
-          })
-      }
+      {filterBooksByTitle(books, filterBy).map((book: Book) => {
+        return (
+          <BookListDetail
+            book={book}
+            key={book.id}
+            onClick={onBookClick.bind(null, book.id)}
+            showAuthor={true}
+          />
+        )
+      })}
     </Fragment>
-  );
-};
+  )
+}

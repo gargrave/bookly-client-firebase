@@ -1,21 +1,19 @@
 // @flow
-import type { FbCollection, FbDoc } from '../../../wrappers/firebase/flowtypes';
+import type { FbCollection, FbDoc } from '../../../wrappers/firebase/flowtypes'
 
-import { db } from '../../firebase';
+import { db } from '../../firebase'
 
-import { getCurrentUserId } from '../../auth';
+import { getCurrentUserId } from '../../auth'
 
 const deleteBooksFromAPI = async (books: FbCollection): Promise<any> => {
-  const userId = getCurrentUserId();
+  const userId = getCurrentUserId()
   if (!userId) {
-    return undefined;
+    return undefined
   }
 
-  const batch = db.batch();
-  books.docs.forEach(
-    (doc: FbDoc) => batch.delete(doc.ref)
-  );
-  return await batch.commit();
-};
+  const batch = db.batch()
+  books.docs.forEach((doc: FbDoc) => batch.delete(doc.ref))
+  return await batch.commit()
+}
 
-export default deleteBooksFromAPI;
+export default deleteBooksFromAPI

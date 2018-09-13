@@ -1,37 +1,29 @@
 // @flow
-import React from 'react';
-import { array, func, shape, string } from 'prop-types';
+import React from 'react'
+import { array, func, shape, string } from 'prop-types'
 
-import type { Book, BookBucket } from '../../../flowtypes';
+import type { Book, BookBucket } from '../../../flowtypes'
 
-import BookListDetail from '../../BookListDetail/BookListDetail';
+import BookListDetail from '../../BookListDetail/BookListDetail'
 
 type Props = {
   bucket: BookBucket,
   onBookClick: Function,
-};
+}
 
-const booksFromBucket = (
-  bucket: BookBucket,
-  onBookClick: Function,
-) => (
+const booksFromBucket = (bucket: BookBucket, onBookClick: Function) =>
   bucket.books.map((book: Book) => (
     <BookListDetail
       book={book}
       key={book.id}
       onClick={() => onBookClick(book.id)}
-      showAuthor={false} />
+      showAuthor={false}
+    />
   ))
-);
 
-const BookBucketBookList = ({
-  bucket,
-  onBookClick,
-}: Props) => (
-  <div>
-    { booksFromBucket(bucket, onBookClick) }
-  </div>
-);
+const BookBucketBookList = ({ bucket, onBookClick }: Props) => (
+  <div>{booksFromBucket(bucket, onBookClick)}</div>
+)
 
 BookBucketBookList.propTypes = {
   bucket: shape({
@@ -39,6 +31,6 @@ BookBucketBookList.propTypes = {
     books: array,
   }).isRequired,
   onBookClick: func.isRequired,
-};
+}
 
-export default BookBucketBookList;
+export default BookBucketBookList

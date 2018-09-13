@@ -1,9 +1,9 @@
 // @flow
-import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import React from 'react'
+import { bool, func, shape, string } from 'prop-types'
 
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
 type Props = {
   disabled?: boolean,
@@ -14,7 +14,7 @@ type Props = {
   submitBtnText?: string,
   submitDisabled?: boolean,
   topLevelError?: string,
-};
+}
 
 const PasswordResetForm = ({
   disabled = false,
@@ -31,7 +31,8 @@ const PasswordResetForm = ({
     onSubmit={onSubmit}
     submitBtnText={submitBtnText}
     submitDisabled={submitDisabled}
-    topLevelError={topLevelError}>
+    topLevelError={topLevelError}
+  >
     <InputField
       boundValue={email}
       disabled={disabled}
@@ -39,9 +40,10 @@ const PasswordResetForm = ({
       label="Email"
       name="email"
       onInputChange={onInputChange}
-      type="email" />
+      type="email"
+    />
   </Form>
-);
+)
 
 PasswordResetForm.propTypes = {
   disabled: bool,
@@ -54,6 +56,6 @@ PasswordResetForm.propTypes = {
   submitBtnText: string,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default PasswordResetForm;
+export default PasswordResetForm

@@ -1,10 +1,10 @@
-import { ComponentBuilder } from '../../../../utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers'
 
-import { authorMocks, bookMocks } from '../../../../globals/mocks/';
+import { authorMocks, bookMocks } from '../../../../globals/mocks/'
 
-import AuthorDetailCard from './AuthorDetailCard/AuthorDetailCard';
+import AuthorDetailCard from './AuthorDetailCard/AuthorDetailCard'
 
-import AuthorDetailView from './AuthorDetailView';
+import AuthorDetailView from './AuthorDetailView'
 
 const defaultProps = {
   author: { ...authorMocks[0] },
@@ -15,22 +15,20 @@ const defaultProps = {
   onDeleteClick: jest.fn(),
   onEditClick: jest.fn(),
   topLevelError: '',
-};
+}
 
-const builder = new ComponentBuilder(
-  AuthorDetailView, defaultProps,
-);
+const builder = new ComponentBuilder(AuthorDetailView, defaultProps)
 
 describe('AuthorDetailView', () => {
-  let component;
+  let component
 
   it('matches the snapshot', () => {
-    component = builder.shallowGetComponent();
-    expect(component).toMatchSnapshot();
-  });
+    component = builder.shallowGetComponent()
+    expect(component).toMatchSnapshot()
+  })
 
   it('renders correctly', () => {
-    component = builder.shallowGetComponent();
-    expect(component.find(AuthorDetailCard)).toHaveLength(1);
-  });
-});
+    component = builder.shallowGetComponent()
+    expect(component.find(AuthorDetailCard)).toHaveLength(1)
+  })
+})

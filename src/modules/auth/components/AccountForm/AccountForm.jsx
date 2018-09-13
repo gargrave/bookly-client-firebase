@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import React from 'react'
+import { bool, func, shape, string } from 'prop-types'
 
-import type { Profile, ProfileErrors } from '../../../profiles/flowtypes';
+import type { Profile, ProfileErrors } from '../../../profiles/flowtypes'
 
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
 type Props = {
   disabled?: boolean,
@@ -16,12 +16,12 @@ type Props = {
   profile: Profile,
   topLevelError?: string,
   submitDisabled?: boolean,
-};
+}
 
 const profileShape = shape({
   firstName: string.isRequired,
   lastName: string.isRequired,
-});
+})
 
 const AccountForm = ({
   disabled = false,
@@ -39,8 +39,8 @@ const AccountForm = ({
       onCancel={onCancel}
       onSubmit={onSubmit}
       submitDisabled={submitDisabled}
-      topLevelError={topLevelError}>
-
+      topLevelError={topLevelError}
+    >
       <InputField
         boundValue={profile.firstName}
         disabled={disabled}
@@ -48,7 +48,8 @@ const AccountForm = ({
         label="First name"
         maxLength={255}
         name="firstName"
-        onInputChange={onInputChange} />
+        onInputChange={onInputChange}
+      />
 
       <InputField
         boundValue={profile.lastName}
@@ -57,10 +58,11 @@ const AccountForm = ({
         label="Last name"
         maxLength={255}
         name="lastName"
-        onInputChange={onInputChange} />
+        onInputChange={onInputChange}
+      />
     </Form>
-  );
-};
+  )
+}
 
 AccountForm.propTypes = {
   profile: profileShape.isRequired,
@@ -71,6 +73,6 @@ AccountForm.propTypes = {
   onSubmit: func.isRequired,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default AccountForm;
+export default AccountForm

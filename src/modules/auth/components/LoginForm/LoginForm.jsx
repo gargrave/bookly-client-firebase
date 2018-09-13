@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import React from 'react'
+import { bool, func, shape, string } from 'prop-types'
 
-import type { LoginErrors, LoginUser } from '../../flowtypes';
+import type { LoginErrors, LoginUser } from '../../flowtypes'
 
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
 type Props = {
   disabled?: boolean,
@@ -16,7 +16,7 @@ type Props = {
   submitBtnText?: string,
   submitDisabled?: boolean,
   topLevelError?: string,
-};
+}
 
 const LoginForm = ({
   disabled = false,
@@ -56,7 +56,7 @@ const LoginForm = ({
       type="password"
     />
   </Form>
-);
+)
 
 LoginForm.propTypes = {
   disabled: bool,
@@ -73,6 +73,6 @@ LoginForm.propTypes = {
   submitBtnText: string,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default LoginForm;
+export default LoginForm

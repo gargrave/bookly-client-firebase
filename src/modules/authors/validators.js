@@ -1,20 +1,20 @@
 // @flow
-import type { Author } from './flowtypes';
+import type { Author } from './flowtypes'
 
-import { validationErrors } from '../../globals/errors';
+import { validationErrors } from '../../globals/errors'
 
 export function authorHasAllFields(author: Author) {
-  return !!author.firstName && !!author.lastName;
+  return !!author.firstName && !!author.lastName
 }
 
 export function authorsMatch(a: Author, b: Author): boolean {
   if (a.firstName.trim() !== b.firstName.trim()) {
-    return false;
+    return false
   }
   if (a.lastName.trim() !== b.lastName.trim()) {
-    return false;
+    return false
   }
-  return true;
+  return true
 }
 
 export function validateAuthor(data: Author): Object {
@@ -22,19 +22,19 @@ export function validateAuthor(data: Author): Object {
     found: false,
     firstName: '',
     lastName: '',
-  };
-  const first = data.firstName;
-  const last = data.lastName;
+  }
+  const first = data.firstName
+  const last = data.lastName
 
   if (!first) {
-    errors.found = true;
-    errors.firstName = validationErrors.required;
+    errors.found = true
+    errors.firstName = validationErrors.required
   }
 
   if (!last) {
-    errors.found = true;
-    errors.lastName = validationErrors.required;
+    errors.found = true
+    errors.lastName = validationErrors.required
   }
 
-  return errors;
+  return errors
 }

@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import React from 'react'
+import { bool, func, shape, string } from 'prop-types'
 
-import type { RegisterErrors, RegisterUser } from '../../flowtypes';
+import type { RegisterErrors, RegisterUser } from '../../flowtypes'
 
-import Form from '../../../common/components/Form/Form';
-import InputField from '../../../common/components/InputField/InputField';
+import Form from '../../../common/components/Form/Form'
+import InputField from '../../../common/components/InputField/InputField'
 
 type Props = {
   disabled?: boolean,
@@ -16,7 +16,7 @@ type Props = {
   submitBtnText?: string,
   submitDisabled?: boolean,
   topLevelError?: string,
-};
+}
 
 const RegisterPage = ({
   disabled = false,
@@ -66,7 +66,7 @@ const RegisterPage = ({
       type="password"
     />
   </Form>
-);
+)
 
 RegisterPage.propTypes = {
   disabled: bool,
@@ -85,6 +85,6 @@ RegisterPage.propTypes = {
   submitBtnText: string,
   submitDisabled: bool,
   topLevelError: string,
-};
+}
 
-export default RegisterPage;
+export default RegisterPage

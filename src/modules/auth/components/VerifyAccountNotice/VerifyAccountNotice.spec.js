@@ -1,23 +1,21 @@
-import { ComponentBuilder } from '../../../../utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers'
 
-import VerifyAccountNotice from './VerifyAccountNotice';
+import VerifyAccountNotice from './VerifyAccountNotice'
 
 const defaultProps = {
   emailHasBeenSent: false,
   onSendLinkClick: jest.fn(),
-};
+}
 
-const builder = new ComponentBuilder(
-  VerifyAccountNotice, defaultProps,
-);
+const builder = new ComponentBuilder(VerifyAccountNotice, defaultProps)
 
 describe('VerifyAccountNotice', () => {
-  let component;
+  let component
 
   it('matches the snapshot', () => {
-    component = builder.shallowGetComponent();
-    expect(component).toMatchSnapshot();
-  });
+    component = builder.shallowGetComponent()
+    expect(component).toMatchSnapshot()
+  })
 
   // describe('basic rendering', () => {
   //   it('renders correctly', () => {
@@ -45,4 +43,4 @@ describe('VerifyAccountNotice', () => {
   //     expect(component.find('button.bookly-button.button-warning').length).toEqual(0);
   //   });
   // });
-});
+})

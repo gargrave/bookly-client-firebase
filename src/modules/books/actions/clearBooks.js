@@ -1,6 +1,5 @@
 // @flow
-export const clearBooksReducer =
-  (state: any) => ({
-    ...state,
-    data: [],
-  });
+export const clearBooksReducer = (state: any) => ({
+  ...state,
+  data: [],
+})

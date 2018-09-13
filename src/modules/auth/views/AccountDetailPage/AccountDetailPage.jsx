@@ -1,18 +1,18 @@
 // @flow
-import React, { Component } from 'react';
-import { bool, func, object, shape } from 'prop-types';
+import React, { Component } from 'react'
+import { bool, func, object, shape } from 'prop-types'
 
-import type { User } from '../../flowtypes';
-import type { Profile, ProfileErrors } from '../../../profiles/flowtypes';
+import type { User } from '../../flowtypes'
+import type { Profile, ProfileErrors } from '../../../profiles/flowtypes'
 
-import { localUrls } from '../../../../globals/urls';
-import { profileModel } from '../../../profiles/models';
-import { profilesMatch, validateProfile } from '../../../profiles/validators';
-import { sendAccountVerificationEmail } from '../../../../wrappers/auth';
+import { localUrls } from '../../../../globals/urls'
+import { profileModel } from '../../../profiles/models'
+import { profilesMatch, validateProfile } from '../../../profiles/validators'
+import { sendAccountVerificationEmail } from '../../../../wrappers/auth'
 
-import AccountDetailView from '../../components/AccountDetailView/AccountDetailView';
-import AccountEditView from '../../components/AccountEditView/AccountEditView';
-import CardList from '../../../common/components/CardList/CardList';
+import AccountDetailView from '../../components/AccountDetailView/AccountDetailView'
+import AccountEditView from '../../components/AccountEditView/AccountEditView'
+import CardList from '../../../common/components/CardList/CardList'
 
 type Props = {
   actions: Object,
@@ -22,7 +22,7 @@ type Props = {
   snackbarActions: Object,
   user: User,
   verificationEmailHasBeenSent: boolean,
-};
+}
 
 type State = {
   editableProfile: Profile,
@@ -31,7 +31,7 @@ type State = {
   formDisabled: boolean,
   submitDisabled: boolean,
   topLevelError: string,
-};
+}
 
 class AccountDetailPage extends Component<Props, State> {
   static propTypes = {
@@ -49,10 +49,10 @@ class AccountDetailPage extends Component<Props, State> {
     }),
     user: object.isRequired,
     verificationEmailHasBeenSent: bool.isRequired,
-  };
+  }
 
   constructor(props: Props) {
-    super(props);
+    super(props)
 
     this.state = {
       editableProfile: profileModel.empty(),
@@ -61,23 +61,22 @@ class AccountDetailPage extends Component<Props, State> {
       formDisabled: false,
       submitDisabled: true,
       topLevelError: '',
-    };
+    }
   }
 
   onInputChange = (event: any) => {
-    const key = event.target.name;
+    const key = event.target.name
     if (key in this.state.editableProfile) {
       const editableProfile = {
         ...this.state.editableProfile,
         [key]: event.target.value,
-      };
-      const submitDisabled =
-        profilesMatch(this.props.profile, editableProfile);
+      }
+      const submitDisabled = profilesMatch(this.props.profile, editableProfile)
 
       this.setState({
         editableProfile,
         submitDisabled,
-      });
+      })
     }
   }
 
@@ -87,68 +86,67 @@ class AccountDetailPage extends Component<Props, State> {
       editing: true,
       formDisabled: false,
       submitDisabled: true,
-    });
+    })
   }
 
   onCancelClick = () => {
-    this.setState({ editing: false });
+    this.setState({ editing: false })
   }
 
   onLogoutClick = async () => {
-    await this.props.actions.logout();
-    this.props.history.push(localUrls.login);
+    await this.props.actions.logout()
+    this.props.history.push(localUrls.login)
   }
 
   onSubmit = async (event: any) => {
-    event.preventDefault();
-    const errors = validateProfile(this.state.editableProfile);
+    event.preventDefault()
+    const errors = validateProfile(this.state.editableProfile)
 
     if (errors.found) {
-      this.setState({ errors });
+      this.setState({ errors })
     } else {
-      this.setState({
-        errors: profileModel.emptyErrors(),
-        formDisabled: true,
-        topLevelError: '',
-      }, async () => {
-        try {
-          const profile = profileModel.toAPI({
-            ...this.props.profile,
-            ...this.state.editableProfile,
-          });
+      this.setState(
+        {
+          errors: profileModel.emptyErrors(),
+          formDisabled: true,
+          topLevelError: '',
+        },
+        async () => {
+          try {
+            const profile = profileModel.toAPI({
+              ...this.props.profile,
+              ...this.state.editableProfile,
+            })
 
-          await this.props.profileActions.updateProfile(profile);
-          this.setState({
-            editing: false,
-            formDisabled: false,
-          });
-        } catch (err) {
-          this.setState({
-            formDisabled: false,
-            topLevelError: err,
-          });
-        }
-      });
+            await this.props.profileActions.updateProfile(profile)
+            this.setState({
+              editing: false,
+              formDisabled: false,
+            })
+          } catch (err) {
+            this.setState({
+              formDisabled: false,
+              topLevelError: err,
+            })
+          }
+        },
+      )
     }
   }
 
   onVerifyAccountClick = async () => {
     try {
-      await sendAccountVerificationEmail();
-      this.props.actions.markVerificationEmailSent();
+      await sendAccountVerificationEmail()
+      this.props.actions.markVerificationEmailSent()
     } catch (err) {
       this.props.snackbarActions.createSnackbar(
-        'There was an error sending the email.'
-      );
+        'There was an error sending the email.',
+      )
     }
   }
 
   renderDetailView() {
-    const {
-      profile,
-      user,
-      verificationEmailHasBeenSent,
-    } = this.props;
+    const { profile, user, verificationEmailHasBeenSent } = this.props
 
     return (
       <AccountDetailView
@@ -158,8 +156,9 @@ class AccountDetailPage extends Component<Props, State> {
         onVerifyAccountClick={this.onVerifyAccountClick}
         profile={profile}
         user={user}
-        verificationEmailHasBeenSent={verificationEmailHasBeenSent} />
-    );
+        verificationEmailHasBeenSent={verificationEmailHasBeenSent}
+      />
+    )
   }
 
   renderEditView() {
@@ -169,7 +168,7 @@ class AccountDetailPage extends Component<Props, State> {
       formDisabled,
       submitDisabled,
       topLevelError,
-    } = this.state;
+    } = this.state
 
     return (
       <AccountEditView
@@ -180,20 +179,21 @@ class AccountDetailPage extends Component<Props, State> {
         onSubmit={this.onSubmit}
         profile={editableProfile}
         submitDisabled={submitDisabled}
-        topLevelError={topLevelError} />
-    );
+        topLevelError={topLevelError}
+      />
+    )
   }
 
   render() {
-    const { editing } = this.state;
+    const { editing } = this.state
 
     return (
       <CardList>
         {!editing && this.renderDetailView()}
         {editing && this.renderEditView()}
       </CardList>
-    );
+    )
   }
 }
 
-export default AccountDetailPage;
+export default AccountDetailPage

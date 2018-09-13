@@ -1,18 +1,21 @@
 // @flow
-import type { Author } from '../../../modules/authors/flowtypes';
-import type { Book } from '../../../modules/books/flowtypes';
-import type { FbDoc, FbDocRef } from '../../../wrappers/firebase/flowtypes';
+import type { Author } from '../../../modules/authors/flowtypes'
+import type { Book } from '../../../modules/books/flowtypes'
+import type { FbDoc, FbDocRef } from '../../../wrappers/firebase/flowtypes'
 
-import { db, fbTimestamp } from '../../firebase';
-import { bookModel } from '../../../modules/books/models';
-import { parseFbDoc } from '../../firebase/firestoreHelpers';
+import { db, fbTimestamp } from '../../firebase'
+import { bookModel } from '../../../modules/books/models'
+import { parseFbDoc } from '../../firebase/firestoreHelpers'
 
-import { getCurrentUserId } from '../../auth';
+import { getCurrentUserId } from '../../auth'
 
-const updateBookOnAPI = async (book: Book, authors: Author[]): Promise<?Book> => {
-  const userId = getCurrentUserId();
+const updateBookOnAPI = async (
+  book: Book,
+  authors: Author[],
+): Promise<?Book> => {
+  const userId = getCurrentUserId()
   if (!userId) {
-    return undefined;
+    return undefined
   }
 
   const payload = {
@@ -20,15 +23,13 @@ const updateBookOnAPI = async (book: Book, authors: Author[]): Promise<?Book> =>
     authorId: book.authorId,
     created: book.created || fbTimestamp(),
     updated: fbTimestamp(),
-  };
+  }
 
-  const id = book.id;
-  const docRef: FbDocRef = await db
-    .collection('books')
-    .doc(id);
-  await docRef.update(payload);
-  const doc: FbDoc = await docRef.get();
-  return bookModel.fromAPI(authors, parseFbDoc(doc));
-};
+  const id = book.id
+  const docRef: FbDocRef = await db.collection('books').doc(id)
+  await docRef.update(payload)
+  const doc: FbDoc = await docRef.get()
+  return bookModel.fromAPI(authors, parseFbDoc(doc))
+}
 
-export default updateBookOnAPI;
+export default updateBookOnAPI

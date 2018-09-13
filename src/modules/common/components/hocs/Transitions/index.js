@@ -1,5 +1,3 @@
-import SlideInFromBottom from './SlideInFromBottom/SlideInFromBottom';
+import SlideInFromBottom from './SlideInFromBottom/SlideInFromBottom'
 
-export {
-  SlideInFromBottom,
-};
+export { SlideInFromBottom }

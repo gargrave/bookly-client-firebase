@@ -1,38 +1,30 @@
 // @flow
-import React from 'react';
-import { func, number, shape, string } from 'prop-types';
+import React from 'react'
+import { func, number, shape, string } from 'prop-types'
 
-import type { Author } from '../../flowtypes';
+import type { Author } from '../../flowtypes'
 
-import Card from '../../../common/components/Card/Card';
+import Card from '../../../common/components/Card/Card'
 
 type Props = {
   author: Author,
   onClick: Function,
-};
+}
 
 const bookCountString = (count?: number = 0): string => {
-  const pluralizer = count === 1 ? '' : 's';
-  return `${count} book${pluralizer}`;
-};
+  const pluralizer = count === 1 ? '' : 's'
+  return `${count} book${pluralizer}`
+}
 
-const AuthorListDetail = ({
-  author,
-  onClick,
-}: Props) => {
-  const authorName = `${author.firstName} ${author.lastName}`;
+const AuthorListDetail = ({ author, onClick }: Props) => {
+  const authorName = `${author.firstName} ${author.lastName}`
   return (
-    <Card
-      hoverable={true}
-      onClick={onClick}>
-      <Card.TextLine
-        bold={true}
-        text={authorName} />
-      <Card.TextLine
-        text={bookCountString(author.bookCount)} />
+    <Card hoverable={true} onClick={onClick}>
+      <Card.TextLine bold={true} text={authorName} />
+      <Card.TextLine text={bookCountString(author.bookCount)} />
     </Card>
-  );
-};
+  )
+}
 
 AuthorListDetail.propTypes = {
   author: shape({
@@ -41,6 +33,6 @@ AuthorListDetail.propTypes = {
     lastName: string.isRequired,
   }),
   onClick: func.isRequired,
-};
+}
 
-export default AuthorListDetail;
+export default AuthorListDetail

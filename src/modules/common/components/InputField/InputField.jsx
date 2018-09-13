@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
-import { bool, func, number, oneOf, string } from 'prop-types';
+import React from 'react'
+import { bool, func, number, oneOf, string } from 'prop-types'
 
-import { buildClass } from '../../../../utils/cssHelpers';
-import { clamp } from '../../../../utils/mathHelpers';
+import { buildClass } from '../../../../utils/cssHelpers'
+import { clamp } from '../../../../utils/mathHelpers'
 
-import styles from './InputField.css';
+import styles from './InputField.css'
 
 type Props = {
   boundValue: string,
@@ -17,26 +17,17 @@ type Props = {
   onInputChange: Function,
   placeholder?: string,
   type?: string,
-};
+}
 
 type InputFieldErrorProps = {
   error?: string,
-};
+}
 
-const acceptableTypes = [
-  'email',
-  'password',
-  'search',
-  'text',
-];
+const acceptableTypes = ['email', 'password', 'search', 'text']
 
-export const InputFieldError = ({
-  error,
-}: InputFieldErrorProps) => (
-  <p className={styles.error}>
-    {error}
-  </p>
-);
+export const InputFieldError = ({ error }: InputFieldErrorProps) => (
+  <p className={styles.error}>{error}</p>
+)
 
 const InputField = ({
   boundValue,
@@ -62,12 +53,13 @@ const InputField = ({
         onChange={onInputChange}
         placeholder={placeholder || ''}
         type={type || 'text'}
-        value={boundValue} />
+        value={boundValue}
+      />
 
-      { error && <InputFieldError error={error} /> }
+      {error && <InputFieldError error={error} />}
     </div>
-  );
-};
+  )
+}
 
 InputField.propTypes = {
   boundValue: string.isRequired,
@@ -79,6 +71,6 @@ InputField.propTypes = {
   onInputChange: func.isRequired,
   placeholder: string,
   type: oneOf(acceptableTypes),
-};
+}
 
-export default InputField;
+export default InputField

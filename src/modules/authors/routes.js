@@ -1,13 +1,13 @@
 // @flow
-import type { ReactRoute } from '../core/flowtypes';
+import type { ReactRoute } from '../core/flowtypes'
 
-import AuthorCreateContainer from './containers/AuthorCreateContainer/AuthorCreateContainer';
-import AuthorDetailContainer from './containers/AuthorDetailContainer/AuthorDetailContainer';
-import AuthorsListContainer from './containers/AuthorsListContainer/AuthorsListContainer';
+import AuthorCreateContainer from './containers/AuthorCreateContainer/AuthorCreateContainer'
+import AuthorDetailContainer from './containers/AuthorDetailContainer/AuthorDetailContainer'
+import AuthorsListContainer from './containers/AuthorsListContainer/AuthorsListContainer'
 
-import { localUrls } from '../../globals/urls';
+import { localUrls } from '../../globals/urls'
 
-const baseUrl = localUrls.authorsList;
+const baseUrl = localUrls.authorsList
 
 const routes: ReactRoute[] = [
   {
@@ -25,6 +25,6 @@ const routes: ReactRoute[] = [
     exact: true,
     path: baseUrl,
   },
-];
+]
 
-export default routes;
+export default routes

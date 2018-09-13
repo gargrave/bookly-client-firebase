@@ -1,36 +1,28 @@
 // @flow
-import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import React from 'react'
+import { bool, func, shape, string } from 'prop-types'
 
-import type { Book } from '../../flowtypes';
+import type { Book } from '../../flowtypes'
 
-import Card from '../../../common/components/Card/Card';
+import Card from '../../../common/components/Card/Card'
 
 type Props = {
   book: Book,
   onClick: Function,
   showAuthor?: boolean,
-};
+}
 
-const BookListDetail = ({
-  book,
-  onClick,
-  showAuthor,
-}: Props) => {
-  const { author, title } = book;
-  const authorName = `${author.firstName} ${author.lastName}`;
+const BookListDetail = ({ book, onClick, showAuthor }: Props) => {
+  const { author, title } = book
+  const authorName = `${author.firstName} ${author.lastName}`
 
   return (
-    <Card
-      hoverable={true}
-      onClick={onClick}>
-      <Card.TextLine
-        bold={true}
-        text={title} />
-      { showAuthor && <Card.TextLine text={authorName} /> }
+    <Card hoverable={true} onClick={onClick}>
+      <Card.TextLine bold={true} text={title} />
+      {showAuthor && <Card.TextLine text={authorName} />}
     </Card>
-  );
-};
+  )
+}
 
 BookListDetail.propTypes = {
   book: shape({
@@ -42,6 +34,6 @@ BookListDetail.propTypes = {
   }).isRequired,
   onClick: func.isRequired,
   showAuthor: bool,
-};
+}
 
-export default BookListDetail;
+export default BookListDetail

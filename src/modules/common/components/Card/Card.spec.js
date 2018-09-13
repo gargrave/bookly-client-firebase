@@ -1,6 +1,6 @@
-import { ComponentBuilder } from '../../../../utils/testHelpers';
+import { ComponentBuilder } from '../../../../utils/testHelpers'
 
-import Card from './Card';
+import Card from './Card'
 
 const defaultProps = {
   children: null,
@@ -10,19 +10,17 @@ const defaultProps = {
   onClick: jest.fn(),
   text: 'this is the text',
   title: 'Awesome Title',
-};
+}
 
-const builder = new ComponentBuilder(
-  Card, defaultProps,
-);
+const builder = new ComponentBuilder(Card, defaultProps)
 
 describe('Card', () => {
-  let component;
+  let component
 
   it('matches the snapshot', () => {
-    component = builder.shallowGetComponent();
-    expect(component).toMatchSnapshot();
-  });
+    component = builder.shallowGetComponent()
+    expect(component).toMatchSnapshot()
+  })
 
   // it('renders correctly', () => {
   //   component = builder.shallowGetComponent();
@@ -59,9 +57,9 @@ describe('Card', () => {
   // });
 
   it('calls the "onClick" callback when clicked', () => {
-    component = builder.shallowGetComponent();
-    expect(defaultProps.onClick.mock.calls.length).toBe(0);
-    component.simulate('click');
-    expect(defaultProps.onClick.mock.calls.length).toBe(1);
-  });
-});
+    component = builder.shallowGetComponent()
+    expect(defaultProps.onClick.mock.calls.length).toBe(0)
+    component.simulate('click')
+    expect(defaultProps.onClick.mock.calls.length).toBe(1)
+  })
+})

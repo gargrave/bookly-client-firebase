@@ -1,33 +1,27 @@
 // @flow
-import React from 'react';
-import { array, func, shape, string } from 'prop-types';
+import React from 'react'
+import { array, func, shape, string } from 'prop-types'
 
-import type { BookBucket } from '../../flowtypes';
+import type { BookBucket } from '../../flowtypes'
 
-import BookBucketBookList from './BookBucketBookList/BookBucketBookList';
-import BookBucketHeader from './BookBucketHeader/BookBucketHeader';
+import BookBucketBookList from './BookBucketBookList/BookBucketBookList'
+import BookBucketHeader from './BookBucketHeader/BookBucketHeader'
 
-import styles from './BookListBucket.css';
+import styles from './BookListBucket.css'
 
 type Props = {
   bucket: BookBucket,
   onBookClick: Function,
-};
+}
 
-const BookListBucket = ({
-  bucket,
-  onBookClick,
-}: Props) => {
+const BookListBucket = ({ bucket, onBookClick }: Props) => {
   return (
     <div className={styles.bookBucket}>
-      <BookBucketHeader
-        bucket={bucket} />
-      <BookBucketBookList
-        bucket={bucket}
-        onBookClick={onBookClick} />
+      <BookBucketHeader bucket={bucket} />
+      <BookBucketBookList bucket={bucket} onBookClick={onBookClick} />
     </div>
-  );
-};
+  )
+}
 
 BookListBucket.propTypes = {
   bucket: shape({
@@ -35,6 +29,6 @@ BookListBucket.propTypes = {
     books: array,
   }).isRequired,
   onBookClick: func.isRequired,
-};
+}
 
-export default BookListBucket;
+export default BookListBucket
