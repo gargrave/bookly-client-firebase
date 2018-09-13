@@ -2,6 +2,8 @@
 import type { Author } from '../authors/flowtypes'
 import type { Book, BookErrors } from './flowtypes'
 
+const optionalFields = ['id', 'created']
+
 function hydrateAuthor(authors, id): Author {
   const author = authors.find(a => a.id === id)
   return (
@@ -24,14 +26,16 @@ export const bookModel = {
         firstName: '',
         lastName: '',
       },
+      sortBy: '',
       title: '',
     }
   },
 
   emptyErrors(): BookErrors {
     return {
-      title: '',
       author: '',
+      sortBy: '',
+      title: '',
     }
   },
 
@@ -40,6 +44,7 @@ export const bookModel = {
       author: book.author,
       created: book.created,
       id: book.id,
+      sortBy: (book.sortBy || '').trim(),
       title: book.title.trim(),
     }
   },
@@ -50,7 +55,7 @@ export const bookModel = {
       authorId: data.author.id,
     }
 
-    ;['id', 'created'].forEach(val => {
+    optionalFields.forEach(val => {
       if (data[val]) {
         payload[val] = data[val]
       }
@@ -60,12 +65,13 @@ export const bookModel = {
   },
 
   fromAPI(authors: Author[], book: Book): Book {
-    const { authorId, created, id, title, updated } = book
+    const { authorId, created, id, sortBy, title, updated } = book
 
     return {
       author: hydrateAuthor(authors, authorId),
       created,
       id,
+      sortBy,
       title,
       updated,
     }

@@ -6,6 +6,7 @@ export type Book = {
   author: Author,
   authorId?: string,
   created?: Date | string,
+  sortBy: string,
   title: string,
   updated?: Date | string,
 }

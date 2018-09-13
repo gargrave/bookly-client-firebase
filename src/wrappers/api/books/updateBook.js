@@ -19,9 +19,10 @@ const updateBookOnAPI = async (
   }
 
   const payload = {
-    title: book.title,
     authorId: book.authorId,
     created: book.created || fbTimestamp(),
+    sortBy: book.sortBy || '',
+    title: book.title,
     updated: fbTimestamp(),
   }
 
