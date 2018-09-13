@@ -8,7 +8,7 @@
       "jsx": true
     }
   },
-  "plugins": ["flowtype"],
+  "plugins": ["react", "flowtype"],
   "env": {
     "es6": true,
     "browser": true,
@@ -18,7 +18,8 @@
     "comma-dangle": ["warn", "always-multiline"],
     "no-debugger": "warn",
     "no-unused-vars": "warn",
-    "quotes": ["warn", "single"],
+    "react/no-did-mount-set-state": "warn",
+    "react/no-did-update-set-state": "warn",
     "space-before-function-paren": ["warn", "never"]
   }
 }
