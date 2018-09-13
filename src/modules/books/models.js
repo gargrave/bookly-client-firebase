@@ -51,8 +51,9 @@ export const bookModel = {
 
   toAPI(data: Book): Book {
     let payload: any = {
-      title: data.title.trim(),
       authorId: data.author.id,
+      sortBy: (data.sortBy || '').trim(),
+      title: data.title.trim(),
     }
 
     optionalFields.forEach(val => {

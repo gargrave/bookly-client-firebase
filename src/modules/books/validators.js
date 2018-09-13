@@ -17,6 +17,17 @@ export function booksMatch(a: Book, b: Book): boolean {
     return false
   }
 
+  // TODO: maybe make a separate helper for cleanly comparing strings
+  if (!a.sortBy && b.sortBy && b.sortBy.length) {
+    return false
+  }
+  if (a.sortBy && !b.sortBy && a.sortBy.length) {
+    return false
+  }
+  if (a.sortBy && b.sortBy && a.sortBy.trim() !== b.sortBy.trim()) {
+    return false
+  }
+
   return true
 }
 

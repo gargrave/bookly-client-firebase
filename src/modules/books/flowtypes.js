@@ -14,6 +14,7 @@ export type Book = {
 export type BookErrors = {
   found?: boolean,
   author: string,
+  sortBy: string,
   title: string,
 }
 

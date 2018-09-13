@@ -36,7 +36,7 @@ const BookForm = ({
   submitDisabled = false,
   topLevelError,
 }: Props) => {
-  const { author, title } = book
+  const { author, sortBy, title } = book
 
   return (
     <Form
@@ -53,6 +53,15 @@ const BookForm = ({
         error={errors.title}
         label="Title"
         name="title"
+        onInputChange={onInputChange}
+      />
+
+      <InputField
+        boundValue={sortBy}
+        disabled={disabled || false}
+        error={errors.sortBy}
+        label="Sort By"
+        name="sortBy"
         onInputChange={onInputChange}
       />
 
