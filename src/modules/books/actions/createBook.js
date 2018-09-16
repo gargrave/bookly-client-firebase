@@ -8,7 +8,7 @@ import { parseAPIError } from '../../../wrappers/errors'
 
 import { setApiError } from '../../core/actions/setApiError'
 
-import { bookHasValidAuthor, sortByAuthorLastName } from './helpers'
+import { bookHasValidAuthor, sortBooks } from '../helpers'
 
 import { requestEnd } from './requestEnd'
 import { requestStart } from './requestStart'
@@ -46,7 +46,7 @@ export const createBook = (book: Book) => async (
 
 export const createBookReducer = (state: any, action: ReduxAction) => ({
   ...state,
-  data: sortByAuthorLastName([...state.data, action.payload.book]),
+  data: sortBooks([...state.data, action.payload.book]),
 })
 
 export default createBook

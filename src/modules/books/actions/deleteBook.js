@@ -7,7 +7,7 @@ import { parseAPIError } from '../../../wrappers/errors'
 
 import { setApiError } from '../../core/actions/setApiError'
 
-import { sortByAuthorLastName } from './helpers'
+import { sortBooks } from '../helpers'
 
 import { requestEnd } from './requestEnd'
 import { requestStart } from './requestStart'
@@ -36,7 +36,7 @@ export const deleteBook = (book: Book) => async (dispatch: Function) => {
 
 export const deleteBookReducer = (state: any, action: ReduxAction) => ({
   ...state,
-  data: sortByAuthorLastName(
+  data: sortBooks(
     state.data.filter(book => book.id !== action.payload.book.id),
   ),
 })

@@ -12,7 +12,7 @@ import { setApiError } from '../../core/actions/setApiError'
 import { requestEnd } from './requestEnd'
 import { requestStart } from './requestStart'
 
-import { sortByAuthorLastName } from './helpers.js'
+import { sortBooks } from '../helpers.js'
 import types from './types'
 
 const _fetchBooks = (books: Book[]) => ({
@@ -51,5 +51,5 @@ export const fetchBooks = () => async (
 
 export const fetchBooksReducer = (state: any, action: ReduxAction) => ({
   ...state,
-  data: sortByAuthorLastName(action.payload.books),
+  data: sortBooks(action.payload.books),
 })

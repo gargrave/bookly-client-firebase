@@ -10,7 +10,7 @@ import { setApiError } from '../../core/actions/setApiError'
 import { requestEnd } from './requestEnd'
 import { requestStart } from './requestStart'
 
-import { bookHasValidAuthor, sortByAuthorLastName } from './helpers'
+import { bookHasValidAuthor, sortBooks } from '../helpers'
 import types from './types'
 
 const _updateBook = (book: Book) => ({
@@ -44,7 +44,7 @@ export const updateBook = (book: Book) => async (
 
 export const updateBookReducer = (state: any, action: ReduxAction) => ({
   ...state,
-  data: sortByAuthorLastName([
+  data: sortBooks([
     ...state.data.filter(book => book.id !== action.payload.book.id),
     action.payload.book,
   ]),
