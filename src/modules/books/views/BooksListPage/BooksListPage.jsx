@@ -34,13 +34,7 @@ class BooksListPage extends Component<Props, State> {
     user: object.isRequired,
   }
 
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      searchValue: '',
-    }
-  }
+  state = { searchValue: '' }
 
   componentDidMount() {
     this.refreshBooks()

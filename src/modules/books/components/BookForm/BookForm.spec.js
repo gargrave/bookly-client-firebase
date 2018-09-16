@@ -1,6 +1,3 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-
 import { ComponentBuilder } from '../../../../utils/testHelpers'
 import { authorModel } from '../../../authors/models'
 import { bookModel } from '../../models'
