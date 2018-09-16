@@ -11,8 +11,6 @@ import Button from '../../../common/components/Button/Button'
 import CardList from '../../../common/components/CardList/CardList'
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice'
 
-import styles from './AuthorsListPage.css'
-
 type Props = {
   actions: Object,
   authors: Author[],
