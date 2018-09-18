@@ -31,6 +31,14 @@ const authorMocks = [
     lastName: 'Robbins',
     bookCount: 1,
   },
+  {
+    id: '93ucbe8c8fn98w7b276v',
+    created: new Date('2017-07-06T22:02:17.051Z'),
+    updated: new Date('2017-08-17T21:27:35.885Z'),
+    firstName: 'Stephen',
+    lastName: 'King',
+    bookCount: 2,
+  },
 ]
 
 export { authorMocks }
