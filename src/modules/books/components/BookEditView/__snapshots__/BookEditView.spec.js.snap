@@ -38,6 +38,14 @@ ShallowWrapper {
           "lastName": "Robbins",
           "updated": 2017-08-17T21:27:35.885Z,
         },
+        Object {
+          "bookCount": 2,
+          "created": 2017-07-06T22:02:17.051Z,
+          "firstName": "Stephen",
+          "id": "93ucbe8c8fn98w7b276v",
+          "lastName": "King",
+          "updated": 2017-08-17T21:27:35.885Z,
+        },
       ]
     }
     book={
@@ -52,6 +60,7 @@ ShallowWrapper {
         },
         "created": 2018-01-14T01:36:26.220Z,
         "id": "sv3hmbefpc95MRXQsTHr",
+        "sortBy": "",
         "title": "Brave New World",
         "updated": 2018-01-14T01:36:26.220Z,
       }
@@ -122,6 +131,14 @@ ShallowWrapper {
                 "lastName": "Robbins",
                 "updated": 2017-08-17T21:27:35.885Z,
               },
+              Object {
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
+              },
             ]
           }
           book={
@@ -136,6 +153,7 @@ ShallowWrapper {
               },
               "created": 2018-01-14T01:36:26.220Z,
               "id": "sv3hmbefpc95MRXQsTHr",
+              "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
             }
@@ -199,6 +217,14 @@ ShallowWrapper {
                 "lastName": "Robbins",
                 "updated": 2017-08-17T21:27:35.885Z,
               },
+              Object {
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
+              },
             ]
           }
           book={
@@ -213,6 +239,7 @@ ShallowWrapper {
               },
               "created": 2018-01-14T01:36:26.220Z,
               "id": "sv3hmbefpc95MRXQsTHr",
+              "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
             }
@@ -273,6 +300,14 @@ ShallowWrapper {
               "lastName": "Robbins",
               "updated": 2017-08-17T21:27:35.885Z,
             },
+            Object {
+              "bookCount": 2,
+              "created": 2017-07-06T22:02:17.051Z,
+              "firstName": "Stephen",
+              "id": "93ucbe8c8fn98w7b276v",
+              "lastName": "King",
+              "updated": 2017-08-17T21:27:35.885Z,
+            },
           ],
           "book": Object {
             "author": Object {
@@ -285,6 +320,7 @@ ShallowWrapper {
             },
             "created": 2018-01-14T01:36:26.220Z,
             "id": "sv3hmbefpc95MRXQsTHr",
+            "sortBy": "",
             "title": "Brave New World",
             "updated": 2018-01-14T01:36:26.220Z,
           },
@@ -353,6 +389,14 @@ ShallowWrapper {
                   "lastName": "Robbins",
                   "updated": 2017-08-17T21:27:35.885Z,
                 },
+                Object {
+                  "bookCount": 2,
+                  "created": 2017-07-06T22:02:17.051Z,
+                  "firstName": "Stephen",
+                  "id": "93ucbe8c8fn98w7b276v",
+                  "lastName": "King",
+                  "updated": 2017-08-17T21:27:35.885Z,
+                },
               ]
             }
             book={
@@ -367,6 +411,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-14T01:36:26.220Z,
                 "id": "sv3hmbefpc95MRXQsTHr",
+                "sortBy": "",
                 "title": "Brave New World",
                 "updated": 2018-01-14T01:36:26.220Z,
               }
@@ -430,6 +475,14 @@ ShallowWrapper {
                   "lastName": "Robbins",
                   "updated": 2017-08-17T21:27:35.885Z,
                 },
+                Object {
+                  "bookCount": 2,
+                  "created": 2017-07-06T22:02:17.051Z,
+                  "firstName": "Stephen",
+                  "id": "93ucbe8c8fn98w7b276v",
+                  "lastName": "King",
+                  "updated": 2017-08-17T21:27:35.885Z,
+                },
               ]
             }
             book={
@@ -444,6 +497,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-14T01:36:26.220Z,
                 "id": "sv3hmbefpc95MRXQsTHr",
+                "sortBy": "",
                 "title": "Brave New World",
                 "updated": 2018-01-14T01:36:26.220Z,
               }
@@ -504,6 +558,14 @@ ShallowWrapper {
                 "lastName": "Robbins",
                 "updated": 2017-08-17T21:27:35.885Z,
               },
+              Object {
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
+              },
             ],
             "book": Object {
               "author": Object {
@@ -516,6 +578,7 @@ ShallowWrapper {
               },
               "created": 2018-01-14T01:36:26.220Z,
               "id": "sv3hmbefpc95MRXQsTHr",
+              "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
             },

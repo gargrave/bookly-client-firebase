@@ -2,7 +2,6 @@
 
 exports[`BookList matches the snapshot 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BookList
     books={
@@ -18,6 +17,7 @@ ShallowWrapper {
           },
           "created": 2018-01-14T01:36:26.220Z,
           "id": "sv3hmbefpc95MRXQsTHr",
+          "sortBy": "",
           "title": "Brave New World",
           "updated": 2018-01-14T01:36:26.220Z,
         },
@@ -32,6 +32,7 @@ ShallowWrapper {
           },
           "created": 2018-01-15T01:36:26.220Z,
           "id": "Hmh9eR3rs5bMvsTXfpcQ",
+          "sortBy": "",
           "title": "Island",
           "updated": 2018-01-15T01:36:26.220Z,
         },
@@ -46,6 +47,7 @@ ShallowWrapper {
           },
           "created": 2018-01-16T01:36:26.220Z,
           "id": "eRpcQ5H3rsTXfmh9bMvs",
+          "sortBy": "",
           "title": "The Doors of Perception",
           "updated": 2018-01-16T01:36:26.220Z,
         },
@@ -60,6 +62,7 @@ ShallowWrapper {
           },
           "created": 2017-11-01T01:36:26.220Z,
           "id": "e2TedzRQJKJ1VL5m7QhG",
+          "sortBy": "",
           "title": "Mother Night",
           "updated": 2017-11-01T01:36:26.220Z,
         },
@@ -74,8 +77,39 @@ ShallowWrapper {
           },
           "created": 2017-11-01T01:39:26.220Z,
           "id": "8ZYttrQY042IhlZ11BVJ",
+          "sortBy": "",
           "title": "Breakfast of Champions",
           "updated": 2017-11-01T01:39:26.220Z,
+        },
+        Object {
+          "author": Object {
+            "bookCount": 2,
+            "created": 2017-07-06T22:02:17.051Z,
+            "firstName": "Stephen",
+            "id": "93ucbe8c8fn98w7b276v",
+            "lastName": "King",
+            "updated": 2017-08-17T21:27:35.885Z,
+          },
+          "created": 2017-10-01T01:39:26.220Z,
+          "id": "2IYttrQYhlZ118Z04BVJ",
+          "sortBy": "Dark Tower 1",
+          "title": "The Gunslinger",
+          "updated": 2017-10-01T01:39:26.220Z,
+        },
+        Object {
+          "author": Object {
+            "bookCount": 2,
+            "created": 2017-07-06T22:02:17.051Z,
+            "firstName": "Stephen",
+            "id": "93ucbe8c8fn98w7b276v",
+            "lastName": "King",
+            "updated": 2017-08-17T21:27:35.885Z,
+          },
+          "created": 2017-10-01T01:39:26.220Z,
+          "id": "2IYt04BVltrQYhZ118ZJ",
+          "sortBy": "Dark Tower 2",
+          "title": "The Drawing of the Three",
+          "updated": 2017-10-01T01:39:26.220Z,
         },
       ]
     }
@@ -87,6 +121,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -109,6 +144,7 @@ ShallowWrapper {
               },
               "created": 2018-01-14T01:36:26.220Z,
               "id": "sv3hmbefpc95MRXQsTHr",
+              "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
             }
@@ -129,6 +165,7 @@ ShallowWrapper {
               },
               "created": 2018-01-15T01:36:26.220Z,
               "id": "Hmh9eR3rs5bMvsTXfpcQ",
+              "sortBy": "",
               "title": "Island",
               "updated": 2018-01-15T01:36:26.220Z,
             }
@@ -149,6 +186,7 @@ ShallowWrapper {
               },
               "created": 2018-01-16T01:36:26.220Z,
               "id": "eRpcQ5H3rsTXfmh9bMvs",
+              "sortBy": "",
               "title": "The Doors of Perception",
               "updated": 2018-01-16T01:36:26.220Z,
             }
@@ -169,6 +207,7 @@ ShallowWrapper {
               },
               "created": 2017-11-01T01:36:26.220Z,
               "id": "e2TedzRQJKJ1VL5m7QhG",
+              "sortBy": "",
               "title": "Mother Night",
               "updated": 2017-11-01T01:36:26.220Z,
             }
@@ -189,8 +228,51 @@ ShallowWrapper {
               },
               "created": 2017-11-01T01:39:26.220Z,
               "id": "8ZYttrQY042IhlZ11BVJ",
+              "sortBy": "",
               "title": "Breakfast of Champions",
               "updated": 2017-11-01T01:39:26.220Z,
+            }
+          }
+          onClick={[Function]}
+          showAuthor={true}
+        />,
+        <BookListDetail
+          book={
+            Object {
+              "author": Object {
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
+              },
+              "created": 2017-10-01T01:39:26.220Z,
+              "id": "2IYttrQYhlZ118Z04BVJ",
+              "sortBy": "Dark Tower 1",
+              "title": "The Gunslinger",
+              "updated": 2017-10-01T01:39:26.220Z,
+            }
+          }
+          onClick={[Function]}
+          showAuthor={true}
+        />,
+        <BookListDetail
+          book={
+            Object {
+              "author": Object {
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
+              },
+              "created": 2017-10-01T01:39:26.220Z,
+              "id": "2IYt04BVltrQYhZ118ZJ",
+              "sortBy": "Dark Tower 2",
+              "title": "The Drawing of the Three",
+              "updated": 2017-10-01T01:39:26.220Z,
             }
           }
           onClick={[Function]}
@@ -216,6 +298,7 @@ ShallowWrapper {
             },
             "created": 2018-01-14T01:36:26.220Z,
             "id": "sv3hmbefpc95MRXQsTHr",
+            "sortBy": "",
             "title": "Brave New World",
             "updated": 2018-01-14T01:36:26.220Z,
           },
@@ -242,6 +325,7 @@ ShallowWrapper {
             },
             "created": 2018-01-15T01:36:26.220Z,
             "id": "Hmh9eR3rs5bMvsTXfpcQ",
+            "sortBy": "",
             "title": "Island",
             "updated": 2018-01-15T01:36:26.220Z,
           },
@@ -268,6 +352,7 @@ ShallowWrapper {
             },
             "created": 2018-01-16T01:36:26.220Z,
             "id": "eRpcQ5H3rsTXfmh9bMvs",
+            "sortBy": "",
             "title": "The Doors of Perception",
             "updated": 2018-01-16T01:36:26.220Z,
           },
@@ -294,6 +379,7 @@ ShallowWrapper {
             },
             "created": 2017-11-01T01:36:26.220Z,
             "id": "e2TedzRQJKJ1VL5m7QhG",
+            "sortBy": "",
             "title": "Mother Night",
             "updated": 2017-11-01T01:36:26.220Z,
           },
@@ -320,8 +406,63 @@ ShallowWrapper {
             },
             "created": 2017-11-01T01:39:26.220Z,
             "id": "8ZYttrQY042IhlZ11BVJ",
+            "sortBy": "",
             "title": "Breakfast of Champions",
             "updated": 2017-11-01T01:39:26.220Z,
+          },
+          "onClick": [Function],
+          "showAuthor": true,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2IYttrQYhlZ118Z04BVJ",
+        "nodeType": "function",
+        "props": Object {
+          "book": Object {
+            "author": Object {
+              "bookCount": 2,
+              "created": 2017-07-06T22:02:17.051Z,
+              "firstName": "Stephen",
+              "id": "93ucbe8c8fn98w7b276v",
+              "lastName": "King",
+              "updated": 2017-08-17T21:27:35.885Z,
+            },
+            "created": 2017-10-01T01:39:26.220Z,
+            "id": "2IYttrQYhlZ118Z04BVJ",
+            "sortBy": "Dark Tower 1",
+            "title": "The Gunslinger",
+            "updated": 2017-10-01T01:39:26.220Z,
+          },
+          "onClick": [Function],
+          "showAuthor": true,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2IYt04BVltrQYhZ118ZJ",
+        "nodeType": "function",
+        "props": Object {
+          "book": Object {
+            "author": Object {
+              "bookCount": 2,
+              "created": 2017-07-06T22:02:17.051Z,
+              "firstName": "Stephen",
+              "id": "93ucbe8c8fn98w7b276v",
+              "lastName": "King",
+              "updated": 2017-08-17T21:27:35.885Z,
+            },
+            "created": 2017-10-01T01:39:26.220Z,
+            "id": "2IYt04BVltrQYhZ118ZJ",
+            "sortBy": "Dark Tower 2",
+            "title": "The Drawing of the Three",
+            "updated": 2017-10-01T01:39:26.220Z,
           },
           "onClick": [Function],
           "showAuthor": true,
@@ -353,6 +494,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-14T01:36:26.220Z,
                 "id": "sv3hmbefpc95MRXQsTHr",
+                "sortBy": "",
                 "title": "Brave New World",
                 "updated": 2018-01-14T01:36:26.220Z,
               }
@@ -373,6 +515,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-15T01:36:26.220Z,
                 "id": "Hmh9eR3rs5bMvsTXfpcQ",
+                "sortBy": "",
                 "title": "Island",
                 "updated": 2018-01-15T01:36:26.220Z,
               }
@@ -393,6 +536,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-16T01:36:26.220Z,
                 "id": "eRpcQ5H3rsTXfmh9bMvs",
+                "sortBy": "",
                 "title": "The Doors of Perception",
                 "updated": 2018-01-16T01:36:26.220Z,
               }
@@ -413,6 +557,7 @@ ShallowWrapper {
                 },
                 "created": 2017-11-01T01:36:26.220Z,
                 "id": "e2TedzRQJKJ1VL5m7QhG",
+                "sortBy": "",
                 "title": "Mother Night",
                 "updated": 2017-11-01T01:36:26.220Z,
               }
@@ -433,8 +578,51 @@ ShallowWrapper {
                 },
                 "created": 2017-11-01T01:39:26.220Z,
                 "id": "8ZYttrQY042IhlZ11BVJ",
+                "sortBy": "",
                 "title": "Breakfast of Champions",
                 "updated": 2017-11-01T01:39:26.220Z,
+              }
+            }
+            onClick={[Function]}
+            showAuthor={true}
+          />,
+          <BookListDetail
+            book={
+              Object {
+                "author": Object {
+                  "bookCount": 2,
+                  "created": 2017-07-06T22:02:17.051Z,
+                  "firstName": "Stephen",
+                  "id": "93ucbe8c8fn98w7b276v",
+                  "lastName": "King",
+                  "updated": 2017-08-17T21:27:35.885Z,
+                },
+                "created": 2017-10-01T01:39:26.220Z,
+                "id": "2IYttrQYhlZ118Z04BVJ",
+                "sortBy": "Dark Tower 1",
+                "title": "The Gunslinger",
+                "updated": 2017-10-01T01:39:26.220Z,
+              }
+            }
+            onClick={[Function]}
+            showAuthor={true}
+          />,
+          <BookListDetail
+            book={
+              Object {
+                "author": Object {
+                  "bookCount": 2,
+                  "created": 2017-07-06T22:02:17.051Z,
+                  "firstName": "Stephen",
+                  "id": "93ucbe8c8fn98w7b276v",
+                  "lastName": "King",
+                  "updated": 2017-08-17T21:27:35.885Z,
+                },
+                "created": 2017-10-01T01:39:26.220Z,
+                "id": "2IYt04BVltrQYhZ118ZJ",
+                "sortBy": "Dark Tower 2",
+                "title": "The Drawing of the Three",
+                "updated": 2017-10-01T01:39:26.220Z,
               }
             }
             onClick={[Function]}
@@ -460,6 +648,7 @@ ShallowWrapper {
               },
               "created": 2018-01-14T01:36:26.220Z,
               "id": "sv3hmbefpc95MRXQsTHr",
+              "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
             },
@@ -486,6 +675,7 @@ ShallowWrapper {
               },
               "created": 2018-01-15T01:36:26.220Z,
               "id": "Hmh9eR3rs5bMvsTXfpcQ",
+              "sortBy": "",
               "title": "Island",
               "updated": 2018-01-15T01:36:26.220Z,
             },
@@ -512,6 +702,7 @@ ShallowWrapper {
               },
               "created": 2018-01-16T01:36:26.220Z,
               "id": "eRpcQ5H3rsTXfmh9bMvs",
+              "sortBy": "",
               "title": "The Doors of Perception",
               "updated": 2018-01-16T01:36:26.220Z,
             },
@@ -538,6 +729,7 @@ ShallowWrapper {
               },
               "created": 2017-11-01T01:36:26.220Z,
               "id": "e2TedzRQJKJ1VL5m7QhG",
+              "sortBy": "",
               "title": "Mother Night",
               "updated": 2017-11-01T01:36:26.220Z,
             },
@@ -564,8 +756,63 @@ ShallowWrapper {
               },
               "created": 2017-11-01T01:39:26.220Z,
               "id": "8ZYttrQY042IhlZ11BVJ",
+              "sortBy": "",
               "title": "Breakfast of Champions",
               "updated": 2017-11-01T01:39:26.220Z,
+            },
+            "onClick": [Function],
+            "showAuthor": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2IYttrQYhlZ118Z04BVJ",
+          "nodeType": "function",
+          "props": Object {
+            "book": Object {
+              "author": Object {
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
+              },
+              "created": 2017-10-01T01:39:26.220Z,
+              "id": "2IYttrQYhlZ118Z04BVJ",
+              "sortBy": "Dark Tower 1",
+              "title": "The Gunslinger",
+              "updated": 2017-10-01T01:39:26.220Z,
+            },
+            "onClick": [Function],
+            "showAuthor": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2IYt04BVltrQYhZ118ZJ",
+          "nodeType": "function",
+          "props": Object {
+            "book": Object {
+              "author": Object {
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
+              },
+              "created": 2017-10-01T01:39:26.220Z,
+              "id": "2IYt04BVltrQYhZ118ZJ",
+              "sortBy": "Dark Tower 2",
+              "title": "The Drawing of the Three",
+              "updated": 2017-10-01T01:39:26.220Z,
             },
             "onClick": [Function],
             "showAuthor": true,
@@ -582,8 +829,20 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
   },
 }
 `;

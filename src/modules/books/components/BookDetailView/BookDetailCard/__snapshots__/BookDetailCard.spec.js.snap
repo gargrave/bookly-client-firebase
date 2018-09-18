@@ -7,17 +7,18 @@ ShallowWrapper {
     book={
       Object {
         "author": Object {
-          "bookCount": 1,
-          "created": 2017-07-01T01:16:43.881Z,
-          "firstName": "Aldous",
-          "id": "oiw223h3qndlksadffl3ksdf",
-          "lastName": "Huxley",
-          "updated": 2017-07-01T01:16:43.881Z,
+          "bookCount": 2,
+          "created": 2017-07-06T22:02:17.051Z,
+          "firstName": "Stephen",
+          "id": "93ucbe8c8fn98w7b276v",
+          "lastName": "King",
+          "updated": 2017-08-17T21:27:35.885Z,
         },
-        "created": 2018-01-14T01:36:26.220Z,
-        "id": "sv3hmbefpc95MRXQsTHr",
-        "title": "Brave New World",
-        "updated": 2018-01-14T01:36:26.220Z,
+        "created": 2017-10-01T01:39:26.220Z,
+        "id": "2IYt04BVltrQYhZ118ZJ",
+        "sortBy": "Dark Tower 2",
+        "title": "The Drawing of the Three",
+        "updated": 2017-10-01T01:39:26.220Z,
       }
     }
     onBackClick={[Function]}
@@ -41,12 +42,12 @@ ShallowWrapper {
         <AuthorLink
           author={
             Object {
-              "bookCount": 1,
-              "created": 2017-07-01T01:16:43.881Z,
-              "firstName": "Aldous",
-              "id": "oiw223h3qndlksadffl3ksdf",
-              "lastName": "Huxley",
-              "updated": 2017-07-01T01:16:43.881Z,
+              "bookCount": 2,
+              "created": 2017-07-06T22:02:17.051Z,
+              "firstName": "Stephen",
+              "id": "93ucbe8c8fn98w7b276v",
+              "lastName": "King",
+              "updated": 2017-08-17T21:27:35.885Z,
             }
           }
         />,
@@ -55,15 +56,15 @@ ShallowWrapper {
             Array [
               Object {
                 "title": "Sort by",
-                "value": undefined,
+                "value": "Dark Tower 2",
               },
               Object {
                 "title": "Added",
-                "value": "Jan. 13, 2018, 17:36:26",
+                "value": "Sep. 30, 2017, 18:39:26",
               },
               Object {
                 "title": "Updated",
-                "value": "Jan. 13, 2018, 17:36:26",
+                "value": "Sep. 30, 2017, 18:39:26",
               },
             ]
           }
@@ -91,7 +92,7 @@ ShallowWrapper {
           />
         </ButtonRow>,
       ],
-      "header": "Brave New World",
+      "header": "The Drawing of the Three",
     },
     "ref": null,
     "rendered": Array [
@@ -101,12 +102,12 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "author": Object {
-            "bookCount": 1,
-            "created": 2017-07-01T01:16:43.881Z,
-            "firstName": "Aldous",
-            "id": "oiw223h3qndlksadffl3ksdf",
-            "lastName": "Huxley",
-            "updated": 2017-07-01T01:16:43.881Z,
+            "bookCount": 2,
+            "created": 2017-07-06T22:02:17.051Z,
+            "firstName": "Stephen",
+            "id": "93ucbe8c8fn98w7b276v",
+            "lastName": "King",
+            "updated": 2017-08-17T21:27:35.885Z,
           },
         },
         "ref": null,
@@ -121,15 +122,15 @@ ShallowWrapper {
           "textList": Array [
             Object {
               "title": "Sort by",
-              "value": undefined,
+              "value": "Dark Tower 2",
             },
             Object {
               "title": "Added",
-              "value": "Jan. 13, 2018, 17:36:26",
+              "value": "Sep. 30, 2017, 18:39:26",
             },
             Object {
               "title": "Updated",
-              "value": "Jan. 13, 2018, 17:36:26",
+              "value": "Sep. 30, 2017, 18:39:26",
             },
           ],
         },
@@ -232,12 +233,12 @@ ShallowWrapper {
           <AuthorLink
             author={
               Object {
-                "bookCount": 1,
-                "created": 2017-07-01T01:16:43.881Z,
-                "firstName": "Aldous",
-                "id": "oiw223h3qndlksadffl3ksdf",
-                "lastName": "Huxley",
-                "updated": 2017-07-01T01:16:43.881Z,
+                "bookCount": 2,
+                "created": 2017-07-06T22:02:17.051Z,
+                "firstName": "Stephen",
+                "id": "93ucbe8c8fn98w7b276v",
+                "lastName": "King",
+                "updated": 2017-08-17T21:27:35.885Z,
               }
             }
           />,
@@ -246,15 +247,15 @@ ShallowWrapper {
               Array [
                 Object {
                   "title": "Sort by",
-                  "value": undefined,
+                  "value": "Dark Tower 2",
                 },
                 Object {
                   "title": "Added",
-                  "value": "Jan. 13, 2018, 17:36:26",
+                  "value": "Sep. 30, 2017, 18:39:26",
                 },
                 Object {
                   "title": "Updated",
-                  "value": "Jan. 13, 2018, 17:36:26",
+                  "value": "Sep. 30, 2017, 18:39:26",
                 },
               ]
             }
@@ -282,7 +283,7 @@ ShallowWrapper {
             />
           </ButtonRow>,
         ],
-        "header": "Brave New World",
+        "header": "The Drawing of the Three",
       },
       "ref": null,
       "rendered": Array [
@@ -292,12 +293,12 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "author": Object {
-              "bookCount": 1,
-              "created": 2017-07-01T01:16:43.881Z,
-              "firstName": "Aldous",
-              "id": "oiw223h3qndlksadffl3ksdf",
-              "lastName": "Huxley",
-              "updated": 2017-07-01T01:16:43.881Z,
+              "bookCount": 2,
+              "created": 2017-07-06T22:02:17.051Z,
+              "firstName": "Stephen",
+              "id": "93ucbe8c8fn98w7b276v",
+              "lastName": "King",
+              "updated": 2017-08-17T21:27:35.885Z,
             },
           },
           "ref": null,
@@ -312,15 +313,15 @@ ShallowWrapper {
             "textList": Array [
               Object {
                 "title": "Sort by",
-                "value": undefined,
+                "value": "Dark Tower 2",
               },
               Object {
                 "title": "Added",
-                "value": "Jan. 13, 2018, 17:36:26",
+                "value": "Sep. 30, 2017, 18:39:26",
               },
               Object {
                 "title": "Updated",
-                "value": "Jan. 13, 2018, 17:36:26",
+                "value": "Sep. 30, 2017, 18:39:26",
               },
             ],
           },

@@ -2,7 +2,6 @@
 
 exports[`BookBucketBooks matches the snapshot 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BookBucketBookList
     bucket={
@@ -20,6 +19,7 @@ ShallowWrapper {
             },
             "created": 2018-01-14T01:36:26.220Z,
             "id": "sv3hmbefpc95MRXQsTHr",
+            "sortBy": "",
             "title": "Brave New World",
             "updated": 2018-01-14T01:36:26.220Z,
           },
@@ -34,6 +34,7 @@ ShallowWrapper {
             },
             "created": 2018-01-15T01:36:26.220Z,
             "id": "Hmh9eR3rs5bMvsTXfpcQ",
+            "sortBy": "",
             "title": "Island",
             "updated": 2018-01-15T01:36:26.220Z,
           },
@@ -48,6 +49,7 @@ ShallowWrapper {
             },
             "created": 2018-01-16T01:36:26.220Z,
             "id": "eRpcQ5H3rsTXfmh9bMvs",
+            "sortBy": "",
             "title": "The Doors of Perception",
             "updated": 2018-01-16T01:36:26.220Z,
           },
@@ -60,6 +62,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -82,6 +85,7 @@ ShallowWrapper {
               },
               "created": 2018-01-14T01:36:26.220Z,
               "id": "sv3hmbefpc95MRXQsTHr",
+              "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
             }
@@ -102,6 +106,7 @@ ShallowWrapper {
               },
               "created": 2018-01-15T01:36:26.220Z,
               "id": "Hmh9eR3rs5bMvsTXfpcQ",
+              "sortBy": "",
               "title": "Island",
               "updated": 2018-01-15T01:36:26.220Z,
             }
@@ -122,6 +127,7 @@ ShallowWrapper {
               },
               "created": 2018-01-16T01:36:26.220Z,
               "id": "eRpcQ5H3rsTXfmh9bMvs",
+              "sortBy": "",
               "title": "The Doors of Perception",
               "updated": 2018-01-16T01:36:26.220Z,
             }
@@ -149,6 +155,7 @@ ShallowWrapper {
             },
             "created": 2018-01-14T01:36:26.220Z,
             "id": "sv3hmbefpc95MRXQsTHr",
+            "sortBy": "",
             "title": "Brave New World",
             "updated": 2018-01-14T01:36:26.220Z,
           },
@@ -175,6 +182,7 @@ ShallowWrapper {
             },
             "created": 2018-01-15T01:36:26.220Z,
             "id": "Hmh9eR3rs5bMvsTXfpcQ",
+            "sortBy": "",
             "title": "Island",
             "updated": 2018-01-15T01:36:26.220Z,
           },
@@ -201,6 +209,7 @@ ShallowWrapper {
             },
             "created": 2018-01-16T01:36:26.220Z,
             "id": "eRpcQ5H3rsTXfmh9bMvs",
+            "sortBy": "",
             "title": "The Doors of Perception",
             "updated": 2018-01-16T01:36:26.220Z,
           },
@@ -234,6 +243,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-14T01:36:26.220Z,
                 "id": "sv3hmbefpc95MRXQsTHr",
+                "sortBy": "",
                 "title": "Brave New World",
                 "updated": 2018-01-14T01:36:26.220Z,
               }
@@ -254,6 +264,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-15T01:36:26.220Z,
                 "id": "Hmh9eR3rs5bMvsTXfpcQ",
+                "sortBy": "",
                 "title": "Island",
                 "updated": 2018-01-15T01:36:26.220Z,
               }
@@ -274,6 +285,7 @@ ShallowWrapper {
                 },
                 "created": 2018-01-16T01:36:26.220Z,
                 "id": "eRpcQ5H3rsTXfmh9bMvs",
+                "sortBy": "",
                 "title": "The Doors of Perception",
                 "updated": 2018-01-16T01:36:26.220Z,
               }
@@ -301,6 +313,7 @@ ShallowWrapper {
               },
               "created": 2018-01-14T01:36:26.220Z,
               "id": "sv3hmbefpc95MRXQsTHr",
+              "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
             },
@@ -327,6 +340,7 @@ ShallowWrapper {
               },
               "created": 2018-01-15T01:36:26.220Z,
               "id": "Hmh9eR3rs5bMvsTXfpcQ",
+              "sortBy": "",
               "title": "Island",
               "updated": 2018-01-15T01:36:26.220Z,
             },
@@ -353,6 +367,7 @@ ShallowWrapper {
               },
               "created": 2018-01-16T01:36:26.220Z,
               "id": "eRpcQ5H3rsTXfmh9bMvs",
+              "sortBy": "",
               "title": "The Doors of Perception",
               "updated": 2018-01-16T01:36:26.220Z,
             },
@@ -371,8 +386,20 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
   },
 }
 `;
