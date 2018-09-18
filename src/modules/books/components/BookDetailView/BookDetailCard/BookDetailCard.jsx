@@ -18,9 +18,10 @@ type Props = {
 }
 
 const bookDatesTextList = (book: Book) => {
-  const { created, updated } = book
+  const { created, sortBy, updated } = book
 
   return [
+    { title: 'Sort by', value: sortBy },
     { title: 'Added', value: format(created, 'MMM. DD, YYYY, HH:mm:ss') },
     { title: 'Updated', value: format(updated, 'MMM. DD, YYYY, HH:mm:ss') },
   ]

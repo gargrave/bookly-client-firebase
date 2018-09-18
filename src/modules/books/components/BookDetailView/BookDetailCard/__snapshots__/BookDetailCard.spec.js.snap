@@ -54,6 +54,10 @@ ShallowWrapper {
           textList={
             Array [
               Object {
+                "title": "Sort by",
+                "value": undefined,
+              },
+              Object {
                 "title": "Added",
                 "value": "Jan. 13, 2018, 17:36:26",
               },
@@ -115,6 +119,10 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "textList": Array [
+            Object {
+              "title": "Sort by",
+              "value": undefined,
+            },
             Object {
               "title": "Added",
               "value": "Jan. 13, 2018, 17:36:26",
@@ -237,6 +245,10 @@ ShallowWrapper {
             textList={
               Array [
                 Object {
+                  "title": "Sort by",
+                  "value": undefined,
+                },
+                Object {
                   "title": "Added",
                   "value": "Jan. 13, 2018, 17:36:26",
                 },
@@ -298,6 +310,10 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "textList": Array [
+              Object {
+                "title": "Sort by",
+                "value": undefined,
+              },
               Object {
                 "title": "Added",
                 "value": "Jan. 13, 2018, 17:36:26",
