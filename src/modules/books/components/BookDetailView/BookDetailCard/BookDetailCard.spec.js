@@ -10,7 +10,7 @@ import Card from '../../../../common/components/Card/Card'
 
 import BookDetailCard from './BookDetailCard'
 
-const book = { ...bookMocks[0] }
+const book = { ...bookMocks[bookMocks.length - 1] }
 const defaultProps = {
   book,
   onBackClick: jest.fn(),
@@ -62,6 +62,16 @@ describe('BookDetailCard', () => {
       const updatedText = textList.find(line => line.title === 'Added')
       expect(updatedText).toBeDefined()
       expect(updatedText.value).toBe(format(book.created, dateFormat))
+    })
+  })
+
+  describe('text display', () => {
+    it('renders the title in the "sort by" field if none is provided', () => {
+      const overrideBook = { ...book, sortBy: '' }
+      component = builder.shallowGetComponent({ book: overrideBook })
+      const textList = component.find(Card.TextList).props().textList
+      const sortByText = textList.find(line => line.title === 'Sort by')
+      expect(sortByText.value).toBe(book.title)
     })
   })
 })
