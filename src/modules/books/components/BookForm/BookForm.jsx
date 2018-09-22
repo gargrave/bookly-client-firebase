@@ -63,6 +63,7 @@ const BookForm = ({
         label="Sort By"
         name="sortBy"
         onInputChange={onInputChange}
+        placeholder={title}
       />
 
       <AuthorSelect

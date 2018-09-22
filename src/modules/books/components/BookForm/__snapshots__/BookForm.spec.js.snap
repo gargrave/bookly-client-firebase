@@ -59,6 +59,7 @@ ShallowWrapper {
           label="Sort By"
           name="sortBy"
           onInputChange={[Function]}
+          placeholder=""
         />,
         <AuthorSelect
           author={
@@ -112,6 +113,7 @@ ShallowWrapper {
           "label": "Sort By",
           "name": "sortBy",
           "onInputChange": [Function],
+          "placeholder": "",
         },
         "ref": null,
         "rendered": null,
@@ -161,6 +163,7 @@ ShallowWrapper {
             label="Sort By"
             name="sortBy"
             onInputChange={[Function]}
+            placeholder=""
           />,
           <AuthorSelect
             author={
@@ -214,6 +217,7 @@ ShallowWrapper {
             "label": "Sort By",
             "name": "sortBy",
             "onInputChange": [Function],
+            "placeholder": "",
           },
           "ref": null,
           "rendered": null,
