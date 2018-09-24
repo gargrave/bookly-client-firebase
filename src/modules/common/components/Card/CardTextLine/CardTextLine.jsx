@@ -8,12 +8,16 @@ import styles from './CardTextLine.css'
 
 type Props = {
   bold?: boolean,
+  style?: Object,
   text: string,
 }
 
-const CardTextLine = ({ bold = false, text }: Props) => {
+const CardTextLine = ({ bold = false, style = {}, text }: Props) => {
   return (
-    <p className={buildClass(styles.cardTextLine, { [styles.bold]: bold })}>
+    <p
+      className={buildClass(styles.cardTextLine, { [styles.bold]: bold })}
+      style={style}
+    >
       {text}
     </p>
   )

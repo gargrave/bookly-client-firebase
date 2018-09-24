@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { bool, func, shape, string } from 'prop-types'
+import { bool, func, object } from 'prop-types'
 
 import type { Book } from '../../flowtypes'
 
@@ -12,26 +12,28 @@ type Props = {
   showAuthor?: boolean,
 }
 
-const BookListDetail = ({ book, onClick, showAuthor }: Props) => {
-  const { author, title } = book
+const sortByTextStyles = {
+  color: '#999',
+  fontSize: '.8rem',
+}
+
+const BookListDetail = ({ book, onClick, showAuthor = false }: Props) => {
+  const { author, sortBy, title } = book
   const authorName = `${author.firstName} ${author.lastName}`
 
   return (
     <Card hoverable={true} onClick={onClick}>
       <Card.TextLine bold={true} text={title} />
       {showAuthor && <Card.TextLine text={authorName} />}
+      {sortBy && (
+        <Card.TextLine style={sortByTextStyles} text={`Sort by: ${sortBy}`} />
+      )}
     </Card>
   )
 }
 
 BookListDetail.propTypes = {
-  book: shape({
-    author: shape({
-      firstName: string.isRequired,
-      lastName: string.isRequired,
-    }),
-    title: string.isRequired,
-  }).isRequired,
+  book: object.isRequired,
   onClick: func.isRequired,
   showAuthor: bool,
 }
