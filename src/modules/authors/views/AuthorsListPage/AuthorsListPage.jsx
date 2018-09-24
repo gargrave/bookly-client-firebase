@@ -98,8 +98,8 @@ class AuthorsListPage extends Component<Props, State> {
 
   render() {
     return (
-      <div className={styles.authorsListView}>
-        <h3 className={styles.header}>
+      <div>
+        <h3>
           My Authors
           {this.renderAddAuthorButton()}
         </h3>
