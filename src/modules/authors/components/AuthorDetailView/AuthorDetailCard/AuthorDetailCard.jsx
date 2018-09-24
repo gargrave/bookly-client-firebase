@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 
 import type { Author } from '../../../flowtypes'
 
-import Button from '../../../../common/components/Button/Button'
+import Button from '../../../../common/components/Button'
 import ButtonRow from '../../../../common/components/ButtonRow/ButtonRow'
 import Card from '../../../../common/components/Card/Card'
 

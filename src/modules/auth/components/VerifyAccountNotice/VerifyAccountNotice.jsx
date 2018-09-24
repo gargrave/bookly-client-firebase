@@ -2,7 +2,7 @@
 import React from 'react'
 import { bool, func } from 'prop-types'
 
-import Button from '../../../common/components/Button/Button'
+import Button from '../../../common/components/Button'
 import Card from '../../../common/components/Card/Card'
 
 type Props = {

@@ -7,7 +7,7 @@ import type { Book } from '../../flowtypes'
 import { localUrls } from '../../../../globals/urls'
 
 import BooksListVerified from '../../components/BooksListVerified/BooksListVerified'
-import Button from '../../../common/components/Button/Button'
+import Button from '../../../common/components/Button'
 import CardList from '../../../common/components/CardList/CardList'
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice'
 

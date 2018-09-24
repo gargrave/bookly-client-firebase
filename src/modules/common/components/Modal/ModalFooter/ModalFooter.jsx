@@ -2,7 +2,7 @@
 import React from 'react'
 import { func, string } from 'prop-types'
 
-import Button from '../../Button/Button'
+import Button from '../../Button'
 import ButtonRow from '../../ButtonRow/ButtonRow'
 
 import styles from './ModalFooter.css'

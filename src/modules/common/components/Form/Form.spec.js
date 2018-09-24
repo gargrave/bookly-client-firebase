@@ -1,7 +1,7 @@
 import { ComponentBuilder } from '../../../../utils/testHelpers'
 
 import Alert from '../../../common/components/Alert/Alert'
-import Button from '../../../common/components/Button/Button'
+import Button from '../../../common/components/Button'
 
 import Form from './Form'
 

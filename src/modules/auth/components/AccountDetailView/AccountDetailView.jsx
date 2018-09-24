@@ -7,7 +7,7 @@ import type { Profile } from '../../../profiles/flowtypes'
 
 import { userBasicDetailsTextList, userRegDetailsTextList } from './helpers'
 
-import Button from '../../../common/components/Button/Button'
+import Button from '../../../common/components/Button'
 import ButtonRow from '../../../common/components/ButtonRow/ButtonRow'
 import Card from '../../../common/components/Card/Card'
 import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice'

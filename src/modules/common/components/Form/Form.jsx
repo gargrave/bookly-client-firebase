@@ -5,7 +5,7 @@ import { any, array, func, bool, string } from 'prop-types'
 import { buildClass } from '../../../../utils/cssHelpers'
 
 import Alert from '../Alert/Alert'
-import Button from '../Button/Button'
+import Button from '../Button'
 import ButtonRow from '../ButtonRow/ButtonRow'
 
 import styles from './Form.css'

@@ -7,7 +7,7 @@ import type { Author } from '../../flowtypes'
 import { localUrls } from '../../../../globals/urls'
 
 import AuthorsListVerified from '../../components/AuthorsListVerified/AuthorsListVerified'
-import Button from '../../../common/components/Button/Button'
+import Button from '../../../common/components/Button'
 import CardList from '../../../common/components/CardList/CardList'
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice'
 

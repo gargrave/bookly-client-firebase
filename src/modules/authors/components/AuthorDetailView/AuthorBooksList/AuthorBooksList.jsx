@@ -6,7 +6,7 @@ import type { Book } from '../../../../books/flowtypes'
 import type { Author } from '../../../flowtypes'
 
 import BookList from '../../../../books/components/BookList/BookList'
-import Button from '../../../../common/components/Button/Button'
+import Button from '../../../../common/components/Button'
 
 import styles from './AuthorBooksList.css'
 
