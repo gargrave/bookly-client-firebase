@@ -47,46 +47,46 @@ class BookCreatePage extends Component<Props, State> {
     preselectedAuthor: object,
   }
 
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      book: bookModel.empty(),
-      errors: bookModel.emptyErrors(),
-      formDisabled: true,
-      submitDisabled: true,
-      topLevelError: '',
-    }
+  state = {
+    book: bookModel.empty(),
+    errors: bookModel.emptyErrors(),
+    formDisabled: false,
+    submitDisabled: true,
+    topLevelError: '',
   }
 
   async componentDidMount() {
     try {
       await this.props.authorActions.fetchAuthors()
-      await this.props.actions.fetchBooks()
-
       if (this.props.preselectedAuthor) {
         this.updateAuthor(this.props.preselectedAuthor.id)
         this.props.authorActions.clearPreselectedAuthor()
       }
-
-      this.setState({
-        formDisabled: false,
-      })
     } catch (err) {
       console.log('TODO: deal with this error!')
       console.log(err)
     }
   }
 
+  shouldComponentUpdate(nextProps: Props) {
+    // ignore the update from clearing the pre-selected author, since this happens immediately upon loading
+    if (this.props.preselectedAuthor && !nextProps.preselectedAuthor) {
+      return false
+    }
+    return true
+  }
+
   updateAuthor(authorId?: string) {
     const author = this.props.authors.find(a => a.id === authorId)
-    const book = { ...this.state.book, author }
-    const submitDisabled = !bookHasAllFields(book)
 
     if (author) {
-      this.setState({
-        book,
-        submitDisabled,
+      this.setState(({ book }) => {
+        const updatedBook = { ...book, author }
+        const submitDisabled = !bookHasAllFields(updatedBook)
+        return {
+          book: updatedBook,
+          submitDisabled,
+        }
       })
     }
   }
@@ -98,14 +98,18 @@ class BookCreatePage extends Component<Props, State> {
 
   onInputChange = (event: any) => {
     const key = event.target.name
-    if (key in this.state.book) {
-      const book = { ...this.state.book }
-      book[key] = event.target.value
-      const submitDisabled = !bookHasAllFields(book)
+    const value = event.target.value
 
-      this.setState({
-        book,
-        submitDisabled,
+    if (key in this.state.book) {
+      this.setState(({ book }) => {
+        const newBook = { ...book }
+        newBook[key] = value
+        const submitDisabled = !bookHasAllFields(newBook)
+
+        return {
+          book: newBook,
+          submitDisabled,
+        }
       })
     }
   }
@@ -114,30 +118,29 @@ class BookCreatePage extends Component<Props, State> {
     event.preventDefault()
     const errors = validateBook(this.state.book)
     if (errors.found) {
-      this.setState({
-        errors,
-      })
-    } else {
-      this.setState(
-        {
-          errors: bookModel.emptyErrors(),
-          formDisabled: true,
-          topLevelError: '',
-        },
-        async () => {
-          try {
-            const book = bookModel.toAPI(this.state.book)
-            await this.props.actions.createBook(book)
-            this.props.history.push(localUrls.booksList)
-          } catch (err) {
-            this.setState({
-              formDisabled: false,
-              topLevelError: err,
-            })
-          }
-        },
-      )
+      this.setState({ errors })
+      return
     }
+
+    this.setState(
+      {
+        errors: bookModel.emptyErrors(),
+        formDisabled: true,
+        topLevelError: '',
+      },
+      async () => {
+        try {
+          const book = bookModel.toAPI(this.state.book)
+          await this.props.actions.createBook(book)
+          this.props.history.push(localUrls.booksList)
+        } catch (err) {
+          this.setState({
+            formDisabled: false,
+            topLevelError: err,
+          })
+        }
+      },
+    )
   }
 
   onCancel = (event: any) => {
