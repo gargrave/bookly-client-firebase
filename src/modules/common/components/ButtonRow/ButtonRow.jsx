@@ -1,15 +1,19 @@
 // @flow
 import React from 'react'
 import { array, object, oneOfType } from 'prop-types'
-
-import styles from './ButtonRow.css'
+import styled from 'react-emotion'
 
 type Props = {
   children?: any,
 }
 
+const Styled = styled('div')`
+  display: flex;
+  justify-content: space-between;
+`
+
 const ButtonRow = ({ children }: Props) => {
-  return <div className={styles.buttonRow}>{children}</div>
+  return <Styled>{children}</Styled>
 }
 
 ButtonRow.propTypes = {

@@ -55,7 +55,7 @@ describe('Button', () => {
 
   it('renders the correct text', () => {
     component = builder.shallowGetComponent()
-    expect(component.text()).toEqual('ButtonText')
+    expect(component.props().children).toEqual('ButtonText')
   })
 
   it('calls the callback as expected', () => {

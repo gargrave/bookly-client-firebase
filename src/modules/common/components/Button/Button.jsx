@@ -1,10 +1,9 @@
 // @flow
 import React from 'react'
 import { bool, func, oneOf, string } from 'prop-types'
+import styled from 'react-emotion'
 
 import { buildClass } from '../../../../utils/cssHelpers'
-
-import styles from './Button.css'
 
 export const POSITIONS = ['left', 'right']
 
@@ -27,6 +26,21 @@ type Props = {
   type?: string,
 }
 
+const Styled = styled('button')`
+  height: 2.15rem;
+  line-height: 2rem;
+  margin-left: 10px;
+  padding: 0 8px;
+
+  &.left {
+    margin-left: 0;
+  }
+
+  &.right {
+    margin-left: auto;
+  }
+`
+
 const Button = ({
   canSubmit,
   disabled,
@@ -35,19 +49,14 @@ const Button = ({
   text,
   type = '',
 }: Props) => (
-  <button
-    className={buildClass(
-      styles.button,
-      { [styles[position]]: !!position },
-      'button',
-      { [`button-${type}`]: !!type },
-    )}
+  <Styled
+    className={buildClass('button', position, { [`button-${type}`]: !!type })}
     disabled={disabled || false}
     onClick={onClick}
     type={canSubmit ? 'submit' : 'button'}
   >
     {text}
-  </button>
+  </Styled>
 )
 
 Button.propTypes = {
