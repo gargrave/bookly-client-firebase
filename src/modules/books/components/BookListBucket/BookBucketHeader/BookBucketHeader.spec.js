@@ -20,10 +20,6 @@ describe('BookBucketHeader', () => {
   it('renders correctly', () => {
     component = builder.shallowGetComponent()
     const authorString = `${bookBucketMocks[0].author}`
-    const matched = component
-      .find('div')
-      .text()
-      .match(new RegExp(authorString))
-    expect(matched.length).toBe(1)
+    expect(component.find({ children: authorString })).toHaveLength(1)
   })
 })

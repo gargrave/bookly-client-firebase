@@ -69,7 +69,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <BookBucketHeader
@@ -182,7 +182,6 @@ ShallowWrapper {
           onBookClick={[Function]}
         />,
       ],
-      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -308,13 +307,13 @@ ShallowWrapper {
         "type": [Function],
       },
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <BookBucketHeader
@@ -427,7 +426,6 @@ ShallowWrapper {
             onBookClick={[Function]}
           />,
         ],
-        "className": undefined,
       },
       "ref": null,
       "rendered": Array [
@@ -553,7 +551,7 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
