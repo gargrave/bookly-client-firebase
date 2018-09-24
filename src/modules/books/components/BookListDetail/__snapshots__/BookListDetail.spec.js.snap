@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookListDetail matches the snapshot 1`] = `
+exports[`BookListDetail basic rendering matches the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BookListDetail
@@ -22,7 +22,6 @@ ShallowWrapper {
       }
     }
     onClick={[Function]}
-    showAuthor={true}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -42,9 +41,8 @@ ShallowWrapper {
           bold={true}
           text="Brave New World"
         />,
-        <CardTextLine
-          text="Aldous Huxley"
-        />,
+        false,
+        "",
       ],
       "hoverable": true,
       "onClick": [Function],
@@ -63,17 +61,8 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "text": "Aldous Huxley",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
+      false,
+      "",
     ],
     "type": [Function],
   },
@@ -88,9 +77,8 @@ ShallowWrapper {
             bold={true}
             text="Brave New World"
           />,
-          <CardTextLine
-            text="Aldous Huxley"
-          />,
+          false,
+          "",
         ],
         "hoverable": true,
         "onClick": [Function],
@@ -109,17 +97,8 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "text": "Aldous Huxley",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        false,
+        "",
       ],
       "type": [Function],
     },
