@@ -5,7 +5,11 @@ import type { Book } from '../../modules/books/flowtypes'
 export const bookHasValidAuthor = (book: Book, authors: Author[]) =>
   authors.find((author: Author) => author.id === book.authorId)
 
-const sortByTitle = (a: Book, b: Book) => (a.title > b.title ? 1 : -1)
+const filterTitle = (str: string): string =>
+  str.toLowerCase().startsWith('the ') ? str.substring(4) : str
+
+const sortByTitle = (a: Book, b: Book) =>
+  filterTitle(a.title) > filterTitle(b.title) ? 1 : -1
 
 const getBookHash = (books: Book[]) =>
   books.reduce((acc: Object, book: Book) => {
@@ -24,7 +28,6 @@ const getBookHash = (books: Book[]) =>
     }
   }, {})
 
-// TODO: ignore "the" when sorting titles and sortBy
 export function sortBooks(books: Book[]) {
   const bookHash = getBookHash(books)
   const sortedBooks: Book[] = []
