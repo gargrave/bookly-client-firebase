@@ -7,13 +7,13 @@ type Props = {
   children?: any,
 }
 
-const Styled = styled('div')`
+const StyledDiv = styled('div')`
   display: flex;
   justify-content: space-between;
 `
 
 const ButtonRow = ({ children }: Props) => {
-  return <Styled>{children}</Styled>
+  return <StyledDiv>{children}</StyledDiv>
 }
 
 ButtonRow.propTypes = {

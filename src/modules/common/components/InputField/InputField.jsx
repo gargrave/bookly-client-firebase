@@ -1,11 +1,10 @@
 // @flow
 import React from 'react'
 import { bool, func, number, oneOf, string } from 'prop-types'
+import styled from 'react-emotion'
 
-import { buildClass } from '../../../../utils/cssHelpers'
+import { colors } from '../../../../styles'
 import { clamp } from '../../../../utils/mathHelpers'
-
-import styles from './InputField.css'
 
 type Props = {
   boundValue: string,
@@ -19,15 +18,15 @@ type Props = {
   type?: string,
 }
 
-type InputFieldErrorProps = {
-  error?: string,
-}
-
 const acceptableTypes = ['email', 'password', 'search', 'text']
 
-export const InputFieldError = ({ error }: InputFieldErrorProps) => (
-  <p className={styles.error}>{error}</p>
-)
+const StyledInput = styled('input')`
+  border-color: ${props => props.invalid && colors.error} !important;
+`
+
+const StyledError = styled('p')`
+  color: ${colors.error};
+`
 
 const InputField = ({
   boundValue,
@@ -44,10 +43,10 @@ const InputField = ({
     <div className="input-field">
       {label && <label htmlFor={name}>{label}:</label>}
 
-      <input
-        className={buildClass({ [styles.invalid]: !!error })}
+      <StyledInput
         disabled={disabled || false}
         id={name}
+        invalid={!!error}
         maxLength={clamp(maxLength, 1, 255)}
         name={name}
         onChange={onInputChange}
@@ -56,7 +55,7 @@ const InputField = ({
         value={boundValue}
       />
 
-      {error && <InputFieldError error={error} />}
+      {error && <StyledError className="error">{error}</StyledError>}
     </div>
   )
 }

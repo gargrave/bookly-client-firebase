@@ -1,15 +1,20 @@
 // @flow
 import React from 'react'
 import { any } from 'prop-types'
-
-import styles from './CardList.css'
+import styled from 'react-emotion'
 
 type Props = {
   children?: any,
 }
 
+const StyledDiv = styled('div')`
+  margin: auto;
+  max-width: 550px;
+  padding: 0 10px;
+`
+
 const CardList = ({ children }: Props) => {
-  return <div className={styles.cardList}>{children}</div>
+  return <StyledDiv className="cardList">{children}</StyledDiv>
 }
 
 CardList.propTypes = {

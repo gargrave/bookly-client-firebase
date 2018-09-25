@@ -26,7 +26,7 @@ type Props = {
   type?: string,
 }
 
-const Styled = styled('button')`
+const StyledButton = styled('button')`
   height: 2.15rem;
   line-height: 2rem;
   margin-left: 10px;
@@ -49,14 +49,14 @@ const Button = ({
   text,
   type = '',
 }: Props) => (
-  <Styled
+  <StyledButton
     className={buildClass('button', position, { [`button-${type}`]: !!type })}
     disabled={disabled || false}
     onClick={onClick}
     type={canSubmit ? 'submit' : 'button'}
   >
     {text}
-  </Styled>
+  </StyledButton>
 )
 
 Button.propTypes = {

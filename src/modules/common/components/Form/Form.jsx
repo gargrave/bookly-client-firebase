@@ -1,14 +1,11 @@
 // @flow
 import React from 'react'
 import { any, array, func, bool, string } from 'prop-types'
-
-import { buildClass } from '../../../../utils/cssHelpers'
+import styled from 'react-emotion'
 
 import Alert from '../Alert/Alert'
 import Button from '../Button'
 import ButtonRow from '../ButtonRow/ButtonRow'
-
-import styles from './Form.css'
 
 type Props = {
   cancelBtnText?: string,
@@ -22,10 +19,16 @@ type Props = {
   topLevelError?: string,
 }
 
+const StyledDiv = styled('div')`
+  margin: auto;
+  margin-top: 20px;
+  max-width: 600px;
+  text-align: left;
+`
+
 const Form = ({
   cancelBtnText,
   children,
-  classes = [],
   disabled,
   onCancel,
   onSubmit,
@@ -34,13 +37,9 @@ const Form = ({
   topLevelError,
 }: Props) => {
   return (
-    <div>
+    <StyledDiv>
       {topLevelError && <Alert message={topLevelError} type="danger" />}
-      <form
-        className={buildClass(styles.form, ...(classes || []))}
-        onSubmit={onSubmit}
-        noValidate
-      >
+      <form onSubmit={onSubmit} noValidate>
         {children}
 
         <ButtonRow>
@@ -63,7 +62,7 @@ const Form = ({
           )}
         </ButtonRow>
       </form>
-    </div>
+    </StyledDiv>
   )
 }
 
