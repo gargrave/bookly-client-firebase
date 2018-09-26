@@ -6,7 +6,7 @@ import { isDevEnv } from '../../../../globals/env'
 import { localUrls } from '../../../../globals/urls'
 import { firebaseAuth } from '../../../../wrappers/firebase'
 
-import SexyHeader from '../../../common/components/SexyHeader/SexyHeader'
+import SexyHeader from '../../../common/components/SexyHeader'
 import SnackbarContainer from '../../../snackbar/containers/SnackbarContainer/SnackbarContainer'
 
 import Router from '../../Router'
