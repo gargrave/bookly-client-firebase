@@ -79,7 +79,11 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className={styles.app} style={extraStyles}>
-          <SexyHeader height={HEADER_HEIGHT} links={links} title={TITLE} />
+          <SexyHeader
+            headerHeight={HEADER_HEIGHT}
+            links={links}
+            title={TITLE}
+          />
           <main>
             <Router />
           </main>

@@ -7,8 +7,10 @@ import styled from 'react-emotion'
 
 import { breakpoints, colors, shadows } from '../../../../styles'
 
+import SexyHeaderTitle from './Title'
+
 type Props = {
-  height?: number,
+  headerHeight?: number,
   history: Object,
   links?: any[],
   title: string,
@@ -23,18 +25,12 @@ const StyledHeader = styled('header')`
   background: ${colors.headerMain};
   color: white;
   display: flex;
-  height: ${props => props.height || DEFAULT_HEIGHT}px;
+  height: ${props => props.headerHeight || DEFAULT_HEIGHT}px;
   left: 0;
   padding-left: 10px;
   position: absolute;
   top: 0;
   width: 100%;
-`
-
-const StyledTitle = styled('h3')`
-  height: 100%;
-  line-height: ${props => (props.height || DEFAULT_HEIGHT) * 0.9}px;
-  padding: 5px;
 `
 
 const StyledLinks = styled('div')`
@@ -75,11 +71,13 @@ const StyledLink = styled(Link)`
 
 class SexyHeader extends React.Component<Props> {
   static propTypes = {
-    height: number,
+    headerHeight: number,
     history: object,
     links: array,
     title: string,
   }
+
+  static Title = SexyHeaderTitle
 
   isActiveLink(linkTo: string) {
     return this.props.history.location.pathname === linkTo
@@ -98,10 +96,13 @@ class SexyHeader extends React.Component<Props> {
   }
 
   render() {
-    const { height, links, title } = this.props
+    const { headerHeight = DEFAULT_HEIGHT, links, title } = this.props
     return (
-      <StyledHeader height={height}>
-        <StyledTitle height={height}>{title}</StyledTitle>
+      <StyledHeader headerHeight={headerHeight}>
+        <SexyHeader.Title
+          headerHeight={headerHeight}
+          title={title}
+        />
         <StyledLinks>{this.renderLinks(links)}</StyledLinks>
       </StyledHeader>
     )
