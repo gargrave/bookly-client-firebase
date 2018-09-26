@@ -1,6 +1,6 @@
 import { ComponentBuilder } from '../../../../utils/testHelpers'
 
-import InputField, { InputFieldError } from './InputField'
+import InputField from './InputField'
 
 const defaultProps = {
   boundValue: '',
@@ -42,14 +42,14 @@ describe('InputField', () => {
     it.only('renders the error correctly when one is present', () => {
       const errMsg = 'error_message'
       component = builder.mountComponent({ error: errMsg })
-      const err = component.find(InputFieldError)
+      const err = component.find('p.error')
       expect(err).toHaveLength(1)
       expect(err.text()).toMatch(new RegExp(errMsg))
     })
 
     it.only('does not render an error if prop is empty', () => {
       component = builder.mountComponent({ error: '' })
-      expect(component.find(InputFieldError)).toHaveLength(0)
+      expect(component.find('p.error')).toHaveLength(0)
     })
   })
 
