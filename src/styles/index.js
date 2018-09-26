@@ -1,4 +1,5 @@
+import breakpoints from './breakpoints'
 import colors from './colors'
 import shadows from './shadows'
 
-export { colors, shadows }
+export { breakpoints, colors, shadows }
