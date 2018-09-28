@@ -1,8 +1,9 @@
 // @flow
 import React, { Fragment } from 'react'
 import { array } from 'prop-types'
+import styled from 'react-emotion'
 
-import styles from './CardTextList.css'
+import { colors } from '../../../../../styles/'
 
 type CardTextListItem = {
   title?: string,
@@ -13,13 +14,18 @@ type Props = {
   textList: CardTextListItem[],
 }
 
+const StyledItem = styled('div')`
+  color: ${colors.textLight};
+  margin-bottom: 0.3em;
+`
+
 const CardTextList = ({ textList }: Props) => (
   <Fragment>
     {textList.map((item, i) => (
-      <p key={i} className={styles.cardTextItem}>
+      <StyledItem key={i}>
         {item.title && <strong>{item.title}: </strong>}
         {item.value}
-      </p>
+      </StyledItem>
     ))}
   </Fragment>
 )

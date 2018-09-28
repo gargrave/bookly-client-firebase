@@ -1,10 +1,9 @@
 // @flow
 import React from 'react'
-import { bool, string } from 'prop-types'
+import { bool, object, string } from 'prop-types'
+import styled from 'react-emotion'
 
-import { buildClass } from '../../../../../utils/cssHelpers'
-
-import styles from './CardTextLine.css'
+import { colors } from '../../../../../styles'
 
 type Props = {
   bold?: boolean,
@@ -12,19 +11,27 @@ type Props = {
   text: string,
 }
 
+const Styled = styled('p')`
+  color: ${colors.textLight};
+  font-weight: ${props => (props.bold ? 'bold' : 'normal')};
+  margin-bottom: 0;
+
+  &.bold {
+    font-weight: bold;
+  }
+`
+
 const CardTextLine = ({ bold = false, style = {}, text }: Props) => {
   return (
-    <p
-      className={buildClass(styles.cardTextLine, { [styles.bold]: bold })}
-      style={style}
-    >
+    <Styled bold={bold} style={style}>
       {text}
-    </p>
+    </Styled>
   )
 }
 
 CardTextLine.propTypes = {
   bold: bool,
+  style: object,
   text: string.isRequired,
 }
 

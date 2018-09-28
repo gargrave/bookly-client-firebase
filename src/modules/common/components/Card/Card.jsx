@@ -2,9 +2,9 @@
 import React from 'react'
 import { any, array, bool, func, string } from 'prop-types'
 
-import CardSpacer from './CardSpacer/CardSpacer'
-import CardTextLine from './CardTextLine/CardTextLine'
-import CardTextList from './CardTextList/CardTextList'
+import CardSpacer from './CardSpacer'
+import CardTextLine from './CardTextLine'
+import CardTextList from './CardTextList'
 
 import styles from './Card.css'
 
