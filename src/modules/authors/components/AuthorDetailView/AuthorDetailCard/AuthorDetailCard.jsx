@@ -32,7 +32,8 @@ const AuthorDetailCard = ({
   onEditClick,
 }: Props) => {
   return (
-    <Card header={`${author.firstName} ${author.lastName}`}>
+    <Card>
+      <Card.Header text={`${author.firstName} ${author.lastName}`} />
       <Card.Spacer />
       <Card.TextList textList={authorDatesTextList(author)} />
       <Card.Spacer size="medium" />

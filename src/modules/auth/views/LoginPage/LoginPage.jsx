@@ -98,7 +98,8 @@ class LoginPage extends Component<Props, State> {
     return (
       <div className={styles.loginView}>
         <CardList>
-          <Card header="Login">
+          <Card>
+            <Card.Header text="Login" />
             <LoginForm
               disabled={formDisabled}
               errors={errors}

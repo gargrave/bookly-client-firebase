@@ -12,22 +12,15 @@ type Props = {
   showAuthor?: boolean,
 }
 
-const sortByTextStyles = {
-  color: '#999',
-  fontSize: '.8rem',
-}
-
 const BookListDetail = ({ book, onClick, showAuthor = false }: Props) => {
   const { author, sortBy, title } = book
   const authorName = `${author.firstName} ${author.lastName}`
 
   return (
     <Card hoverable={true} onClick={onClick}>
-      <Card.TextLine bold={true} text={title} />
+      <Card.TextLine text={title} type="title" />
       {showAuthor && <Card.TextLine text={authorName} />}
-      {sortBy && (
-        <Card.TextLine style={sortByTextStyles} text={`Sort by: ${sortBy}`} />
-      )}
+      {sortBy && <Card.TextLine text={`Sort by: ${sortBy}`} type="subtext" />}
     </Card>
   )
 }

@@ -37,7 +37,8 @@ const BookEditView = ({
 }: Props) => {
   return (
     <div className={styles.bookEditView}>
-      <Card header="Update Book">
+      <Card>
+        <Card.Header text="Update Book" />
         <BookForm
           authors={authors}
           book={book}

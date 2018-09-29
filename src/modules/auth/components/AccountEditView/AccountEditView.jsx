@@ -32,7 +32,8 @@ const AccountEditView = ({
 }: Props) => {
   return (
     <div className={styles.accountEditView}>
-      <Card header="Update My Account">
+      <Card>
+        <Card.Header text="Update My Account" />
         <AccountForm
           disabled={disabled}
           errors={errors}

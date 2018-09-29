@@ -126,7 +126,8 @@ class AuthorCreatePage extends Component<Props, State> {
     return (
       <div className={styles.authorCreateView}>
         <CardList>
-          <Card header="New Author">
+          <Card>
+            <Card.Header text="New Author" />
             <AuthorForm
               author={author}
               disabled={formDisabled}

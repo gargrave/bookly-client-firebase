@@ -161,7 +161,8 @@ class BookCreatePage extends Component<Props, State> {
     return (
       <div className={styles.bookCreateView}>
         <CardList>
-          <Card header="New Book">
+          <Card>
+            <Card.Header text="New Book" />
             <BookForm
               authors={authors}
               book={book}

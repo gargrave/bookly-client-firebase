@@ -33,7 +33,8 @@ const AccountDetailView = ({
 }: Props) => {
   return (
     <div className={styles.accountDetailView}>
-      <Card header="My Account">
+      <Card>
+        <Card.Header text="My Account" />
         <Card.Spacer />
         <Card.TextList textList={userBasicDetailsTextList(user, profile)} />
         <Card.Spacer />

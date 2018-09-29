@@ -105,7 +105,8 @@ class RegisterPage extends React.Component<Props, State> {
     return (
       <div className={styles.registerView}>
         <CardList>
-          <Card header="Create an Account">
+          <Card>
+            <Card.Header text="Create an Account" />
             <RegisterForm
               disabled={formDisabled}
               errors={errors}

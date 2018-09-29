@@ -130,7 +130,8 @@ class PasswordResetPage extends React.Component<Props, State> {
     return (
       <div className={styles.passwordResetView}>
         <CardList>
-          <Card header={'Request Password Reset'}>
+          <Card>
+            <Card.Header text="Request Password Reset" />
             {!passwordResetEmailSentTo && this.renderForm()}
             {passwordResetEmailSentTo && this.renderAlreadySentMessage()}
           </Card>

@@ -38,7 +38,11 @@ const textList = [
 
 const VerifyAccountNotice = ({ emailHasBeenSent, onSendLinkClick }: Props) => {
   return (
-    <Card title={'Your email address has not been verified!'}>
+    <Card>
+      <Card.TextLine
+        text="Your email address has not been verified!"
+        type="title"
+      />
       <Card.Spacer />
       <Card.TextList textList={textList} />
       <Card.Spacer />

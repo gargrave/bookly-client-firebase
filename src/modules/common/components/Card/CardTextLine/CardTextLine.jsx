@@ -1,38 +1,40 @@
 // @flow
 import React from 'react'
-import { bool, object, string } from 'prop-types'
+import { oneOf, string } from 'prop-types'
 import styled from 'react-emotion'
 
 import { colors } from '../../../../../styles'
 
 type Props = {
-  bold?: boolean,
-  style?: Object,
   text: string,
+  type?: string,
 }
 
-const Styled = styled('p')`
+const validTypes = ['header', 'subtext', 'text', 'title']
+
+const Styled = styled('div')`
   color: ${colors.textLight};
-  font-weight: ${props => (props.bold ? 'bold' : 'normal')};
   margin-bottom: 0;
 
-  &.bold {
+  &.bold,
+  &.title {
+    color: ${colors.textMed};
     font-weight: bold;
+  }
+
+  &.subtext {
+    color: ${colors.textMedLight};
+    font-size: 0.9em;
   }
 `
 
-const CardTextLine = ({ bold = false, style = {}, text }: Props) => {
-  return (
-    <Styled bold={bold} style={style}>
-      {text}
-    </Styled>
-  )
+const CardTextLine = ({ text, type = 'text' }: Props) => {
+  return <Styled className={type || null}>{text}</Styled>
 }
 
 CardTextLine.propTypes = {
-  bold: bool,
-  style: object,
   text: string.isRequired,
+  type: oneOf(validTypes),
 }
 
 export default CardTextLine

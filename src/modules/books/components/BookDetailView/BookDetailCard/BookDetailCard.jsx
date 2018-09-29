@@ -36,7 +36,8 @@ const BookDetailCard = ({
   const { title } = book
 
   return (
-    <Card header={title}>
+    <Card>
+      <Card.Header text={title} />
       <AuthorLink author={book.author} />
 
       <Card.TextList textList={bookDatesTextList(book)} />

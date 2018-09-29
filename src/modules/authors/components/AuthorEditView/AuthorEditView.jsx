@@ -32,7 +32,8 @@ const AuthorEditView = ({
 }: Props) => {
   return (
     <div className={styles.authorEditView}>
-      <Card header="Update Author">
+      <Card>
+        <Card.Header text="Update Author" />
         <AuthorForm
           author={author}
           disabled={disabled}
