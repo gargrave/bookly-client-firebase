@@ -10,7 +10,7 @@ type Props = {
   type?: string,
 }
 
-const validTypes = ['header', 'subtext', 'text', 'title']
+const validTypes = ['subtext', 'text', 'title']
 
 const Styled = styled('div')`
   color: ${colors.textLight};

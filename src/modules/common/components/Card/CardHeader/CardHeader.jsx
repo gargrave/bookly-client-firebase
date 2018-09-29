@@ -15,12 +15,12 @@ const Styled = styled('div')`
   font-size: 1.4em;
 `
 
-const CardTextLine = ({ text }: Props) => {
+const CardHeader = ({ text }: Props) => {
   return <Styled>{text}</Styled>
 }
 
-CardTextLine.propTypes = {
+CardHeader.propTypes = {
   text: string.isRequired,
 }
 
-export default CardTextLine
+export default CardHeader
