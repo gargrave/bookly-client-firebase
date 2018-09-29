@@ -1,17 +1,17 @@
 // @flow
 export function buildClass(...classArgs: any): string {
   const classList = []
-  classArgs.forEach(c => {
+  classArgs.forEach(classname => {
     // for strings, we can add the immediately
-    if (typeof c === 'string') {
-      classList.push(c)
+    if (typeof classname === 'string') {
+      classList.push(classname)
     }
 
     // for objects, assume there are multiple values to test,
     // and add each one to the list if its condition passes
-    if (typeof c === 'object') {
-      Object.keys(c).forEach(key => {
-        if (c[key]) {
+    if (typeof classname === 'object') {
+      Object.keys(classname).forEach(key => {
+        if (classname[key]) {
           classList.push(key)
         }
       })
