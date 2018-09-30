@@ -21,6 +21,10 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
+        <CardTextLine
+          text="Your email address has not been verified!"
+          type="title"
+        />,
         <CardSpacer />,
         <CardTextList
           textList={
@@ -48,10 +52,21 @@ ShallowWrapper {
           type="warning"
         />,
       ],
-      "title": "Your email address has not been verified!",
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "text": "Your email address has not been verified!",
+          "type": "title",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -118,6 +133,10 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
+          <CardTextLine
+            text="Your email address has not been verified!"
+            type="title"
+          />,
           <CardSpacer />,
           <CardTextList
             textList={
@@ -145,10 +164,21 @@ ShallowWrapper {
             type="warning"
           />,
         ],
-        "title": "Your email address has not been verified!",
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "text": "Your email address has not been verified!",
+            "type": "title",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,

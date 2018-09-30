@@ -93,9 +93,10 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <Card
-        header="Update Book"
-      >
+      "children": <Card>
+        <CardHeader
+          text="Update Book"
+        />
         <BookForm
           authors={
             Array [
@@ -182,9 +183,108 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": <BookForm
-          authors={
-            Array [
+        "children": Array [
+          <CardHeader
+            text="Update Book"
+          />,
+          <BookForm
+            authors={
+              Array [
+                Object {
+                  "bookCount": 1,
+                  "created": 2017-07-01T01:16:43.881Z,
+                  "firstName": "Aldous",
+                  "id": "oiw223h3qndlksadffl3ksdf",
+                  "lastName": "Huxley",
+                  "updated": 2017-07-01T01:16:43.881Z,
+                },
+                Object {
+                  "bookCount": 1,
+                  "created": 2017-07-06T22:02:11.504Z,
+                  "firstName": "Kurt",
+                  "id": "9328fhs938hfdsdblkhf98",
+                  "lastName": "Vonnegut",
+                  "updated": 2017-07-06T22:02:11.504Z,
+                },
+                Object {
+                  "bookCount": 1,
+                  "created": 2017-08-17T20:47:35.232Z,
+                  "firstName": "George R. R.",
+                  "id": "92nd9ab3kjasegfhasf783fu",
+                  "lastName": "Martin",
+                  "updated": 2017-08-17T20:47:35.232Z,
+                },
+                Object {
+                  "bookCount": 1,
+                  "created": 2017-07-06T22:02:17.051Z,
+                  "firstName": "Tom",
+                  "id": "98fn98w3ucbe8c7b276v",
+                  "lastName": "Robbins",
+                  "updated": 2017-08-17T21:27:35.885Z,
+                },
+                Object {
+                  "bookCount": 2,
+                  "created": 2017-07-06T22:02:17.051Z,
+                  "firstName": "Stephen",
+                  "id": "93ucbe8c8fn98w7b276v",
+                  "lastName": "King",
+                  "updated": 2017-08-17T21:27:35.885Z,
+                },
+              ]
+            }
+            book={
+              Object {
+                "author": Object {
+                  "bookCount": 1,
+                  "created": 2017-07-01T01:16:43.881Z,
+                  "firstName": "Aldous",
+                  "id": "oiw223h3qndlksadffl3ksdf",
+                  "lastName": "Huxley",
+                  "updated": 2017-07-01T01:16:43.881Z,
+                },
+                "created": 2018-01-14T01:36:26.220Z,
+                "id": "sv3hmbefpc95MRXQsTHr",
+                "sortBy": "",
+                "title": "Brave New World",
+                "updated": 2018-01-14T01:36:26.220Z,
+              }
+            }
+            disabled={false}
+            errors={
+              Object {
+                "author": "",
+                "sortBy": "",
+                "title": "",
+              }
+            }
+            onAuthorChange={[Function]}
+            onCancel={[Function]}
+            onInputChange={[Function]}
+            onSubmit={[Function]}
+            submitDisabled={false}
+            topLevelError=""
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "text": "Update Book",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "authors": Array [
               Object {
                 "bookCount": 1,
                 "created": 2017-07-01T01:16:43.881Z,
@@ -225,10 +325,8 @@ ShallowWrapper {
                 "lastName": "King",
                 "updated": 2017-08-17T21:27:35.885Z,
               },
-            ]
-          }
-          book={
-            Object {
+            ],
+            "book": Object {
               "author": Object {
                 "bookCount": 1,
                 "created": 2017-07-01T01:16:43.881Z,
@@ -242,105 +340,25 @@ ShallowWrapper {
               "sortBy": "",
               "title": "Brave New World",
               "updated": 2018-01-14T01:36:26.220Z,
-            }
-          }
-          disabled={false}
-          errors={
-            Object {
+            },
+            "disabled": false,
+            "errors": Object {
               "author": "",
               "sortBy": "",
               "title": "",
-            }
-          }
-          onAuthorChange={[Function]}
-          onCancel={[Function]}
-          onInputChange={[Function]}
-          onSubmit={[Function]}
-          submitDisabled={false}
-          topLevelError=""
-        />,
-        "header": "Update Book",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "authors": Array [
-            Object {
-              "bookCount": 1,
-              "created": 2017-07-01T01:16:43.881Z,
-              "firstName": "Aldous",
-              "id": "oiw223h3qndlksadffl3ksdf",
-              "lastName": "Huxley",
-              "updated": 2017-07-01T01:16:43.881Z,
             },
-            Object {
-              "bookCount": 1,
-              "created": 2017-07-06T22:02:11.504Z,
-              "firstName": "Kurt",
-              "id": "9328fhs938hfdsdblkhf98",
-              "lastName": "Vonnegut",
-              "updated": 2017-07-06T22:02:11.504Z,
-            },
-            Object {
-              "bookCount": 1,
-              "created": 2017-08-17T20:47:35.232Z,
-              "firstName": "George R. R.",
-              "id": "92nd9ab3kjasegfhasf783fu",
-              "lastName": "Martin",
-              "updated": 2017-08-17T20:47:35.232Z,
-            },
-            Object {
-              "bookCount": 1,
-              "created": 2017-07-06T22:02:17.051Z,
-              "firstName": "Tom",
-              "id": "98fn98w3ucbe8c7b276v",
-              "lastName": "Robbins",
-              "updated": 2017-08-17T21:27:35.885Z,
-            },
-            Object {
-              "bookCount": 2,
-              "created": 2017-07-06T22:02:17.051Z,
-              "firstName": "Stephen",
-              "id": "93ucbe8c8fn98w7b276v",
-              "lastName": "King",
-              "updated": 2017-08-17T21:27:35.885Z,
-            },
-          ],
-          "book": Object {
-            "author": Object {
-              "bookCount": 1,
-              "created": 2017-07-01T01:16:43.881Z,
-              "firstName": "Aldous",
-              "id": "oiw223h3qndlksadffl3ksdf",
-              "lastName": "Huxley",
-              "updated": 2017-07-01T01:16:43.881Z,
-            },
-            "created": 2018-01-14T01:36:26.220Z,
-            "id": "sv3hmbefpc95MRXQsTHr",
-            "sortBy": "",
-            "title": "Brave New World",
-            "updated": 2018-01-14T01:36:26.220Z,
+            "onAuthorChange": [Function],
+            "onCancel": [Function],
+            "onInputChange": [Function],
+            "onSubmit": [Function],
+            "submitDisabled": false,
+            "topLevelError": "",
           },
-          "disabled": false,
-          "errors": Object {
-            "author": "",
-            "sortBy": "",
-            "title": "",
-          },
-          "onAuthorChange": [Function],
-          "onCancel": [Function],
-          "onInputChange": [Function],
-          "onSubmit": [Function],
-          "submitDisabled": false,
-          "topLevelError": "",
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
+      ],
       "type": [Function],
     },
     "type": "div",
@@ -351,9 +369,10 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <Card
-          header="Update Book"
-        >
+        "children": <Card>
+          <CardHeader
+            text="Update Book"
+          />
           <BookForm
             authors={
               Array [
@@ -440,9 +459,108 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": <BookForm
-            authors={
-              Array [
+          "children": Array [
+            <CardHeader
+              text="Update Book"
+            />,
+            <BookForm
+              authors={
+                Array [
+                  Object {
+                    "bookCount": 1,
+                    "created": 2017-07-01T01:16:43.881Z,
+                    "firstName": "Aldous",
+                    "id": "oiw223h3qndlksadffl3ksdf",
+                    "lastName": "Huxley",
+                    "updated": 2017-07-01T01:16:43.881Z,
+                  },
+                  Object {
+                    "bookCount": 1,
+                    "created": 2017-07-06T22:02:11.504Z,
+                    "firstName": "Kurt",
+                    "id": "9328fhs938hfdsdblkhf98",
+                    "lastName": "Vonnegut",
+                    "updated": 2017-07-06T22:02:11.504Z,
+                  },
+                  Object {
+                    "bookCount": 1,
+                    "created": 2017-08-17T20:47:35.232Z,
+                    "firstName": "George R. R.",
+                    "id": "92nd9ab3kjasegfhasf783fu",
+                    "lastName": "Martin",
+                    "updated": 2017-08-17T20:47:35.232Z,
+                  },
+                  Object {
+                    "bookCount": 1,
+                    "created": 2017-07-06T22:02:17.051Z,
+                    "firstName": "Tom",
+                    "id": "98fn98w3ucbe8c7b276v",
+                    "lastName": "Robbins",
+                    "updated": 2017-08-17T21:27:35.885Z,
+                  },
+                  Object {
+                    "bookCount": 2,
+                    "created": 2017-07-06T22:02:17.051Z,
+                    "firstName": "Stephen",
+                    "id": "93ucbe8c8fn98w7b276v",
+                    "lastName": "King",
+                    "updated": 2017-08-17T21:27:35.885Z,
+                  },
+                ]
+              }
+              book={
+                Object {
+                  "author": Object {
+                    "bookCount": 1,
+                    "created": 2017-07-01T01:16:43.881Z,
+                    "firstName": "Aldous",
+                    "id": "oiw223h3qndlksadffl3ksdf",
+                    "lastName": "Huxley",
+                    "updated": 2017-07-01T01:16:43.881Z,
+                  },
+                  "created": 2018-01-14T01:36:26.220Z,
+                  "id": "sv3hmbefpc95MRXQsTHr",
+                  "sortBy": "",
+                  "title": "Brave New World",
+                  "updated": 2018-01-14T01:36:26.220Z,
+                }
+              }
+              disabled={false}
+              errors={
+                Object {
+                  "author": "",
+                  "sortBy": "",
+                  "title": "",
+                }
+              }
+              onAuthorChange={[Function]}
+              onCancel={[Function]}
+              onInputChange={[Function]}
+              onSubmit={[Function]}
+              submitDisabled={false}
+              topLevelError=""
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "text": "Update Book",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "authors": Array [
                 Object {
                   "bookCount": 1,
                   "created": 2017-07-01T01:16:43.881Z,
@@ -483,10 +601,8 @@ ShallowWrapper {
                   "lastName": "King",
                   "updated": 2017-08-17T21:27:35.885Z,
                 },
-              ]
-            }
-            book={
-              Object {
+              ],
+              "book": Object {
                 "author": Object {
                   "bookCount": 1,
                   "created": 2017-07-01T01:16:43.881Z,
@@ -500,105 +616,25 @@ ShallowWrapper {
                 "sortBy": "",
                 "title": "Brave New World",
                 "updated": 2018-01-14T01:36:26.220Z,
-              }
-            }
-            disabled={false}
-            errors={
-              Object {
+              },
+              "disabled": false,
+              "errors": Object {
                 "author": "",
                 "sortBy": "",
                 "title": "",
-              }
-            }
-            onAuthorChange={[Function]}
-            onCancel={[Function]}
-            onInputChange={[Function]}
-            onSubmit={[Function]}
-            submitDisabled={false}
-            topLevelError=""
-          />,
-          "header": "Update Book",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "authors": Array [
-              Object {
-                "bookCount": 1,
-                "created": 2017-07-01T01:16:43.881Z,
-                "firstName": "Aldous",
-                "id": "oiw223h3qndlksadffl3ksdf",
-                "lastName": "Huxley",
-                "updated": 2017-07-01T01:16:43.881Z,
               },
-              Object {
-                "bookCount": 1,
-                "created": 2017-07-06T22:02:11.504Z,
-                "firstName": "Kurt",
-                "id": "9328fhs938hfdsdblkhf98",
-                "lastName": "Vonnegut",
-                "updated": 2017-07-06T22:02:11.504Z,
-              },
-              Object {
-                "bookCount": 1,
-                "created": 2017-08-17T20:47:35.232Z,
-                "firstName": "George R. R.",
-                "id": "92nd9ab3kjasegfhasf783fu",
-                "lastName": "Martin",
-                "updated": 2017-08-17T20:47:35.232Z,
-              },
-              Object {
-                "bookCount": 1,
-                "created": 2017-07-06T22:02:17.051Z,
-                "firstName": "Tom",
-                "id": "98fn98w3ucbe8c7b276v",
-                "lastName": "Robbins",
-                "updated": 2017-08-17T21:27:35.885Z,
-              },
-              Object {
-                "bookCount": 2,
-                "created": 2017-07-06T22:02:17.051Z,
-                "firstName": "Stephen",
-                "id": "93ucbe8c8fn98w7b276v",
-                "lastName": "King",
-                "updated": 2017-08-17T21:27:35.885Z,
-              },
-            ],
-            "book": Object {
-              "author": Object {
-                "bookCount": 1,
-                "created": 2017-07-01T01:16:43.881Z,
-                "firstName": "Aldous",
-                "id": "oiw223h3qndlksadffl3ksdf",
-                "lastName": "Huxley",
-                "updated": 2017-07-01T01:16:43.881Z,
-              },
-              "created": 2018-01-14T01:36:26.220Z,
-              "id": "sv3hmbefpc95MRXQsTHr",
-              "sortBy": "",
-              "title": "Brave New World",
-              "updated": 2018-01-14T01:36:26.220Z,
+              "onAuthorChange": [Function],
+              "onCancel": [Function],
+              "onInputChange": [Function],
+              "onSubmit": [Function],
+              "submitDisabled": false,
+              "topLevelError": "",
             },
-            "disabled": false,
-            "errors": Object {
-              "author": "",
-              "sortBy": "",
-              "title": "",
-            },
-            "onAuthorChange": [Function],
-            "onCancel": [Function],
-            "onInputChange": [Function],
-            "onSubmit": [Function],
-            "submitDisabled": false,
-            "topLevelError": "",
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        ],
         "type": [Function],
       },
       "type": "div",

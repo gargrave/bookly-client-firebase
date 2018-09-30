@@ -39,6 +39,9 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
+        <CardHeader
+          text="The Drawing of the Three"
+        />,
         <AuthorLink
           author={
             Object {
@@ -92,10 +95,20 @@ ShallowWrapper {
           />
         </ButtonRow>,
       ],
-      "header": "The Drawing of the Three",
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "text": "The Drawing of the Three",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -230,6 +243,9 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
+          <CardHeader
+            text="The Drawing of the Three"
+          />,
           <AuthorLink
             author={
               Object {
@@ -283,10 +299,20 @@ ShallowWrapper {
             />
           </ButtonRow>,
         ],
-        "header": "The Drawing of the Three",
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "text": "The Drawing of the Three",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,

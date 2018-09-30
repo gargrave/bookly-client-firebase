@@ -31,11 +31,12 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <CardTextLine
-          bold={true}
           text="Aldous Huxley"
+          type="title"
         />,
         <CardTextLine
           text="1 book"
+          type="subtext"
         />,
       ],
       "hoverable": true,
@@ -48,8 +49,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "bold": true,
           "text": "Aldous Huxley",
+          "type": "title",
         },
         "ref": null,
         "rendered": null,
@@ -61,6 +62,7 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "text": "1 book",
+          "type": "subtext",
         },
         "ref": null,
         "rendered": null,
@@ -77,11 +79,12 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <CardTextLine
-            bold={true}
             text="Aldous Huxley"
+            type="title"
           />,
           <CardTextLine
             text="1 book"
+            type="subtext"
           />,
         ],
         "hoverable": true,
@@ -94,8 +97,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "bold": true,
             "text": "Aldous Huxley",
+            "type": "title",
           },
           "ref": null,
           "rendered": null,
@@ -107,6 +110,7 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "text": "1 book",
+            "type": "subtext",
           },
           "ref": null,
           "rendered": null,

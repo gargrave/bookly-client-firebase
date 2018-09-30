@@ -32,6 +32,9 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
+        <CardHeader
+          text="Aldous Huxley"
+        />,
         <CardSpacer />,
         <CardTextList
           textList={
@@ -70,10 +73,20 @@ ShallowWrapper {
           />
         </ButtonRow>,
       ],
-      "header": "Aldous Huxley",
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "text": "Aldous Huxley",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -195,6 +208,9 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
+          <CardHeader
+            text="Aldous Huxley"
+          />,
           <CardSpacer />,
           <CardTextList
             textList={
@@ -233,10 +249,20 @@ ShallowWrapper {
             />
           </ButtonRow>,
         ],
-        "header": "Aldous Huxley",
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "text": "Aldous Huxley",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,

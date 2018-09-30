@@ -20,8 +20,8 @@ const AuthorListDetail = ({ author, onClick }: Props) => {
   const authorName = `${author.firstName} ${author.lastName}`
   return (
     <Card hoverable={true} onClick={onClick}>
-      <Card.TextLine bold={true} text={authorName} />
-      <Card.TextLine text={bookCountString(author.bookCount)} />
+      <Card.TextLine text={authorName} type="title" />
+      <Card.TextLine text={bookCountString(author.bookCount)} type="subtext" />
     </Card>
   )
 }

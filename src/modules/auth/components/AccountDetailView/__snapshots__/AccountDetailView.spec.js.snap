@@ -42,9 +42,10 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Card
-          header="My Account"
-        >
+        <Card>
+          <CardHeader
+            text="My Account"
+          />
           <CardSpacer />
           <CardTextList
             textList={
@@ -103,6 +104,9 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "children": Array [
+            <CardHeader
+              text="My Account"
+            />,
             <CardSpacer />,
             <CardTextList
               textList={
@@ -149,10 +153,20 @@ ShallowWrapper {
               />
             </ButtonRow>,
           ],
-          "header": "My Account",
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "text": "My Account",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -287,9 +301,10 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Card
-            header="My Account"
-          >
+          <Card>
+            <CardHeader
+              text="My Account"
+            />
             <CardSpacer />
             <CardTextList
               textList={
@@ -348,6 +363,9 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "children": Array [
+              <CardHeader
+                text="My Account"
+              />,
               <CardSpacer />,
               <CardTextList
                 textList={
@@ -394,10 +412,20 @@ ShallowWrapper {
                 />
               </ButtonRow>,
             ],
-            "header": "My Account",
           },
           "ref": null,
           "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "text": "My Account",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
             Object {
               "instance": null,
               "key": undefined,

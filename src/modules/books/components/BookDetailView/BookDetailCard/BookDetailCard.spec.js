@@ -42,8 +42,9 @@ describe('BookDetailCard', () => {
 
     it('renders the book title in the Card header', () => {
       component = builder.shallowGetComponent()
-      const card = component.find(Card)
-      expect(card.props().header).toBe(book.title)
+      const cardHeader = component.find(Card.Header)
+      expect(cardHeader.length).toBe(1)
+      expect(cardHeader.props().text).toBe(book.title)
     })
 
     it('renders the correct text lines', () => {

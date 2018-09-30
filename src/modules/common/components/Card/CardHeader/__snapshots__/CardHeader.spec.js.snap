@@ -1,15 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card matches the snapshot 1`] = `
+exports[`CardHeader basic rendering renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Card
-    classes={Array []}
-    header="Great Header"
-    hoverable={true}
-    onClick={[Function]}
+  Symbol(enzyme.__unrendered__): <CardHeader
     text="this is the text"
-    title="Awesome Title"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -24,12 +19,10 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": null,
-      "className": "hoverable",
-      "onClick": [Function],
+      "children": "this is the text",
     },
     "ref": null,
-    "rendered": null,
+    "rendered": "this is the text",
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -38,12 +31,10 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": null,
-        "className": "hoverable",
-        "onClick": [Function],
+        "children": "this is the text",
       },
       "ref": null,
-      "rendered": null,
+      "rendered": "this is the text",
       "type": [Function],
     },
   ],

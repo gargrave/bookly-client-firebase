@@ -39,9 +39,10 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <Card
-        header="Update Author"
-      >
+      "children": <Card>
+        <CardHeader
+          text="Update Author"
+        />
         <AuthorForm
           author={
             Object {
@@ -75,61 +76,78 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": <AuthorForm
-          author={
-            Object {
+        "children": Array [
+          <CardHeader
+            text="Update Author"
+          />,
+          <AuthorForm
+            author={
+              Object {
+                "bookCount": 1,
+                "created": 2017-07-01T01:16:43.881Z,
+                "firstName": "Aldous",
+                "id": "oiw223h3qndlksadffl3ksdf",
+                "lastName": "Huxley",
+                "updated": 2017-07-01T01:16:43.881Z,
+              }
+            }
+            disabled={undefined}
+            errors={
+              Object {
+                "firstName": "",
+                "lastName": "",
+              }
+            }
+            onCancel={[Function]}
+            onInputChange={[Function]}
+            onSubmit={[Function]}
+            submitDisabled={false}
+            topLevelError=""
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "text": "Update Author",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "author": Object {
               "bookCount": 1,
               "created": 2017-07-01T01:16:43.881Z,
               "firstName": "Aldous",
               "id": "oiw223h3qndlksadffl3ksdf",
               "lastName": "Huxley",
               "updated": 2017-07-01T01:16:43.881Z,
-            }
-          }
-          disabled={undefined}
-          errors={
-            Object {
+            },
+            "disabled": undefined,
+            "errors": Object {
               "firstName": "",
               "lastName": "",
-            }
-          }
-          onCancel={[Function]}
-          onInputChange={[Function]}
-          onSubmit={[Function]}
-          submitDisabled={false}
-          topLevelError=""
-        />,
-        "header": "Update Author",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "author": Object {
-            "bookCount": 1,
-            "created": 2017-07-01T01:16:43.881Z,
-            "firstName": "Aldous",
-            "id": "oiw223h3qndlksadffl3ksdf",
-            "lastName": "Huxley",
-            "updated": 2017-07-01T01:16:43.881Z,
+            },
+            "onCancel": [Function],
+            "onInputChange": [Function],
+            "onSubmit": [Function],
+            "submitDisabled": false,
+            "topLevelError": "",
           },
-          "disabled": undefined,
-          "errors": Object {
-            "firstName": "",
-            "lastName": "",
-          },
-          "onCancel": [Function],
-          "onInputChange": [Function],
-          "onSubmit": [Function],
-          "submitDisabled": false,
-          "topLevelError": "",
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
+      ],
       "type": [Function],
     },
     "type": "div",
@@ -140,9 +158,10 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <Card
-          header="Update Author"
-        >
+        "children": <Card>
+          <CardHeader
+            text="Update Author"
+          />
           <AuthorForm
             author={
               Object {
@@ -176,61 +195,78 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": <AuthorForm
-            author={
-              Object {
+          "children": Array [
+            <CardHeader
+              text="Update Author"
+            />,
+            <AuthorForm
+              author={
+                Object {
+                  "bookCount": 1,
+                  "created": 2017-07-01T01:16:43.881Z,
+                  "firstName": "Aldous",
+                  "id": "oiw223h3qndlksadffl3ksdf",
+                  "lastName": "Huxley",
+                  "updated": 2017-07-01T01:16:43.881Z,
+                }
+              }
+              disabled={undefined}
+              errors={
+                Object {
+                  "firstName": "",
+                  "lastName": "",
+                }
+              }
+              onCancel={[Function]}
+              onInputChange={[Function]}
+              onSubmit={[Function]}
+              submitDisabled={false}
+              topLevelError=""
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "text": "Update Author",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "author": Object {
                 "bookCount": 1,
                 "created": 2017-07-01T01:16:43.881Z,
                 "firstName": "Aldous",
                 "id": "oiw223h3qndlksadffl3ksdf",
                 "lastName": "Huxley",
                 "updated": 2017-07-01T01:16:43.881Z,
-              }
-            }
-            disabled={undefined}
-            errors={
-              Object {
+              },
+              "disabled": undefined,
+              "errors": Object {
                 "firstName": "",
                 "lastName": "",
-              }
-            }
-            onCancel={[Function]}
-            onInputChange={[Function]}
-            onSubmit={[Function]}
-            submitDisabled={false}
-            topLevelError=""
-          />,
-          "header": "Update Author",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "author": Object {
-              "bookCount": 1,
-              "created": 2017-07-01T01:16:43.881Z,
-              "firstName": "Aldous",
-              "id": "oiw223h3qndlksadffl3ksdf",
-              "lastName": "Huxley",
-              "updated": 2017-07-01T01:16:43.881Z,
+              },
+              "onCancel": [Function],
+              "onInputChange": [Function],
+              "onSubmit": [Function],
+              "submitDisabled": false,
+              "topLevelError": "",
             },
-            "disabled": undefined,
-            "errors": Object {
-              "firstName": "",
-              "lastName": "",
-            },
-            "onCancel": [Function],
-            "onInputChange": [Function],
-            "onSubmit": [Function],
-            "submitDisabled": false,
-            "topLevelError": "",
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        ],
         "type": [Function],
       },
       "type": "div",
