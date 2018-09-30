@@ -27,6 +27,7 @@ const Styled = styled('div')`
   margin: 8px auto;
   max-width: 550px;
   padding: 10px 20px;
+  text-align: center;
 
   &.hoverable:hover {
     background: ${colors.cardHoveredBg};

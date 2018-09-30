@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { func, shape } from 'prop-types'
+import styled from 'react-emotion'
 
 import { isDevEnv } from '../../../../globals/env'
 import { localUrls } from '../../../../globals/urls'
+import { colors } from '../../../../styles/'
 import { firebaseAuth } from '../../../../wrappers/firebase'
 
 import SexyHeader from '../../../common/components/SexyHeader'
@@ -11,14 +13,8 @@ import SnackbarContainer from '../../../snackbar/containers/SnackbarContainer/Sn
 
 import Router from '../../Router'
 
-import styles from './App.css'
-
 const HEADER_HEIGHT = 50
 const TITLE = `Bookly${isDevEnv() ? ' (dev)' : ''}`
-
-const extraStyles = {
-  marginTop: Math.floor(HEADER_HEIGHT * 1.5),
-}
 
 const notLoggedInLinks = [
   { to: localUrls.login, text: 'Login' },
@@ -31,6 +27,13 @@ const loggedInLinks = [
   { to: localUrls.authorsList, text: 'Authors' },
   { to: localUrls.account, text: 'Account' },
 ]
+
+const Styled = styled('div')`
+  color: ${colors.textLight};
+  margin: auto;
+  margin-top: ${Math.floor(HEADER_HEIGHT * 1.5)}px;
+  max-width: 800px;
+`
 
 class App extends Component {
   static propTypes = {
@@ -48,12 +51,8 @@ class App extends Component {
     }).isRequired,
   }
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      loggedIn: false,
-    }
+  state = {
+    loggedIn: false,
   }
 
   async componentWillMount() {
@@ -78,7 +77,7 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <div className={styles.app} style={extraStyles}>
+        <Styled>
           <SexyHeader
             headerHeight={HEADER_HEIGHT}
             links={links}
@@ -88,7 +87,7 @@ class App extends Component {
             <Router />
           </main>
           <SnackbarContainer />
-        </div>
+        </Styled>
       </BrowserRouter>
     )
   }
