@@ -6,7 +6,7 @@ import { localUrls } from '../../../../globals/urls'
 
 import { actions } from '../../actions'
 
-import AuthorCreatePage from '../../views/AuthorCreatePage/AuthorCreatePage'
+import AuthorCreatePage from '../../views/AuthorCreatePage'
 import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute'
 
 const mapStateToProps = () => ({})

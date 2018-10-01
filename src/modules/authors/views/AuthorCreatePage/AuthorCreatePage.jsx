@@ -1,18 +1,18 @@
 // @flow
 import React, { Component } from 'react'
 import { func, object, shape } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { Author, AuthorErrors } from '../../flowtypes'
 
 import { localUrls } from '../../../../globals/urls'
+import { views } from '../../../../styles'
 import { authorHasAllFields, validateAuthor } from '../../../authors/validators'
 import { authorModel } from '../../../authors/models'
 
 import AuthorForm from '../../components/AuthorForm/AuthorForm'
 import Card from '../../../common/components/Card/Card'
 import CardList from '../../../common/components/CardList/CardList'
-
-import styles from './AuthorCreatePage.css'
 
 type Props = {
   actions: Object,
@@ -27,6 +27,10 @@ type State = {
   topLevelError: string,
 }
 
+const Styled = styled('div')`
+  ${views.viewWrapper};
+`
+
 class AuthorCreatePage extends Component<Props, State> {
   static propTypes = {
     actions: shape({
@@ -36,16 +40,12 @@ class AuthorCreatePage extends Component<Props, State> {
     history: object,
   }
 
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      author: authorModel.empty(),
-      errors: authorModel.emptyErrors(),
-      formDisabled: true,
-      submitDisabled: true,
-      topLevelError: '',
-    }
+  state = {
+    author: authorModel.empty(),
+    errors: authorModel.emptyErrors(),
+    formDisabled: true,
+    submitDisabled: true,
+    topLevelError: '',
   }
 
   componentDidMount() {
@@ -124,7 +124,7 @@ class AuthorCreatePage extends Component<Props, State> {
     } = this.state
 
     return (
-      <div className={styles.authorCreateView}>
+      <Styled>
         <CardList>
           <Card>
             <Card.Header text="New Author" />
@@ -140,7 +140,7 @@ class AuthorCreatePage extends Component<Props, State> {
             />
           </Card>
         </CardList>
-      </div>
+      </Styled>
     )
   }
 }

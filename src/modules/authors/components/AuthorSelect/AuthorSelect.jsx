@@ -4,8 +4,6 @@ import { array, bool, func, shape, string } from 'prop-types'
 
 import type { Author } from '../../flowtypes'
 
-import styles from './AuthorSelect.css'
-
 type Props = {
   author: Author,
   authors: Author[],
@@ -41,7 +39,7 @@ const AuthorSelect = ({
         {options(authors)}
       </select>
 
-      {error && <p className={styles.error}>{error}</p>}
+      {error && <p>{error}</p>}
     </div>
   )
 }

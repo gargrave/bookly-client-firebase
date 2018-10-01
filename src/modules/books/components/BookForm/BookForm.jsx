@@ -5,7 +5,7 @@ import { array, bool, func, object, shape, string } from 'prop-types'
 import type { Author } from '../../../authors/flowtypes'
 import type { Book, BookErrors } from '../../flowtypes'
 
-import AuthorSelect from '../../../authors/components/AuthorSelect/AuthorSelect'
+import AuthorSelect from '../../../authors/components/AuthorSelect'
 import Form from '../../../common/components/Form/Form'
 import InputField from '../../../common/components/InputField/InputField'
 
