@@ -13,7 +13,11 @@ import Card from '../../../common/components/Card/Card'
 import CardList from '../../../common/components/CardList/CardList'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
-import styles from './LoginPage.css'
+import {
+  StyledAccountLink,
+  StyledResetLink,
+  StyledWrapper,
+} from './LoginPage.styles'
 
 type Props = {
   actions: Object,
@@ -96,7 +100,7 @@ class LoginPage extends Component<Props, State> {
     const { errors, formDisabled, loginUser, submitDisabled } = this.state
 
     return (
-      <div className={styles.loginView}>
+      <StyledWrapper>
         <CardList>
           <Card>
             <Card.Header text="Login" />
@@ -111,16 +115,16 @@ class LoginPage extends Component<Props, State> {
               topLevelError={this.state.topLevelError}
             />
 
-            <div className={styles.passwordResetLink}>
+            <StyledResetLink>
               <Link to={localUrls.pwResetRequest}>Forgot your password?</Link>
-            </div>
+            </StyledResetLink>
           </Card>
 
-          <p className={styles.createAccountLink}>
+          <StyledAccountLink>
             or <Link to={localUrls.register}>create an account</Link>
-          </p>
+          </StyledAccountLink>
         </CardList>
-      </div>
+      </StyledWrapper>
     )
   }
 }
