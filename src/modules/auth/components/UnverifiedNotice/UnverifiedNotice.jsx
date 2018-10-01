@@ -1,30 +1,35 @@
 // @flow
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'react-emotion'
 
+import { spacing } from '../../../../styles'
 import { localUrls } from '../../../../globals/urls'
+
 import Alert from '../../../common/components/Alert/Alert'
 
-import styles from './UnverifiedNotice.css'
+const StyledMessage = styled('p')`
+  margin-top: ${spacing.small};
+`
 
-type Props = {}
+const StyledLink = styled(Link)`
+  text-decoration: underline;
+`
 
-const UnverifiedNotice = ({  }: Props) => {
+const UnverifiedNotice = () => {
   return (
-    <div className={styles.unverifiedNotice}>
+    <div>
       <Alert
-        message={'You must verify your email address before proceeding.'}
+        message="You must verify your email address before proceeding."
         type="warning"
       >
-        <p>
+        <StyledMessage>
           You can request a new verification link from your{' '}
-          <Link to={localUrls.account}>Account Page</Link>.
-        </p>
+          <StyledLink to={localUrls.account}>Account Page</StyledLink>.
+        </StyledMessage>
       </Alert>
     </div>
   )
 }
-
-UnverifiedNotice.propTypes = {}
 
 export default UnverifiedNotice

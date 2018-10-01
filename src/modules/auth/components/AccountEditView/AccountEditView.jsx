@@ -1,13 +1,14 @@
 // @flow
 import React from 'react'
 import { bool, func, object, string } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { Profile } from '../../../profiles/flowtypes'
 
 import AccountForm from '../AccountForm/AccountForm'
 import Card from '../../../common/components/Card/Card'
 
-import styles from './AccountEditView.css'
+import { views } from '../../../../styles'
 
 type Props = {
   disabled: boolean,
@@ -20,6 +21,10 @@ type Props = {
   topLevelError: string,
 }
 
+const Styled = styled('div')`
+  ${views.viewWrapper};
+`
+
 const AccountEditView = ({
   disabled,
   errors,
@@ -31,7 +36,7 @@ const AccountEditView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={styles.accountEditView}>
+    <Styled>
       <Card>
         <Card.Header text="Update My Account" />
         <AccountForm
@@ -45,7 +50,7 @@ const AccountEditView = ({
           topLevelError={topLevelError}
         />
       </Card>
-    </div>
+    </Styled>
   )
 }
 

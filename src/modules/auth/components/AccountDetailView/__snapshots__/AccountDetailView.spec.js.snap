@@ -39,7 +39,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <Card>
@@ -94,7 +94,6 @@ ShallowWrapper {
         </Card>,
         false,
       ],
-      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -292,13 +291,13 @@ ShallowWrapper {
       },
       false,
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <Card>
@@ -353,7 +352,6 @@ ShallowWrapper {
           </Card>,
           false,
         ],
-        "className": undefined,
       },
       "ref": null,
       "rendered": Array [
@@ -551,7 +549,7 @@ ShallowWrapper {
         },
         false,
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

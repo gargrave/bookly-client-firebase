@@ -1,9 +1,11 @@
 // @flow
 import React, { Fragment } from 'react'
 import { func, shape, string } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { PasswordReset, PasswordResetErrors } from '../../flowtypes'
 
+import { views } from '../../../../styles'
 import { sendPasswordResetEmail } from '../../../../wrappers/auth'
 import { passwordResetModel } from '../../../auth/models'
 import {
@@ -14,8 +16,6 @@ import {
 import Card from '../../../common/components/Card/Card'
 import CardList from '../../../common/components/CardList/CardList'
 import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm'
-
-import styles from './PasswordResetPage.css'
 
 type Props = {
   actions: Object,
@@ -30,6 +30,10 @@ type State = {
   submitDisabled: boolean,
   topLevelError: string,
 }
+
+const Styled = styled('div')`
+  ${views.viewWrapper};
+`
 
 class PasswordResetPage extends React.Component<Props, State> {
   static propTypes = {
@@ -128,7 +132,7 @@ class PasswordResetPage extends React.Component<Props, State> {
   render() {
     const { passwordResetEmailSentTo } = this.props
     return (
-      <div className={styles.passwordResetView}>
+      <Styled>
         <CardList>
           <Card>
             <Card.Header text="Request Password Reset" />
@@ -136,7 +140,7 @@ class PasswordResetPage extends React.Component<Props, State> {
             {passwordResetEmailSentTo && this.renderAlreadySentMessage()}
           </Card>
         </CardList>
-      </div>
+      </Styled>
     )
   }
 }

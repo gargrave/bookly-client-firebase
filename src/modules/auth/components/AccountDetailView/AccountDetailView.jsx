@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import { bool, func, instanceOf, oneOfType, shape, string } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { User } from '../../flowtypes'
 import type { Profile } from '../../../profiles/flowtypes'
@@ -12,7 +13,7 @@ import ButtonRow from '../../../common/components/ButtonRow/ButtonRow'
 import Card from '../../../common/components/Card/Card'
 import VerifyAccountNotice from '../VerifyAccountNotice/VerifyAccountNotice'
 
-import styles from './AccountDetailView.css'
+import { views } from '../../../../styles'
 
 type Props = {
   onEditClick: Function,
@@ -23,6 +24,10 @@ type Props = {
   verificationEmailHasBeenSent: boolean,
 }
 
+const Styled = styled('div')`
+  ${views.viewWrapper};
+`
+
 const AccountDetailView = ({
   onEditClick,
   onLogoutClick,
@@ -32,7 +37,7 @@ const AccountDetailView = ({
   verificationEmailHasBeenSent,
 }: Props) => {
   return (
-    <div className={styles.accountDetailView}>
+    <Styled>
       <Card>
         <Card.Header text="My Account" />
         <Card.Spacer />
@@ -63,7 +68,7 @@ const AccountDetailView = ({
           onSendLinkClick={onVerifyAccountClick}
         />
       )}
-    </div>
+    </Styled>
   )
 }
 

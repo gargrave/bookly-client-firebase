@@ -2,10 +2,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { func, object, shape } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { RegisterErrors, RegisterUser } from '../../flowtypes'
 
 import { localUrls } from '../../../../globals/urls'
+import { typography, views } from '../../../../styles'
 import {
   registerUserHasAllFields,
   validateRegisterUser,
@@ -16,8 +18,6 @@ import { sendAccountVerificationEmail } from '../../../../wrappers/auth'
 import Card from '../../../common/components/Card/Card'
 import CardList from '../../../common/components/CardList/CardList'
 import RegisterForm from '../../components/RegisterForm/RegisterForm'
-
-import styles from './RegisterPage.css'
 
 type Props = {
   actions: Object,
@@ -31,6 +31,14 @@ type State = {
   submitDisabled: boolean,
   topLevelError: string,
 }
+
+const StyledWrapper = styled('div')`
+  ${views.viewWrapper};
+`
+
+const StyledLink = styled('p')`
+  ${typography.bigLink};
+`
 
 class RegisterPage extends React.Component<Props, State> {
   static propTypes = {
@@ -103,7 +111,7 @@ class RegisterPage extends React.Component<Props, State> {
     const { errors, formDisabled, registerUser, submitDisabled } = this.state
 
     return (
-      <div className={styles.registerView}>
+      <StyledWrapper>
         <CardList>
           <Card>
             <Card.Header text="Create an Account" />
@@ -118,11 +126,11 @@ class RegisterPage extends React.Component<Props, State> {
               topLevelError={this.state.topLevelError}
             />
           </Card>
-          <p className={styles.loginLink}>
+          <StyledLink>
             or <Link to={localUrls.login}>sign in to your account</Link>
-          </p>
+          </StyledLink>
         </CardList>
-      </div>
+      </StyledWrapper>
     )
   }
 }
