@@ -1,15 +1,16 @@
 // @flow
 import React from 'react'
 import { array, func, instanceOf, oneOfType, shape, string } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { Author } from '../../flowtypes'
 import type { Book } from '../../../books/flowtypes'
 
+import { views } from '../../../../styles'
+
 import Alert from '../../../common/components/Alert/Alert'
 import AuthorBooksList from './AuthorBooksList/AuthorBooksList'
 import AuthorDetailCard from './AuthorDetailCard/AuthorDetailCard'
-
-import styles from './AuthorDetailView.css'
 
 type Props = {
   author: Author,
@@ -22,6 +23,10 @@ type Props = {
   topLevelError?: string,
 }
 
+const Styled = styled('div')`
+  ${views.viewWrapper};
+`
+
 const AuthorDetailView = ({
   author,
   booksForAuthor,
@@ -32,7 +37,7 @@ const AuthorDetailView = ({
   onEditClick,
   topLevelError,
 }: Props) => (
-  <div className={styles.authorDetailView}>
+  <Styled>
     {topLevelError && <Alert message={topLevelError} type="danger" />}
 
     <AuthorDetailCard
@@ -48,7 +53,7 @@ const AuthorDetailView = ({
       onBookAddClick={onBookAddClick}
       onBookClick={onBookClick}
     />
-  </div>
+  </Styled>
 )
 
 AuthorDetailView.propTypes = {

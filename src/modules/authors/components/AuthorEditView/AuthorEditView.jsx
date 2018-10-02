@@ -1,13 +1,14 @@
 // @flow
 import React from 'react'
 import { bool, func, object, string } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { Author, AuthorErrors } from '../../flowtypes'
 
+import { views } from '../../../../styles'
+
 import Card from '../../../common/components/Card/Card'
 import AuthorForm from '../AuthorForm/AuthorForm'
-
-import styles from './AuthorEditView.css'
 
 type Props = {
   author: Author,
@@ -20,6 +21,10 @@ type Props = {
   topLevelError?: string,
 }
 
+const Styled = styled('div')`
+  ${views.viewWrapper};
+`
+
 const AuthorEditView = ({
   author,
   disabled,
@@ -31,7 +36,7 @@ const AuthorEditView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={styles.authorEditView}>
+    <Styled>
       <Card>
         <Card.Header text="Update Author" />
         <AuthorForm
@@ -45,7 +50,7 @@ const AuthorEditView = ({
           topLevelError={topLevelError}
         />
       </Card>
-    </div>
+    </Styled>
   )
 }
 

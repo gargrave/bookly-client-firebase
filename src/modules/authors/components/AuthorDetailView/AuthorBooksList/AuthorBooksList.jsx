@@ -1,14 +1,15 @@
 // @flow
 import React from 'react'
 import { array, func, object } from 'prop-types'
+import styled from 'react-emotion'
 
 import type { Book } from '../../../../books/flowtypes'
 import type { Author } from '../../../flowtypes'
 
+import { alignment, colors, spacing } from '../../../../../styles'
+
 import BookList from '../../../../books/components/BookList/BookList'
 import Button from '../../../../common/components/Button'
-
-import styles from './AuthorBooksList.css'
 
 type Props = {
   author: Author,
@@ -16,6 +17,16 @@ type Props = {
   onBookAddClick: Function,
   onBookClick: Function,
 }
+
+const StyledWrapper = styled('div')`
+  margin-top: ${spacing.xlarge};
+`
+
+const StyledH5 = styled('h5')`
+  ${alignment.centerAlignedHeader}
+  color: ${colors.textLight};
+  margin-bottom: ${spacing.med};
+`
 
 const AuthorBooksList = ({
   author,
@@ -26,17 +37,17 @@ const AuthorBooksList = ({
   const authorName = `${author.firstName} ${author.lastName}`
 
   return (
-    <div className={styles.authorBooksList}>
-      <h5 className={styles.header}>
+    <StyledWrapper>
+      <StyledH5>
         Books by {authorName}
         <Button
           onClick={onBookAddClick.bind(null, author)}
           text="Add"
           type="success"
         />
-      </h5>
+      </StyledH5>
       <BookList books={books} onBookClick={onBookClick} />
-    </div>
+    </StyledWrapper>
   )
 }
 

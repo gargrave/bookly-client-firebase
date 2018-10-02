@@ -62,12 +62,10 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
-        <h5
-          className={undefined}
-        >
+        <Styled(h5)>
           Books by 
           Aldous Huxley
           <Button
@@ -75,7 +73,7 @@ ShallowWrapper {
             text="Add"
             type="success"
           />
-        </h5>,
+        </Styled(h5)>,
         <BookList
           books={
             Array [
@@ -114,14 +112,13 @@ ShallowWrapper {
           onBookClick={[Function]}
         />,
       ],
-      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": Array [
             "Books by ",
@@ -132,7 +129,6 @@ ShallowWrapper {
               type="success"
             />,
           ],
-          "className": undefined,
         },
         "ref": null,
         "rendered": Array [
@@ -152,7 +148,7 @@ ShallowWrapper {
             "type": [Function],
           },
         ],
-        "type": "h5",
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -198,18 +194,16 @@ ShallowWrapper {
         "type": [Function],
       },
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
-          <h5
-            className={undefined}
-          >
+          <Styled(h5)>
             Books by 
             Aldous Huxley
             <Button
@@ -217,7 +211,7 @@ ShallowWrapper {
               text="Add"
               type="success"
             />
-          </h5>,
+          </Styled(h5)>,
           <BookList
             books={
               Array [
@@ -256,14 +250,13 @@ ShallowWrapper {
             onBookClick={[Function]}
           />,
         ],
-        "className": undefined,
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               "Books by ",
@@ -274,7 +267,6 @@ ShallowWrapper {
                 type="success"
               />,
             ],
-            "className": undefined,
           },
           "ref": null,
           "rendered": Array [
@@ -294,7 +286,7 @@ ShallowWrapper {
               "type": [Function],
             },
           ],
-          "type": "h5",
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -340,7 +332,7 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
