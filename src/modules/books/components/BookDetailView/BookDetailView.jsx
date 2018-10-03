@@ -7,7 +7,7 @@ import type { Book } from '../../flowtypes'
 import Alert from '../../../common/components/Alert/Alert'
 import BookDetailCard from './BookDetailCard/BookDetailCard'
 
-import styles from './BookDetailView.css'
+import * as S from './BookDetailView.styles'
 
 type Props = {
   book: Book,
@@ -25,7 +25,7 @@ const BookDetailView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={styles.bookDetailView}>
+    <S.BookDetailView>
       {topLevelError && <Alert message={topLevelError} type="danger" />}
       <BookDetailCard
         book={book}
@@ -33,7 +33,7 @@ const BookDetailView = ({
         onDeleteClick={onDeleteClick}
         onEditClick={onEditClick}
       />
-    </div>
+    </S.BookDetailView>
   )
 }
 

@@ -14,7 +14,7 @@ import BookForm from '../../components/BookForm/BookForm'
 import Card from '../../../common/components/Card/Card'
 import CardList from '../../../common/components/CardList/CardList'
 
-import styles from './BookCreatePage.css'
+import * as S from './BookCreatePage.styles'
 
 type Props = {
   actions: Object,
@@ -159,7 +159,7 @@ class BookCreatePage extends Component<Props, State> {
     } = this.state
 
     return (
-      <div className={styles.bookCreateView}>
+      <S.BookCreatePage>
         <CardList>
           <Card>
             <Card.Header text="New Book" />
@@ -178,7 +178,7 @@ class BookCreatePage extends Component<Props, State> {
             />
           </Card>
         </CardList>
-      </div>
+      </S.BookCreatePage>
     )
   }
 }

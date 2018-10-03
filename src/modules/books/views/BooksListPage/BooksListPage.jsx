@@ -11,7 +11,7 @@ import Button from '../../../common/components/Button'
 import CardList from '../../../common/components/CardList/CardList'
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice'
 
-import styles from './BooksListPage.css'
+import * as S from './BooksListPage.styles'
 
 type Props = {
   actions: Object,
@@ -95,13 +95,13 @@ class BooksListPage extends Component<Props, State> {
 
   render() {
     return (
-      <div className={styles.booksListView}>
-        <h3 className={styles.header}>
+      <S.BooksListPage>
+        <S.Header>
           My Books
           {this.renderAddBookButton()}
-        </h3>
+        </S.Header>
         <CardList>{this.renderContent()}</CardList>
-      </div>
+      </S.BooksListPage>
     )
   }
 }

@@ -8,7 +8,7 @@ import type { Book, BookErrors } from '../../flowtypes'
 import BookForm from '../BookForm/BookForm'
 import Card from '../../../common/components/Card/Card'
 
-import styles from './BookEditView.css'
+import * as S from './BookEditView.styles'
 
 type Props = {
   authors: Author[],
@@ -36,7 +36,7 @@ const BookEditView = ({
   topLevelError,
 }: Props) => {
   return (
-    <div className={styles.bookEditView}>
+    <S.BookEditView>
       <Card>
         <Card.Header text="Update Book" />
         <BookForm
@@ -52,7 +52,7 @@ const BookEditView = ({
           topLevelError={topLevelError}
         />
       </Card>
-    </div>
+    </S.BookEditView>
   )
 }
 
