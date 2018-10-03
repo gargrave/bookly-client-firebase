@@ -1,10 +1,12 @@
-.modalWrapper {
-  background-color: #f9f9f9;
+import styled from 'react-emotion'
+
+import { colors, shadows } from '../../../../styles'
+
+export const ModalWrapper = styled('div')`
+  background-color: ${colors.cardBg};
   border: solid 1px #bbb;
   border-radius: 5px;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.07),
-    0 1px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: ${shadows.light};
   left: 50%;
   margin: 8px auto;
   max-width: 450px;
@@ -14,4 +16,4 @@
   transform: translate(-50%, -50%);
   width: 90%;
   z-index: 100;
-}
+`

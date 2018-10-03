@@ -5,7 +5,7 @@ import { func, string } from 'prop-types'
 import Button from '../../Button'
 import ButtonRow from '../../ButtonRow/ButtonRow'
 
-import styles from './ModalFooter.css'
+import * as S from './ModalFooter.styles'
 
 type Props = {
   cancelText?: string,
@@ -21,7 +21,7 @@ const ModalFooter = ({
   onConfirm,
 }: Props) => {
   return (
-    <div className={styles.modalFooter}>
+    <S.ModalFooter>
       <ButtonRow>
         <Button
           onClick={onCancel}
@@ -36,7 +36,7 @@ const ModalFooter = ({
           text={confirmText || 'Confirm'}
         />
       </ButtonRow>
-    </div>
+    </S.ModalFooter>
   )
 }
 

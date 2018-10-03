@@ -2,7 +2,7 @@
 import React from 'react'
 import { string } from 'prop-types'
 
-import styles from './ModalHeader.css'
+import * as S from './ModalHeader.styles'
 
 type Props = {
   title?: string,
@@ -10,9 +10,9 @@ type Props = {
 
 const ModalFooter = ({ title }: Props) => {
   return (
-    <div className={styles.modalHeader}>
-      <div className={styles.modalTitle}>{title || 'Confirm'}</div>
-    </div>
+    <S.ModalHeader>
+      <S.ModalTitle>{title || 'Confirm'}</S.ModalTitle>
+    </S.ModalHeader>
   )
 }
 

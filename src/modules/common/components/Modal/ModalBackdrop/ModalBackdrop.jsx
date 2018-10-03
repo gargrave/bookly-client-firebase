@@ -2,18 +2,18 @@
 import React from 'react'
 import { func } from 'prop-types'
 
-import styles from './ModalBackdrop.css'
+import * as S from './ModalBackdrop.styles'
 
 type Props = {
   onClick: Function,
 }
 
-const ModalFooter = ({ onClick }: Props) => {
-  return <div className={styles.modalBackdrop} onClick={onClick} />
+const ModalBackdrop = ({ onClick }: Props) => {
+  return <S.ModalBackdrop onClick={onClick} />
 }
 
-ModalFooter.propTypes = {
+ModalBackdrop.propTypes = {
   onClick: func,
 }
 
-export default ModalFooter
+export default ModalBackdrop

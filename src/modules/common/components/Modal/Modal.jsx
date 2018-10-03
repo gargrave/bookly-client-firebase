@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import React, { Fragment } from 'react'
 import { array, func, oneOfType, string } from 'prop-types'
 
 import ModalBackdrop from './ModalBackdrop/ModalBackdrop'
@@ -7,7 +7,7 @@ import ModalBody from './ModalBody/ModalBody'
 import ModalFooter from './ModalFooter/ModalFooter'
 import ModalHeader from './ModalHeader/ModalHeader'
 
-import styles from './Modal.css'
+import * as S from './Modal.styles'
 
 type Props = {
   cancelText?: string,
@@ -27,8 +27,8 @@ const Modal = ({
   title,
 }: Props) => {
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalWrapper}>
+    <Fragment>
+      <S.ModalWrapper>
         <ModalHeader title={title} />
         <ModalBody message={message} />
         <ModalFooter
@@ -37,9 +37,9 @@ const Modal = ({
           onCancel={onCancel}
           onConfirm={onConfirm}
         />
-      </div>
+      </S.ModalWrapper>
       <ModalBackdrop onClick={onCancel} />
-    </div>
+    </Fragment>
   )
 }
 
