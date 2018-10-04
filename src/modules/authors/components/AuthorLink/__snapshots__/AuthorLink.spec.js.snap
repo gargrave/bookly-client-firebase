@@ -30,16 +30,15 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         "by ",
-        <Link
+        <Styled(Link)
           replace={false}
           to="/authors/oiw223h3qndlksadffl3ksdf"
         >
           Aldous
            
           Huxley
-        </Link>,
+        </Styled(Link)>,
       ],
-      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -76,16 +75,15 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           "by ",
-          <Link
+          <Styled(Link)
             replace={false}
             to="/authors/oiw223h3qndlksadffl3ksdf"
           >
             Aldous
              
             Huxley
-          </Link>,
+          </Styled(Link)>,
         ],
-        "className": undefined,
       },
       "ref": null,
       "rendered": Array [
