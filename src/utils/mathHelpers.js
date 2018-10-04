@@ -1,9 +1,3 @@
-export function clamp(val, min, max) {
-  if (val < min) {
-    return min
-  }
-  if (val > max) {
-    return max
-  }
-  return val
-}
+// @flow
+export const clamp = (val: number, min: number, max: number): number =>
+  Math.max(min, Math.min(val, max))
