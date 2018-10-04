@@ -9,7 +9,7 @@ import { localUrls } from '../../../../globals/urls'
 
 import { actions } from '../../actions'
 
-import AuthorsListPage from '../../views/AuthorsListPage/AuthorsListPage'
+import AuthorsListPage from '../../views/AuthorsListPage'
 import AuthenticatedRoute from '../../../common/components/hocs/AuthenticatedRoute/AuthenticatedRoute'
 
 const mapStateToProps = state => {

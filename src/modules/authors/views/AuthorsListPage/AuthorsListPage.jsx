@@ -11,6 +11,8 @@ import Button from '../../../common/components/Button'
 import CardList from '../../../common/components/CardList/CardList'
 import UnverifiedNotice from '../../../auth/components/UnverifiedNotice/UnverifiedNotice'
 
+import * as S from './AuthorsListPage.styles'
+
 type Props = {
   actions: Object,
   authors: Author[],
@@ -32,12 +34,8 @@ class AuthorsListPage extends Component<Props, State> {
     user: object.isRequired,
   }
 
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      searchValue: '',
-    }
+  state = {
+    searchValue: '',
   }
 
   componentDidMount() {
@@ -76,7 +74,6 @@ class AuthorsListPage extends Component<Props, State> {
     if (!user || !user.emailVerified) {
       return null
     }
-
     return <Button onClick={this.onAddClick} text="Add" type="success" />
   }
 
@@ -98,13 +95,13 @@ class AuthorsListPage extends Component<Props, State> {
 
   render() {
     return (
-      <div>
-        <h3>
+      <S.AuthorsListPage>
+        <S.Header>
           My Authors
           {this.renderAddAuthorButton()}
-        </h3>
+        </S.Header>
         <CardList>{this.renderContent()}</CardList>
-      </div>
+      </S.AuthorsListPage>
     )
   }
 }
