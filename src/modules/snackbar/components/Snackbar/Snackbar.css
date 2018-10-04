@@ -1,0 +1,17 @@
+.slideInUp-enter {
+  top: 100%;
+}
+
+.slideInUp-enter-active {
+  top: calc(100% - 46px);
+  transition: top 175ms;
+}
+
+.slideInUp-exit {
+  top: calc(100% - 46px);
+}
+
+.slideInUp-exit-active {
+  top: 100%;
+  transition: top 175ms;
+}

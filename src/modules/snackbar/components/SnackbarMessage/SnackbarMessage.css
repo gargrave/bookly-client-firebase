@@ -1,0 +1,24 @@
+.snackbar {
+  background: #333;
+  bottom: 0;
+  color: #ddd;
+  cursor: pointer;
+  left: 50%;
+  min-width: 400px;
+  position: fixed;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .snackbar {
+    width: 100%;
+  }
+}
