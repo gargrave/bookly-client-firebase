@@ -51,9 +51,9 @@
     "postcss-loader": "2.0.6",
     "promise": "7.1.1",
     "raf": "^3.4.0",
-    "react": "^16.4.1",
+    "react": "^16.6.0",
     "react-dev-utils": "^4.2.1",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.6.0",
     "react-emotion": "^9.2.10",
     "react-error-overlay": "^3.0.0",
     "react-redux": "^5.0.7",
@@ -112,7 +112,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "flow-bin": "^0.61.0",
-    "prettier": "^1.14.2"
+    "flow-bin": "^0.85.0",
+    "prettier": "^1.14.3"
   }
 }
