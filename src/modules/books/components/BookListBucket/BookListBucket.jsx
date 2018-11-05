@@ -1,17 +1,12 @@
 // @flow
 import React from 'react'
-import { array, func, shape, string } from 'prop-types'
+import { func, object } from 'prop-types'
 import styled from 'react-emotion'
 
 import type { BookBucket } from '../../flowtypes'
 
 import BookBucketBookList from './BookBucketBookList/BookBucketBookList'
 import BookBucketHeader from './BookBucketHeader/BookBucketHeader'
-
-type Props = {
-  bucket: BookBucket,
-  onBookClick: Function,
-}
 
 const Styled = styled('div')`
   & + & {
@@ -24,22 +19,46 @@ const Styled = styled('div')`
     }
   }
 `
-
-const BookListBucket = ({ bucket, onBookClick }: Props) => {
-  return (
-    <Styled>
-      <BookBucketHeader bucket={bucket} />
-      <BookBucketBookList bucket={bucket} onBookClick={onBookClick} />
-    </Styled>
-  )
+type Props = {
+  bucket: BookBucket,
+  onBookClick: (bookId?: string | number) => void,
 }
 
-BookListBucket.propTypes = {
-  bucket: shape({
-    author: string,
-    books: array,
-  }).isRequired,
-  onBookClick: func.isRequired,
+type State = {
+  expanded: boolean,
 }
 
-export default BookListBucket
+export default class BookListBucket extends React.Component<Props, State> {
+  static propTypes = {
+    bucket: object.isRequired,
+    onBookClick: func.isRequired,
+  }
+
+  state = {
+    expanded: true,
+  }
+
+  handleToggleExpanded = () => {
+    this.setState(({ expanded }) => ({
+      expanded: !expanded,
+    }))
+  }
+
+  render() {
+    const { bucket, onBookClick } = this.props
+    const { expanded } = this.state
+
+    return (
+      <Styled>
+        <BookBucketHeader
+          bucket={bucket}
+          expanded={expanded}
+          onToggleExpanded={this.handleToggleExpanded}
+        />
+        {expanded && (
+          <BookBucketBookList bucket={bucket} onBookClick={onBookClick} />
+        )}
+      </Styled>
+    )
+  }
+}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookListBucket matches the snapshot 1`] = `
+exports[`BookListBucket basic rendering matches the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BookListBucket
@@ -125,6 +125,8 @@ ShallowWrapper {
               ],
             }
           }
+          expanded={true}
+          onToggleExpanded={[Function]}
         />,
         <BookBucketBookList
           bucket={
@@ -240,6 +242,8 @@ ShallowWrapper {
               },
             ],
           },
+          "expanded": true,
+          "onToggleExpanded": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -369,6 +373,8 @@ ShallowWrapper {
                 ],
               }
             }
+            expanded={true}
+            onToggleExpanded={[Function]}
           />,
           <BookBucketBookList
             bucket={
@@ -484,6 +490,8 @@ ShallowWrapper {
                 },
               ],
             },
+            "expanded": true,
+            "onToggleExpanded": [Function],
           },
           "ref": null,
           "rendered": null,

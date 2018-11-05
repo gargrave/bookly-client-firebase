@@ -20,7 +20,7 @@ const BookListDetail = ({ book, onClick, showAuthor = false }: Props) => {
     <Card hoverable={true} onClick={onClick}>
       <Card.TextLine text={title} type="title" />
       {showAuthor && <Card.TextLine text={authorName} />}
-      {sortBy && <Card.TextLine text={`Sort by: ${sortBy}`} type="subtext" />}
+      {sortBy && <Card.TextLine text={`Sorted by: ${sortBy}`} type="subtext" />}
     </Card>
   )
 }

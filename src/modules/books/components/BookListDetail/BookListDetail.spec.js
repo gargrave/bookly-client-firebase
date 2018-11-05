@@ -56,7 +56,7 @@ describe('BookListDetail', () => {
       const bookWithSort = { ...testBook, sortBy }
       component = builder.shallowGetComponent({ book: bookWithSort })
       const textLines = component.find(Card.TextLine)
-      const sortByText = component.find({ text: `Sort by: ${sortBy}` })
+      const sortByText = component.find({ text: `Sorted by: ${sortBy}` })
       expect(textLines).toHaveLength(2)
       expect(sortByText).toHaveLength(1)
     })

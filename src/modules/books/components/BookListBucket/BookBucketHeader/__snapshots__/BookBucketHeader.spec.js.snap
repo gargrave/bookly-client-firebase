@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookBucketHeader matches the snapshot 1`] = `
+exports[`BookBucketHeader basic rendering matches the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BookBucketHeader
@@ -56,6 +56,8 @@ ShallowWrapper {
         ],
       }
     }
+    expanded={false}
+    onToggleExpanded={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -70,10 +72,64 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": "Aldous Huxley",
+      "children": Array [
+        <Styled(span)>
+          Aldous Huxley
+          <Styled(span)>
+            (3)
+          </Styled(span)>
+        </Styled(span)>,
+        <Styled(span)
+          onClick={[Function]}
+        >
+          expand
+        </Styled(span)>,
+      ],
     },
     "ref": null,
-    "rendered": "Aldous Huxley",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            "Aldous Huxley",
+            <Styled(span)>
+              (3)
+            </Styled(span)>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Aldous Huxley",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "(3)",
+            },
+            "ref": null,
+            "rendered": "(3)",
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "expand",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "expand",
+        "type": [Function],
+      },
+    ],
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -82,10 +138,64 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": "Aldous Huxley",
+        "children": Array [
+          <Styled(span)>
+            Aldous Huxley
+            <Styled(span)>
+              (3)
+            </Styled(span)>
+          </Styled(span)>,
+          <Styled(span)
+            onClick={[Function]}
+          >
+            expand
+          </Styled(span)>,
+        ],
       },
       "ref": null,
-      "rendered": "Aldous Huxley",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "Aldous Huxley",
+              <Styled(span)>
+                (3)
+              </Styled(span)>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Aldous Huxley",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "(3)",
+              },
+              "ref": null,
+              "rendered": "(3)",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "expand",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "expand",
+          "type": [Function],
+        },
+      ],
       "type": [Function],
     },
   ],
